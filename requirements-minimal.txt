@@ -1,0 +1,2 @@
+# Python 3.12; exact continuum bridge reproduction only.
+numpy==2.2.6

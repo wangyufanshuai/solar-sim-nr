@@ -1,0 +1,1882 @@
+{
+  "schema": "solar-sim-nr-export-v1",
+  "source_project": "Solar Sim / next-web numerical-relativity research workspace",
+  "source_git_head": "156ec7790a99be2f89f5d8f44831cb118c9437e1",
+  "source_worktree_dirty": true,
+  "historical_constraint_gate_sha256": "285b84e81940b3465853a4752d1b7db4319a4bf2f6b4216998968e4669165c51",
+  "export_date": "2026-10-17",
+  "files": [
+    {
+      "path": "science/numerical_relativity/__init__.py",
+      "source_path": "science/numerical_relativity/__init__.py",
+      "bytes": 16166,
+      "sha256": "0e05e004770d53ac0790081bb9b44f9284ccf8f8daa456318ab57f30e8286009",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/amr3d.py",
+      "source_path": "science/numerical_relativity/amr3d.py",
+      "bytes": 8417,
+      "sha256": "499a0b23f44ff5f20376fc4535fde569874d18732d17283f5ac8cd804cedd008",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/amr_patch3d.py",
+      "source_path": "science/numerical_relativity/amr_patch3d.py",
+      "bytes": 16780,
+      "sha256": "3725a2001239d01229a689799ad3a039c01ef7d9d2bfaedf119be627aaee2d12",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/boundary3d.py",
+      "source_path": "science/numerical_relativity/boundary3d.py",
+      "bytes": 16382,
+      "sha256": "7982c5b01eeaf85b8d575a4ce0cc30c69c08324cbb3063ca2c8e0f0582f65f94",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/bssn3d.py",
+      "source_path": "science/numerical_relativity/bssn3d.py",
+      "bytes": 17498,
+      "sha256": "96511b5b8a6f1838a3ea271f8d121c012102b0b5d7bd6d3b849e50ddb4902bf8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/bssn_rhs.py",
+      "source_path": "science/numerical_relativity/bssn_rhs.py",
+      "bytes": 14801,
+      "sha256": "23719a0444d669eb25864e33adeb5dfe4cd0d8387eea36c6a5d1b3e6a7ef78ef",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/ccz4_3d.py",
+      "source_path": "science/numerical_relativity/ccz4_3d.py",
+      "bytes": 14143,
+      "sha256": "ee67d3a79159917237c9f7134f1361e7baac3a8f73109ef780ccda3688156f54",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/ccz4_reference.py",
+      "source_path": "science/numerical_relativity/ccz4_reference.py",
+      "bytes": 23959,
+      "sha256": "208efc75cb6b2b6da3fc43788d4625bb7d6501364b8b8590bf9de6bb39d2b420",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/ccz4_rhs.py",
+      "source_path": "science/numerical_relativity/ccz4_rhs.py",
+      "bytes": 15768,
+      "sha256": "edb423c1610bd7797a461452a052b44795c81e75f67d05c7868d45c661c8534e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_energy_controls.py",
+      "source_path": "science/numerical_relativity/constraint_energy_controls.py",
+      "bytes": 7253,
+      "sha256": "d134f2f9330b72d90c26315f55835f919d4125b396a54790029bcd816a313eeb",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_field_comparison.py",
+      "source_path": "science/numerical_relativity/constraint_field_comparison.py",
+      "bytes": 10585,
+      "sha256": "9b489e9410fe70db4311eb1f6029b22b5d4f0a31639f95f82b911825c48a8efc",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_grid_alignment.py",
+      "source_path": "science/numerical_relativity/constraint_grid_alignment.py",
+      "bytes": 9162,
+      "sha256": "17418795689560be4215b5b1443bee1ece0bd5d7177529ec3dc20b336034ee0c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_jet_controls.py",
+      "source_path": "science/numerical_relativity/constraint_jet_controls.py",
+      "bytes": 4761,
+      "sha256": "da5fb5777e105604ea31c55400ad842f57da463a2d628dc36e7dc102ae65822b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_jet_rhs.py",
+      "source_path": "science/numerical_relativity/constraint_jet_rhs.py",
+      "bytes": 12628,
+      "sha256": "9ea312b6c64e6fd71c58c23b14221bc4c1301b7370e92b34b6943298f6b4e22a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_order_controls.py",
+      "source_path": "science/numerical_relativity/constraint_order_controls.py",
+      "bytes": 5513,
+      "sha256": "33cae74953a8f7d812abed2446567ff847fb564dbb7e7d55633c5cb312294543",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_order_reduction.py",
+      "source_path": "science/numerical_relativity/constraint_order_reduction.py",
+      "bytes": 2783,
+      "sha256": "250011bd82be1cbb4af7fff672b6965f60f8080fa3dbcfbb2970b46be0bf047e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_projector_energy.py",
+      "source_path": "science/numerical_relativity/constraint_projector_energy.py",
+      "bytes": 4255,
+      "sha256": "83249c66a10f2484245c406f48abab3ce909a25abbc7d1d604c42b26515fafc8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_projector_energy_v2.py",
+      "source_path": "science/numerical_relativity/constraint_projector_energy_v2.py",
+      "bytes": 2289,
+      "sha256": "8b919e08782d69fb53c7ab13ee139c07fa147df35c76c41e5c7aa485fd452477",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_projector_energy_v3.py",
+      "source_path": "science/numerical_relativity/constraint_projector_energy_v3.py",
+      "bytes": 3784,
+      "sha256": "e7cefa944b7e3ba250623e1ad84ac9f266a91f8d2e8cbce45e323236fd4a9a3a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_symbol_bridge.py",
+      "source_path": "science/numerical_relativity/constraint_symbol_bridge.py",
+      "bytes": 9031,
+      "sha256": "f5635fa8ae310fbbd4cef2b6a1b96e706acf765dfa45f2c1f501ec13867330b6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraint_symbol_controls.py",
+      "source_path": "science/numerical_relativity/constraint_symbol_controls.py",
+      "bytes": 5651,
+      "sha256": "0045c2b661a797c9f7bd213542fb7d56a68e4a0aec450f9d5ffd533ad1e813cd",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/constraints3d.py",
+      "source_path": "science/numerical_relativity/constraints3d.py",
+      "bytes": 8116,
+      "sha256": "95ee2c537948d3f7b5005c250207559a88549ece039029d53e3292ae6b7dcdaf",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/continuum_adm.py",
+      "source_path": "science/numerical_relativity/continuum_adm.py",
+      "bytes": 15334,
+      "sha256": "19e6e974a0001bc5fe9e4043f2ffabf431da50ba23bffdc4090344bdfec0503f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/continuum_z4.py",
+      "source_path": "science/numerical_relativity/continuum_z4.py",
+      "bytes": 5915,
+      "sha256": "c1b57834abf55a6aa07620e96e5c65aea7b72dc7c4255b09f52adf3b50a7a9b0",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/cpp/CMakeLists.txt",
+      "bytes": 3452,
+      "sha256": "edcf27bc93241cc0eb8791c452ba07ba30cec9c49cddcc78ce55ee68da171fee",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/characteristic_component/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/cpp/characteristic_component/CMakeLists.txt",
+      "bytes": 611,
+      "sha256": "5d4c8d97167a2472685b5d9899c51f5e03091eb99917a04f128a722c4dd48fa6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/characteristic_component/characteristic_split.hpp",
+      "source_path": "science/numerical_relativity/cpp/characteristic_component/characteristic_split.hpp",
+      "bytes": 4196,
+      "sha256": "7e43bb46523acfeaa6cb11c71ae61f980fa2f218a350b4cbb49742503bd36d73",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/characteristic_component/ilp64_lapack.hpp",
+      "source_path": "science/numerical_relativity/cpp/characteristic_component/ilp64_lapack.hpp",
+      "bytes": 6047,
+      "sha256": "4b113d2e2bb9a46c9f74c05309644c2463c9b918a23e149825caa08ffda299ac",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/characteristic_component/main.cpp",
+      "source_path": "science/numerical_relativity/cpp/characteristic_component/main.cpp",
+      "bytes": 4063,
+      "sha256": "f8546faacb7d7decd6cabe077d2dc41d410707b2d592cba417b398be0491c8bb",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/checkpoint_component/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/cpp/checkpoint_component/CMakeLists.txt",
+      "bytes": 3041,
+      "sha256": "71a1d623e2b6be934e61c11faaa4b76ec34505164382efa040012692fc5483b4",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/checkpoint_component/checkpoint.hpp",
+      "source_path": "science/numerical_relativity/cpp/checkpoint_component/checkpoint.hpp",
+      "bytes": 13620,
+      "sha256": "ee563e226049fe7d0760f32d20d82cfaa426d0b23c519d592bfb42020aef9c5f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/checkpoint_component/main.cpp",
+      "source_path": "science/numerical_relativity/cpp/checkpoint_component/main.cpp",
+      "bytes": 8823,
+      "sha256": "d3c7020274c2ff3a2286669a430a278571c287cd36e5b789676352eb5d8a3411",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/fo_principal_component/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/cpp/fo_principal_component/CMakeLists.txt",
+      "bytes": 696,
+      "sha256": "6e95f2581a839536faa0eb4b99fbc0d32b73fa8c5162ecc605cc69b4e5558bd7",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/fo_principal_component/coefficients.hpp",
+      "source_path": "science/numerical_relativity/cpp/fo_principal_component/coefficients.hpp",
+      "bytes": 3128,
+      "sha256": "f7359ef99006e518a70fb21496a33f4e3c7a86eae87762e9376c343eef24368b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/fo_principal_component/fo_principal.hpp",
+      "source_path": "science/numerical_relativity/cpp/fo_principal_component/fo_principal.hpp",
+      "bytes": 6286,
+      "sha256": "9f530d10a543030070859abe07ab8131b6a428be5abc08a0335362ba528a4ce2",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/fo_principal_component/main.cpp",
+      "source_path": "science/numerical_relativity/cpp/fo_principal_component/main.cpp",
+      "bytes": 2055,
+      "sha256": "0441ac5dc367412c3c875b02905352577adde66396dbc43066fdf8f72fde5449",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/fo_principal_component/rhs_probe.cpp",
+      "source_path": "science/numerical_relativity/cpp/fo_principal_component/rhs_probe.cpp",
+      "bytes": 3602,
+      "sha256": "7561496e48d746688b719cb34c2a434f912a753c7011143c4f63ace5c5743f75",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/nr_k2_3d_shadow.cpp",
+      "source_path": "science/numerical_relativity/cpp/nr_k2_3d_shadow.cpp",
+      "bytes": 48334,
+      "sha256": "69a700ffb47cbafbc53fe608af06e3c4188e89e0b20dc0a9722234f5ea453882",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/nr_k2_fo_ccz4_shadow.cpp",
+      "source_path": "science/numerical_relativity/cpp/nr_k2_fo_ccz4_shadow.cpp",
+      "bytes": 84554,
+      "sha256": "6252ec9b2901f03e51081410a612b9b6ed9d1ddd3469663f8d8dd9663944e457",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/nr_k2_shadow.cpp",
+      "source_path": "science/numerical_relativity/cpp/nr_k2_shadow.cpp",
+      "bytes": 47726,
+      "sha256": "ec08c1cda8f38948af08240624e9afa0a3e7727de27717c461057ddc98c2be15",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/rk4_component/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/cpp/rk4_component/CMakeLists.txt",
+      "bytes": 857,
+      "sha256": "ed11012391de33e4fd3a4a5c2b137b06c7972a027845f1b13e6d3abcd3abbbb9",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/rk4_component/main.cpp",
+      "source_path": "science/numerical_relativity/cpp/rk4_component/main.cpp",
+      "bytes": 8702,
+      "sha256": "edf22db2562292bbf6ceec8aa77a261664586713ccddfe9f58e15c37e16eb7b7",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/rk4_component/rk4.hpp",
+      "source_path": "science/numerical_relativity/cpp/rk4_component/rk4.hpp",
+      "bytes": 2900,
+      "sha256": "e8681dc0bb3e4377ec9b15f53e05c515342f0e098a0eec9a8b7063500bdd3591",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/sat_component/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/cpp/sat_component/CMakeLists.txt",
+      "bytes": 944,
+      "sha256": "bb05f2d27b2c3cd25e9cff9da842fa46dfc1d0347101e3f704634ca6387804f8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/sat_component/main.cpp",
+      "source_path": "science/numerical_relativity/cpp/sat_component/main.cpp",
+      "bytes": 7335,
+      "sha256": "5b8bfd50dbf3fda55954e00e6a10693888799e233cf29da7ce11be5b684efffd",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/sat_component/sat.hpp",
+      "source_path": "science/numerical_relativity/cpp/sat_component/sat.hpp",
+      "bytes": 7772,
+      "sha256": "522383f85594211a2fe7688a4b691e6e06a7cb50a7b83395ebf7e930b39ddc1b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/sbp_volume_component/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/cpp/sbp_volume_component/CMakeLists.txt",
+      "bytes": 3448,
+      "sha256": "c0357f3737835ac67f4ca7d729c1be1cdf7a42fbfd1c575a56490f40dbd7f725",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/sbp_volume_component/main.cpp",
+      "source_path": "science/numerical_relativity/cpp/sbp_volume_component/main.cpp",
+      "bytes": 6160,
+      "sha256": "ac8cffa1b9e3505201c787b8d6ff3f57cea9af5ac3c69a72edaae7f76966a695",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/sbp_volume_component/sbp42.hpp",
+      "source_path": "science/numerical_relativity/cpp/sbp_volume_component/sbp42.hpp",
+      "bytes": 4020,
+      "sha256": "d5cf4423cde5f390d6c1d822198373d28d6edd2b5d2e4a9ca3fa4413033b0460",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/sbp_volume_component/volume.hpp",
+      "source_path": "science/numerical_relativity/cpp/sbp_volume_component/volume.hpp",
+      "bytes": 2840,
+      "sha256": "5acd1bc7b8252a53b8f2ac4389c9407ed0647e7171277e2523c1f73f1cbb3f06",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/tests/periodic_topology_test.cpp",
+      "source_path": "science/numerical_relativity/cpp/tests/periodic_topology_test.cpp",
+      "bytes": 3815,
+      "sha256": "29f408d4c1785fc2b89c8bd035733194c1277d3a9173ebf8b1c937e42a3dcb44",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/tests/schwarzschild_domain_test.cpp",
+      "source_path": "science/numerical_relativity/cpp/tests/schwarzschild_domain_test.cpp",
+      "bytes": 2943,
+      "sha256": "f97b712193cc6e37541dc3b9d5c63cf8830dc6ea23e173e0134c46c03dc0d770",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/cpp/tests/spatial_order_test.cpp",
+      "source_path": "science/numerical_relativity/cpp/tests/spatial_order_test.cpp",
+      "bytes": 5240,
+      "sha256": "337f5edfaf3b3ef1b0eafa1608f1898e32bdc1fbc679443b104b347ee30a855a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/curved_constraint_propagation.py",
+      "source_path": "science/numerical_relativity/curved_constraint_propagation.py",
+      "bytes": 15112,
+      "sha256": "2ef7ae2527905f3a1ce7ba24824d4756212de7d020ceb19c730bcf9b34ff5069",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/determinant_balance.py",
+      "source_path": "science/numerical_relativity/determinant_balance.py",
+      "bytes": 5535,
+      "sha256": "c6878c7f038841a5eca2e152cd17dd8263c1d6c45d26ad09c5e0a0d009bb52f8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/discrete_reduction_balance.py",
+      "source_path": "science/numerical_relativity/discrete_reduction_balance.py",
+      "bytes": 6515,
+      "sha256": "277568ae2920e30a5d38a0c0add62477a35ed57f1be54d1d8e36d0b6d60a5300",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/excision3d.py",
+      "source_path": "science/numerical_relativity/excision3d.py",
+      "bytes": 22453,
+      "sha256": "5c5d8bb2d18940f29d783582fb3d5f036ad5e622cad8436196681f22e354372f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/exterior_error_localization.py",
+      "source_path": "science/numerical_relativity/exterior_error_localization.py",
+      "bytes": 5636,
+      "sha256": "151971054781fe1ae66710bcda7ffe71fc9d181547848c9ebf07f2a3435875aa",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4.py",
+      "source_path": "science/numerical_relativity/fo_ccz4.py",
+      "bytes": 15113,
+      "sha256": "9afbe1856077ee459c01daf3a60ed2bf47448c657529e9dbf7e4ac283a0fd802",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_algebraic_projection.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_algebraic_projection.py",
+      "bytes": 7969,
+      "sha256": "e8427f540512dce4bcb53140858636764b3982b2dfb74db638563cc8c7350796",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_analytic_contract.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_analytic_contract.py",
+      "bytes": 5581,
+      "sha256": "ed7f2b3fcb108accbebf9715519096aabe4250fac539726c58b5a32efc08a43f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_analytic_symbol.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_analytic_symbol.py",
+      "bytes": 21476,
+      "sha256": "26b7b1b28375a19570ec5080e16d7387ccbc20cbac8f47d80f1656617af2a1e6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_boundary_compatibility.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_boundary_compatibility.py",
+      "bytes": 9473,
+      "sha256": "4126ee614fc7842fa4e96c009f462acc672609679dee290bc4842a3a283d9b2f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_boundary_stage_channels.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_boundary_stage_channels.py",
+      "bytes": 8313,
+      "sha256": "9a93b533e07248ec64f1d83d45f76c0733dc7d6560974c2bb0cf3d9cd6038813",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_characteristic_boundary_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_characteristic_boundary_shadow.py",
+      "bytes": 11915,
+      "sha256": "293ae19d5db2e8713e1f36bad61ebf39356e03645ddd14ef3b9dcc9719ab084e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_characteristic_contract.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_characteristic_contract.py",
+      "bytes": 8403,
+      "sha256": "09a2b06eaa0d86ab26c89145fba19f636b81de2f1fefe4660163a1db8ad9f730",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_characteristic_sat_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_characteristic_sat_shadow.py",
+      "bytes": 12630,
+      "sha256": "2defcc1e5d001f743ddf858ee127bc6c9922b532fc76f6eebbdeb1fd0653ad42",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_checkpoint.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_checkpoint.py",
+      "bytes": 13707,
+      "sha256": "405dcd88a7a1d75757d7f34b4b69d42ba2bf2fc3d5e7b4de06d477a8cf40abdd",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_constraint_closure_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_constraint_closure_shadow.py",
+      "bytes": 12622,
+      "sha256": "f3ddddb9131c264e50f308379a4ed868e94d0193b4885397fb2503c9324a3b34",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_constraint_control.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_constraint_control.py",
+      "bytes": 1657,
+      "sha256": "1bed22ca9b2c31b7da5af21bf50403a159e163f71ae04eb8197c9f2c895468b4",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_constraint_envelope_boundary_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_constraint_envelope_boundary_shadow.py",
+      "bytes": 7686,
+      "sha256": "3bde03177188cfa5cebcea22f2e937a1f1e1466c4a4f46f825074a57c09c8ae3",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_constraint_envelope_cpbc_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_constraint_envelope_cpbc_shadow.py",
+      "bytes": 8409,
+      "sha256": "898af66b6452240d5a4179cf98737ed115b636eb96bf27b13d044e1a84ef763c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_constraint_propagation.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_constraint_propagation.py",
+      "bytes": 5531,
+      "sha256": "56eb3bb5b7cde1039e622852a79f3e4db75e83389ced22e4cdc976639b359410",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_cpbc_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_cpbc_shadow.py",
+      "bytes": 12098,
+      "sha256": "a195cf840566a88f41d25c4c82ab0ac441ed364021a1c6311d22af8e298cee07",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_einstein_constraints.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_einstein_constraints.py",
+      "bytes": 3590,
+      "sha256": "2f51d4fb3c50f2a590440f15033605e16ff2a07cb7b0b8ff03768865e4dcadd0",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_exterior_audit.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_exterior_audit.py",
+      "bytes": 6708,
+      "sha256": "8b785f85278c6f503b43d11bb05c9e10fff635c1ca1984245db1acb075218379",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_exterior_window.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_exterior_window.py",
+      "bytes": 6871,
+      "sha256": "4ef4208982a1bc9328d29100212d03f21f96275a76e4cae84a992d962b154e32",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_fd4_window.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_fd4_window.py",
+      "bytes": 3957,
+      "sha256": "38530019bd546188250662c601b88662f456e56d973f60bc4da802af6afbf1f6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_fine_relaxation.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_fine_relaxation.py",
+      "bytes": 5501,
+      "sha256": "55c012eab4a24305e97038eada9e26a025e90aa38d37690a971f37d65b269f33",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_frozen_characteristics.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_frozen_characteristics.py",
+      "bytes": 9584,
+      "sha256": "370989cf8550635ef8444a4e527eb88df2fef4814d99d520a90ca9c261cce71d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_frozen_cpbc.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_frozen_cpbc.py",
+      "bytes": 10176,
+      "sha256": "78d2bc4419d2ac4e699efc1e667c073ad998ef3c59d60a687539af8b798a942b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_frozen_symbol.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_frozen_symbol.py",
+      "bytes": 11965,
+      "sha256": "985837f48b68766eb4001dfc6527e3b530d11be3cc9191779595b2aa3d880b8a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_full_constraint_closure_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_full_constraint_closure_shadow.py",
+      "bytes": 5365,
+      "sha256": "07c236e6192d38169ede60b1229705898139e7e1a0b637edde62009e02e8fe23",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_full_cpbc_energy_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_full_cpbc_energy_shadow.py",
+      "bytes": 12182,
+      "sha256": "3f318df0880c3a9ab334e5565c0872b0a0119d5b59f189ffd0ef4665cbbd9f65",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_gauge_profile.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_gauge_profile.py",
+      "bytes": 3617,
+      "sha256": "a908e5186974d3f27d51e80fd71c3c0b15eb6934999bfd9b542c2fbd1d95040f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_gauge_pulse.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_gauge_pulse.py",
+      "bytes": 3051,
+      "sha256": "36d022dc9b874c05482a56a86c70d7d1857487c432f975d24be391e673478b82",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_gauge_regime_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_gauge_regime_shadow.py",
+      "bytes": 6798,
+      "sha256": "d2f7450fde2d63eb70d4f26ce01dbac4ed01da903e0d55ad42dd74d62852bdc9",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_initial_ordering_source.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_initial_ordering_source.py",
+      "bytes": 8045,
+      "sha256": "5c97267811b639d3b209ba2e0b6603e5b983ff8799c974678d9cb750bb30579d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_lapse_constraint_balance.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_lapse_constraint_balance.py",
+      "bytes": 4928,
+      "sha256": "130ff4de4412589abe2ac9be1dfe4e02d5d7d0a862927c48f40579fea88ef42e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_linear_modes.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_linear_modes.py",
+      "bytes": 6327,
+      "sha256": "2ad28b669229925334cb434c61509438d10b7aeff670333b74e1b466c6fe98a3",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_local_frame_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_local_frame_shadow.py",
+      "bytes": 11658,
+      "sha256": "b3b8c487819be8748a73eae4ef58993c868d5fcf0d4e9d9feeb65400226eb3e4",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_local_principal_proxy_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_local_principal_proxy_shadow.py",
+      "bytes": 7491,
+      "sha256": "127513fdb098aa4f248c52ef08efc962aedab03b6f74e9803f1d58da9f719cdf",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_oblique_cpbc_energy_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_oblique_cpbc_energy_shadow.py",
+      "bytes": 13426,
+      "sha256": "cea1a1465837515a7e1289f63f8ebdc985572c6efa82b283300bea3f57508045",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_principal_symbol.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_principal_symbol.py",
+      "bytes": 33112,
+      "sha256": "1d65e52f7121a5f5982853868c81fb83326aaec3ec1f8b3fa485f16a4c6e8315",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_projected_rk.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_projected_rk.py",
+      "bytes": 7940,
+      "sha256": "f37812f914baa1024c8bc7589dbf4b2242a10e2f7ad2d3bbc1403da06520c139",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_relaxation_convergence.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_relaxation_convergence.py",
+      "bytes": 8532,
+      "sha256": "b639d3e759ec6b75e95a4f44d842d64b61538a6cf3ebf29d1ca08ddc77bca60f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_remainder.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_remainder.py",
+      "bytes": 5850,
+      "sha256": "c89a41c89744811910a940a8b594cfc6bbffccde95482ab347071885467983b6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_rhs.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_rhs.py",
+      "bytes": 53485,
+      "sha256": "0f7c9605eead92b8dae409a84d12070e8ef044500057f46a71ed2310e2cfdb2d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_robust_window.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_robust_window.py",
+      "bytes": 8241,
+      "sha256": "4a9e29c2d08258e38d159c8c55c1817aa21004d888178bc63707c455d9b59b5b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_rotated_symmetrizer_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_rotated_symmetrizer_shadow.py",
+      "bytes": 8336,
+      "sha256": "5e31ec91f4da3ebda4fd1aafd2e97a2336a77a7771316ef32666881e00214230",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_sbp_cube.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_sbp_cube.py",
+      "bytes": 15072,
+      "sha256": "b43a7000b3888507c7dab73785e6eb82e079916c041a4cc1aa9af9c974e03d16",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_sbp_frozen.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_sbp_frozen.py",
+      "bytes": 17137,
+      "sha256": "a6ef57f670f8c31cb7fba12ea61fec59e89eaf2aaeb3f2b7178fce34b3154b09",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_sbp_nonlinear.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_sbp_nonlinear.py",
+      "bytes": 15737,
+      "sha256": "0f89d9a992d08f0dd6bd49ff1f8da75b5fb056ed9d9761d1157fa14ee3334af6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_sbp_volume.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_sbp_volume.py",
+      "bytes": 7206,
+      "sha256": "67d99a3f3cf79832ec4c5a2a8e1725aebac56e1e5c3d7bd9d98eca6f2797aec8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_schwarzschild.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_schwarzschild.py",
+      "bytes": 6119,
+      "sha256": "8beadfe5c1f8b8bf934cba5a01aebe3bff4614dc61351f2a1a4b6bf6bf693f8e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_source_energy_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_source_energy_shadow.py",
+      "bytes": 7886,
+      "sha256": "83aefbfa08d1bd105942d4320239f3413e93c4e027717df8b1603331b3d8b80a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_subsidiary_cpbc_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_subsidiary_cpbc_shadow.py",
+      "bytes": 12228,
+      "sha256": "d85aa57d97d6f72a05b069840055a92dd03a6458441e328d2d29a70725f5671b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_subsidiary_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_subsidiary_shadow.py",
+      "bytes": 9156,
+      "sha256": "7af9734704e1527efdbb3b28604fa034cb417e89d1b39f9e334fd286d8578b46",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_subsidiary_symmetrizer_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_subsidiary_symmetrizer_shadow.py",
+      "bytes": 5911,
+      "sha256": "669c036ce860755a9cede25298b798d871deec43471c8dc1d6413025b9c80636",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_subsidiary_wave.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_subsidiary_wave.py",
+      "bytes": 9908,
+      "sha256": "1fcabbead77bd0543d8f973391df1f34fb45a170ae43aebd92a8da4fa098d83d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_symmetrizer_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_symmetrizer_shadow.py",
+      "bytes": 8726,
+      "sha256": "293415b00ba1a1022bd494d624724b7644b7a40baf2467031ec05184c3a987e4",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_trace_source_window.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_trace_source_window.py",
+      "bytes": 13932,
+      "sha256": "894f516412494a3d3e6a56e25117bfa6fefb5eda51f794d14bb37158d081fffd",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_variable_coefficient_boundary_shadow.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_variable_coefficient_boundary_shadow.py",
+      "bytes": 13887,
+      "sha256": "3548bd9b385124978dd64de5464b238428e5946765d2cfdfa8d91b1c6c05a415",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/fo_ccz4_z4c_projection_audit.py",
+      "source_path": "science/numerical_relativity/fo_ccz4_z4c_projection_audit.py",
+      "bytes": 13012,
+      "sha256": "a1d459abb190b7d7033855b92c2b6df65578738cf17c0fff9ec86d5bdf305af6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/formal_fo_geometry.py",
+      "source_path": "science/numerical_relativity/formal_fo_geometry.py",
+      "bytes": 10029,
+      "sha256": "fe1f836270119cce2e01f541062df04b007853f470cfb59e35084561cce01eff",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/halo_intervention.py",
+      "source_path": "science/numerical_relativity/halo_intervention.py",
+      "bytes": 4476,
+      "sha256": "f9316fa679925f564516329ba41501dfe8635e79818e38959d68991a11e6e7e8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/longitudinal_constraint_controls.py",
+      "source_path": "science/numerical_relativity/longitudinal_constraint_controls.py",
+      "bytes": 6282,
+      "sha256": "31b15c795996102595beb968ea2a58c0d32c6a4309e527889f0d2aaec3e26b45",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/longitudinal_constraint_reduction.py",
+      "source_path": "science/numerical_relativity/longitudinal_constraint_reduction.py",
+      "bytes": 5030,
+      "sha256": "604b212c190b79fc160cad5b4292b2b57e305c4474f3823a789ce6f877b7e83a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/manifest.py",
+      "source_path": "science/numerical_relativity/manifest.py",
+      "bytes": 23540,
+      "sha256": "1b345e231d07a1112fdf3c8ed4a5aba08b23bf2b248d10ed08d24173418c168b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_campaign.py",
+      "source_path": "science/numerical_relativity/native_campaign.py",
+      "bytes": 21325,
+      "sha256": "5331d73971a1ba0da9d4569e4d8d94788ea65c8cc59721f1a760e5cd205db5e0",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_checkpoint.py",
+      "source_path": "science/numerical_relativity/native_checkpoint.py",
+      "bytes": 8496,
+      "sha256": "8755d889e47d4ae0548bb736b624c71c483f9d284ee6ab8946d4d83535338cb4",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_continuation.py",
+      "source_path": "science/numerical_relativity/native_continuation.py",
+      "bytes": 20907,
+      "sha256": "67d5b5a494264470d30f28346fb5e9cde01f0efb3ae76ab5733b9b7572250c1c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_continuation_campaign.py",
+      "source_path": "science/numerical_relativity/native_continuation_campaign.py",
+      "bytes": 14684,
+      "sha256": "deb524360a49de6f067909d212b7d0a2a59ac446ff158560126e49b1a673df18",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_halo_intervention/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/native_halo_intervention/CMakeLists.txt",
+      "bytes": 793,
+      "sha256": "9a3bcca3cb3b32be8c1c721813f56c52f5ccdeb03ad7bdf281aaf2ff6120cd62",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_halo_intervention/probe.cpp",
+      "source_path": "science/numerical_relativity/native_halo_intervention/probe.cpp",
+      "bytes": 6384,
+      "sha256": "82ee93f712d39ac6358ccd10d11cb7fda62f5eaaffe710cb1ba483a15646d7ed",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_inspector/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/native_inspector/CMakeLists.txt",
+      "bytes": 1088,
+      "sha256": "27019f6d58fd548dbcf8316f7764c30b8377cc59fd1c9698586cd0564f4bf4ef",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_inspector/inspect.cpp",
+      "source_path": "science/numerical_relativity/native_inspector/inspect.cpp",
+      "bytes": 3102,
+      "sha256": "9db012bc73d881849e4c84c25c49f64e5e9637b1c6583efcdc01b60e795f35f7",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_n9_campaign.py",
+      "source_path": "science/numerical_relativity/native_n9_campaign.py",
+      "bytes": 13819,
+      "sha256": "5b752bb947c37eeac0598134d6c04c9443da61607b42a424b3f959e213330c92",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_probe/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/native_probe/CMakeLists.txt",
+      "bytes": 629,
+      "sha256": "25805b68d253a4fb93cb60e82c5fa117e60edfa1f27403cfcb3aa9b75fc10177",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_probe/openmp_probe.cpp",
+      "source_path": "science/numerical_relativity/native_probe/openmp_probe.cpp",
+      "bytes": 1817,
+      "sha256": "89ddfb6cd6888b33dadb051f5b25cacee4d27fd2bd99a3310c28a88264558c92",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_rhs_probe/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/native_rhs_probe/CMakeLists.txt",
+      "bytes": 763,
+      "sha256": "bc64be6f49b3751e17437be0148c353a4758b6021bbfef710692db4fb6120ef8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_rhs_probe/probe.cpp",
+      "source_path": "science/numerical_relativity/native_rhs_probe/probe.cpp",
+      "bytes": 2576,
+      "sha256": "d56a276bfccfea733358f968ac28527e5657f022110ceea736bd87cbb13222db",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_spatial_preflight.py",
+      "source_path": "science/numerical_relativity/native_spatial_preflight.py",
+      "bytes": 11893,
+      "sha256": "84fc2996b2f7dc41227ba305b6b6934ac7d4ecba6204bb9f7618caaac38df235",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_stage_probe/CMakeLists.txt",
+      "source_path": "science/numerical_relativity/native_stage_probe/CMakeLists.txt",
+      "bytes": 781,
+      "sha256": "ef22efdd221d2a2a02b56ebf43529230f5cee751821ecf6b3e33f4517e235b6b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/native_stage_probe/probe.cpp",
+      "source_path": "science/numerical_relativity/native_stage_probe/probe.cpp",
+      "bytes": 4716,
+      "sha256": "ccf3fdc0f56f7af64cb1ff829e04e9864122c905c4e5ed00348f2928ca02376c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/nr3d.py",
+      "source_path": "science/numerical_relativity/nr3d.py",
+      "bytes": 93306,
+      "sha256": "27c744f5d7707ced082a03cad2eba3445ad508c13d36d783d1a5e0907eda7793",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/offsurface_physical_feedback.py",
+      "source_path": "science/numerical_relativity/offsurface_physical_feedback.py",
+      "bytes": 12749,
+      "sha256": "4d017b5c12d9dd3a176d74936eb3fead10b0b9a20e937b2d1d34f9fe68d9192b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/offsurface_z4_feedback.py",
+      "source_path": "science/numerical_relativity/offsurface_z4_feedback.py",
+      "bytes": 10300,
+      "sha256": "ce80ebf09aa5d97a07f450334d7af385e222b3edf355a9c3c4091f1fad5d275f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/plane_constraint_oracle.py",
+      "source_path": "science/numerical_relativity/plane_constraint_oracle.py",
+      "bytes": 5189,
+      "sha256": "c994d067b3bdf1c83a4afaf2af43aa988b13a19de0b0491984f01289d508f98f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/principal_symbol3d.py",
+      "source_path": "science/numerical_relativity/principal_symbol3d.py",
+      "bytes": 11093,
+      "sha256": "b353bdd91401fd659d18ce837d208377a17eeb786da212cb917a3a94399b145c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/profile_constraint_closure.py",
+      "source_path": "science/numerical_relativity/profile_constraint_closure.py",
+      "bytes": 11685,
+      "sha256": "ea690d4d89a1713a1d10fe33485e7e5feac6d095f242c0589097f8719355e77b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/profile_hermite_candidate.py",
+      "source_path": "science/numerical_relativity/profile_hermite_candidate.py",
+      "bytes": 2381,
+      "sha256": "8dd76c6dd70af2ac57b3631fd9e388bdef2886ab60afabf3b49a5e02e60c01a5",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/reduction_constraint_oracle.py",
+      "source_path": "science/numerical_relativity/reduction_constraint_oracle.py",
+      "bytes": 11710,
+      "sha256": "7b725d05779cb08bb1581d616263dfb5785eee195c5f97b49d5f1aa7b525b784",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/rk_stage_locality.py",
+      "source_path": "science/numerical_relativity/rk_stage_locality.py",
+      "bytes": 2803,
+      "sha256": "1d53b24ec4c3323735cb8e16d52ca64d987af7d7f5958efd890a5971320c881d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/saved_sat_audit.py",
+      "source_path": "science/numerical_relativity/saved_sat_audit.py",
+      "bytes": 11104,
+      "sha256": "af4e0779a4f981e0196376fc98dba739329269ce6b20465b5c48d1e73c5ba7ff",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/sbp_boundary_operator.py",
+      "source_path": "science/numerical_relativity/sbp_boundary_operator.py",
+      "bytes": 4367,
+      "sha256": "ea2568b0399fe93fe4cf7354c5718bd1eb2ed77e8f60f800d310699b0bc71ed6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/sbp_metric_geometry.py",
+      "source_path": "science/numerical_relativity/sbp_metric_geometry.py",
+      "bytes": 7407,
+      "sha256": "54de0e1fbe3821f686a305627f40f96da499751b6956240462937a0c85dfbfe0",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/sbp_second_derivative.py",
+      "source_path": "science/numerical_relativity/sbp_second_derivative.py",
+      "bytes": 4640,
+      "sha256": "563c5cdb0b2f470732d8fe335a6229174aa9af4c030dcac6970f1f39e2c587db",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/schwarzschild_initial_adm.py",
+      "source_path": "science/numerical_relativity/schwarzschild_initial_adm.py",
+      "bytes": 6234,
+      "sha256": "3eb9912ba1e05d2e6731cd20c9533c72dc40d7ae6c4371850e8688e79854bb3e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/schwarzschild_oracle.py",
+      "source_path": "science/numerical_relativity/schwarzschild_oracle.py",
+      "bytes": 11940,
+      "sha256": "92257e0a0270fac37c42a4625502120eaf7599fe9b7860ad78b7532f5bb3fb4d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/schwarzschild_rhs_locality.py",
+      "source_path": "science/numerical_relativity/schwarzschild_rhs_locality.py",
+      "bytes": 4810,
+      "sha256": "90f335a9e2b97e72857b58d397f4c8db16e9648b45b306f419158f9824121d37",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/spatial_taylor3.py",
+      "source_path": "science/numerical_relativity/spatial_taylor3.py",
+      "bytes": 6232,
+      "sha256": "880bc8a5c2eba8774d7bb8d0064507cee32a5ceb2bd7c8a3926fffcb30db7311",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/spectral_sat_oracle.py",
+      "source_path": "science/numerical_relativity/spectral_sat_oracle.py",
+      "bytes": 8535,
+      "sha256": "846bb48c870bcd833a57df8f5a5c9bd5dabd35df47012dce6ffc70ec93dd1443",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_amr_patch3d.py",
+      "source_path": "science/numerical_relativity/test_amr_patch3d.py",
+      "bytes": 2667,
+      "sha256": "f8fa31f9964584422eaa1a5a52236507cf988c50ee770318a3573a8f51a3ef3d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_auxiliary_manifest.py",
+      "source_path": "science/numerical_relativity/test_auxiliary_manifest.py",
+      "bytes": 5729,
+      "sha256": "97464a146b0e65d43e066c49dc81df3d357dab23773d3b856c3259970912cf35",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_boundary3d.py",
+      "source_path": "science/numerical_relativity/test_boundary3d.py",
+      "bytes": 5962,
+      "sha256": "185ba8ef7147ac3d63227a60d0d6870ff4ce24b2b9b836074f01e18e0d8b3567",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_bssn3d.py",
+      "source_path": "science/numerical_relativity/test_bssn3d.py",
+      "bytes": 7412,
+      "sha256": "9976fc9d0e5c651f11b65be603ab4aa2c8eea6e4f40dc08d1b08ee12d7fefb54",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_bssn_rhs.py",
+      "source_path": "science/numerical_relativity/test_bssn_rhs.py",
+      "bytes": 2763,
+      "sha256": "23e4381c654d5fde253e65618bd504c3d4a2b7f4a0960006036f3ed77b3e0c4d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_ccz4_3d.py",
+      "source_path": "science/numerical_relativity/test_ccz4_3d.py",
+      "bytes": 5817,
+      "sha256": "b54277dbdd37ca0c224404206ac212eb1cca0b0ab15647fe081da4e38599b68f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_ccz4_reference.py",
+      "source_path": "science/numerical_relativity/test_ccz4_reference.py",
+      "bytes": 5107,
+      "sha256": "741ef1f980a67b77169ee61a11c873da2b6e47db4abae3a22ae7c3c9f34920cc",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_ccz4_rhs.py",
+      "source_path": "science/numerical_relativity/test_ccz4_rhs.py",
+      "bytes": 3779,
+      "sha256": "4c2e30468fb84425e7ee0e1d6fe4f4ca952ef91060f67f74972f87d5cc449a7d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_constraint_direction_section.py",
+      "source_path": "science/numerical_relativity/test_constraint_direction_section.py",
+      "bytes": 4772,
+      "sha256": "2d5ada7943c3edb8a7f9b65c8fee8fe499a4c4191b51485a37cc46bd4deb7a32",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_constraint_exact_source.py",
+      "source_path": "science/numerical_relativity/test_constraint_exact_source.py",
+      "bytes": 5507,
+      "sha256": "58013eff7b45247fcc35f5bfaa12fe80e7bd912799181f78cb9e4263ae63f5ff",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_constraint_full_symbol.py",
+      "source_path": "science/numerical_relativity/test_constraint_full_symbol.py",
+      "bytes": 6839,
+      "sha256": "fc45e72f45b959a4d4a3a4280422b31002282dc37ed2b8d1d8d42512347ff8b5",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_constraint_laurent_energy.py",
+      "source_path": "science/numerical_relativity/test_constraint_laurent_energy.py",
+      "bytes": 10788,
+      "sha256": "6ee49eedcc45a2fa1d5c26ca8665e4dfe6016584f2e5e20f78e2e6de83bdd513",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_constraints3d.py",
+      "source_path": "science/numerical_relativity/test_constraints3d.py",
+      "bytes": 5253,
+      "sha256": "d6a782cae87587697eeaa35de32ab3851ff1b5cafb0ef3863fd4108c1f3adcb6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_determinant_balance.py",
+      "source_path": "science/numerical_relativity/test_determinant_balance.py",
+      "bytes": 5099,
+      "sha256": "fe7a21a1c97b47a23a02c32831b52f20f4d6d3423b3ca5534778ca63d58197de",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_excision3d.py",
+      "source_path": "science/numerical_relativity/test_excision3d.py",
+      "bytes": 5089,
+      "sha256": "31f7757b15d8798712dcc30e59fdd7affcd9dc12a328e898a0a3d2ed60b448bb",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_exterior_error_localization.py",
+      "source_path": "science/numerical_relativity/test_exterior_error_localization.py",
+      "bytes": 4498,
+      "sha256": "8244739f1a2df9472f79c4a29dcbb143f6f46f3295ae997f92e35cdd71ca24b6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fd4_constant_preserving.py",
+      "source_path": "science/numerical_relativity/test_fd4_constant_preserving.py",
+      "bytes": 2619,
+      "sha256": "54cfab50ce944d07f16fc03876eb323d247a2ed1ff334eaf2e1c44657916b9e8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4.py",
+      "bytes": 5581,
+      "sha256": "85a223604896cf12c6762cceb3bc1c111660c777450afb43c1b5227e82458dcb",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_algebraic_projection.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_algebraic_projection.py",
+      "bytes": 8715,
+      "sha256": "0cd52105390f888d09adc4f8ce45d4f3f56ca960b8a773b7011896c7c3b59d4d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_analytic_contract.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_analytic_contract.py",
+      "bytes": 1687,
+      "sha256": "4074791d07e84063d85e11889a9bd938c0cd575922fbab4d77ffebeda0d15679",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_analytic_symbol.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_analytic_symbol.py",
+      "bytes": 5326,
+      "sha256": "e07a80142dfcc94ec0fa0a56b188d0cfef737a08d85aad5752ddd860a68eedc5",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_boundary_compatibility.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_boundary_compatibility.py",
+      "bytes": 6968,
+      "sha256": "c74c9c3deb9d1ad900a2248d54ba24ee24a0738bf1c3e2f4a8e735b9ca449330",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_boundary_stage_channels.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_boundary_stage_channels.py",
+      "bytes": 6881,
+      "sha256": "1d58b0dbaa32971689a84c6a5ba5e8a68085a524a3efb9cf301e7c2dd6b8093b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_characteristic_boundary_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_characteristic_boundary_shadow.py",
+      "bytes": 2342,
+      "sha256": "27a023b65003a054f224cc6da6fcdfb985bf20a30373ea2cdaf88537dbe05177",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_characteristic_contract.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_characteristic_contract.py",
+      "bytes": 2566,
+      "sha256": "55a2a78cd18f100554223e6408f3c8960097cfe944349156e7d1d4f976d1edda",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_characteristic_sat_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_characteristic_sat_shadow.py",
+      "bytes": 2095,
+      "sha256": "0c97ed1aec236fc9b0a18b2b1b69f32dbebb2ecc3276bc2c8cfd4ce3b96bddb1",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_checkpoint.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_checkpoint.py",
+      "bytes": 6578,
+      "sha256": "6feb421752d18a0c8cc2dec543305a99d8c6706fd1475567ca9bdac4a8e2ba2f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_constraint_closure_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_constraint_closure_shadow.py",
+      "bytes": 2864,
+      "sha256": "93368d83a5682d84c6d4402cbf3e6d6f44bcf136b3cfd30c3139bf5e07dfaf2e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_constraint_control.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_constraint_control.py",
+      "bytes": 9151,
+      "sha256": "f70032e73625a734cd340ab7869cc0e56cebe96e7e4e24b61affcf6fd0ffd0d0",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_constraint_envelope_boundary_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_constraint_envelope_boundary_shadow.py",
+      "bytes": 2899,
+      "sha256": "2bcafe929eb157c6ad0efad132fcc5b7035db71bcedb98e352a17bd042fb38dd",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_constraint_envelope_cpbc_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_constraint_envelope_cpbc_shadow.py",
+      "bytes": 3370,
+      "sha256": "bd37217b9152935d44793e7a5aa20e34c9bc46faf797b65164f7ed9295207e8a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_constraint_propagation.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_constraint_propagation.py",
+      "bytes": 1899,
+      "sha256": "3fe1b30545dee4cb64f498119332d6db93cce4a859c508f9eab090f6c87e1e3e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_cpbc_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_cpbc_shadow.py",
+      "bytes": 2766,
+      "sha256": "0f3efa12fbe5c35b1887e259eba22503014790f62e255fd8cec2a885e5faf44f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_determinant_balance.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_determinant_balance.py",
+      "bytes": 2418,
+      "sha256": "1315ce7ea9b86eefe84ab28783d269aab2672aec24d6cca92756c146c9bb31b9",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_einstein_constraints.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_einstein_constraints.py",
+      "bytes": 3963,
+      "sha256": "729b468a5541fd2faaab9bc060f3ce1d252e06b9459f65ed7577b2bd4605432e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_exterior_window.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_exterior_window.py",
+      "bytes": 3037,
+      "sha256": "2157fe9b7bfe0ec6259c4c83ba46205343f79457309ac66d827ae1d8bef30fa6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_fd4_window.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_fd4_window.py",
+      "bytes": 6079,
+      "sha256": "c71ea882c41e61d7a7b2e4784278de1b9ea62a413d741ed9a65460ed4461f98c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_fine_relaxation.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_fine_relaxation.py",
+      "bytes": 3578,
+      "sha256": "190f0f8f0a9cfc8e58341ca97e4898bf839eaa553a1f1346399f4d573bd70b43",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_frozen_characteristics.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_frozen_characteristics.py",
+      "bytes": 6186,
+      "sha256": "f970c9c08f13838cf4d1228d893e6254bb09732c65bb8897011cd63f341eddda",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_frozen_cpbc.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_frozen_cpbc.py",
+      "bytes": 4114,
+      "sha256": "5cf743fa2856b8da37834a6c021696dee6450ca24a184bc8ff0f1a571c86b452",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_frozen_symbol.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_frozen_symbol.py",
+      "bytes": 5845,
+      "sha256": "0fb7db6af48d106fed40642cd4dc55b22683b3c9cf3d8786bdbf07df1b6aa979",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_full_constraint_closure_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_full_constraint_closure_shadow.py",
+      "bytes": 2117,
+      "sha256": "6489ac2345521d31f19067dd0c453b5a1c64c1872874e128933910630ca0c5bb",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_full_cpbc_energy_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_full_cpbc_energy_shadow.py",
+      "bytes": 3029,
+      "sha256": "2d87e4ea0a9c69042c8f3df50cf80e06d795aa6b69d0ebd2136d329614e6ce45",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_gauge_campaign.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_gauge_campaign.py",
+      "bytes": 3987,
+      "sha256": "135f257fa28e1e27dd3292f02249f9324cc84197bac9a2f2b5352523363e044d",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_gauge_profile.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_gauge_profile.py",
+      "bytes": 6835,
+      "sha256": "68748cca82c30b9ae736a59610fc4ca96b74ebb36469f26b35956a134f801081",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_gauge_pulse.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_gauge_pulse.py",
+      "bytes": 4018,
+      "sha256": "e5c202639050f08ca9b03840545e68c4cf51d610f3a3bb7bd828e6d29fe0329b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_gauge_regime_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_gauge_regime_shadow.py",
+      "bytes": 1707,
+      "sha256": "7c67300c14de2cbb58e80ea29a5c249465c0c231a75be5f68121d63f617e5646",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_initial_ordering_source.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_initial_ordering_source.py",
+      "bytes": 4858,
+      "sha256": "042b69e9a3ed2eedaf626f8df017b2de243a3033d509c3aecdedde75ce1c0beb",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_lapse_constraint_balance.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_lapse_constraint_balance.py",
+      "bytes": 3287,
+      "sha256": "796f585d449a1907b83c56e5ca6ad9144ab8c0535fd739be40ef8ed0b743fa46",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_linear_modes.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_linear_modes.py",
+      "bytes": 5423,
+      "sha256": "21e33e8e2aec9e509a8eee60ae8ff3be8f81c7048ed13c7138eec3173c6cf813",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_local_frame_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_local_frame_shadow.py",
+      "bytes": 2767,
+      "sha256": "c6ebd1d8220e5138db1bf97bd645b4063ebf029eef61ca6e03aac6eec45808be",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_local_principal_proxy_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_local_principal_proxy_shadow.py",
+      "bytes": 2833,
+      "sha256": "0c072f249c8243fc80ddc3d6b66dfff5cb62867125349d3d3ab66f1357b07930",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_oblique_cpbc_energy_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_oblique_cpbc_energy_shadow.py",
+      "bytes": 1976,
+      "sha256": "0c616ec14c9bbd28c0792b5eba4a68c46e6d8e92b6ec51d818dab6207d9ba4e1",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_periodic_window.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_periodic_window.py",
+      "bytes": 7098,
+      "sha256": "542a3efd865953221f50acdb9ae9ce94d6c0a5d79e77f038119e3b369b4f3edc",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_principal_symbol.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_principal_symbol.py",
+      "bytes": 6641,
+      "sha256": "8b5e7d0229d50ae648e506cec3bb6bdc00973fa4c66d65bc6a9a67c67a074165",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_projected_rk.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_projected_rk.py",
+      "bytes": 5920,
+      "sha256": "c384533b0d5b8e3005701f39e49ceb37e9b7c40efc32fd2c01ab7331a19ff019",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_refinement_separation.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_refinement_separation.py",
+      "bytes": 3541,
+      "sha256": "ff925dbb6229faece94d90bbb38d07583eb3b3a2053ba9205815863897ee3315",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_relaxation_convergence.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_relaxation_convergence.py",
+      "bytes": 5447,
+      "sha256": "e35db76daaa620326b36a78ccdc3a62227d26728600f458ed60a3b20f82e8d14",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_remainder.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_remainder.py",
+      "bytes": 5855,
+      "sha256": "e78b374e850136b31f4e848089190b1c8b04a0b4fa988f37d58efe589fca8005",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_rhs.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_rhs.py",
+      "bytes": 9819,
+      "sha256": "da0eb8e6a398c5a0c8a48e7514153bc4e9e94f2adeb259be476d2e720a4234b6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_robust_window.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_robust_window.py",
+      "bytes": 6381,
+      "sha256": "1b1aa4fdba0ae9f2058086d0580cd772394f3cf79438981c42fb22d493a6a5e3",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_rotated_symmetrizer_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_rotated_symmetrizer_shadow.py",
+      "bytes": 1986,
+      "sha256": "7514df8fa98dec1c562f627dd07e811ee21f679affa1d701e66a39cd57b19989",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_sbp_cube.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_sbp_cube.py",
+      "bytes": 10114,
+      "sha256": "de32a5637f40a02c2fe0c791ad25eea57ed1939a72731ab9baec3f59645a2144",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_sbp_frozen.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_sbp_frozen.py",
+      "bytes": 10297,
+      "sha256": "dca43d050dbef0aa1fc79bee56e8f56d24aa0cb705db151d35cf4ec7885fb32b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_sbp_nonlinear.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_sbp_nonlinear.py",
+      "bytes": 5977,
+      "sha256": "85a6fd6b928a261c80559b262582e12bd03fc8c3c54bb33418de7ff128980680",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_sbp_volume.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_sbp_volume.py",
+      "bytes": 6750,
+      "sha256": "dc19113442d85a8664b3259c45c0eaf9f4d04a65127a68ad4aabbcbcb1902512",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_schwarzschild.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_schwarzschild.py",
+      "bytes": 6388,
+      "sha256": "08cabac6986b69d83b25e430ded5443941a46e108259f4e72d431ef5cae2a065",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_source_energy_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_source_energy_shadow.py",
+      "bytes": 2573,
+      "sha256": "522e452e56462e90f95adaa6c3c09d8ecad0895c019546b293a0f8cda0ba243e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_spatial_checkpoint.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_spatial_checkpoint.py",
+      "bytes": 6010,
+      "sha256": "66b8ee669be19ddb5e10f40e7044bf43a92ff6451720f9b53adc55e283c24eea",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_subsidiary_cpbc_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_subsidiary_cpbc_shadow.py",
+      "bytes": 4358,
+      "sha256": "0d8650071aab125840ea7e7e4b9db969c5f67a7e61a8bba95a2b0fdc90e14454",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_subsidiary_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_subsidiary_shadow.py",
+      "bytes": 3283,
+      "sha256": "9fdb908779dbffe17ac2453404c0fbabb14f381ee0f682d46865d59640eff0b3",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_subsidiary_symmetrizer_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_subsidiary_symmetrizer_shadow.py",
+      "bytes": 2698,
+      "sha256": "4485a0ae69e2e1ada0e39d58c7f0867db0194930abcdc24fff86ac6ffcfbca7f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_subsidiary_wave.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_subsidiary_wave.py",
+      "bytes": 4682,
+      "sha256": "551abeab5a42b37143d40fb850933d43ae40bc8332671116f51c9bec2597e4b9",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_symmetrizer_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_symmetrizer_shadow.py",
+      "bytes": 4096,
+      "sha256": "782c78aadc62d69fe93c39f4f8102fd9673a62cd6c17f17ebaac749c915eb08c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_trace_source_window.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_trace_source_window.py",
+      "bytes": 6973,
+      "sha256": "ddfaf2b4946d33e8b18fd411e8c171ab09c339def8634aa6c380fac4856818d6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_variable_coefficient_boundary_shadow.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_variable_coefficient_boundary_shadow.py",
+      "bytes": 2618,
+      "sha256": "8d0f7a7579b04c32fa399de79d591af6d186c4fca8cec3fb3b8057c3f2379a11",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_fo_ccz4_z4c_projection_audit.py",
+      "source_path": "science/numerical_relativity/test_fo_ccz4_z4c_projection_audit.py",
+      "bytes": 2986,
+      "sha256": "6c9d0496b5f129abcb32ccee7c25464c3305efe76271e26b5e440f8ee5289c0e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_guard_overhead_diagnostic.py",
+      "source_path": "science/numerical_relativity/test_guard_overhead_diagnostic.py",
+      "bytes": 4241,
+      "sha256": "b8498be6b04c924f322f5aa7144f384cdf064ce18585136892fb26a4d2cbcc1f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_halo_intervention.py",
+      "source_path": "science/numerical_relativity/test_halo_intervention.py",
+      "bytes": 5541,
+      "sha256": "7e978c604464ebd5ea906bc69fad68d8eb50fe99b0a4ff6d364d1df02fd364f6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_k1_schwarzschild_exterior.py",
+      "source_path": "science/numerical_relativity/test_k1_schwarzschild_exterior.py",
+      "bytes": 2353,
+      "sha256": "4d2fc4ba3d1d82ef71c72ab5961bfd2b039f86b5c1db24ae0f22ca4c9e76300e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_manifest.py",
+      "source_path": "science/numerical_relativity/test_manifest.py",
+      "bytes": 4974,
+      "sha256": "8164fc8e44a5f25d2c62f04cad183bfdfe634f5c81b7296a83cf214b976853c8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_native_msvc_audit.py",
+      "source_path": "science/numerical_relativity/test_native_msvc_audit.py",
+      "bytes": 3505,
+      "sha256": "0945385d86a72b06e4125c259e3d465f6f70365ab5535a7135833e4ebaf1ab49",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_nr3d.py",
+      "source_path": "science/numerical_relativity/test_nr3d.py",
+      "bytes": 22003,
+      "sha256": "db1f1fa8c3647a56582c4c2878a3d032cdcb5822beb8e43f416736072428d199",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_plane_constraint_oracle.py",
+      "source_path": "science/numerical_relativity/test_plane_constraint_oracle.py",
+      "bytes": 4680,
+      "sha256": "abdf3067be7706958d39e96e21ea67302f9c07c102b7f9d0f7a088f36aeb7c10",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_principal_symbol3d.py",
+      "source_path": "science/numerical_relativity/test_principal_symbol3d.py",
+      "bytes": 1978,
+      "sha256": "9d140ddc8955fd9a23a9f33b8e9e0706ea16f45245ca05b01c36c37ccd5103ba",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_profile_exact_source.py",
+      "source_path": "science/numerical_relativity/test_profile_exact_source.py",
+      "bytes": 4124,
+      "sha256": "c2ad8d26ae09d1e062f65cdec2403cadcb8bdea4c5e039edd304c4ea68644c3c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_rk_stage_locality.py",
+      "source_path": "science/numerical_relativity/test_rk_stage_locality.py",
+      "bytes": 2959,
+      "sha256": "d31e1103e24e44d8f15ef6156a89aae6493b45b12a1c00f1d3393ce8563bb3a6",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_sbp_boundary_operator.py",
+      "source_path": "science/numerical_relativity/test_sbp_boundary_operator.py",
+      "bytes": 5602,
+      "sha256": "1f84767647597074a8e77475fbb9712e8f23cdfe693f543d06cb426ed36e1ee7",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_sbp_metric_geometry.py",
+      "source_path": "science/numerical_relativity/test_sbp_metric_geometry.py",
+      "bytes": 5701,
+      "sha256": "bf4f95afac985698fa5e9d3abf2e8b0acd1af32b1f6b692155efc26ef28a238f",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_sbp_second_derivative.py",
+      "source_path": "science/numerical_relativity/test_sbp_second_derivative.py",
+      "bytes": 4176,
+      "sha256": "a2a65c1108525cc8eaa10a6c7089794dd2332fdb1342e9deb0e495b483ed081c",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_schwarzschild_oracle.py",
+      "source_path": "science/numerical_relativity/test_schwarzschild_oracle.py",
+      "bytes": 2207,
+      "sha256": "7f458161d9aa1eab4016a900d506c04b5035c5aa1810581db1ccf33b39acdc6e",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/test_schwarzschild_rhs_locality.py",
+      "source_path": "science/numerical_relativity/test_schwarzschild_rhs_locality.py",
+      "bytes": 4038,
+      "sha256": "ce12746859eb93f0c2045d1ea4dbf12cf6db411ba4c5bfa8fb305dd2107c2d15",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "science/numerical_relativity/trajectory_reduction_balance.py",
+      "source_path": "science/numerical_relativity/trajectory_reduction_balance.py",
+      "bytes": 22440,
+      "sha256": "75bf3ae7751a8c6e0375f641195e604f88c4b14f9c9143ffcd086121ddc1623b",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_case12_actual_constraint_diagnostic.py",
+      "source_path": "scripts/nr_case12_actual_constraint_diagnostic.py",
+      "bytes": 14227,
+      "sha256": "3bf3891d7a2adb715ddcd3e0478b6beb0e4b1e2931c0b0a43c222a21af8177d8",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_case12_actual_constraint_jet.py",
+      "source_path": "scripts/nr_case12_actual_constraint_jet.py",
+      "bytes": 29272,
+      "sha256": "b982b3415de4656b1c79cafa6cd6997094292e4a0d2dbccdd4c2f579343e137a",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_case12_actual_constraint_replay.py",
+      "source_path": "scripts/nr_case12_actual_constraint_replay.py",
+      "bytes": 17817,
+      "sha256": "38f6edeb74af0296e665ab6c466dc36c80bfee1816c3355ecc2ce70c5c3fa841",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_case12_actual_volume_jet.py",
+      "source_path": "scripts/nr_case12_actual_volume_jet.py",
+      "bytes": 42692,
+      "sha256": "1ef20ec3a7f7610744af016805b1678f578f0b2f07763575da61c60a3d31a868",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_case12_actual_volume_linearization.py",
+      "source_path": "scripts/nr_case12_actual_volume_linearization.py",
+      "bytes": 16363,
+      "sha256": "0f0390c1c7ce12317674324157fc3820157ead5ffce69f20ee076e1cd3ca9b57",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_constraint_full_symbol.py",
+      "source_path": "scripts/nr_constraint_full_symbol.py",
+      "bytes": 10433,
+      "sha256": "053b70dd9136117dcfc8f2045b9953dc5ece6bfdf382eb1da12f33b9b8446042",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_polynomial_certificate_replay.py",
+      "source_path": "scripts/nr_polynomial_certificate_replay.py",
+      "bytes": 6978,
+      "sha256": "36ff79bc1f3971f390b779c9898f769ce7c74b99bc469b42f3923fbe1984fae5",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "scripts/nr_profile_exact_coefficients.py",
+      "source_path": "scripts/nr_profile_exact_coefficients.py",
+      "bytes": 12299,
+      "sha256": "1c19244c4b4bd787fc389e8158aebc889c4d4ad8d556042866e9c7aa82056dbb",
+      "kind": "unchanged-source"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/C0.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/C0.json",
+      "bytes": 27433,
+      "sha256": "87d85210d4d0bae1b77278657bc0277711778332de32c0cfde4b61958d5df053",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/C1.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/C1.json",
+      "bytes": 28432,
+      "sha256": "f396ff86998f987246af4a92844cae3944cc265418116f7f1a3dacfc3d7f4a65",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/C2.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/C2.json",
+      "bytes": 27105,
+      "sha256": "b54ada626e3fd69d337d2a7a1b8f04d10ea44e1c72533e81741b354b26acdd21",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/coordinate_independent-replay.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/coordinate_independent-replay.json",
+      "bytes": 20046,
+      "sha256": "7751521463cdade0039d8e36b405dac40f8faca3b98c9b02100c75165e370104",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/coordinate_parent_provenance.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/coordinate_parent_provenance.json",
+      "bytes": 5497,
+      "sha256": "6368f7e880134cc51809ddee8817bbc1a6c22d5c26fcd1caa45dfdc4826b88af",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/coordinate_qualification-gate.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/coordinate_qualification-gate.json",
+      "bytes": 1048576,
+      "sha256": "466bf5a2a13dadf05bda60b9cbbad4e60ce43f442bcb8fdda0cf61fb2a4dd708",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/coordinate_source_bridge.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/coordinate_source_bridge.json",
+      "bytes": 5780,
+      "sha256": "9081f843df45d334fa98573479c413ad241e59ea85aa6b96b5359713c32b221d",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/coordinate_worker-result.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/coordinate_worker-result.json",
+      "bytes": 201608,
+      "sha256": "9a0af8284a5cdd35c3723d3be5141f2659b4ee1ba6c77b1ba78923dcf1446811",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/volume_domain.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/volume_domain.json",
+      "bytes": 1110,
+      "sha256": "4ae0f52b528ce37c33cbdedb12357901c2b3ae4170fb05d7da071a42ac5157d1",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/volume_independent-replay.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/volume_independent-replay.json",
+      "bytes": 19132,
+      "sha256": "0a96abe07f82719030d6bf81e1a335ccada39047b5e6d13a814507e7c9a2d6af",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/volume_qualification-gate.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/volume_qualification-gate.json",
+      "bytes": 1048576,
+      "sha256": "ba5bff599828bf9185db40c72e6421c337fe89b60fab5acde4329f534b4502f0",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/volume_source_bridge.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/volume_source_bridge.json",
+      "bytes": 687075,
+      "sha256": "fc07b9a1dc641466d1f064cce28b47d91415e56af0e6a046dc58fd5e124fbba1",
+      "kind": "historical-parent"
+    },
+    {
+      "path": "examples/data/constraint_bridge/parents/volume_worker-result.json",
+      "source_path": "tmp/nr-shadow-evidence/nr-k3-case12-actual-constraint-diagnostic-controls-v1-20261015/parent-inputs/volume_worker-result.json",
+      "bytes": 222927,
+      "sha256": "816ea01a8870aee222aa829b100a852d6e19e4022bcd4a7de9e66e94c0f2539d",
+      "kind": "historical-parent"
+    }
+  ],
+  "source_files_byte_identical": true,
+  "historical_parent_gate_command_paths_preserved_as_nonexecuted_metadata": true,
+  "original_full_qualification_reproduced_by_export": false
+}

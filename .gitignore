@@ -1,0 +1,26 @@
+# Local environments and machine-specific release checks
+.venv*/
+.release-local/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.env
+.env.*
+
+# Generated reproductions and native builds
+outputs/
+build/
+**/build/
+*.obj
+*.o
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.log
+.DS_Store

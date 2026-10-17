@@ -1,0 +1,12 @@
+# New files use stable LF bytes on all platforms.
+* text=auto eol=lf
+# Exported sources and historical evidence are byte-bound. Never normalize them.
+science/** -text
+scripts/** -text
+examples/data/** -text
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.cff text eol=lf
+requirements-*.txt text eol=lf
+provenance/*.json text eol=lf

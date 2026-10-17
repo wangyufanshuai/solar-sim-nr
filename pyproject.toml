@@ -1,0 +1,9 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+cache_dir = "outputs/.pytest_cache"
+
+# The historical research tests under science/ are preserved as source.
+# They are not the portable release test suite and may need unpublished
+# campaign inputs, Windows tooling, or separately registered resources.

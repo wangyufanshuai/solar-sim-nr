@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this software and identify the exact commit used."
+type: software
+title: "Solar Sim NR"
+authors:
+  - name: "wangyufanshuai"
+repository-code: "https://github.com/wangyufanshuai/solar-sim-nr"
+license: MIT
+abstract: >-
+  Research-alpha numerical relativity sources and portable exact-coefficient
+  checks for a first-order CCZ4 research kernel. The included diagnostic
+  reproduction concerns a fixed-background continuum real-formula first
+  variation and does not qualify black-hole evolution, discrete boundary
+  stability or waveform accuracy.
+keywords:
+  - numerical relativity
+  - CCZ4
+  - reproducibility
+  - exact arithmetic
