@@ -105,9 +105,18 @@ guarantees or estimates for black-hole simulations.
 
 ## Hosted CI status
 
-Hosted CI has not yet been checked for this revision. The configured
-Windows/Linux workflow and C++ component job are not recorded as passing
-until their actual remote results are available.
+The [first hosted run](https://github.com/wangyufanshuai/solar-sim-nr/actions/runs/39002694101)
+checked commit `b4bd34ccde2aaa7f04e5da14209fbc922b897de6`. Its Ubuntu
+Python reproduction and C++ component jobs passed. Its Windows job failed
+at `pip check`, before the mathematical calculation: the runner's
+preinstalled `pipx 1.17.12` required `packaging>=26.3`, conflicting with
+this project's `packaging==26.2` pin in the shared interpreter.
+
+The workflow now creates a fresh virtual environment on both platforms,
+matching the documented local setup and keeping runner utilities outside
+the project environment. Dependency pins and scientific thresholds are
+unchanged. The first Windows job remains failed; the corrected hosted
+run must be checked separately.
 
 ## Preservation checks
 
