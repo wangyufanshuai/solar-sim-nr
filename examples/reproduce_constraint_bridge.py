@@ -22,6 +22,7 @@ import stat
 import subprocess
 import sys
 import time
+from types import MappingProxyType
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -275,7 +276,7 @@ def independent_rows(rows, count, *, check=lambda: None):
         terms = row.coefficients
         require(
             type(row.value) is Fraction
-            and type(terms) is dict
+            and type(terms) in (dict, MappingProxyType)
             and all(
                 type(index) is int
                 and 0 <= index < SEEDS
@@ -285,6 +286,9 @@ def independent_rows(rows, count, *, check=lambda: None):
             ),
             "exact 580-seed row",
         )
+        # Frozen reverse AD exposes an immutable mappingproxy. Snapshot either
+        # registered mapping representation without coercing indices or values.
+        terms = dict(terms)
         values.append([row.value])
         coefficients.append([terms.get(index, Fraction(0)) for index in range(SEEDS)])
     return values, coefficients

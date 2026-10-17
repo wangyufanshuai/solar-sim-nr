@@ -5,7 +5,7 @@ import importlib.util
 import json
 from pathlib import Path
 import subprocess
-from types import SimpleNamespace
+from types import MappingProxyType, SimpleNamespace
 
 import pytest
 
@@ -70,6 +70,42 @@ def test_rows_keep_last_seed_and_exact_zero_slots():
     assert coefficients[0][0] == -3
     assert coefficients[0][579] == F(7, 5)
     assert all(v == 0 for v in coefficients[0][1:579])
+
+
+def test_actual_reverse_scalar_mappingproxy_is_accepted_without_coercion():
+    # Load only the frozen stdlib scalar graph; no NumPy or complete diagnostic.
+    path = PATH.parents[1] / "scripts/nr_case12_actual_constraint_replay.py"
+    spec = importlib.util.spec_from_file_location(
+        "portable_reverse_scalar_control", path
+    )
+    reverse = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(reverse)
+    tape = reverse.ReplayTape()
+    node_type = tape.scalar_type
+    node = node_type(F(2, 3)) + F(3) * node_type.seed(0) - F(5, 7) * node_type.seed(579)
+    terms = node.coefficients
+    assert type(terms) is MappingProxyType
+    assert dict(terms) == {0: F(3), 579: F(-5, 7)}
+    values, coefficients = P.independent_rows([node], 1)
+    assert values == [[F(2, 3)]]
+    assert coefficients == [[F(3), *([F(0)] * 578), F(-5, 7)]]
+    assert node.coefficients is terms
+    assert dict(terms) == {0: F(3), 579: F(-5, 7)}
+
+
+@pytest.mark.parametrize(
+    "terms",
+    [
+        [(0, F(1))],
+        MappingProxyType({True: F(1)}),
+        MappingProxyType({580: F(1)}),
+        MappingProxyType({0: 1.0}),
+        MappingProxyType({0: F(0)}),
+    ],
+)
+def test_mappingproxy_support_preserves_strict_coefficient_validation(terms):
+    with pytest.raises(ValueError, match="exact 580-seed row"):
+        P.independent_rows([scalar(F(0), terms)], 1)
 
 
 @pytest.mark.parametrize(
