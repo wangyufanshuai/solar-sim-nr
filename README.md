@@ -82,6 +82,7 @@ historical source inventory or Windows Job supervision.
 | [examples/data/constraint_bridge/](examples/data/constraint_bridge/) | Frozen parent inputs and reproduction data |
 | [docs/SCIENTIFIC_STATUS.md](docs/SCIENTIFIC_STATUS.md) | Established claims and remaining scientific gates |
 | [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) | How to inspect and reproduce this check |
+| [docs/VALIDATION.md](docs/VALIDATION.md) | Actual local results, including retained failed attempts |
 | [tests/](tests/) | Repository controls; not a substitute for the full example |
 | [provenance/export-manifest.json](provenance/export-manifest.json) | Exported source and parent-input identities |
 | [CITATION.cff](CITATION.cff) | Software citation metadata |
