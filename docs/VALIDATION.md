@@ -115,8 +115,25 @@ this project's `packaging==26.2` pin in the shared interpreter.
 The workflow now creates a fresh virtual environment on both platforms,
 matching the documented local setup and keeping runner utilities outside
 the project environment. Dependency pins and scientific thresholds are
-unchanged. The first Windows job remains failed; the corrected hosted
-run must be checked separately.
+unchanged. The first Windows job remains failed.
+
+The [corrected hosted run](https://github.com/wangyufanshuai/solar-sim-nr/actions/runs/39002823023)
+completed successfully at commit
+`e6a6976f8194620b1732ec13cdd0112d4e1232e2`: both Python jobs passed
+dependency checks, input verification, 39 controls and the complete
+portable calculation; the C++ job passed its three component tests.
+
+| Hosted calculation | Python / NumPy | Calculation elapsed time |
+| --- | --- | --- |
+| Ubuntu | 3.12.15 / 2.2.6 | 9.312 seconds |
+| Windows | 3.12.10 / 2.2.6 | 9.578 seconds |
+
+Both uploaded output bundles were downloaded and checked: each final
+report's 26 artifact hashes matched the saved bytes, and all 13 scientific
+matrices matched the local clean-checkout result byte for byte. This is
+cross-platform automated reproduction of the same implementation, not
+independent external physical validation. The workflow retains artifacts
+for 14 days; download them before expiry when retaining evidence.
 
 ## Preservation checks
 
