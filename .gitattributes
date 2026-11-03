@@ -10,3 +10,6 @@ examples/data/** -text
 *.cff text eol=lf
 requirements-*.txt text eol=lf
 provenance/*.json text eol=lf
+# New experiment parent receipts and original registration retain exact bytes.
+experiments/case12_binary64_v1/inputs/** -text
+experiments/case12_binary64_v1/protocol-note.md -text

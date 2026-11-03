@@ -106,6 +106,12 @@ program has executed correctly.
 
 ## Claims that remain open
 
+The fixed-case12 [binary64 8³ candidate](BINARY64_ALIGNMENT.md) adds code
+for actual periodic FD2/FD4 execution and separate Fourier reconstruction.
+Its [execution records](BINARY64_RESULTS.md) report the actual bounded results.
+No floating-point, evolution or scientific acceptance flag is promoted by
+the presence of this code. Finite alignment would not establish stability.
+
 | Area | What this repository's demonstrated bridge does not establish |
 | --- | --- |
 | Floating-point implementation | Agreement and stability of actual binary64 state, RHS and diagnostic execution |

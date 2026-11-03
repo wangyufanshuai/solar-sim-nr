@@ -76,6 +76,13 @@ historical source inventory or Windows Job supervision.
 
 ## Repository guide
 
+An additional [binary64 8³ alignment candidate](docs/BINARY64_ALIGNMENT.md)
+now has a separate low-memory entry point and independent projection replay.
+Its [execution records](docs/BINARY64_RESULTS.md) distinguish controls from
+scientific acceptance. Its 600-second/64 MiB envelope and
+4 GiB available-RAM launch gate are registered in code; existing CI results
+and continuum bridge results do not validate this new candidate.
+
 | Location | Purpose |
 | --- | --- |
 | [examples/reproduce_constraint_bridge.py](examples/reproduce_constraint_bridge.py) | Minimal portable entry point |
