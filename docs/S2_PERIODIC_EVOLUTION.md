@@ -43,3 +43,14 @@ Passing S2 shows correct short-time evolution of a weak wave on a periodic flat 
 with the expected spatial and temporal convergence, and no noise blow-up over 10 crossing
 times on a coarse grid. It does not test strong fields, boundaries, long-time stability,
 black holes or the nonlinear regime.
+
+## Amendment 2026-11-05: S2-c v2 robustness gate (written after run 01)
+
+Run 01 failed S2-c (`S2_RESULTS_20261105.md`). Its diagnostics showed a one-off
+constraint transient, plateaus and linear lapse growth. A new gate, written with those
+results in view, tests for exponential growth after the transient instead of a fixed
+ratio from t = 0: see `experiments/s2_periodic_evolution/robust_v2.py`. Runs: FD2 and FD4
+on 8³ to T = 100, FD4 with kappa1 = 0.1 on 8³ to T = 100, FD4 on 12³ to T = 50. Pass if
+every run is finite, the slope of ln N(t) over [T/2, T] is ≤ 0.02 per crossing time, and
+the Hamiltonian L2 at T is ≤ 10 × its value at t = 1. Run 01's FAILED verdict stands;
+a v2 pass would be reported as a pass of this later gate only.
