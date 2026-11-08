@@ -19,6 +19,9 @@ so the GPU is not a shortcut for double-precision NR). Memory is the hard limit.
 | B4 refinement + head-on | Berger–Oliger (or nested) refinement; Brill–Lindquist head-on; Psi4 extraction; radiated energy vs literature | 3–6 months |
 | B5 quasi-circular binary | inspiral–merger–ringdown; mismatch vs SXS ≤ 1e-2, then lower | 6–18 months, probably with rented compute bursts |
 
+Progress (2026-11-08): B1 passed ([B1_RESULTS_20261108.md](B1_RESULTS_20261108.md)); the A = 0.1
+long run (reported only) blew up at t ≈ 22. B2 quick and B2-c are running.
+
 Rules: one physical result per milestone, each with its error against a reference; gates are
 committed before the run; failures are kept; post-hoc gate changes are disclosed; no new
 audit/receipt machinery beyond what a result needs.

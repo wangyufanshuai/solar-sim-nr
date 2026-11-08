@@ -163,7 +163,7 @@ def summarize_long(out):
     long = json.loads((out / "long.json").read_text())
     t = np.array([s[0] for s in long["samples"]])
     e = np.array([s[1] for s in long["samples"]])
-    complete = bool(np.all(np.isfinite(e))) and t[-1] >= LONG["final_time"]
+    complete = bool(np.all(np.isfinite(e)) and t[-1] >= LONG["final_time"])
     late = t >= LONG["final_time"] / 2
     slope = float(np.polyfit(t[late], np.log(e[late]), 1)[0]) if complete else math.inf
     result = dict(acceptance=LONG_ACCEPTANCE, complete=complete, late_log_slope=slope,

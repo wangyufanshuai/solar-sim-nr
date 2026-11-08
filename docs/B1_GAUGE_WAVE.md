@@ -1,6 +1,7 @@
 # B1 — harmonic slicing and the nonlinear gauge wave (registration)
 
-Status: **REGISTERED, NOT RUN**. Committed before the first run; results go in a separate report.
+Status: **RUN 2026-11-08 — PASSED** (results: [B1_RESULTS_20261108.md](B1_RESULTS_20261108.md)).
+Committed before the first run; results are in the separate report.
 Code: `experiments/b1_gauge_wave/run_b1.py` (gates in `ACCEPTANCE`) and
 `experiments/b1_gauge_wave/harmonic.py` (harmonic slicing).
 
