@@ -47,7 +47,7 @@ def wave_slots(x, *, amplitude, time, transverse_shape, profile="sine",
     elif profile == "pulse":
         u = (x - time - centre) / width
         b = amplitude * np.exp(-u * u)
-        b_x = -2.0 * u / PULSE_WIDTH * b
+        b_x = -2.0 * u / width * b
     else:
         raise ValueError("profile must be 'sine' or 'pulse'")
     b_t = -b_x

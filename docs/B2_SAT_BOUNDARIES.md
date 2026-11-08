@@ -14,6 +14,18 @@ dt is the largest step with dt·Σ(max characteristic speed/dx) ≤ 0.95 × 0.25
 rounded so each time unit has an integer number of steps. The two parts run concurrently with
 10 SAT workers each (memory). Each part is run once; a changed rerun is a new registration.
 
+## B2-b run 01 invalidated; run 02 registered (2026-11-08)
+
+Run 01 of B2-b gave a residual of 2.53 A at Nx = 17, larger than the pulse. Looking for the
+cause *after seeing that number* found a tooling bug: `wave_slots` computed the pulse derivative
+with the module constant width 0.12 instead of the `width` argument (0.1), so the D and P slots
+were 20 % off the derivatives of the metric slots and the initial and boundary data violated the
+auxiliary constraints. The sine profile (B2-a, B2-c) is unaffected (checked: D matches ½ ∂x h to
+4e-6). The Nx = 33 run was stopped, the bug fixed, and `tests/test_b2_wave_slots.py` added (it
+fails on the old code). Run 01 is kept in `outputs/b2q-20261108-01/` and reported, but does not
+count. **Run 02** uses the same gate, grids and settings with the fixed slots, output
+`outputs/b2b-20261108-02/`; committed before it starts.
+
 ## Registered gate (B2-c, added 2026-11-08 while B2 quick was running, before any B2-c run)
 
 | ID | Setup | Pass if |
