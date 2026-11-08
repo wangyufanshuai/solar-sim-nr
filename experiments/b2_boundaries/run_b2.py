@@ -34,15 +34,14 @@ from .parallel_sat import ParallelSATMixin
 AMPLITUDE = 1.0e-8
 TRANSVERSE = 9
 CFL_CAP = 0.25  # the driver's own cap on dt * sum(max char. speed / dx); we use <= 0.95 of it
-CONVERGE = dict(points=(17, 33, 65), final_time=1.0)
-REFLECT = dict(points=(17, 33, 65), final_time=1.0)
-LONG = dict(points=17, final_time=10.0)
+CONVERGE = dict(points=(13, 25, 49), final_time=0.25)
+REFLECT = dict(points=(17, 33), final_time=0.6, centre=0.8, width=0.1)
+LONG = dict(points=17, final_time=10.0)  # B2-c: deferred, not part of this registration
 ACCEPTANCE = dict(
     converge_min_order=2.6,
     converge_finest_max_error=1.0e-2,
     reflect_min_order=2.0,
-    reflect_finest_max=1.0e-3,
-    long_max_late_log_slope=0.02,
+    reflect_finest_max=1.0e-2,
 )
 
 
@@ -82,7 +81,9 @@ def evolve(nx, final_time, *, profile, outgoing_free, samples=None):
     dt = 1.0 / steps_per_unit
 
     def exact(t):
-        return wave_slots(x, amplitude=AMPLITUDE, time=t, transverse_shape=(TRANSVERSE, TRANSVERSE), profile=profile)
+        extra = dict(centre=REFLECT["centre"], width=REFLECT["width"]) if profile == "pulse" else {}
+        return wave_slots(x, amplitude=AMPLITUDE, time=t, transverse_shape=(TRANSVERSE, TRANSVERSE),
+                          profile=profile, **extra)
 
     def boundary_for(step_index):
         def targets(half_step):
@@ -116,8 +117,8 @@ def run_converge(nx, out):
 
 def run_reflect(nx, out):
     r = evolve(nx, REFLECT["final_time"], profile="pulse", outgoing_free=True)
-    # At t = 1 the packet centre is at x = 1.5, so the exact field in [0, 1] is flat to
-    # exp(-(0.5/0.12)^2) ~ 3e-8 of A; anything left is reflected or spurious.
+    # At t = 0.6 the packet centre is at x = 1.4, four widths beyond x = 1, so the exact field in
+    # [0, 1] is flat to exp(-16) ~ 1e-7 of A; anything left is reflected or spurious.
     residual = float(np.max(np.abs(r["q"] - r["flat"]))) / AMPLITUDE
     write(out / f"reflect-n{nx}.json", dict(nx=nx, dt=r["dt"], steps=r["steps"], reflection=residual,
                                             finite=math.isfinite(residual), seconds=r["seconds"]))
@@ -144,11 +145,6 @@ def summarize(out):
     refl = [json.loads((out / f"reflect-n{n}.json").read_text()) for n in REFLECT["points"]]
     rs = [c["reflection"] for c in refl]
     pr = orders(rs, REFLECT["points"])
-    long = json.loads((out / "long.json").read_text())
-    t = np.array([s[0] for s in long["samples"]]); e = np.array([s[1] for s in long["samples"]])
-    complete = bool(np.all(np.isfinite(e))) and t[-1] >= LONG["final_time"]
-    late = t >= LONG["final_time"] / 2
-    slope = float(np.polyfit(t[late], np.log(e[late]), 1)[0]) if complete else math.inf
     checks = dict(
         converge=dict(errors=errs, observed_orders=p,
                       passed=all(c["finite"] for c in conv) and all(x >= a["converge_min_order"] for x in p)
@@ -156,8 +152,6 @@ def summarize(out):
         reflect=dict(reflections=rs, observed_orders=pr,
                      passed=all(c["finite"] for c in refl) and all(x >= a["reflect_min_order"] for x in pr)
                      and rs[-1] <= a["reflect_finest_max"]),
-        long=dict(complete=complete, late_log_slope=slope, final_error=float(e[-1]),
-                  passed=complete and slope <= a["long_max_late_log_slope"]),
     )
     result = dict(acceptance=a, checks=checks, passed=all(c["passed"] for c in checks.values()))
     write(out / "summary.json", result)

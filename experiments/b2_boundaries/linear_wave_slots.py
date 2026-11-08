@@ -32,10 +32,11 @@ def _metric_parts(b):
 PULSE_CENTRE, PULSE_WIDTH = 0.5, 0.12
 
 
-def wave_slots(x, *, amplitude, time, transverse_shape, profile="sine"):
+def wave_slots(x, *, amplitude, time, transverse_shape, profile="sine",
+               centre=PULSE_CENTRE, width=PULSE_WIDTH):
     """58 x Nx x Ny x Nz canonical slots of the exact linear TT wave at the given time.
 
-    profile "sine": b = A sin(2 pi (x - t)); "pulse": b = A exp(-((x - t - 0.5)/0.12)^2),
+    profile "sine": b = A sin(2 pi (x - t)); "pulse": b = A exp(-((x - t - centre)/width)^2),
     a right-moving packet (any b(x - t) is an exact linear solution).
     """
     x = np.asarray(x, dtype=np.float64)
@@ -44,7 +45,7 @@ def wave_slots(x, *, amplitude, time, transverse_shape, profile="sine"):
         b = amplitude * np.sin(phase)
         b_x = K_WAVE * amplitude * np.cos(phase)
     elif profile == "pulse":
-        u = (x - time - PULSE_CENTRE) / PULSE_WIDTH
+        u = (x - time - centre) / width
         b = amplitude * np.exp(-u * u)
         b_x = -2.0 * u / PULSE_WIDTH * b
     else:

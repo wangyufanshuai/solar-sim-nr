@@ -32,7 +32,7 @@ def _penalties(job):
 class ParallelSATMixin:
     """Mix into a NonlinearSBPCube subclass to replace its rhs with the pooled version."""
 
-    workers = max(1, min(20, (os.cpu_count() or 2) - 4))
+    workers = int(os.environ.get("B2_WORKERS", max(1, min(20, (os.cpu_count() or 2) - 4))))
     _pool = None
 
     def _executor(self):

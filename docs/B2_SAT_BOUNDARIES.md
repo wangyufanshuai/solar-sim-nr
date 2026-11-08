@@ -1,7 +1,18 @@
-# B2 — SBP-SAT outer boundaries (DRAFT, not registered)
+# B2 — SBP-SAT outer boundaries
 
-Status: **DESIGN DRAFT — NOT REGISTERED, NOT RUN.** Gates below are proposals; they become a
-registration only when this file is re-committed with status REGISTERED before a run.
+Status: **B2 quick (B2-a, B2-b) REGISTERED, NOT RUN** — reduced to fit a ~2 h run at the owner's
+request (2026-11-08); committed before the run. B2-c and CPBC are deferred.
+
+## Registered gates (B2 quick; `experiments/b2_boundaries/run_b2.py`, ACCEPTANCE)
+
+| ID | Setup | Pass if |
+| --- | --- | --- |
+| B2-a | sine TT wave (A = 1e-8), exact incoming data on all six faces, Nx = 13, 25, 49 (× 9 × 9), T = 0.25 | both observed orders ≥ 2.6; error at Nx = 49 ≤ 1e-2 (max over all 58 slots, ÷ A) |
+| B2-b | pulse (centre 0.8, width 0.1) leaving through x = 1 with flat incoming data there, Nx = 17, 33, T = 0.6 | observed order of the residual ≥ 2; residual at Nx = 33 ≤ 1e-2 (÷ A) |
+
+dt is the largest step with dt·Σ(max characteristic speed/dx) ≤ 0.95 × 0.25 (the driver's cap),
+rounded so each time unit has an integer number of steps. The two parts run concurrently with
+10 SAT workers each (memory). Each part is run once; a changed rerun is a new registration.
 
 ## What exists
 
@@ -14,7 +25,7 @@ registration only when this file is re-committed with status REGISTERED before a
   derivatives; base fields match the periodic S2 construction exactly, auxiliaries match FD4 to
   its truncation error), an uncapped driver subclass and a runner draft.
 
-## Proposed tests
+## Original proposal (superseded by the quick registration above)
 
 | ID | Setup | Proposed gate |
 | --- | --- | --- |
