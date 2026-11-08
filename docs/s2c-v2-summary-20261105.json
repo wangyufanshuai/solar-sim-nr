@@ -1,0 +1,39 @@
+{
+ "fd2-n8": {
+  "finite_and_complete": true,
+  "late_log_slope": 0.0025033387577228965,
+  "slope_ok": true,
+  "hamiltonian_growth": 1.108644229857816,
+  "constraint_ok": true,
+  "growth_from_t0_at_T": 18.97432072647985,
+  "passed": true
+ },
+ "fd4-n8": {
+  "finite_and_complete": true,
+  "late_log_slope": 0.000626334626326023,
+  "slope_ok": true,
+  "hamiltonian_growth": 1.0675968173653791,
+  "constraint_ok": true,
+  "growth_from_t0_at_T": 30.89705976427548,
+  "passed": true
+ },
+ "fd4-n8-k01": {
+  "finite_and_complete": true,
+  "late_log_slope": 0.009538228438953095,
+  "slope_ok": true,
+  "hamiltonian_growth": 0.002928449621728522,
+  "constraint_ok": true,
+  "growth_from_t0_at_T": 11.650370120173125,
+  "passed": true
+ },
+ "fd4-n12": {
+  "finite_and_complete": true,
+  "late_log_slope": 0.0002884738720339946,
+  "slope_ok": true,
+  "hamiltonian_growth": 0.8771646413657929,
+  "constraint_ok": true,
+  "growth_from_t0_at_T": 83.09099144518594,
+  "passed": true
+ },
+ "passed": true
+}
