@@ -1,0 +1,38 @@
+{
+ "registration_commit": "1391395",
+ "b2a": {
+  "points": [
+   13,
+   25,
+   49
+  ],
+  "errors": [
+   0.14662572761804432,
+   0.02494408566254092,
+   0.006527215354917391
+  ],
+  "observed_orders": [
+   2.555368574778894,
+   1.9341582430446669
+  ],
+  "passed": false
+ },
+ "b2b_run01": {
+  "invalid": "pulse auxiliaries used width 0.12 instead of 0.1",
+  "nx17": 2.5275346547840325,
+  "nx33": "stopped"
+ },
+ "b2b_run02": {
+  "registration_commit": "82287a9",
+  "points": [
+   17,
+   33
+  ],
+  "residuals": [
+   3.0330415917573115,
+   0.2523937571428937
+  ],
+  "observed_order": 3.5870171502137946,
+  "passed": false
+ }
+}
