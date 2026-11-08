@@ -38,8 +38,21 @@ Runs concurrently with B2 quick, 10 SAT workers; `run_b2.py long` then `summariz
 runner only writes at the end) with `LinAlgError: SVD did not converge` in a characteristic
 split, so the gate "finite to T = 10" is not met. A post-hoc diagnostic,
 `experiments/b2_boundaries/diagnose_long.py` (same setup, logs per-group errors every 20 steps,
-records whether the state was still finite on failure), is running to find out whether this was
+records whether the state was still finite on failure), was run to find out whether this was
 a blow-up; it counts toward no gate.
+
+**Diagnostic result:** the failure is deterministic at step 902 (t = 2.227) and is *not* a
+blow-up. Up to that step the error stays bounded at 0.03–0.06 A (largest in Ã and D at
+face-adjacent nodes), lapse and chi stay 1 to 1e-11, SAT terms ~1e-8, basis condition 26. The
+state was finite. At face point (x = 1, j = 1, k = 7) NumPy 2.2.6's bundled LAPACK SVD fails to
+converge on a finite 47 × 47 matrix of norm 15.5; SciPy's gesdd and gesvd both succeed on the
+same matrix with the same singular values. `parallel_sat.robust_local_split` now repeats only a
+failing call with SciPy's gesvd (the bound `local_split` is unchanged; fallbacks are counted;
+regression test with the exact face point). `run_long` now also writes `long-partial.json`
+after every sample.
+
+**Run 02** (registered 2026-11-08 after the diagnostic, before the run): same gate, grid and
+settings, with the SVD fallback; 20 SAT workers; output `outputs/b2c-20261108-02/`.
 
 ## What exists
 

@@ -65,7 +65,7 @@ def make_grid(nx):
                   boundary="sbp-volume", spatial_order=4)
 
 
-def evolve(nx, final_time, *, profile, outgoing_free, samples=None):
+def evolve(nx, final_time, *, profile, outgoing_free, samples=None, on_sample=None):
     """RK4 with SAT targets from the exact solution at each stage time.
 
     outgoing_free: the x = 1 face receives the flat background as incoming data (radiative
@@ -104,6 +104,8 @@ def evolve(nx, final_time, *, profile, outgoing_free, samples=None):
         t = (step + 1) * dt
         if samples and abs(t - round(t)) < 1e-12 and int(round(t)) in samples:
             trace.append([float(round(t)), float(np.max(np.abs(q - exact(t)))) / AMPLITUDE])
+            if on_sample:
+                on_sample(trace)
     return dict(grid=grid, cube=cube, q=q, exact=exact, flat=flat, dt=dt, steps=total,
                 seconds=time.perf_counter() - start, trace=trace)
 
@@ -128,7 +130,12 @@ def run_reflect(nx, out):
 
 def run_long(out):
     units = list(range(1, int(LONG["final_time"]) + 1))
-    r = evolve(LONG["points"], LONG["final_time"], profile="sine", outgoing_free=False, samples=units)
+    def partial(trace):  # progress file, so a crash still leaves the samples so far
+        write(out / "long-partial.json", dict(nx=LONG["points"], samples=trace))
+        print(json.dumps(dict(sample=trace[-1])), flush=True)
+
+    r = evolve(LONG["points"], LONG["final_time"], profile="sine", outgoing_free=False, samples=units,
+               on_sample=partial)
     write(out / "long.json", dict(nx=LONG["points"], dt=r["dt"], samples=r["trace"], seconds=r["seconds"]))
     print(json.dumps(dict(final=r["trace"][-1], seconds=round(r["seconds"]))), flush=True)
 

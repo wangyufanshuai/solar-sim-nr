@@ -7,6 +7,12 @@ cache key, a persistent process pool runs local_split and split.penalty for each
 the 58-component penalties come back. Every number is produced by the same functions in the same
 order, so the RHS is bitwise identical to NonlinearSBPCube.rhs (checked in
 tests/test_b2_parallel_sat.py).
+
+SVD fallback: NumPy 2.2.6's bundled LAPACK SVD failed to converge on a finite, well-scaled 47 x 47
+matrix in B2-c run 01 (face point in tests/test_b2_parallel_sat.py). When local_split raises
+LinAlgError, that one call is repeated with np.linalg.svd temporarily routed to SciPy's gesvd
+driver (same full (u, s, vh) contract); all other calls are unchanged, so the pooled RHS is still
+bitwise identical whenever no fallback happens. The number of fallbacks is reported.
 """
 
 from __future__ import annotations
@@ -21,12 +27,26 @@ from science.numerical_relativity.fo_ccz4_principal_symbol import _rhs_component
 from science.numerical_relativity.fo_ccz4_sbp_nonlinear import face, local_split, require
 
 
+def robust_local_split(*args, **kwargs):
+    """local_split; on LinAlgError, the same call with SciPy's gesvd SVD. Returns (split, fell_back)."""
+    try:
+        return local_split(*args, **kwargs), False
+    except np.linalg.LinAlgError:
+        import scipy.linalg
+        numpy_svd = np.linalg.svd
+        np.linalg.svd = lambda a: scipy.linalg.svd(a, full_matrices=True, lapack_driver="gesvd")
+        try:
+            return local_split(*args, **kwargs), True
+        finally:
+            np.linalg.svd = numpy_svd
+
+
 def _penalties(job):
     """Worker: one split per key, then the penalty for each (jump, side, weight) of that key."""
     (h, chi, alpha, beta, axis, gauge, config, profile), items = job
-    split = local_split(h, chi, alpha, beta, axis, gauge=gauge, config=config, profile=profile)
+    split, fell_back = robust_local_split(h, chi, alpha, beta, axis, gauge=gauge, config=config, profile=profile)
     return ([split.penalty(jump, side, weight) for jump, side, weight in items],
-            split.condition, max(split.residual, split.symmetry_residual))
+            split.condition, max(split.residual, split.symmetry_residual), fell_back)
 
 
 class ParallelSATMixin:
@@ -71,6 +91,7 @@ class ParallelSATMixin:
         outputs = dict(zip(keys, self._executor().map(_penalties, [groups[k] for k in keys], chunksize=8)))
         worst_condition = max(o[1] for o in outputs.values())
         worst_residual = max(o[2] for o in outputs.values())
+        svd_fallbacks = sum(o[3] for o in outputs.values())
         face_rows = []
         for axis in range(3):
             for side in range(2):
@@ -84,7 +105,7 @@ class ParallelSATMixin:
         require(np.all(np.isfinite(result)), "nonfinite coupled nonlinear RHS")
         require(np.array_equal(result[:11], bulk[:11]), "SAT modified ODE equations")
         report = dict(cfl=cfl, coefficients_sha256=hashlib.sha256(q[:11].tobytes()).hexdigest(),
-                      basis_builds=len(groups), max_basis_condition=worst_condition,
+                      basis_builds=len(groups), svd_fallbacks=svd_fallbacks, max_basis_condition=worst_condition,
                       max_characteristic_residual=worst_residual, faces=face_rows,
                       sat_max_abs=max(row["sat_max_abs"] for row in face_rows),
                       min_lapse=float(np.min(state.base.lapse)), min_chi=float(np.min(state.base.chi)),
