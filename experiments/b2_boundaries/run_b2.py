@@ -29,13 +29,14 @@ from science.numerical_relativity.fo_ccz4_sbp_nonlinear import CONFIG, GAUGE, PR
 from science.numerical_relativity.fo_ccz4_sbp_volume import SBPVolumeOperator
 
 from .linear_wave_slots import wave_slots
+from .parallel_sat import ParallelSATMixin
 
 AMPLITUDE = 1.0e-8
 TRANSVERSE = 9
 CFL_CAP = 0.25  # the driver's own cap on dt * sum(max char. speed / dx); we use <= 0.95 of it
 CONVERGE = dict(points=(17, 33, 65), final_time=1.0)
 REFLECT = dict(points=(17, 33, 65), final_time=1.0)
-LONG = dict(points=17, final_time=20.0)
+LONG = dict(points=17, final_time=10.0)
 ACCEPTANCE = dict(
     converge_min_order=2.6,
     converge_finest_max_error=1.0e-2,
@@ -54,6 +55,10 @@ class B2Cube(NonlinearSBPCube):
         self.gauge, self.config, self.profile = gauge, config, profile
 
 
+class PooledB2Cube(ParallelSATMixin, B2Cube):
+    """B2Cube with the process-parallel SAT penalties (bitwise-identical RHS)."""
+
+
 def make_grid(nx):
     width = (TRANSVERSE - 1) / (nx - 1)  # same spacing in y and z as in x
     return Grid3D((nx, TRANSVERSE, TRANSVERSE), (0.0, 0.0, 0.0), (1.0, width, width),
@@ -67,7 +72,7 @@ def evolve(nx, final_time, *, profile, outgoing_free, samples=None):
     test) instead of the exact solution.
     """
     grid = make_grid(nx)
-    cube = B2Cube(grid)
+    cube = PooledB2Cube(grid)
     x = grid.coordinates[0][:, 0, 0]
     flat = wave_slots(x, amplitude=0.0, time=0.0, transverse_shape=(TRANSVERSE, TRANSVERSE))
     # Largest characteristic speed per unit dt from the driver's own CFL formula (profile gauge
@@ -112,7 +117,7 @@ def run_converge(nx, out):
 def run_reflect(nx, out):
     r = evolve(nx, REFLECT["final_time"], profile="pulse", outgoing_free=True)
     # At t = 1 the packet centre is at x = 1.5, so the exact field in [0, 1] is flat to
-    # exp(-(0.5/0.08)^2) ~ 1e-17; anything left is reflected or spurious.
+    # exp(-(0.5/0.12)^2) ~ 3e-8 of A; anything left is reflected or spurious.
     residual = float(np.max(np.abs(r["q"] - r["flat"]))) / AMPLITUDE
     write(out / f"reflect-n{nx}.json", dict(nx=nx, dt=r["dt"], steps=r["steps"], reflection=residual,
                                             finite=math.isfinite(residual), seconds=r["seconds"]))

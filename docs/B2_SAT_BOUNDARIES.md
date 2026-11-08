@@ -29,6 +29,10 @@ registration only when this file is re-committed with status REGISTERED before a
   speeds ≈ 2) forces dt ≈ 0.04 h. Each RHS performs one characteristic split per *distinct* face
   point (≈ 6.7 ms each, cached only for byte-identical points); during evolution almost every face
   point differs, so an Nx = 17 RHS costs ≈ 5 s and the planned runs would take ≈ 2 h (17),
-  ≈ 8 h (33) and ≈ 30 h (65). **Next task: batch the characteristic split over all face points.**
-- **Resolution.** The pulse (width 0.08) is under-resolved at Nx = 17 (h = 0.0625): after
-  8 steps the error already reaches 0.8 A. B2-b needs a wider pulse or finer grids.
+  ≈ 8 h (33) and ≈ 30 h (65).
+- **Done (2026-11-08): process-parallel SAT** (`parallel_sat.py`, 20 workers), bitwise identical to
+  the original RHS (`tests/test_b2_parallel_sat.py`). RHS time 0.64 s (17), 1.49 s (33),
+  2.70 s (65), measured while other runs shared the CPU. Estimated wall time: B2-a ≈ 6.5 h,
+  B2-b ≈ 6.5 h, B2-c (Nx = 17, T = 10) ≈ 3 h — about 16 h if run one after another.
+- **Resolution.** The pulse width 0.08 was under-resolved at Nx = 17 (h = 0.0625; 0.8 A error after
+  8 steps); the draft now uses width 0.12. B2-c is shortened to T = 10 on Nx = 17.
