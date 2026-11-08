@@ -34,6 +34,13 @@ count. **Run 02** uses the same gate, grids and settings with the fixed slots, o
 
 Runs concurrently with B2 quick, 10 SAT workers; `run_b2.py long` then `summarize-long`.
 
+**Run 01 failed (2026-11-08):** it stopped at roughly t ≈ 2 (estimated from wall time; the
+runner only writes at the end) with `LinAlgError: SVD did not converge` in a characteristic
+split, so the gate "finite to T = 10" is not met. A post-hoc diagnostic,
+`experiments/b2_boundaries/diagnose_long.py` (same setup, logs per-group errors every 20 steps,
+records whether the state was still finite on failure), is running to find out whether this was
+a blow-up; it counts toward no gate.
+
 ## What exists
 
 - `sbp_boundary_operator.py`: SBP(4,2) first derivative (Mattsson–Nordström 2004), coefficients
