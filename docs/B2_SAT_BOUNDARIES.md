@@ -1,7 +1,7 @@
 # B2 — SBP-SAT outer boundaries
 
 Status: **B2 quick (B2-a, B2-b) REGISTERED, NOT RUN** — reduced to fit a ~2 h run at the owner's
-request (2026-11-08); committed before the run. B2-c and CPBC are deferred.
+request (2026-11-08); committed before the run. B2-c is registered below; CPBC is deferred.
 
 ## Registered gates (B2 quick; `experiments/b2_boundaries/run_b2.py`, ACCEPTANCE)
 
@@ -13,6 +13,14 @@ request (2026-11-08); committed before the run. B2-c and CPBC are deferred.
 dt is the largest step with dt·Σ(max characteristic speed/dx) ≤ 0.95 × 0.25 (the driver's cap),
 rounded so each time unit has an integer number of steps. The two parts run concurrently with
 10 SAT workers each (memory). Each part is run once; a changed rerun is a new registration.
+
+## Registered gate (B2-c, added 2026-11-08 while B2 quick was running, before any B2-c run)
+
+| ID | Setup | Pass if |
+| --- | --- | --- |
+| B2-c | sine TT wave, exact incoming data on all faces, Nx = 17, T = 10, error sampled each unit | finite to T = 10; slope of ln(error) over [5, 10] ≤ 0.02 per crossing time |
+
+Runs concurrently with B2 quick, 10 SAT workers; `run_b2.py long` then `summarize-long`.
 
 ## What exists
 

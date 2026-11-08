@@ -36,7 +36,8 @@ TRANSVERSE = 9
 CFL_CAP = 0.25  # the driver's own cap on dt * sum(max char. speed / dx); we use <= 0.95 of it
 CONVERGE = dict(points=(13, 25, 49), final_time=0.25)
 REFLECT = dict(points=(17, 33), final_time=0.6, centre=0.8, width=0.1)
-LONG = dict(points=17, final_time=10.0)  # B2-c: deferred, not part of this registration
+LONG = dict(points=17, final_time=10.0)  # B2-c, registered separately (summarize_long)
+LONG_ACCEPTANCE = dict(max_late_log_slope=0.02)
 ACCEPTANCE = dict(
     converge_min_order=2.6,
     converge_finest_max_error=1.0e-2,
@@ -158,6 +159,20 @@ def summarize(out):
     print(json.dumps(result, indent=1))
 
 
+def summarize_long(out):
+    long = json.loads((out / "long.json").read_text())
+    t = np.array([s[0] for s in long["samples"]])
+    e = np.array([s[1] for s in long["samples"]])
+    complete = bool(np.all(np.isfinite(e))) and t[-1] >= LONG["final_time"]
+    late = t >= LONG["final_time"] / 2
+    slope = float(np.polyfit(t[late], np.log(e[late]), 1)[0]) if complete else math.inf
+    result = dict(acceptance=LONG_ACCEPTANCE, complete=complete, late_log_slope=slope,
+                  error_at={str(int(x)): float(y) for x, y in zip(t, e)},
+                  passed=complete and slope <= LONG_ACCEPTANCE["max_late_log_slope"])
+    write(out / "summary-long.json", result)
+    print(json.dumps(result, indent=1))
+
+
 def write(path, payload):
     payload = {k: v for k, v in payload.items() if k not in ("grid", "cube", "q", "exact", "flat")}
     payload.update(python=platform.python_version(), numpy=np.__version__, platform=platform.platform())
@@ -166,7 +181,7 @@ def write(path, payload):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("part", choices=("converge", "reflect", "long", "summarize"))
+    parser.add_argument("part", choices=("converge", "reflect", "long", "summarize", "summarize-long"))
     parser.add_argument("--nx", type=int, default=33)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
@@ -177,8 +192,10 @@ def main():
         run_reflect(args.nx, args.out)
     elif args.part == "long":
         run_long(args.out)
-    else:
+    elif args.part == "summarize":
         summarize(args.out)
+    else:
+        summarize_long(args.out)
 
 
 if __name__ == "__main__":
