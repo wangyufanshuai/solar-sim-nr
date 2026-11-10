@@ -47,6 +47,19 @@ relative and every gate verdict is unchanged. Wall time is reported.
 Result: passed, worst relative difference 5.4e-8; B1-b long run 4578 s → 39 s
 ([B3_NATIVE_EVOLUTION_20261110.md](B3_NATIVE_EVOLUTION_20261110.md)).
 
+**B3 step 3 — native SBP volume and SAT (registered 2026-11-10, before the SAT comparison).**
+(a) SBP(4,2) derivatives and the field-dependent gauge profile in the native volume RHS
+(`tests/test_native_sbp.py`: ≤ 1e-12 per slot against `SBPVolumeOperator.rhs`; passed while
+this entry was written). (b) Native characteristic SAT: the principal matrix assembled in C++
+(port of `fo_ccz4_frozen_symbol.frozen_fo_ccz4_principal_matrix_3d`), split with the existing
+bound `cpp/characteristic_component/characteristic_split.hpp` (`split47`, NumPy's own bundled
+OpenBLAS LAPACK), OpenMP over face points; a point whose LAPACK call fails is handed back to the
+Python `robust_local_split`. Pass if, on B2 states (sine and pulse data, nonuniform transverse
+noise), the full native volume+SAT RHS equals `NonlinearSBPCube.rhs` (the pooled-identical B2
+RHS) to ≤ 1e-11 of each slot's RHS scale, and one Nx = 17 B2 RHS is ≥ 20× faster than the
+20-worker pooled Python RHS (0.64 s measured on 2026-11-08). Rerunning B2 itself is a later,
+separate registration.
+
 Rules: one physical result per milestone, each with its error against a reference; gates are
 committed before the run; failures are kept; post-hoc gate changes are disclosed; no new
 audit/receipt machinery beyond what a result needs.

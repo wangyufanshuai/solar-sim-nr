@@ -37,16 +37,21 @@ def _load():
         if not LIBRARY.exists():
             raise FileNotFoundError(f"{LIBRARY} not built; run `python -m kernel.native_rhs build`")
         lib = ctypes.CDLL(str(LIBRARY))
-        f = lib.fo_ccz4_rhs_periodic
+        f = lib.fo_ccz4_rhs
         p = ctypes.POINTER(ctypes.c_double)
-        f.argtypes = [p, p, ctypes.c_int, ctypes.c_int, ctypes.c_int, p, ctypes.c_int, p, ctypes.c_int]
+        f.argtypes = [p, p, ctypes.c_int, ctypes.c_int, ctypes.c_int, p, ctypes.c_int,
+                      ctypes.POINTER(ctypes.c_int), p, ctypes.c_int]
         f.restype = ctypes.c_int
         _lib = lib
     return _lib
 
 
-def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None):
-    """RHS of the 58 canonical slots q[58, nx, ny, nz] on a periodic grid."""
+def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes=(0, 0, 0), profile=None):
+    """RHS of the 58 canonical slots q[58, nx, ny, nz].
+
+    sbp_axes: per axis 1 = SBP(4,2) (non-periodic, order 4 only), 0 = periodic.
+    profile: an FOCCZ4GaugeProfile (field-dependent f, mu) or None (constant coefficients).
+    """
     q = np.ascontiguousarray(q, dtype=np.float64)
     if q.ndim != 4 or q.shape[0] != 58:
         raise ValueError("q must have shape (58, nx, ny, nz)")
@@ -56,14 +61,18 @@ def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None):
         raise ValueError("FO-CCZ4 requires advective gauge with theta_coupling=2*c")
     params = np.array([gauge.lapse_coefficient, gauge.shift_coefficient, gauge.shift_damping,
                        config.kappa1, config.kappa2, config.kappa3, config.cleaning_speed,
-                       config.ordering_mu, config.shift_strength, config.tau_inverse, config.k0, config.c],
+                       config.ordering_mu, config.shift_strength, config.tau_inverse, config.k0, config.c,
+                       1.0 if profile is not None else 0.0,
+                       profile.shift_scale if profile is not None else 0.0,
+                       profile.ordering_scale if profile is not None else 0.0],
                       dtype=np.float64)
     h = np.ascontiguousarray(spacing, dtype=np.float64)
     out = np.empty_like(q)
     dp = ctypes.POINTER(ctypes.c_double)
     threads = int(threads or os.environ.get("NR_THREADS", os.cpu_count() or 1))
-    status = _load().fo_ccz4_rhs_periodic(q.ctypes.data_as(dp), out.ctypes.data_as(dp), *q.shape[1:],
-                                          h.ctypes.data_as(dp), order, params.ctypes.data_as(dp), threads)
+    axes = (ctypes.c_int * 3)(*[int(bool(a)) for a in sbp_axes])
+    status = _load().fo_ccz4_rhs(q.ctypes.data_as(dp), out.ctypes.data_as(dp), *q.shape[1:],
+                                 h.ctypes.data_as(dp), order, axes, params.ctypes.data_as(dp), threads)
     if status:
         raise ValueError(f"native RHS rejected its input (status {status})")
     return out

@@ -5,6 +5,11 @@
 // gauge_profile=None (constant f and mu) on a periodic grid:
 //   FD2: (f[i+1] - f[i-1]) / (2h)
 //   FD4: (8 (f[i+1] - f[i-1]) - (f[i+2] - f[i-2])) / (12h)
+// Non-periodic axes use the SBP(4,2) operator of science/numerical_relativity/sbp_boundary_operator.py
+// (Mattsson-Nordstrom 2004: four order-2 boundary rows per face, order-4 interior), as used by
+// fo_ccz4_sbp_volume.SBPVolumeOperator. The optional field-dependent gauge profile
+// (fo_ccz4_gauge_profile: f = shift_scale alpha chi, mu = ordering_scale chi, plus the product-rule
+// source in the B equation) matches gauge_profile != None.
 // Differences from the Python reference are rounding only: the 3x3 inverse uses the
 // adjugate formula instead of LU, and sums are accumulated in a fixed loop order.
 // Built with -ffp-contract=off so no fused multiply-adds change the rounding further.
@@ -28,10 +33,21 @@ inline int sym_index(int i, int j) {
 struct Params {
   double lapse_coefficient, shift_coefficient, shift_damping;
   double kappa1, kappa2, kappa3, cleaning_speed, ordering_mu, shift_strength, tau_inverse, k0, c;
+  double profile, shift_scale, ordering_scale;  // profile = 1: field-dependent f and mu
 };
+
+// SBP(4,2) boundary rows (left face); the right face mirrors them with opposite sign.
+constexpr double SBP_ROWS[4][6] = {
+    {-24.0 / 17, 59.0 / 34, -4.0 / 17, -3.0 / 34, 0, 0},
+    {-1.0 / 2, 0.0, 1.0 / 2, 0, 0, 0},
+    {4.0 / 43, -59.0 / 86, 0.0, 59.0 / 86, -4.0 / 43, 0},
+    {3.0 / 98, 0.0, -59.0 / 98, 0.0, 32.0 / 49, -4.0 / 49}};
+constexpr int SBP_LEN[4] = {4, 3, 5, 6};
 
 struct Grid {
   int nx, ny, nz, order;
+  int sbp[3];     // 1: SBP(4,2) on this axis, 0: periodic
+  double h[3];
   double inv[3];  // 1/(2h) for FD2, 1/(12h) for FD4
   std::int64_t stride[3];
   int n[3];
@@ -48,6 +64,20 @@ inline double d1(const double* q, const Grid& g, int slot, int axis, int i, int 
     p[axis] = ((p[axis] + offset) % m + m) % m;
     return f[(static_cast<std::int64_t>(p[0]) * g.ny + p[1]) * g.nz + p[2]];
   };
+  if (g.sbp[axis]) {
+    const int m = g.n[axis], x = idx[axis];
+    auto node = [&](int position) { return at(position - x); };
+    if (x >= 4 && x < m - 4)  // same pairing as SBP42.derivative: ((q-2 - q+2) + 8 (q+1 - q-1)) / 12 / h
+      return (node(x - 2) - node(x + 2) + 8.0 * (node(x + 1) - node(x - 1))) / 12.0 / g.h[axis];
+    double v = 0.0;
+    if (x < 4) {
+      for (int t = 0; t < SBP_LEN[x]; ++t) v += SBP_ROWS[x][t] * (node(t) - node(x));
+    } else {
+      const int r = m - 1 - x;
+      for (int t = 0; t < SBP_LEN[r]; ++t) v -= SBP_ROWS[r][t] * (node(m - 1 - t) - node(x));
+    }
+    return v / g.h[axis];
+  }
   if (g.order == 4) return (8.0 * (at(1) - at(-1)) - (at(2) - at(-2))) * g.inv[axis];
   return (at(1) - at(-1)) * g.inv[axis];
 }
@@ -223,6 +253,9 @@ void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int
   const double scalar = chi * scalar_sum;
 
   // ---- volume RHS (_fo_ccz4_volume_rhs_3d)
+  const bool profile = c.profile != 0.0;
+  const double shift_f = profile ? c.shift_scale * alpha * chi : c.shift_coefficient;
+  const double ordering_mu = profile ? c.ordering_scale * chi : c.ordering_mu;
   const double sS = c.shift_strength, G = c.lapse_coefficient, cc_ = c.c, tau = c.tau_inverse;
   double trA = 0.0;
   for (int a = 0; a < 3; ++a)
@@ -299,7 +332,7 @@ void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int
   ln_lapse -= G * (K - c.k0 - 2.0 * cc_ * Th);
   double shift_r[3];
   for (int a = 0; a < 3; ++a)
-    shift_r[a] = sS * ((beta[0] * B[0][a] + beta[1] * B[1][a] + beta[2] * B[2][a]) + c.shift_coefficient * bb[a]);
+    shift_r[a] = sS * ((beta[0] * B[0][a] + beta[1] * B[1][a] + beta[2] * B[2][a]) + shift_f * bb[a]);
   double ln_phi = beta[0] * P[0] + beta[1] * P[1] + beta[2] * P[2];
   ln_phi += (alpha * K - divb) / 3.0;
 
@@ -367,7 +400,8 @@ void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int
   for (int d = 0; d < 3; ++d)
     for (int cp = 0; cp < 3; ++cp) {
       double v = sS * (beta[0] * dB[0][d][cp] + beta[1] * dB[1][d][cp] + beta[2] * dB[2][d][cp]);
-      v += sS * c.shift_coefficient * dbb[d][cp];
+      v += sS * shift_f * dbb[d][cp];
+      if (profile) v += sS * shift_f * (A[d] + 2.0 * P[d]) * bb[cp];
       double curl_p = 0.0, curl_d = 0.0;
       for (int m = 0; m < 3; ++m) {
         curl_p += hi[cp][m] * (dP[d][m] - dP[m][d]);
@@ -376,7 +410,7 @@ void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int
           for (int di = 0; di < 3; ++di) dterm += hi[u][di] * (dD[d][di][m][u] - dD[di][d][m][u]);
         curl_d += hi[cp][m] * dterm;
       }
-      v += sS * alpha * alpha * c.ordering_mu * (curl_p - curl_d);
+      v += sS * alpha * alpha * ordering_mu * (curl_p - curl_d);
       v += sS * (B[d][0] * B[0][cp] + B[d][1] * B[1][cp] + B[d][2] * B[2][cp]);
       auxB[d][cp] = v;
     }
@@ -441,22 +475,26 @@ extern "C" {
 
 // Returns 0 on success, nonzero on invalid input. params: lapse_coefficient, shift_coefficient,
 // shift_damping, kappa1, kappa2, kappa3, cleaning_speed, ordering_mu, shift_strength,
-// tau_inverse, k0, c (12 values).
+// tau_inverse, k0, c, profile (0/1), shift_scale, ordering_scale (15 values).
+// sbp_axes[a] = 1 selects SBP(4,2) (order 4 only) on axis a, 0 periodic.
 #ifdef _WIN32
 __declspec(dllexport)
 #endif
-int fo_ccz4_rhs_periodic(const double* q, double* out, int nx, int ny, int nz,
-                         const double* spacing, int order, const double* params, int threads) {
-  if (!q || !out || !spacing || !params || nx < 5 || ny < 5 || nz < 5 || (order != 2 && order != 4)) return 1;
+int fo_ccz4_rhs(const double* q, double* out, int nx, int ny, int nz,
+                const double* spacing, int order, const int* sbp_axes, const double* params, int threads) {
+  if (!q || !out || !spacing || !params || !sbp_axes || nx < 5 || ny < 5 || nz < 5 || (order != 2 && order != 4)) return 1;
   Grid g{};
   g.nx = nx; g.ny = ny; g.nz = nz; g.order = order;
   g.n[0] = nx; g.n[1] = ny; g.n[2] = nz;
   for (int a = 0; a < 3; ++a) {
     if (!(spacing[a] > 0.0)) return 2;
+    g.sbp[a] = sbp_axes[a] ? 1 : 0;
+    if (g.sbp[a] && (order != 4 || g.n[a] < 9)) return 3;
+    g.h[a] = spacing[a];
     g.inv[a] = 1.0 / ((order == 4 ? 12.0 : 2.0) * spacing[a]);
   }
-  const Params c{params[0], params[1], params[2], params[3], params[4], params[5],
-                 params[6], params[7], params[8], params[9], params[10], params[11]};
+  const Params c{params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7],
+                 params[8], params[9], params[10], params[11], params[12], params[13], params[14]};
   const std::int64_t total = static_cast<std::int64_t>(nx) * ny * nz;
 #pragma omp parallel for schedule(static) num_threads(threads > 0 ? threads : 1)
   for (std::int64_t p = 0; p < total; ++p) {
