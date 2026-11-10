@@ -38,6 +38,13 @@ The field-dependent gauge profile and the non-periodic boundary modes stay in Py
 Result: agreement ≤ 1.6e-13 per slot; 12× single-threaded, 151× with 24 threads at Nx = 32
 ([B3_NATIVE_RHS_20261110.md](B3_NATIVE_RHS_20261110.md)).
 
+**B3 step 2 — native RK4 reproduces S2 and B1 (registered 2026-11-10, before the runs).**
+`kernel/native_evolve.py` (RK4 on the 58 slots with the native RHS; B1's harmonic correction on
+the slots) reruns the recorded cases with identical settings: S2-a (FD2, FD4; Nx 16/32/64),
+S2-b (Nx 32 FD4, CFL 0.8/0.4/0.2 vs 0.1), B1-a (A = 0.01, 0.1; FD2, FD4; Nx 16/32/64) and B1-b
+(A = 0.01, Nx 32, T = 100). Pass if every recorded error / difference is reproduced to ≤ 1 %
+relative and every gate verdict is unchanged. Wall time is reported.
+
 Rules: one physical result per milestone, each with its error against a reference; gates are
 committed before the run; failures are kept; post-hoc gate changes are disclosed; no new
 audit/receipt machinery beyond what a result needs.
