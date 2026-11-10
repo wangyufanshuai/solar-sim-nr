@@ -44,6 +44,8 @@ the slots) reruns the recorded cases with identical settings: S2-a (FD2, FD4; Nx
 S2-b (Nx 32 FD4, CFL 0.8/0.4/0.2 vs 0.1), B1-a (A = 0.01, 0.1; FD2, FD4; Nx 16/32/64) and B1-b
 (A = 0.01, Nx 32, T = 100). Pass if every recorded error / difference is reproduced to ≤ 1 %
 relative and every gate verdict is unchanged. Wall time is reported.
+Result: passed, worst relative difference 5.4e-8; B1-b long run 4578 s → 39 s
+([B3_NATIVE_EVOLUTION_20261110.md](B3_NATIVE_EVOLUTION_20261110.md)).
 
 Rules: one physical result per milestone, each with its error against a reference; gates are
 committed before the run; failures are kept; post-hoc gate changes are disclosed; no new
