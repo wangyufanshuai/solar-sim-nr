@@ -1,0 +1,73 @@
+"""ctypes wrapper for the native periodic FO-CCZ4 volume RHS (B3 step 1, kernel/fo_ccz4_rhs.cpp).
+
+Works on the canonical 58-slot layout. Only the case the native code implements is accepted:
+periodic grid, FD2/FD4, gauge_profile=None (constant f, mu). Everything else stays in Python.
+
+    python -m kernel.native_rhs build      # compiles kernel/build/fo_ccz4_rhs.dll with g++
+"""
+
+from __future__ import annotations
+
+import ctypes
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+LIBRARY = HERE / "build" / ("fo_ccz4_rhs.dll" if os.name == "nt" else "libfo_ccz4_rhs.so")
+FLAGS = ["-O3", "-std=c++17", "-fopenmp", "-ffp-contract=off", "-fno-fast-math", "-shared"]
+_lib = None
+
+
+def build(compiler: str | None = None) -> Path:
+    compiler = compiler or shutil.which("g++") or "g++"
+    LIBRARY.parent.mkdir(parents=True, exist_ok=True)
+    extra = ["-static"] if os.name == "nt" else ["-fPIC"]
+    subprocess.run([compiler, *FLAGS, *extra, "-o", str(LIBRARY), str(HERE / "fo_ccz4_rhs.cpp")], check=True)
+    return LIBRARY
+
+
+def _load():
+    global _lib
+    if _lib is None:
+        if not LIBRARY.exists():
+            raise FileNotFoundError(f"{LIBRARY} not built; run `python -m kernel.native_rhs build`")
+        lib = ctypes.CDLL(str(LIBRARY))
+        f = lib.fo_ccz4_rhs_periodic
+        p = ctypes.POINTER(ctypes.c_double)
+        f.argtypes = [p, p, ctypes.c_int, ctypes.c_int, ctypes.c_int, p, ctypes.c_int, p, ctypes.c_int]
+        f.restype = ctypes.c_int
+        _lib = lib
+    return _lib
+
+
+def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None):
+    """RHS of the 58 canonical slots q[58, nx, ny, nz] on a periodic grid."""
+    q = np.ascontiguousarray(q, dtype=np.float64)
+    if q.ndim != 4 or q.shape[0] != 58:
+        raise ValueError("q must have shape (58, nx, ny, nz)")
+    if order not in (2, 4):
+        raise ValueError("order must be 2 or 4")
+    if not gauge.advective or gauge.theta_coupling != 2.0 * config.c:
+        raise ValueError("FO-CCZ4 requires advective gauge with theta_coupling=2*c")
+    params = np.array([gauge.lapse_coefficient, gauge.shift_coefficient, gauge.shift_damping,
+                       config.kappa1, config.kappa2, config.kappa3, config.cleaning_speed,
+                       config.ordering_mu, config.shift_strength, config.tau_inverse, config.k0, config.c],
+                      dtype=np.float64)
+    h = np.ascontiguousarray(spacing, dtype=np.float64)
+    out = np.empty_like(q)
+    dp = ctypes.POINTER(ctypes.c_double)
+    threads = int(threads or os.environ.get("NR_THREADS", os.cpu_count() or 1))
+    status = _load().fo_ccz4_rhs_periodic(q.ctypes.data_as(dp), out.ctypes.data_as(dp), *q.shape[1:],
+                                          h.ctypes.data_as(dp), order, params.ctypes.data_as(dp), threads)
+    if status:
+        raise ValueError(f"native RHS rejected its input (status {status})")
+    return out
+
+
+if __name__ == "__main__" and sys.argv[1:] == ["build"]:
+    print(build())

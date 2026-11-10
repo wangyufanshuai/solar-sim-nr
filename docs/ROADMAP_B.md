@@ -20,7 +20,23 @@ so the GPU is not a shortcut for double-precision NR). Memory is the hard limit.
 | B5 quasi-circular binary | inspiral–merger–ringdown; mismatch vs SXS ≤ 1e-2, then lower | 6–18 months, probably with rented compute bursts |
 
 Progress (2026-11-08): B1 passed ([B1_RESULTS_20261108.md](B1_RESULTS_20261108.md)); the A = 0.1
-long run (reported only) blew up at t ≈ 22. B2 quick and B2-c are running.
+long run (reported only) blew up at t ≈ 22.
+
+**B2: not passed, parked (owner's decision, 2026-11-10).** B2-a fails on order (~2 vs 2.6),
+B2-b on magnitude (0.25 A vs 1e-2); the face diagnostic points at the SAT treatment of the
+incoming speed-1 fields. B2-c has no verdict (run 02 interrupted at t = 3, error flat at
+0.031 A). Open items, to be picked up when the native kernel makes reruns cheap: speed-1 SAT
+accuracy, B2-c long run. Details: [B2_RESULTS_20261108.md](B2_RESULTS_20261108.md).
+
+**B3 step 1 — native FO-CCZ4 RHS (started 2026-11-10).** A C++/OpenMP port of the periodic
+volume RHS (`_fo_ccz4_volume_rhs_3d`, constant gauge coefficients, FD2/FD4), in the new
+top-level `kernel/` (outside the bound `science/` files), called through ctypes on the
+canonical 58-slot layout. Acceptance: on nonlinear periodic test states the native RHS
+agrees with the Python RHS to ≤ 1e-12 of the RHS scale in every slot (rounding only; no
+bitwise claim, since summation order differs), and is at least 20× faster at Nx = 32.
+The field-dependent gauge profile and the non-periodic boundary modes stay in Python.
+Result: agreement ≤ 1.6e-13 per slot; 12× single-threaded, 151× with 24 threads at Nx = 32
+([B3_NATIVE_RHS_20261110.md](B3_NATIVE_RHS_20261110.md)).
 
 Rules: one physical result per milestone, each with its error against a reference; gates are
 committed before the run; failures are kept; post-hoc gate changes are disclosed; no new
