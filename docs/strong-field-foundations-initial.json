@@ -1,0 +1,78 @@
+{
+ "scope": "foundations_only",
+ "amr": {
+  "rows": [
+   {
+    "coarse_n": 8,
+    "rms_error": 0.013422358031647113,
+    "max_parent_average_error": 1.1102230246251565e-16
+   },
+   {
+    "coarse_n": 16,
+    "rms_error": 0.0017260670951941097,
+    "max_parent_average_error": 1.1102230246251565e-16
+   },
+   {
+    "coarse_n": 32,
+    "rms_error": 0.00021693544103808447,
+    "max_parent_average_error": 1.1102230246251565e-16
+   }
+  ],
+  "observed_orders": [
+   2.9590776948310618,
+   2.9921508732132054
+  ],
+  "passed": false
+ },
+ "two_puncture_initial_data": [
+  {
+   "order": 2,
+   "spacings": [
+    0.1,
+    0.05,
+    0.025
+   ],
+   "fixed_probes": 204,
+   "hamiltonian_rms": [
+    0.0016197020772564328,
+    0.0004046955089469081,
+    0.00010115798310960685
+   ],
+   "observed_orders": [
+    2.000819728770516,
+    2.00022666107437
+   ],
+   "passed": true
+  },
+  {
+   "order": 4,
+   "spacings": [
+    0.1,
+    0.05,
+    0.025
+   ],
+   "fixed_probes": 204,
+   "hamiltonian_rms": [
+    6.006744881360051e-06,
+    4.2814511922315454e-07,
+    2.85113885644857e-08
+   ],
+   "observed_orders": [
+    3.8104116067697205,
+    3.908489670721179
+   ],
+   "passed": true
+  }
+ ],
+ "angular_projection": {
+  "synthetic": true,
+  "orthogonality_max_error": 8.881787080572127e-16,
+  "coefficient_recovery_max_error": 8.95090418262362e-16,
+  "passed": true
+ },
+ "amr_evolution": false,
+ "binary_evolution": false,
+ "physical_waveform": false,
+ "seconds": 0.07761159999790834,
+ "passed": false
+}

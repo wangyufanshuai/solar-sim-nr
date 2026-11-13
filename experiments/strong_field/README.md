@@ -24,3 +24,17 @@ infinity, or produce a physical waveform. Quadrature 12x24; all five m modes.
 Entry: python -B -m experiments.strong_field.foundations --out NEW_FILE.json
 Resource scope: arrays at most 64^3, one process, at most 600 seconds / 64 MiB output.
 This command does not invoke the registered full binary64 alignment campaign.
+
+
+## Registration correction after first observation
+
+The first run is preserved as docs/strong-field-foundations-initial.json and fails the
+registered AMR order-2 window: measured orders are 2.959 and 2.992. The expected
+order was wrong for this particular 2:1 cell-average transfer. A quadratic cell average
+at parent centre x is x^2+h^2/12; both child averages have the SAME curvature term,
+so the quadratic term cancels and centred slopes give exact child averages. For a cubic,
+coarse average x^3+x h^2/4 gives child error +/-9h^3/32. Thus the smooth transfer has
+third-order local accuracy. This derivation is checked with an additional polynomial
+probe test, specified here before its execution. The corrected sine order window is
+3 +/- .3. This is a disclosed post-hoc correction, not a pre-registered success; the
+initial failed result and original expectation remain visible. Existing NR gates are unchanged.
