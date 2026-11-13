@@ -38,3 +38,14 @@ third-order local accuracy. This derivation is checked with an additional polyno
 probe test, specified here before its execution. The corrected sine order window is
 3 +/- .3. This is a disclosed post-hoc correction, not a pre-registered success; the
 initial failed result and original expectation remain visible. Existing NR gates are unchanged.
+
+
+Measured: six tests passed, including the pre-specified cubic +/-9h^3/32 error.
+AMR parent-average error 1.11e-16; sine orders 2.9591, 2.9922 (corrected expectation).
+Two-puncture Hamiltonian orders: FD2 2.0008/2.0002; FD4 3.8104/3.9085.
+Angular orthogonality error 8.88e-16; synthetic coefficient recovery 8.95e-16.
+The corrected command completes in about 0.05 s here. Both initial and corrected raw
+records are tracked in docs/. The corrected expectation is explicitly post-hoc.
+Next required before physical applications: validated mesh-boundary evolution and
+refluxing for AMR; puncture gauge/outer boundaries and single-hole evolution before
+binary dynamics; metric/tetrad Psi4 extraction and radius/time convergence for waveforms.
