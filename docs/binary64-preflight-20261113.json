@@ -1,0 +1,20 @@
+{
+  "schema": "binary64-preflight-receipt-v1",
+  "registrationCommit": "a57ef77",
+  "verificationCommand": "python -B examples/reproduce_binary64_alignment.py --verify-inputs-only",
+  "verificationExitCode": 0,
+  "verificationManifestSha256": "dba2b44c3e010b2a0f56514ae7af291b8b6c42d2b5613583272a02b69cd89e02",
+  "preflightCommand": "python -B examples/reproduce_binary64_alignment.py --preflight-only --output outputs/binary64-preflight-20261113-r1",
+  "preflightExitCode": 2,
+  "preflightState": "NOT_STARTED",
+  "preflightReason": "need at least 4 GiB available RAM",
+  "numericalExecution": false,
+  "availableRamGiB": 2.07,
+  "totalRamGiB": 15.81,
+  "systemDiskFreeGiB": 12.45,
+  "outputDiskFreeGiB": 79.18,
+  "timeoutSeconds": 600,
+  "maxOutputBytes": 67108864,
+  "workerMemoryBytes": 1073741824,
+  "registeredMinimumAvailableRamBytes": 4294967296
+}
