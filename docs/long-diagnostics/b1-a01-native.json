@@ -1,0 +1,163 @@
+{
+ "case": "b1",
+ "target": 100,
+ "shape": [
+  32,
+  5,
+  5
+ ],
+ "dt": 0.0078125,
+ "threads": 1,
+ "backend": "native",
+ "status": "SCIENTIFIC_FAILURE",
+ "rows": [
+  {
+   "time": 1.0,
+   "error": 0.004955705270308487,
+   "python_error": 0.00495570527030016,
+   "relative_difference": 1.6802195107507551e-12
+  },
+  {
+   "time": 2.0,
+   "error": 0.00973424353834439,
+   "python_error": 0.009734243538335057,
+   "relative_difference": 9.58760921072199e-13
+  },
+  {
+   "time": 3.0,
+   "error": 0.014831981204500577,
+   "python_error": 0.01483198120450363,
+   "relative_difference": 2.0584662801434263e-13
+  },
+  {
+   "time": 4.0,
+   "error": 0.019949833687544216,
+   "python_error": 0.019949833687546437,
+   "relative_difference": 1.1130148170791083e-13
+  },
+  {
+   "time": 5.0,
+   "error": 0.0249965850343295,
+   "python_error": 0.024996585034404023,
+   "relative_difference": 2.9813560702549163e-12
+  },
+  {
+   "time": 6.0,
+   "error": 0.029971010167823275,
+   "python_error": 0.029971010168274997,
+   "relative_difference": 1.507196422837021e-11
+  },
+  {
+   "time": 7.0,
+   "error": 0.03489402120461213,
+   "python_error": 0.0348940212072317,
+   "relative_difference": 7.507220824581138e-11
+  },
+  {
+   "time": 8.0,
+   "error": 0.04068262797522815,
+   "python_error": 0.040682627936611815,
+   "relative_difference": 9.492093877070372e-10
+  },
+  {
+   "time": 9.0,
+   "error": 0.04926056122197098,
+   "python_error": 0.049260560991600255,
+   "relative_difference": 4.676575293925088e-09
+  },
+  {
+   "time": 10.0,
+   "error": 0.058492810147081076,
+   "python_error": 0.05849280877462226,
+   "relative_difference": 2.3463718737680097e-08
+  },
+  {
+   "time": 11.0,
+   "error": 0.06832946343636237,
+   "python_error": 0.06832945525442946,
+   "relative_difference": 1.1974239921132546e-07
+  },
+  {
+   "time": 12.0,
+   "error": 0.07871061951651659,
+   "python_error": 0.07871057071517862,
+   "relative_difference": 6.200099621598004e-07
+  },
+  {
+   "time": 13.0,
+   "error": 0.0894825129469029,
+   "python_error": 0.08948222172438736,
+   "relative_difference": 3.2545293348228415e-06
+  },
+  {
+   "time": 14.0,
+   "error": 0.10043324533353104,
+   "python_error": 0.10043150666956324,
+   "relative_difference": 1.7311937512986216e-05
+  },
+  {
+   "time": 15.0,
+   "error": 0.11142934597203058,
+   "python_error": 0.11141896132219886,
+   "relative_difference": 9.32036137160558e-05
+  },
+  {
+   "time": 16.0,
+   "error": 0.12239369632109254,
+   "python_error": 0.12233164363606719,
+   "relative_difference": 0.000507249663136659
+  },
+  {
+   "time": 17.0,
+   "error": 0.13326401112351782,
+   "python_error": 0.13289304512215772,
+   "relative_difference": 0.0027914628716582427
+  },
+  {
+   "time": 18.0,
+   "error": 0.1438115179568361,
+   "python_error": 0.1458244506720885,
+   "relative_difference": 0.013803807975788694
+  },
+  {
+   "time": 19.0,
+   "error": 0.1609360502322965,
+   "python_error": 0.17403428605239968,
+   "relative_difference": 0.07526238718363484
+  },
+  {
+   "time": 20.0,
+   "error": 0.19205724005773694,
+   "python_error": 0.3674778768599063,
+   "relative_difference": 0.4773638029617903
+  },
+  {
+   "time": 21.0,
+   "error": 0.4253111131470305,
+   "python_error": 1.7500252772997242,
+   "relative_difference": 0.7569685885890276
+  },
+  {
+   "time": 22.0,
+   "error": 2.0984326848962125,
+   "python_error": 13.914097155663693,
+   "relative_difference": 0.8491865723359526
+  },
+  {
+   "time": 23.0,
+   "error": 16.51335823322409
+  }
+ ],
+ "seconds": 113.87901350000175,
+ "last_completed_step": 2980,
+ "last_completed_time": 23.28125,
+ "peak_rss_bytes": 44740608,
+ "failure": "RK4 stage 2: overflow encountered in exp",
+ "failed_step": 2981,
+ "failed_interval": [
+  23.28125,
+  23.2890625
+ ],
+ "worst_common_relative_difference": 0.8491865723359526,
+ "external_independent_reproduction": false
+}

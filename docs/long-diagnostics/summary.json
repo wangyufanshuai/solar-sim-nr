@@ -1,0 +1,85 @@
+{
+ "s2": {
+  "status": "RESOURCE_STOPPED",
+  "target": 500,
+  "target_reached": false,
+  "last_sample_time": 440.0,
+  "last_integrated_time": 440.9125,
+  "seconds": 600.020732099998,
+  "peak_rss_bytes": 48496640,
+  "registered_windows": [
+   {
+    "start": 50,
+    "end": 100,
+    "log_slope": 0.0006263894823405769,
+    "norm_ratio": 1.0155443134298632,
+    "per_field_log_slope": {
+     "chi": 0.010048452618040712,
+     "h": -3.1422621573217984e-05,
+     "trace_k": 0.0002523588326701546,
+     "a": 0.0002206833211240828,
+     "theta": -5.7412227066925455e-05,
+     "conformal_gamma": -0.00029148061142702115,
+     "lapse": 0.013628680478872007,
+     "shift": -0.0003250635583965773,
+     "b": -0.00027289748530451264,
+     "aux_lapse_gradient": -0.000744531694744045,
+     "aux_shift_gradient": -0.0003695643370391958,
+     "aux_metric_gradient": -0.00017445111628342392,
+     "aux_conformal_factor_gradient": -0.0005961214673502658
+    }
+   },
+   {
+    "start": 100,
+    "end": 200,
+    "log_slope": 0.0010435649537260698,
+    "norm_ratio": 1.3195182789748012,
+    "per_field_log_slope": {
+     "chi": 0.0062817540526619205,
+     "h": -0.0005810764176558741,
+     "trace_k": -0.000703485239194671,
+     "a": -0.0004144272876594992,
+     "theta": -0.0006801019869091745,
+     "conformal_gamma": -0.0005281466131869509,
+     "lapse": 0.006821309072405245,
+     "shift": 0.0005252016401301807,
+     "b": -0.0005086220023129622,
+     "aux_lapse_gradient": 0.00019473647736860034,
+     "aux_shift_gradient": 0.0003469723855307925,
+     "aux_metric_gradient": -0.00048356149895141624,
+     "aux_conformal_factor_gradient": -0.000510888141351954
+    }
+   }
+  ],
+  "growth_from_t0": 56.471205006819524,
+  "max_common_rms_relative_difference_vs_python": 5.630198921877859e-05,
+  "hamiltonian_growth_from_t1": 1.0202498865190672,
+  "boundedness_proven": false,
+  "available_window_posthoc": {
+   "start": 200,
+   "end": 440.0,
+   "log_slope": 0.0017117453840335903,
+   "norm_ratio": 1.3851370323796346
+  },
+  "lapse_rms_linear_slope_t100_to_last": 2.6001990085587156e-11
+ },
+ "b1": {
+  "status": "SCIENTIFIC_FAILURE",
+  "target": 100,
+  "last_integrated_time": 23.28125,
+  "failed_interval": [
+   23.28125,
+   23.2890625
+  ],
+  "failure": "RK4 stage 2: overflow encountered in exp",
+  "seconds": 113.87901350000175,
+  "peak_rss_bytes": 44740608,
+  "common_samples": 22,
+  "relative_difference_target": 0.01,
+  "worst_common_relative_difference": 0.8491865723359526,
+  "first_sample_outside_target": 18.0,
+  "common_samples_meet_target": false,
+  "target_reached": false,
+  "external_independent_reproduction": false
+ }
+}
