@@ -31,11 +31,16 @@ def validate_slots(q):
 
 def checked_rhs(rhs):
     def evaluate(q):
-        validate_slots(q)
-        out = rhs(q)
-        if not np.all(np.isfinite(out)):
-            raise ScientificFailure("nonfinite native RHS")
-        return out
+        evaluate.calls += 1
+        try:
+            validate_slots(q)
+            out = rhs(q)
+            if not np.all(np.isfinite(out)):
+                raise ScientificFailure("nonfinite native RHS")
+            return out
+        except (ScientificFailure, FloatingPointError) as exc:
+            raise ScientificFailure(f"RK4 stage {1 + (evaluate.calls-1) % 4}: {exc}") from exc
+    evaluate.calls = 0
     return evaluate
 
 
