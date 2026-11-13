@@ -72,3 +72,30 @@ def rk4(q: np.ndarray, dt: float, steps: int, rhs) -> np.ndarray:
         k4 = rhs(q + dt * k3)
         q = q + (dt / 6.0) * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
     return q
+
+
+def state_from_slots(q, grid):
+    """Restore all evolved auxiliaries; do not reconstruct them by differentiation."""
+    import hashlib
+    from science.numerical_relativity.nr3d import BSSNState3D
+    from science.numerical_relativity.fo_ccz4 import FOCCZ4Auxiliary3D
+    from science.numerical_relativity.fo_ccz4_rhs import FOCCZ4State3D
+
+    q = np.asarray(q, dtype=np.float64)
+    if q.shape != (58, *grid.shape) or not np.all(np.isfinite(q)):
+        raise ValueError("expected 58 finite slots matching the grid")
+    base = BSSNState3D(grid=grid, valid_mask=np.ones(grid.shape, dtype=bool), **base_fields(q))
+    d = np.empty((*grid.shape, 3, 3, 3))
+    for axis in range(3):
+        for offset, (i, j) in enumerate(SYMMETRIC):
+            d[..., axis, i, j] = d[..., axis, j, i] = q[37 + 6 * axis + offset]
+    aux = FOCCZ4Auxiliary3D(
+        lapse_gradient=np.moveaxis(q[25:28], 0, -1).copy(),
+        shift_gradient=np.moveaxis(q[28:37], 0, -1).reshape((*grid.shape, 3, 3)).copy(),
+        metric_gradient=d,
+        conformal_factor_gradient=np.moveaxis(q[55:58], 0, -1).copy(),
+        derivative_order=grid.spatial_order,
+        source_state_sha256=hashlib.sha256(q.tobytes()).hexdigest(),
+        method="native-evolved-slots-restored",
+    )
+    return FOCCZ4State3D(base, aux)
