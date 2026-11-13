@@ -112,11 +112,11 @@ def summarize(out):
         e = np.array([s[1] for s in d["samples"]])
         complete = bool(np.all(np.isfinite(e)) and t[-1] >= LONG["final_time"])
         late = t >= LONG["final_time"] / 2
-        slope = float(np.polyfit(t[late], np.log(e[late]), 1)[0]) if complete else math.inf
+        slope = float(np.polyfit(t[late], np.log(e[late]), 1)[0]) if complete else None
         entry = dict(complete=complete, late_log_slope=slope, final_error=float(e[-1]),
                      error_at={str(int(x)): float(y) for x, y in zip(t, e) if int(x) in (1, 10, 50, 100)})
         if amplitude == a["long_gated_amplitude"]:
-            entry["passed"] = bool(complete and slope <= a["long_max_late_log_slope"]
+            entry["passed"] = bool(slope is not None and slope <= a["long_max_late_log_slope"]
                                    and e[-1] <= a["long_max_final_error"])  # numpy bool is not JSON
         else:
             entry["reported_only"] = True

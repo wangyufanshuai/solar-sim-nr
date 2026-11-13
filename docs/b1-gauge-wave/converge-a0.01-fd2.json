@@ -1,0 +1,42 @@
+{
+ "amplitude": 0.01,
+ "order": 2,
+ "settings": {
+  "points": [
+   16,
+   32,
+   64
+  ],
+  "cfl": 0.1,
+  "final_time": 1.0
+ },
+ "rows": [
+  {
+   "nx": 16,
+   "steps": 160,
+   "dt": 0.00625,
+   "error": 0.6995735400871724,
+   "finite": true,
+   "seconds": 27.878764100001717
+  },
+  {
+   "nx": 32,
+   "steps": 320,
+   "dt": 0.003125,
+   "error": 0.17857729116055707,
+   "finite": true,
+   "seconds": 79.73881589999655
+  },
+  {
+   "nx": 64,
+   "steps": 640,
+   "dt": 0.0015625,
+   "error": 0.044767156706846195,
+   "finite": true,
+   "seconds": 290.3702121999959
+  }
+ ],
+ "python": "3.12.3",
+ "numpy": "2.2.6",
+ "platform": "Windows-11-10.0.26200-SP0"
+}

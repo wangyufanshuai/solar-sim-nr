@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "E:\xuexi\solar-sim-nr\experiments\b1_gauge_wave\run_b1.py", line 151, in <module>
+    main()
+  File "E:\xuexi\solar-sim-nr\experiments\b1_gauge_wave\run_b1.py", line 145, in main
+    run_long(args.amplitude, args.out)
+  File "E:\xuexi\solar-sim-nr\experiments\b1_gauge_wave\run_b1.py", line 82, in run_long
+    state = advance(state, dt, per_unit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\xuexi\solar-sim-nr\experiments\b1_gauge_wave\run_b1.py", line 55, in advance
+    return advance_harmonic_rk4(state, dt, steps=steps, gauge=GAUGE, config=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\xuexi\solar-sim-nr\experiments\b1_gauge_wave\harmonic.py", line 59, in advance_harmonic_rk4
+    k3 = harmonic_fo_ccz4_rhs(_state_add(state, k2, 0.5 * dt), gauge=gauge, config=config)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\xuexi\solar-sim-nr\science\numerical_relativity\fo_ccz4_rhs.py", line 937, in _state_add
+    new_base = BSSNState3D(
+               ^^^^^^^^^^^^
+  File "<string>", line 16, in __init__
+  File "E:\xuexi\solar-sim-nr\science\numerical_relativity\nr3d.py", line 136, in __post_init__
+    raise ValueError("chi and lapse must be positive on valid cells")
+ValueError: chi and lapse must be positive on valid cells
