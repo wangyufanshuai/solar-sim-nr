@@ -23,3 +23,25 @@ Theta=0, no other perturbation), n8 FD4, dt=.0125 to T=10. Compare ln(alpha) wit
 for O(K^2) nonlinear terms. The initial state is a discretization diagnostic, not a
 resolved physical solution. No filtering of the original noise or solver change.
 Each invocation <=600 s /64 MiB output, one native thread.
+
+
+## Measured result
+
+All 16 parity/FD2-or-FD4 combinations have exactly zero centred derivative.
+Prediction using only initial seed42 coefficients: 2.60035754098e-11 per crossing.
+Saved lapse RMS fit: 2.60019900856e-11; relative difference 6.09693e-5 (0.00610%).
+The constant mode alone predicts 3.26346e-12 and cannot account for the full slope;
+the seven nonconstant parity modes matter.
+
+The fresh pure P111 evolution completed to T=10 in 12.51 s, peak 42.98 MiB.
+At T=10 measured ln(alpha) RMS is 2.0000000000000023e-7 versus predicted 2e-7.
+Max error from linearized ln(alpha) is 3.33e-15, and from ln(phi) 1.67e-15;
+both meet the pre-specified 1e-11 diagnostic bound. Three targeted tests pass.
+Raw result: s2-null-modes.json. Registration 2bc47f5; numerical source b75ae3a.
+
+This provides a discrete linear mechanism for the observed secular lapse component.
+It is not a nonlinear stability theorem, an infinite-time bound, or a physical resolved
+checkerboard solution. Do not remove these modes from the original data or relabel
+the earlier failed fixed-growth test as passed. A future explicitly separate solver
+variant can test dissipation against the nonconstant parity modes; mean gauge modes
+must still be accounted for, and all original results remain unchanged.
