@@ -16,3 +16,7 @@ The registered envelope remains 600 seconds, 64 MiB output, a 1 GiB worker
 commit cap and at least 4 GiB available RAM. The refusal is the expected
 resource gate. A successful metadata check or resource preflight is not
 binary64 scientific acceptance.
+
+The low-memory control suite was run separately with the four registered
+runtime, supervisor, containment and kernel test modules. It passed 98 tests
+in 0.94 s. These are control checks, not the 482-evaluation scientific run.

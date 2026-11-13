@@ -16,5 +16,8 @@
   "timeoutSeconds": 600,
   "maxOutputBytes": 67108864,
   "workerMemoryBytes": 1073741824,
-  "registeredMinimumAvailableRamBytes": 4294967296
+  "registeredMinimumAvailableRamBytes": 4294967296,
+  "controlCommand": "python -B -m pytest -q tests/test_binary64_runtime.py tests/test_binary64_supervisor.py tests/test_case12_binary64_containment.py tests/test_case12_binary64_kernel.py",
+  "controlExitCode": 0,
+  "controlTestsPassed": 98
 }
