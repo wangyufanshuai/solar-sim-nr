@@ -97,3 +97,15 @@ unchanged 4 GiB launch gate was not met. The entry now includes this resource
 observation in the refusal JSON; it does not relax the gate or start a worker.
 The 600-second deadline, 64 MiB output cap, 1 GiB worker cap and all frozen
 inputs remain unchanged.
+
+
+## Preflight replay after monitor repair, 2026-11-14
+
+A fresh original-protocol `--preflight-only` invocation was attempted after the
+memory-monitor repair. The read-only gate observed `available_ram_bytes=3311587328`
+against `required_available_ram_bytes=4294967296`, returned `state=NOT_STARTED`
+and `numerical_execution=false`, and created no worker or scientific output.
+A prior desktop snapshot briefly showed 4.47 GiB, but the authoritative
+preflight read fell below the floor; the full 8^3 campaign was therefore not
+launched. The 4-GiB condition, 600-second deadline, 64-MiB output limit and
+worker cap remain unchanged.
