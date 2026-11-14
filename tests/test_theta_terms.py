@@ -63,3 +63,29 @@ def test_term_report_locates_a_curvature_defect_and_preserves_signed_differences
     assert report["term_delta_reconstruction_error"] == 0
     with pytest.raises(ValueError, match="finite"):
         term_report(reference, native*np.nan)
+
+
+def test_adjugate_inverse_on_nonsingular_positive_definite_matrices():
+    from experiments.b3_native.theta_terms import adjugate_inverse
+    rng = np.random.default_rng(718)
+    a = rng.normal(size=(17, 3, 3))
+    h = a @ np.swapaxes(a, -1, -2) + np.eye(3)
+    np.testing.assert_allclose(adjugate_inverse(h), np.linalg.inv(h), atol=5e-15, rtol=5e-15)
+    with pytest.raises(np.linalg.LinAlgError, match="singular"):
+        adjugate_inverse(np.zeros((3, 3)))
+
+
+def test_inverse_ablation_cannot_mutate_production_or_numpy_globals():
+    import science.numerical_relativity.fo_ccz4_rhs as production
+    original_inverse = np.linalg.inv
+    original_geometry = production._geometry
+    g = run_b1.grid(8, 4)
+    q = slots(FOCCZ4State3D.from_bssn_state(BSSNState3D.gauge_wave(g, amplitude=.1)))
+    before, before_terms = python_terms(q, g)
+    ablated, _ = python_terms(q, g, inverse="adjugate")
+    assert np.all(np.isfinite(ablated))
+    after, after_terms = python_terms(q, g)
+    assert np.linalg.inv is original_inverse
+    assert production._geometry is original_geometry
+    assert after.tobytes() == before.tobytes()
+    assert after_terms.tobytes() == before_terms.tobytes()

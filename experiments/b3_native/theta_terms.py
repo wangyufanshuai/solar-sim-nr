@@ -8,6 +8,7 @@ import sys
 import hashlib
 import subprocess
 import time
+from types import FunctionType, SimpleNamespace
 import numpy as np
 
 from experiments.b1_gauge_wave import run_b1
@@ -17,10 +18,52 @@ from experiments.b3_native.long_diagnostics import peak_rss
 from kernel.native_evolve import harmonic_correction, slots, state_from_slots
 from kernel.native_rhs import THETA_TERM_NAMES, native_rhs_slots
 from science.numerical_relativity import BSSNState3D, FOCCZ4State3D
-from science.numerical_relativity.fo_ccz4_rhs import _fo_ccz4_volume_rhs_3d
+from science.numerical_relativity.fo_ccz4_rhs import _fo_ccz4_volume_rhs_3d, _geometry, fo_ccz4_rhs_3d
 
 
-def python_terms(q, grid):
+def adjugate_inverse(h):
+    """The native 3x3 cofactor expressions, with the same parenthesization."""
+    h = np.asarray(h, dtype=np.float64)
+    if h.shape[-2:] != (3, 3):
+        raise ValueError("expected 3x3 matrices")
+    a, b, c = h[..., 0, 0], h[..., 0, 1], h[..., 0, 2]
+    d, e, f = h[..., 1, 0], h[..., 1, 1], h[..., 1, 2]
+    g, j, k = h[..., 2, 0], h[..., 2, 1], h[..., 2, 2]
+    det = a*(e*k-f*j) - b*(d*k-f*g) + c*(d*j-e*g)
+    if np.any(det == 0) or not np.all(np.isfinite(det)):
+        raise np.linalg.LinAlgError("nonfinite or singular adjugate determinant")
+    out = np.empty_like(h)
+    cofactors = ((e*k-f*j, c*j-b*k, b*f-c*e),
+                 (f*g-d*k, a*k-c*g, c*d-a*f),
+                 (d*j-e*g, b*g-a*j, a*e-b*d))
+    for i in range(3):
+        for l in range(3):
+            out[..., i, l] = cofactors[i][l]/det
+    return out
+
+
+def clone_with_globals(function, **changes):
+    """Share immutable code objects while isolating the diagnostic's global lookups."""
+    clone = FunctionType(function.__code__, {**function.__globals__, **changes},
+                         function.__name__, function.__defaults__, function.__closure__)
+    clone.__kwdefaults__ = function.__kwdefaults__
+    return clone
+
+
+def inverse_ablation_rhs():
+    class NumpyView:
+        linalg = SimpleNamespace(inv=adjugate_inverse)
+
+        def __getattr__(self, name):
+            return getattr(np, name)
+
+    geometry = clone_with_globals(_geometry, np=NumpyView())
+    volume = clone_with_globals(_fo_ccz4_volume_rhs_3d, _geometry=geometry)
+    public = clone_with_globals(fo_ccz4_rhs_3d, _fo_ccz4_volume_rhs_3d=volume)
+    return clone_with_globals(harmonic_fo_ccz4_rhs, fo_ccz4_rhs_3d=public)
+
+
+def python_terms(q, grid, *, inverse="numpy"):
     """Observe actual production intermediates, keeping the frozen RHS source unchanged."""
     if sys.getprofile() is not None:
         raise RuntimeError("term observer requires a process without a profiler")
@@ -30,9 +73,12 @@ def python_terms(q, grid):
         if event == "return" and frame.f_code is _fo_ccz4_volume_rhs_3d.__code__:
             captured.update(frame.f_locals)
 
+    if inverse not in ("numpy", "adjugate"):
+        raise ValueError("unknown inverse variant")
+    evaluate = harmonic_fo_ccz4_rhs if inverse == "numpy" else inverse_ablation_rhs()
     sys.setprofile(observe)
     try:
-        result = harmonic_fo_ccz4_rhs(state_from_slots(q, grid), gauge=run_b1.GAUGE,
+        result = evaluate(state_from_slots(q, grid), gauge=run_b1.GAUGE,
                                      config=run_b1.CONFIG)
     finally:
         sys.setprofile(None)
@@ -86,7 +132,7 @@ def term_report(reference, native):
     }
 
 
-def run(out, before=None):
+def run(out, before=None, *, inverse_ablation=False):
     out = Path(out)
     out.mkdir(parents=True, exist_ok=False)
     start = time.perf_counter()
@@ -102,6 +148,7 @@ def run(out, before=None):
             "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True, timeout=5).strip(),
             "numpy_version": np.__version__, "python_version": sys.version,
             "before_comparison_performed": before is not None,
+            "inverse_ablation_performed": inverse_ablation,
             "before_sha256": hashlib.sha256(Path(before).read_bytes()).hexdigest() if before else None,
             "stages": []}
     k = []
@@ -124,9 +171,20 @@ def run(out, before=None):
         if original is not None:
             row["all_58_outputs_bitwise_equal_before"] = native.tobytes() == original["rhs"][stage].tobytes()
             row["input_bitwise_equal_before"] = stage_q.tobytes() == original["states"][stage].tobytes()
+        snapshots = {"python_terms": reference, "native_terms": terms}
+        if inverse_ablation:
+            ablated, ablated_terms = python_terms(stage_q, g, inverse="adjugate")
+            restored, restored_terms = python_terms(stage_q, g)
+            row["inverse_ablation"] = {
+                "comparison": compare_arrays(ablated, native),
+                "isolation": term_report(ablated_terms, terms),
+                "original_unchanged_after_ablation": expected.tobytes() == restored.tobytes()
+                    and reference.tobytes() == restored_terms.tobytes(),
+            }
+            snapshots["adjugate_terms"] = ablated_terms
         data["stages"].append(row)
         k.append(native)
-        np.savez_compressed(out/f"stage-{stage+1}.npz", python_terms=reference, native_terms=terms)
+        np.savez_compressed(out/f"stage-{stage+1}.npz", **snapshots)
     data.update(seconds=time.perf_counter()-start, peak_rss_bytes=peak_rss(),
                 strict_rhs_pass=all(r["comparison"]["active_slots_pass_relative_1e_minus12"] for r in data["stages"]))
     data["instrumentation_pass"] = all(r["all_58_diagnostic_outputs_bitwise_equal_normal"]
@@ -145,7 +203,8 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--before", type=Path)
+    ap.add_argument("--inverse-ablation", action="store_true")
     args = ap.parse_args()
-    result = run(args.out, args.before)
+    result = run(args.out, args.before, inverse_ablation=args.inverse_ablation)
     print(json.dumps({key: value for key, value in result.items() if key != "stages"}))
     sys.exit(0 if result["instrumentation_pass"] else 2)
