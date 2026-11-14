@@ -131,3 +131,36 @@ error budgets and independent comparisons require their own records.
 
 See [reproducibility](REPRODUCIBILITY.md) for the operational contract and
 [the main README](../README.md) for the minimal entry point.
+
+
+## Current continuation status (2026-11-14)
+
+The research-alpha continuation has added evidence without promoting a general
+solver claim. The independent native gauge-wave study records the baseline
+`A=.1` failure in `[23.28125,23.2890625]` and a fixed x-only KO diagnostic.
+At fixed `sigma=.1`, nx16/32/64 runs reached `T=24`; the fine-pair maximum
+field-error order was `4.04447`, while the Hamiltonian-difference order was
+`3.14084`. This is finite-horizon resolution evidence for an explicitly
+modified diagnostic RHS, not long-time stability or external reproduction.
+
+S2-c has a reproducible parity-null-mode explanation for a secular lapse
+component: the predicted and measured RMS slopes differ by `6.10e-5`, and
+all eight centred-derivative parity modes vanish exactly on both FD2 and FD4.
+The original fixed-growth gate remains failed and infinite-time boundedness is
+unproven. The fresh replay is recorded in [S2C_NULL_MODE_DIAGNOSTIC.md](S2C_NULL_MODE_DIAGNOSTIC.md).
+
+The strong-field follow-on now has a registered minimum scope for AMR transfer,
+two-puncture initial data and spin-weighted l=2 projection. Their algebraic
+checks pass, but the result explicitly remains `amr_evolution=false`,
+`binary_evolution=false`, and `physical_waveform=false`; see
+[STRONG_FIELD_SCOPE_REGISTRATION.md](STRONG_FIELD_SCOPE_REGISTRATION.md).
+
+The Kerr validation sweep found that step scale `.03` with an 8000-step ceiling
+has zero classification mismatches and zero exhausted rays on the four-camera
+RTX 4060 test. The interactive `.04` default is unchanged pending a visual and
+performance review; this is a validation candidate, not a production promotion.
+
+The frozen 8^3 binary64 candidate still requires at least 4 GiB available RAM.
+The latest guarded preflight observed 2,515,132,416 bytes and returned
+`NOT_STARTED` before creating a worker. Its refusal now includes the observed
+resource snapshot. No complete scientific 8^3 result has been recorded.
