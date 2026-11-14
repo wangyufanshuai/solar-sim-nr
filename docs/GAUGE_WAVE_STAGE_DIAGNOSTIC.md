@@ -536,3 +536,65 @@ thorn guide (accessed 2026-11-14), fifth-order accurate artificial dissipation
 uses a sixth derivative with coefficient epsilon h^5/64 in each included axis:
 https://einsteintoolkit.org/thornguide/CactusNumerical/Dissipation/documentation.html
 This supports the operator convention only, not this code's scientific validity.
+
+
+### Controlled x-dissipation outcome (2026-11-14)
+
+S3 acceptance advanced: retained-baseline sensitivity to a registered high-frequency
+operator, with field/constraint/auxiliary errors. This is not a default-solver change.
+Source b327fe559bc439e7f5b120fc54615e96e66e2326, clean tree at launch.
+All three trajectories share exactly the initial data, grid, timestep and native
+solver. Only the registered x-only Q term changes; neither strength was retuned.
+
+| sigma | outcome | last-valid T | max base-field error/A at T22 | at T24 |
+|---|---|---|---|---|
+| 0 | stage-2 exponential overflow | 23.28125 | 2.09843268 | unavailable |
+| .02 | reached target only | 24 | .204936467 | .239975502 |
+| .1 | reached target only | 24 | .203663037 | .238231229 |
+
+Baseline failure interval is [23.28125,23.2890625], stage time 23.28515625;
+all four T0/15/18/22 archived snapshots replay bitwise. Last-valid and failed RK
+input arrays remain distinct. The overall report stays SCIENTIFIC_FAILURE because
+the baseline fails; neither variant is marked a scientific acceptance.
+
+At the common time T22, Hamiltonian / momentum difference L_inf from the
+same-grid analytic slice are 1.01492083 / .300408454 (baseline),
+.000629389 / .000398993 (sigma=.02), and .000620800 / .000399914 (sigma=.1).
+Metric-gradient auxiliary discrepancy is .0290255, 5.55075e-6 and 4.22770e-6;
+conformal-factor-gradient discrepancy is .0103882, 1.51752e-6 and 1.12857e-6.
+This measures actual auxiliary/base derivative disagreement, not just curl.
+
+Conformal-metric error Nyquist **absolute mean-square power** at T22 is
+7.72900e-4, 2.68719e-12 and 2.60001e-33; its energy shares are .980774,
+1.64081e-5 and 1.59016e-26. At T24 sigma=.02 Nyquist power has grown to
+2.69170e-10 (share .000961448), while sigma=.1 remains near roundoff
+(1.54342e-33). Suppression is strong, but weak dissipation still shows
+renewed high-frequency growth; extrapolating that run to longer times is unsafe.
+At T24 both variants retain about .238-.240 error/A. The h-error k1 energy
+shares are .8040/.8078 and DC .0674/.0667: low-mode error remains.
+This is evidence of sensitivity to a grid-scale intervention, not proof of a
+unique root cause, a pure-gauge mode, convergence or nonlinear stability.
+
+Early accuracy is also recorded: at T1 max error/A is .00495570527,
+.00495396668 and .00494704454. At T10 it is .0584928101, .0584425243 and
+.0582425938. Dissipation does not materially remove the early error here.
+At T24 Hamiltonian differences are .00112106/.000655966 and momentum
+differences .000495899/.000450796 for the two variants; constraints are not zero.
+
+Measured runtime 158.358 s, peak process working set 315.086 MiB;
+raw reports/arrays 4213489 bytes, within 600 s / 512 MiB / 64 MiB.
+Data and measured figures are retained in `gauge-stage/dissipation/`.
+
+![Measured gauge-wave dissipation comparison](gauge-stage/dissipation/figures/dissipation.png)
+
+Reproduce into fresh directories:
+
+```powershell
+python -B -m experiments.b3_native.gauge_spatial_refinement --dissipation --out outputs/dissipation-replay
+python -B -m experiments.b3_native.plot_gauge_growth --report outputs/dissipation-replay/result.json --out outputs/dissipation-figures-replay
+```
+
+The next S3 study should pre-register space/time convergence with fixed sigma,
+then a longer-time test within the same resource envelope. Do not promote either
+value into production on this one grid. External independent reproduction and
+full frozen 8^3 alignment remain open; S2-c boundedness is a separate question.

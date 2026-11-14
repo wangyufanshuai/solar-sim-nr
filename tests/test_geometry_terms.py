@@ -109,8 +109,11 @@ def test_registered_four_stage_run_compares_raw_rhs_before_inplace_gauge_correct
     result = run(tmp_path/"run", baseline)
     assert result["instrumentation_pass"]
     assert len(result["stages"]) == 4
+    assert result["historical_replay_relative_pass"], result["stages"]
     for stage in result["stages"]:
-        assert stage["all_58_outputs_bitwise_equal_before"]
+        assert stage["all_58_outputs_bitwise_equal_fresh_control"]
+        assert stage["all_58_outputs_bitwise_equal_before"] == stage["all_58_outputs_bitwise_equal_control"]
+        assert stage["historical_rhs_comparison"]["active_slots_pass_relative_1e_minus12"]
         assert stage["contraction"]["python_numpy_reconstruction_error"] == 0
         assert stage["contraction"]["native_sequential_reconstruction_error"] == 0
 
@@ -198,3 +201,20 @@ def test_snapshot_validation_and_time_metadata(tmp_path):
         assert "all_58_outputs_bitwise_equal_before" not in stage
         assert stage["base_time"] == 18
         assert 18 <= stage["nominal_stage_time"] <= 18+1/128
+
+
+def test_historical_drift_is_reported_separately_from_observer_preservation(tmp_path):
+    from pathlib import Path
+    from experiments.b3_native.geometry_terms import run
+    source = Path(__file__).resolve().parents[1]/"docs/gauge-stage/theta-terms/before.npz"
+    with np.load(source, allow_pickle=False) as saved:
+        states, rhs = saved["states"].copy(), saved["rhs"].copy()
+    rhs[0, 0, 0, 0, 0] += .01
+    altered = tmp_path/"altered.npz"
+    np.savez_compressed(altered, states=states, rhs=rhs)
+    result = run(tmp_path/"observed", altered)
+    assert result["instrumentation_pass"]
+    assert not result["historical_replay_bitwise_pass"]
+    assert not result["historical_replay_relative_pass"]
+    assert not result["stages"][0]["all_58_outputs_bitwise_equal_before"]
+    assert result["stages"][0]["historical_rhs_comparison"]["global_max_absolute_difference"] > .009

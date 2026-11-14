@@ -150,3 +150,35 @@ binary64 equivalence, time integration, FD/SBP/SAT convergence, physical
 boundary stability, AMR, waveform accuracy or external reproduction.
 See [scientific status](SCIENTIFIC_STATUS.md) and
 [reproducibility instructions](REPRODUCIBILITY.md) for the exact contract.
+
+
+## S3 local CI repair and dissipation controls (2026-11-14)
+
+Full portable suite: `python -B -m pytest -q`, Python 3.12.3 / NumPy 2.2.6,
+one numerical thread, plugin autoload disabled: **477 passed in 32.47 s**.
+This includes 18 dissipation tests and a corrupt-history negative control.
+It does not execute the frozen full 8^3 campaign (4 GiB launch gate unchanged).
+
+Hosted run 43549991491 (46c3f81) had two Windows and three Ubuntu failures;
+C++ component controls passed. Both platforms stopped at stale binary64 manifest
+packaging identities: .gitignore expected 303 bytes, current 318; README.md
+expected 6448, current Git blob 6755. The local README checkout also had CRLF,
+now restored to LF as required by .gitattributes. Only these two new-candidate
+records were refreshed; all frozen-export/scientific/parent identities and the
+complete registered numerical/resource contract remain byte-for-byte unchanged.
+These metadata edits do not retroactively validate earlier failed CI or 8^3 runs.
+
+Ubuntu additionally failed a geometry observer test whose aggregate conflated
+host-local observer preservation with bitwise replay of a Windows-generated
+historical RHS. Observer preservation now compares ordinary and instrumented
+RHS on this host bitwise, including after harmonic correction. Historical byte
+equality remains a separately reported field; comparison also records every
+slot and applies the existing relative 1e-12 target to active slots. A deliberate
+.01 historical RHS corruption must fail that replay while observer preservation
+still passes. CLI success requires both observer and historical numeric replay;
+no historical science data, expected arrays or tolerances were changed.
+
+S3 dissipation measurements are documented in GAUGE_WAVE_STAGE_DIAGNOSTIC.md,
+with raw arrays and figures in gauge-stage/dissipation/. Baseline fails at
+T23.28125; sigma=.02/.1 reach T24 only and retain substantial analytic error.
+Hosted checks for the repair must be inspected on the pushed SHA separately.

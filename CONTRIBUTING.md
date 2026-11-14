@@ -20,3 +20,12 @@ Python/dependency versions, command and output report with a reproducible issue.
 
 Do not commit environment files, credentials, generated output directories,
 large binary data or local machine configuration.
+
+
+The binary64 candidate manifest also binds root README.md and .gitignore as
+new-candidate packaging metadata. After an intentional edit to either, update
+only its byte count and SHA256 in experiments/case12_binary64_v1/manifest.json
+from the LF Git blob and record that metadata-only change. Preserve all frozen
+export identities, mathematical sources, parent inputs and registered limits.
+Before pushing, run the full portable suite, not only the edited test files;
+then inspect both hosted Python jobs and the C++ job for that pushed commit.

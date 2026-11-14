@@ -175,6 +175,8 @@ def run(out, before=None, *, snapshot=None):
         raw, actual = native_rhs_slots(q, return_geometry=True, **kw)
         normal = native_rhs_slots(q, **kw)
         same_normal = raw.tobytes() == normal.tobytes()
+        ordinary = harmonic_correction(q, normal, spacing=grid.spacing, order=4,
+                                       gauge=run_b1.GAUGE, config=run_b1.CONFIG)
         rhs = harmonic_correction(q, raw, spacing=grid.spacing, order=4, gauge=run_b1.GAUGE, config=run_b1.CONFIG)
         py_rhs, py_terms = python_terms(q, grid)
         ref = python_geometry(q, grid)
@@ -191,6 +193,8 @@ def run(out, before=None, *, snapshot=None):
                    nominal_stage_time=base_time+(0., .5, .5, 1.)[stage-1]*dt,
                    all_58_outputs_bitwise_equal_normal=same_normal,
                    all_58_outputs_bitwise_equal_control=rhs.tobytes()==old.tobytes(),
+                   all_58_outputs_bitwise_equal_fresh_control=rhs.tobytes()==ordinary.tobytes(),
+                   historical_rhs_comparison=compare_arrays(old, rhs),
                    original_python_unchanged=all(ref[n].tobytes()==after[n].tobytes() for n, _ in GEOMETRY_FIELDS)
                      and py_rhs.tobytes()==restored_rhs.tobytes() and py_terms.tobytes()==restored_terms.tobytes(),
                    scalar_equals_theta_observation=ref["ricci_z_scalar"].tobytes()==py_terms[6].tobytes(),
@@ -216,8 +220,13 @@ def run(out, before=None, *, snapshot=None):
             raise RuntimeError("64 MiB output ceiling (report space reserved)")
     result.update(seconds=time.perf_counter()-start, peak_rss_bytes=peak_rss())
     result["instrumentation_pass"] = all(all(row[key] for key in (
-        "all_58_outputs_bitwise_equal_normal", "all_58_outputs_bitwise_equal_control",
+        "all_58_outputs_bitwise_equal_normal", "all_58_outputs_bitwise_equal_fresh_control",
         "original_python_unchanged", "scalar_equals_theta_observation")) for row in result["stages"])
+    result["historical_replay_bitwise_pass"] = all(row["all_58_outputs_bitwise_equal_control"]
+                                                   for row in result["stages"])
+    result["historical_replay_relative_pass"] = all(
+        row["historical_rhs_comparison"]["active_slots_pass_relative_1e_minus12"]
+        for row in result["stages"])
     result["strict_rhs_pass"] = all(row["strict_rhs_comparison"]["active_slots_pass_relative_1e_minus12"] for row in result["stages"])
     result["diagnostic_arithmetic_rhs_pass"] = all(row["arithmetic_rhs_comparison"]["active_slots_pass_relative_1e_minus12"]
                                                   for row in result["stages"])
@@ -238,5 +247,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     result = run(args.out, args.before, snapshot=args.snapshot)
     print(json.dumps({k: v for k, v in result.items() if k != "stages"}))
-    # This exit code qualifies the observer only; inspect strict_rhs_pass separately.
-    sys.exit(0 if result["instrumentation_pass"] else 2)
+    # Observer equality stays bitwise on this host; historical replay uses the registered RHS target.
+    # Neither check substitutes for strict_rhs_pass or an evolution stability gate.
+    sys.exit(0 if result["instrumentation_pass"] and result["historical_replay_relative_pass"] else 2)
