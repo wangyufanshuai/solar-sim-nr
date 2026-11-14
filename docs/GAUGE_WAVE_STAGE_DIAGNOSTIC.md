@@ -66,3 +66,16 @@ comparison. A term localization does not establish a pure-roundoff cause.
 No evolution long run is needed. Single process/thread, <=600 s and <=64 MiB
 output; <=512 MiB working-set target. Use a new output directory. Original
 science sources, gates and saved failure records are retained unchanged.
+
+
+### Registered inverse-algorithm ablation
+
+Following term isolation, compare the same four T=0 inputs with a Python-only
+copy of the frozen functions whose geometry uses the native 3x3 adjugate
+formula instead of NumPy LU. Clone function globals locally; do not replace
+NumPy or production-module globals. Keep every derivative, RHS term, stage
+input and scientific threshold fixed. Report both original and ablated
+comparisons, whether the original implementation is bitwise unchanged after
+calling the variant, and matrix-inverse error against LU on nonsingular
+positive-definite fixtures. Do not assume the variant improves the discrepancy
+or adopt it into the solver. Same <=600 s /64 MiB resource envelope.
