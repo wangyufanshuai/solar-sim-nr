@@ -502,3 +502,37 @@ high-frequency numerical modes in the gauge-wave benchmark. Cao and Hilditch,
 study a different formulation/discretization. Neither paper validates this
 FO-CCZ4 implementation or establishes this run's root cause. Their relevance
 is experimental design, not an independent reproduction or a stability proof.
+
+
+### Controlled x-dissipation registration (2026-11-14)
+
+Before implementation/measurement: compare the original native RHS with two
+experimental sixth-derivative Kreiss-Oliger additions, sigma=.02 and .1, on
+nx32 x 5 x 5 from identical analytic gauge-wave initial data (A=.1, FD4,
+additive-slot RK4, dt=1/128, target T24). No random perturbation is added;
+the seed is identically zero for all three trajectories. Retain the unmodified
+baseline and replay its T0/15/18/22 snapshots bitwise against existing archives.
+
+Use Q(q)=sigma/(64 dx) delta2_x^3 q on all 58 canonical slots at each RHS call,
+where delta2_x q=q[i+1]-2q[i]+q[i-1], periodic in x only. This is an explicitly
+one-dimensional diagnostic addition, not a production 3D solver change. Its
+Fourier symbol is -sigma sin(pi k/nx)^6/dx; DC vanishes and the Nyquist rate is
+-sigma/dx. At dt=dx/4 the added scalar Nyquist factor is inside RK4's negative
+real stability interval for both strengths. This does not imply stability of
+the coupled nonlinear FO-CCZ4 system. Test the sign, normalization, constant
+annihilation, energy dissipation and fixed-mode O(dx^5) scaling independently.
+
+Retain integer-time analytic field errors, same-grid analytic discrete constraint
+controls, auxiliary/base derivative discrepancies and Fourier spectra as in the
+previous study. Save last-valid and failed states with actual RK stage times.
+All cases share 600 s total, 512 MiB process working set, 64 MiB output, one
+process/one numerical thread. A variant reaching T24 is only a diagnostic
+outcome; it cannot close the long-wave gate, establish convergence or justify
+adopting a default. Do not tune sigma after seeing this run. Check early-time
+accuracy changes as well as high-frequency suppression and constraint errors.
+
+Definition cross-check: Einstein Toolkit, CactusNumerical/Dissipation official
+thorn guide (accessed 2026-11-14), fifth-order accurate artificial dissipation
+uses a sixth derivative with coefficient epsilon h^5/64 in each included axis:
+https://einsteintoolkit.org/thornguide/CactusNumerical/Dissipation/documentation.html
+This supports the operator convention only, not this code's scientific validity.
