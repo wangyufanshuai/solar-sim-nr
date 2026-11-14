@@ -710,3 +710,61 @@ Do not retune sigma or target after reading the outcome.
 ```powershell
 python -B -m experiments.b3_native.gauge_spatial_refinement --dissipation-timestep --out outputs/dissipation-timestep
 ```
+
+
+### Fixed-grid timestep outcome: resource-stopped, partial analysis
+
+Registered source a5345ceb88e120945e93b5f8e072c58e5ad5149f, clean at launch.
+The run is RESOURCE_STOPPED, not a completed T24 experiment. Coarse and half
+steps reached T24 (3072 and 6144 steps), but the quarter-step run stopped at
+T14 (7168 steps) when sampled peak working set reached 513.828125 MiB,
+above the registered 512-MiB ceiling. Detection stopped further evolution;
+this is a sampled ceiling, not a hard allocation cap. Wall time 318.567 s.
+Original report/arrays: gauge-stage/dissipation-timestep/. The original
+result.json is retained byte-for-byte; original raw output was 3698091 bytes.
+No retry, raised memory ceiling, changed sigma or retuned target followed.
+The memory peak exceeded the envelope, so this run cannot be reported as
+within all resource limits or as scientific acceptance.
+
+Offline analysis in a fresh process used only common integer T1..14 samples.
+It took .569 s and peaked at 47.027 MiB. It does not extend any trajectory.
+The retained analysis.json includes the original report SHA256, all raw
+pairwise norms, observed orders and explicitly conditional Richardson
+estimates. A separate reconstruction of the physical fields from saved q
+states gave exactly the same pairwise L_inf norms (maximum difference zero)
+as subtracting saved analytic-error arrays. All 25 coarse-path snapshots
+replayed the previous sigma=.1 archive bitwise on this Windows host.
+
+| quantity at T14 | ||dt-half||/A | ||half-quarter||/A | observed L_inf order | assumed finest RK4 error / total analytic error |
+|---|---|---|---|---|
+| h | 6.60355989e-6 | 4.12050625e-7 | 4.00235047 | 4.09229483e-6 |
+| conformal Gamma | 9.87327875e-5 | 6.22273568e-6 | 3.98790839 | 4.18082914e-6 |
+| Theta | 1.12182794e-5 | 7.06750213e-7 | 3.98850719 | 4.04421151e-6 |
+
+Across T1..14 their L_inf self-convergence orders span 3.98469..4.01735.
+The maximum seven-field analytic error/A at T14 is .0993077659 (dt),
+.0992314419 (half), .0992265007 (quarter). At T24 only dt/half results exist,
+.238231229/.238040885; no T24 quarter result or order may be inferred.
+For the measured common interval, time truncation is small relative to the
+remaining fixed-grid error under the observed RK4 scaling. This does not
+identify a unique spatial/dissipation cause, repair the undamped baseline,
+establish long-time stability, or provide external independent reproduction.
+No production solver default or original gate changed.
+
+![Measured partial timestep self-convergence](gauge-stage/dissipation-timestep/figures/timestep.png)
+
+Recompute common-time metrics without advancing or rewriting the original run:
+
+```python
+import json
+from pathlib import Path
+from experiments.b3_native.gauge_spatial_refinement import temporal_summary
+root = Path("docs/gauge-stage/dissipation-timestep")
+report = json.loads((root / "result.json").read_text())
+metrics = temporal_summary(root, report["trajectories"])
+print(json.dumps(metrics, allow_nan=False))
+```
+
+Next numerical work must address the measured resource behavior before another
+registered long run. Do not use a later analysis process to relabel this run
+as resource-qualified; preserve its original RESOURCE_STOPPED result.

@@ -39,7 +39,7 @@ def plot_temporal(data, out):
         axis.grid(alpha=.2)
         axis.legend(fontsize=8)
     fig.suptitle("Gauge wave A=.1: fixed nx32, x-only KO sigma=.1; timestep refinement")
-    fig.supxlabel(f"Source {data['source_commit'][:8]}; sampled differences, not external reproduction or long-time stability",fontsize=9)
+    fig.supxlabel(f"{data['status']}; source {data['source_commit'][:8]}; common-time differences only; no long-time qualification",fontsize=9)
     fig.savefig(out/"timestep.png",dpi=160)
     fig.savefig(out/"timestep.svg")
     svg=out/"timestep.svg"
