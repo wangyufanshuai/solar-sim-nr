@@ -107,7 +107,7 @@ def tensor_report(reference, native):
     return report
 
 
-def contraction_report(reference, native, chi):
+def contraction_report(reference, native, chi, *, native_chi):
     ref = reference["ricci_z_scalar"]
     actual = native["ricci_z_scalar"]
     seq = scalar_contraction(reference, chi, sequential=True)
@@ -117,6 +117,8 @@ def contraction_report(reference, native, chi):
                 python_reduction_order_shift=float(np.max(np.abs(seq-ref))),
                 native_tensors_numpy_vs_python=float(np.max(np.abs(numpy_native-ref))),
                 python_numpy_reconstruction_error=float(np.max(np.abs(scalar_contraction(reference, chi, sequential=False)-ref))),
+                native_chi_max_absolute_difference=float(np.max(np.abs(native_chi-chi))),
+                native_sequential_own_chi_reconstruction_error=float(np.max(np.abs(scalar_contraction(native, native_chi, sequential=True)-actual))),
                 native_sequential_reconstruction_error=float(np.max(np.abs(scalar_contraction(native, chi, sequential=True)-actual))))
 
 
@@ -174,6 +176,9 @@ def run(out, before=None, *, snapshot=None):
         kw = dict(spacing=grid.spacing, order=4, gauge=run_b1.GAUGE, config=run_b1.CONFIG, threads=1)
         raw, actual = native_rhs_slots(q, return_geometry=True, **kw)
         normal = native_rhs_slots(q, **kw)
+        theta_raw, native_terms = native_rhs_slots(q, return_theta_terms=True, **kw)
+        same_theta = theta_raw.tobytes() == normal.tobytes()
+        native_chi = native_terms[10]
         same_normal = raw.tobytes() == normal.tobytes()
         ordinary = harmonic_correction(q, normal, spacing=grid.spacing, order=4,
                                        gauge=run_b1.GAUGE, config=run_b1.CONFIG)
@@ -192,6 +197,7 @@ def run(out, before=None, *, snapshot=None):
         row = dict(stage=stage, base_time=base_time,
                    nominal_stage_time=base_time+(0., .5, .5, 1.)[stage-1]*dt,
                    all_58_outputs_bitwise_equal_normal=same_normal,
+                   all_58_outputs_bitwise_equal_theta_observer=same_theta,
                    all_58_outputs_bitwise_equal_control=rhs.tobytes()==old.tobytes(),
                    all_58_outputs_bitwise_equal_fresh_control=rhs.tobytes()==ordinary.tobytes(),
                    historical_rhs_comparison=compare_arrays(old, rhs),
@@ -203,16 +209,16 @@ def run(out, before=None, *, snapshot=None):
                    tensors=tensor_report(ref, actual), adjugate_tensors=tensor_report(adj, actual),
                    reciprocal_tensors=tensor_report(reciprocal, actual),
                    combined_tensors=tensor_report(combined, actual),
-                   contraction=contraction_report(ref, actual, chi),
-                   adjugate_contraction=contraction_report(adj, actual, chi),
+                   contraction=contraction_report(ref, actual, chi, native_chi=native_chi),
+                   adjugate_contraction=contraction_report(adj, actual, chi, native_chi=native_chi),
                    combined_geometry_bitwise_equal_native=all(combined[n].tobytes()==actual[n].tobytes()
                                                               for n, _ in GEOMETRY_FIELDS),
-                   combined_contraction=contraction_report(combined, actual, chi))
+                   combined_contraction=contraction_report(combined, actual, chi, native_chi=native_chi))
         if snapshot is None:
             row["all_58_outputs_bitwise_equal_before"] = row["all_58_outputs_bitwise_equal_control"]
         result["stages"].append(row)
         np.savez_compressed(out/f"stage-{stage}.npz", q=q, python_rhs=py_rhs, native_rhs=rhs,
-                            arithmetic_rhs=combined_rhs, **{f"{variant}_{n}": v
+                            arithmetic_rhs=combined_rhs, python_chi=chi, native_chi=native_chi, **{f"{variant}_{n}": v
                             for variant, fields in (("python", ref), ("native", actual), ("adjugate", adj),
                                                     ("reciprocal", reciprocal), ("combined", combined))
                             for n, v in fields.items()})
@@ -221,6 +227,7 @@ def run(out, before=None, *, snapshot=None):
     result.update(seconds=time.perf_counter()-start, peak_rss_bytes=peak_rss())
     result["instrumentation_pass"] = all(all(row[key] for key in (
         "all_58_outputs_bitwise_equal_normal", "all_58_outputs_bitwise_equal_fresh_control",
+        "all_58_outputs_bitwise_equal_theta_observer",
         "original_python_unchanged", "scalar_equals_theta_observation")) for row in result["stages"])
     result["historical_replay_bitwise_pass"] = all(row["all_58_outputs_bitwise_equal_control"]
                                                    for row in result["stages"])

@@ -192,3 +192,15 @@ The regression now compares sigma=0 against the unmodified entry point on the
 same host, with exact initial and final bytes, and verifies that the historical
 replay boolean and maximum difference match the retained archive data. No
 archived arrays, solver defaults or numeric tolerances were altered.
+
+
+Run 43553157345 (8916e86) passed the new host-local dissipation control, but
+another Ubuntu host exposed a 5.421010862427522e-20 scalar reconstruction
+difference. The test mixed C++ geometry with NumPy exp(2 ln(phi)) for chi;
+C++ actually uses std::exp, whose rounded value need not equal NumPy's exp.
+The diagnostic now obtains the actual native chi from its existing Theta-term
+export (no C++ or solver change), verifies that this export also preserves all
+58 raw RHS slots bitwise, and saves both chi arrays. The prior mixed-operand
+error is still reported. Exact reconstruction is asserted using the actual
+native operand, and a synthetic mismatched-chi control verifies both metrics.
+No zero-error check was replaced with a looser numeric tolerance.

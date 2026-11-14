@@ -54,7 +54,9 @@ def test_geometry_exports_reconstruct_actual_tensors_and_preserve_rhs():
         np.testing.assert_array_equal(rz, fields["ricci_z"])
         assert np.max(np.abs(fields["covd_z"])) > 0
     chi = state_from_slots(q, grid).base.chi
-    np.testing.assert_array_equal(scalar_contraction(native, chi, sequential=True), native["ricci_z_scalar"])
+    theta_rhs, native_terms = native_rhs_slots(q, return_theta_terms=True, **kw)
+    assert theta_rhs.tobytes() == normal.tobytes()
+    np.testing.assert_array_equal(scalar_contraction(native, native_terms[10], sequential=True), native["ricci_z_scalar"])
     np.testing.assert_array_equal(scalar_contraction(reference, chi, sequential=False), reference["ricci_z_scalar"])
     with pytest.raises(ValueError, match="either theta terms"):
         native_rhs_slots(q, return_geometry=True, return_theta_terms=True, **kw)
@@ -115,7 +117,7 @@ def test_registered_four_stage_run_compares_raw_rhs_before_inplace_gauge_correct
         assert stage["all_58_outputs_bitwise_equal_before"] == stage["all_58_outputs_bitwise_equal_control"]
         assert stage["historical_rhs_comparison"]["active_slots_pass_relative_1e_minus12"]
         assert stage["contraction"]["python_numpy_reconstruction_error"] == 0
-        assert stage["contraction"]["native_sequential_reconstruction_error"] == 0
+        assert stage["contraction"]["native_sequential_own_chi_reconstruction_error"] == 0
 
 
 def test_reciprocal_derivative_retains_pairing_and_fourth_order_accuracy():
@@ -218,3 +220,17 @@ def test_historical_drift_is_reported_separately_from_observer_preservation(tmp_
     assert not result["historical_replay_relative_pass"]
     assert not result["stages"][0]["all_58_outputs_bitwise_equal_before"]
     assert result["stages"][0]["historical_rhs_comparison"]["global_max_absolute_difference"] > .009
+
+
+def test_contraction_retains_numpy_chi_disagreement_and_checks_actual_native_operand():
+    from experiments.b3_native.geometry_terms import contraction_report
+    tensors=dict(h_inverse=np.eye(3)[None,None,None], ricci_z=np.eye(3)[None,None,None])
+    python_chi=np.full((1,1,1),3.)
+    native_chi=np.full((1,1,1),2.)
+    reference=dict(tensors, ricci_z_scalar=scalar_contraction(tensors, python_chi, sequential=False))
+    native=dict(tensors, ricci_z_scalar=scalar_contraction(tensors, native_chi, sequential=True))
+    r=contraction_report(reference,native,python_chi,native_chi=native_chi)
+    assert r['native_sequential_own_chi_reconstruction_error']==0
+    assert r['native_sequential_reconstruction_error']==3
+    assert r['native_chi_max_absolute_difference']==1
+    assert r['original_absolute_difference']==3
