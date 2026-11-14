@@ -129,3 +129,50 @@ def test_analytic_convergence_recovers_known_order_and_handles_zero_errors():
     rows[2]['samples']=[]
     assert convergence_summary(rows)==[]
     assert convergence_summary(rows[:2])==[]
+
+
+@pytest.mark.parametrize("options",[
+    dict(points=(32,),fixed_sigma=.1,timestep_factors=(1,2)),
+    dict(points=(16,32,64),fixed_sigma=.1,timestep_factors=(1,2,4)),
+    dict(points=(32,),timestep_factors=(1,2,4)),
+])
+def test_unregistered_temporal_suite_rejected(tmp_path,options):
+    with pytest.raises(ValueError):run(tmp_path/'invalid-temporal',**options)
+    assert not (tmp_path/'invalid-temporal').exists()
+
+
+def test_temporal_suite_advances_matching_times_and_distinct_steps(tmp_path):
+    result=run(tmp_path/'temporal',points=(32,),fixed_sigma=.1,timestep_factors=(1,2,4),target_time=1/128)
+    assert [row['completed_steps'] for row in result['trajectories']]==[1,2,4]
+    assert all(row['last_valid_time']==1/128 for row in result['trajectories'])
+    assert len({row['last_valid_arrays'] for row in result['trajectories']})==3
+    assert result['scientific_acceptance_established'] is False
+    assert result['temporal_self_convergence'][0]['time']==1/128
+    assert 'fixed_sigma_replay' not in result['trajectories'][1]['samples'][0]
+
+
+def test_temporal_analysis_cancels_spatial_error_and_recovers_rk4_order(tmp_path):
+    from experiments.b3_native.gauge_spatial_refinement import temporal_summary
+    from experiments.b1_gauge_wave.run_b1 import FIELDS
+    rows=[]
+    for factor in (1,2,4):
+        # Same spatial bias .5, temporal term .25/factor^4: known independent values.
+        error=.5+.25/factor**4
+        name=f'factor-{factor}.npz'
+        np.savez_compressed(tmp_path/name,time=1.,dt=1/(128*factor),
+            **{'field_error_'+field:np.full((2,2,2),error) for field in FIELDS})
+        rows.append(dict(timestep_factor=factor,dt=1/(128*factor),samples=[dict(time=1.,arrays_path=name,
+                    fields={field:dict(l_inf_over_amplitude=error/.1) for field in FIELDS})]))
+    metric=temporal_summary(tmp_path,rows)[0]['metrics']['h']
+    assert metric['observed_linf_order']==4.
+    assert metric['observed_rms_order']==4.
+    assert metric['finest_rk4_error_estimate_over_amplitude']==(.25/4**4)/.1
+    rows[2]['samples']=[]
+    assert temporal_summary(tmp_path,rows)==[]
+
+
+def test_temporal_resource_stop_does_not_claim_convergence(tmp_path):
+    result=run(tmp_path/'time-stop',points=(32,),fixed_sigma=.1,timestep_factors=(1,2,4),target_time=1/128,max_seconds=1e-12)
+    assert result['status']=='RESOURCE_STOPPED'
+    assert result['temporal_self_convergence']==[]
+    assert not result['all_trajectories_reached_target']

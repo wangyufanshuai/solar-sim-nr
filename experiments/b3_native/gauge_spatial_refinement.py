@@ -75,12 +75,54 @@ def convergence_summary(rows):
     return result
 
 
-def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None, fixed_sigma=None):
+def temporal_summary(out, rows, check=lambda: None):
+    """Self-convergence on matching grids/times using saved physical field errors.
+
+    Subtracting errors cancels the identical analytic slice. Richardson estimates
+    assume RK4 asymptotics; raw differences and their measured orders remain primary.
+    """
+    cases={row["timestep_factor"]: row for row in rows}
+    if set(cases) != {1,2,4}:
+        return []
+    samples={f: {s["time"]:s for s in row.get("samples",[])} for f,row in cases.items()}
+    common=sorted((set(samples[1]) & set(samples[2]) & set(samples[4])) - {0.})
+    result=[]
+    for current in common:
+        arrays=[]
+        for factor in (1,2,4):
+            check()
+            with np.load(Path(out)/samples[factor][current]["arrays_path"],allow_pickle=False) as saved:
+                if float(saved["time"]) != current or float(saved["dt"]) != cases[factor]["dt"]:
+                    raise ValueError("temporal comparison requires identical sample times and recorded dt")
+                arrays.append({name:saved["field_error_"+name] for name in run_b1.FIELDS})
+        metrics={}
+        for name in run_b1.FIELDS:
+            if not arrays[0][name].shape == arrays[1][name].shape == arrays[2][name].shape:
+                raise ValueError("temporal comparison requires identical field shapes")
+            diffs=[a[name]-b[name] for a,b in zip(arrays,arrays[1:])]
+            linf=[float(np.max(np.abs(delta))/.1) for delta in diffs]
+            rms=[float(np.sqrt(np.mean(delta*delta))/.1) for delta in diffs]
+            def order(values):
+                return float(np.log2(values[0])-np.log2(values[1])) if min(values)>0 else None
+            total=samples[4][current]["fields"][name]["l_inf_over_amplitude"]
+            metrics[name]=dict(pairwise_linf_over_amplitude=linf,pairwise_rms_over_amplitude=rms,
+                observed_linf_order=order(linf),observed_rms_order=order(rms),
+                finest_rk4_error_estimate_over_amplitude=linf[1]/15,
+                finest_analytic_error_over_amplitude=total,
+                estimated_time_error_fraction=linf[1]/(15*total) if total>0 else None)
+        result.append(dict(time=current,metrics=metrics))
+    return result
+
+
+def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None, fixed_sigma=None, timestep_factors=None):
     if not points or len(set(points)) != len(points) or any(n not in (16,32,64) for n in points):
         raise ValueError("unique registered nx values (16,32,64) required")
     if sigmas is not None and (tuple(points) != (32,) or tuple(sigmas) != (0.,.02,.1)):
         raise ValueError("registered dissipation comparison requires nx32 and sigmas=(0,.02,.1)")
-    if fixed_sigma is not None and (tuple(points) != (16,32,64) or fixed_sigma != .1 or sigmas is not None):
+    temporal=timestep_factors is not None
+    if temporal and (tuple(timestep_factors) != (1,2,4) or tuple(points) != (32,) or fixed_sigma != .1 or sigmas is not None):
+        raise ValueError("registered timestep study requires nx32, sigma=.1, factors=(1,2,4)")
+    if fixed_sigma is not None and not temporal and (tuple(points) != (16,32,64) or fixed_sigma != .1 or sigmas is not None):
         raise ValueError("registered fixed-sigma refinement requires nx=(16,32,64), sigma=.1, no sigma suite")
     if not 0 < target_time <= 24 or not 0 < max_seconds <= 600:
         raise ValueError("registered target <=24 and deadline <=600 required")
@@ -107,24 +149,27 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None
                 source_tree_clean=not subprocess.check_output(["git","status","--porcelain"],cwd=root,text=True,timeout=5).strip(),
                 status="RUNNING",scientific_acceptance_established=False,external_independent_reproduction=False,
                 settings=dict(points=list(points),dissipation_sigmas=None if sigmas is None else list(sigmas),
-                              fixed_dissipation_sigma=fixed_sigma,
+                              fixed_dissipation_sigma=fixed_sigma,timestep_factors=None if not temporal else list(timestep_factors),
                               target_time=target_time,amplitude=.1,spatial_order=4,
                               cfl=.25,integrator="additive canonical-slot RK4",threads=1,
                               max_seconds=max_seconds,max_working_set_bytes=512*1024**2,max_output_bytes=64*1024**2),
                 trajectories=[])
     resource_stopped=False
     cases=[(nx,0. if fixed_sigma is None else fixed_sigma) for nx in points] if sigmas is None else [(32,sigma) for sigma in sigmas]
-    for nx,sigma in cases:
+    cases=[(nx,sigma,factor) for nx,sigma in cases for factor in (timestep_factors if temporal else (1,))]
+    for nx,sigma,factor in cases:
         name=f"nx{nx}" if sigma == 0 else f"nx{nx}-ko{sigma:g}".replace(".","p")
+        if temporal:
+            name+=f"-dt{factor}"
         if resource_stopped:
-            result["trajectories"].append(dict(nx=nx,dissipation_sigma=sigma,name=name,status="NOT_STARTED_RESOURCE_STOP"))
+            result["trajectories"].append(dict(nx=nx,dissipation_sigma=sigma,name=name,timestep_factor=factor,status="NOT_STARTED_RESOURCE_STOP"))
             continue
         grid=run_b1.grid(nx,4)
-        dt=1/(4*nx)
+        dt=1/(4*nx*factor)
         q=slots(FOCCZ4State3D.from_bssn_state(BSSNState3D.gauge_wave(grid,amplitude=.1)))
         validate_slots(q)
         count=0
-        row=dict(nx=nx,dissipation_sigma=sigma,name=name,shape=list(grid.shape),dt=dt,status="RUNNING",samples=[])
+        row=dict(nx=nx,dissipation_sigma=sigma,name=name,shape=list(grid.shape),dt=dt,timestep_factor=factor,status="RUNNING",samples=[])
         result["trajectories"].append(row)
         native=make_rhs(spacing=grid.spacing,order=4,gauge=run_b1.GAUGE,
                         config=run_b1.CONFIG,harmonic=True,threads=1)
@@ -139,11 +184,11 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None
             sample_row=dict(time=current,step=count,arrays_path=filename,**details)
             if nx == 32 and sigma == 0 and current in (0.,15.,18.,22.):
                 sample_row["baseline_replay"]=replay_control(q,root/f"docs/gauge-stage/baseline-t{int(current)}.npz",current,dt)
-            if fixed_sigma is not None and nx == 32 and float(current).is_integer():
+            if fixed_sigma is not None and nx == 32 and factor == 1 and float(current).is_integer():
                 sample_row["fixed_sigma_replay"]=replay_control(q,
                     root/f"docs/gauge-stage/dissipation/nx32-ko0p1-step{count}-sample.npz",current,dt)
             row["samples"].append(sample_row)
-            print(json.dumps(dict(nx=nx,dissipation_sigma=sigma,time=current,max_field_error_over_amplitude=
+            print(json.dumps(dict(nx=nx,dissipation_sigma=sigma,timestep_factor=factor,time=current,max_field_error_over_amplitude=
                   max(v["l_inf_over_amplitude"] for v in details["fields"].values()))),flush=True)
         candidate=None
         try:
@@ -168,7 +213,7 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None
                         save(f"{name}-failed-candidate.npz",q=candidate,time=(count+1)*dt,dt=dt)
                     break
                 q,count=candidate,step
-                if step % (4*nx) == 0 or step == int(target_time/dt):
+                if step % (4*nx*factor) == 0 or step == int(target_time/dt):
                     with np.errstate(over="raise",invalid="raise",divide="raise"):
                         sample()
             else:
@@ -185,8 +230,13 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None
     result["all_trajectories_reached_target"]=all(t["status"] == "REACHED_TARGET" for t in result["trajectories"])
     result["status"]=("RESOURCE_STOPPED" if resource_stopped else
                        "COMPLETED" if result["all_trajectories_reached_target"] else "SCIENTIFIC_FAILURE")
-    if fixed_sigma is not None:
+    if fixed_sigma is not None and not temporal:
         result["analytic_error_convergence"]=convergence_summary(result["trajectories"])
+    if temporal:
+        try:
+            result["temporal_self_convergence"]=temporal_summary(out,result["trajectories"],check)
+        except ResourceStopped as exc:
+            result.update(status="RESOURCE_STOPPED",analysis_resource_stop=str(exc))
     result.update(seconds=time.perf_counter()-start,peak_rss_bytes=peak_rss())
     write("result.json",(json.dumps(result,indent=2,allow_nan=False)+"\n").encode())
     return result
@@ -200,9 +250,12 @@ if __name__ == "__main__":
     study=parser.add_mutually_exclusive_group()
     study.add_argument("--dissipation",action="store_true",help="registered nx32 baseline/sigma=.02/.1 comparison")
     study.add_argument("--dissipation-refinement",action="store_true",help="registered nx16/32/64, fixed sigma=.1 comparison")
+    study.add_argument("--dissipation-timestep",action="store_true",help="registered nx32 sigma=.1, dt/half/quarter study")
     args=parser.parse_args()
     options=dict(points=(32,),sigmas=(0.,.02,.1)) if args.dissipation else {}
     if args.dissipation_refinement:
         options=dict(points=(16,32,64),fixed_sigma=.1)
+    if args.dissipation_timestep:
+        options=dict(points=(32,),fixed_sigma=.1,timestep_factors=(1,2,4))
     result=run(args.out,target_time=args.target_time,max_seconds=args.max_seconds,**options)
     print(json.dumps({k:result[k] for k in ("status","source_commit","seconds","peak_rss_bytes")}))

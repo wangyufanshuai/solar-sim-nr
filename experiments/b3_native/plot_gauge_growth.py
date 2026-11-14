@@ -6,12 +6,59 @@ from pathlib import Path
 import numpy as np
 
 
+def plot_temporal(data, out):
+    """Plot measured fixed-grid timestep differences, including adverse orders."""
+    import matplotlib.pyplot as plt
+    out=Path(out)
+    out.mkdir(parents=True,exist_ok=False)
+    fig,axes=plt.subplots(2,2,figsize=(11,7.5),layout="constrained")
+    for row,color in zip(data["trajectories"],("#b45309","#2563eb","#047857")):
+        samples=row.get("samples",[])
+        times=[s["time"] for s in samples if s["time"]>0]
+        errors=[max(f["l_inf_over_amplitude"] for f in s["fields"].values()) for s in samples if s["time"]>0]
+        axes[0,0].semilogy(times,errors,".-",color=color,label=f"dt=1/{128*row['timestep_factor']}")
+    samples=data.get("temporal_self_convergence",[])
+    times=[row["time"] for row in samples]
+    for pair,label in enumerate(("dt - dt/2","dt/2 - dt/4")):
+        errors=[max(m["pairwise_linf_over_amplitude"][pair] for m in row["metrics"].values()) for row in samples]
+        axes[0,1].semilogy(times,errors,".-",label=label)
+    for name in ("h","conformal_gamma","theta"):
+        orders=[np.nan if row["metrics"][name]["observed_linf_order"] is None
+                else row["metrics"][name]["observed_linf_order"] for row in samples]
+        fractions=[np.nan if row["metrics"][name]["estimated_time_error_fraction"] is None
+                   else row["metrics"][name]["estimated_time_error_fraction"] for row in samples]
+        axes[1,0].plot(times,orders,".-",label=name)
+        axes[1,1].semilogy(times,fractions,".-",label=name)
+    axes[1,0].axhline(4,color="black",linestyle="--",linewidth=1,label="RK4 design order")
+    titles=("Analytic error at fixed nx32 (curves may overlap)","Successive timestep state differences",
+            "Observed timestep self-convergence order","Assumed finest RK4 error / total analytic error")
+    units=("Max field error / A","Max field difference / A","log2(||dt-half|| / ||half-quarter||)",
+           "Richardson fraction, assumes RK4 asymptotics")
+    for axis,title,unit in zip(axes.flat,titles,units):
+        axis.set(title=title,xlabel="Time",ylabel=unit)
+        axis.grid(alpha=.2)
+        axis.legend(fontsize=8)
+    fig.suptitle("Gauge wave A=.1: fixed nx32, x-only KO sigma=.1; timestep refinement")
+    fig.supxlabel(f"Source {data['source_commit'][:8]}; sampled differences, not external reproduction or long-time stability",fontsize=9)
+    fig.savefig(out/"timestep.png",dpi=160)
+    fig.savefig(out/"timestep.svg")
+    svg=out/"timestep.svg"
+    svg.write_bytes(("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines())+"\n").encode())
+    plt.close(fig)
+    return out/"timestep.png"
+
+
 def plot(report, out):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     report,out=Path(report),Path(out)
     data=json.loads(report.read_text(encoding="utf-8"))
+    if data["settings"].get("timestep_factors") == [1,2,4]:
+        if (data["settings"]["points"] != [32] or data["settings"].get("fixed_dissipation_sigma") != .1
+                or data["scientific_acceptance_established"]):
+            raise ValueError("registered temporal diagnostic required")
+        return plot_temporal(data,out)
     dissipation = (data["settings"]["points"] == [32]
                    and data["settings"].get("dissipation_sigmas") == [0., .02, .1])
     refinement = (data["settings"]["points"] == [32,16,64]

@@ -677,3 +677,36 @@ and its NPZ files. The plotted curves use these actual samples:
 Next: register a fixed-grid timestep comparison before interpreting the
 remaining smooth error as exclusively spatial; then assess a longer horizon
 without altering sigma or promoting the variant into production.
+
+
+### Fixed-grid timestep registration (2026-11-14, before execution)
+
+S3 next question: how much of the fixed-sigma finite-horizon error is caused by
+RK4 timesteps? From independently constructed identical analytic A=.1 initial
+data, fix nx32 x 5 x 5, FD4 and x-only KO sigma=.1. Evolve dt=1/128, 1/256,
+1/512 to T24. Keep the native equations, dissipation operator and all original
+gates unchanged. This is a new diagnostic from T0, distinct from the previous
+restart timestep experiment on an already inaccurate T22 state.
+
+At common integer times, save the same seven-field analytic errors, actual
+constraints, Fourier spectra, auxiliary consistency and raw state arrays.
+Compute physical-field differences dt-minus-half and half-minus-quarter, both
+L_inf/A and RMS/A. The self-convergence order is log2 of their norm ratio;
+zero differences yield null order, not a pass. Do not fit orders from ratios
+of analytic errors on a fixed grid, which retain spatial bias. For transparency
+report the assumed finest RK4 Richardson error ||half-quarter||/15 divided by
+A, and its fraction of the total analytic error. This is only an estimate if
+RK4 asymptotics apply; report observed orders even when adverse or roundoff
+contaminated. Expected smooth early-time order is about four, not a new gate.
+The dt=1/128 trajectory replays all old sigma=.1 integer samples with measured
+bitwise status and maximum differences; finer timesteps do not claim replay.
+
+Combined limits: 600 s, 512 MiB peak process working set, 64 MiB raw output,
+one process and one numerical thread. Retain failures and partial data;
+resource stops and reaching T24 cannot close the long-time stability gate,
+prove nonlinear boundedness, or substitute for independent external reproduction.
+Do not retune sigma or target after reading the outcome.
+
+```powershell
+python -B -m experiments.b3_native.gauge_spatial_refinement --dissipation-timestep --out outputs/dissipation-timestep
+```
