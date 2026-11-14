@@ -100,3 +100,16 @@ def test_tensor_report_keeps_location_scale_and_signed_values():
     actual["ricci"][0, 0, 0, 0, 0] = np.nan
     with pytest.raises(ValueError, match="matching finite"):
         tensor_report(ref, actual)
+
+
+def test_registered_four_stage_run_compares_raw_rhs_before_inplace_gauge_correction(tmp_path):
+    from pathlib import Path
+    from experiments.b3_native.geometry_terms import run
+    baseline = Path(__file__).resolve().parents[1]/"docs/gauge-stage/theta-terms/before.npz"
+    result = run(tmp_path/"run", baseline)
+    assert result["instrumentation_pass"]
+    assert len(result["stages"]) == 4
+    for stage in result["stages"]:
+        assert stage["all_58_outputs_bitwise_equal_before"]
+        assert stage["contraction"]["python_numpy_reconstruction_error"] == 0
+        assert stage["contraction"]["native_sequential_reconstruction_error"] == 0

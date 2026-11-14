@@ -110,6 +110,7 @@ def run(out, before):
         kw = dict(spacing=grid.spacing, order=4, gauge=run_b1.GAUGE, config=run_b1.CONFIG, threads=1)
         raw, actual = native_rhs_slots(q, return_geometry=True, **kw)
         normal = native_rhs_slots(q, **kw)
+        same_normal = raw.tobytes() == normal.tobytes()
         rhs = harmonic_correction(q, raw, spacing=grid.spacing, order=4, gauge=run_b1.GAUGE, config=run_b1.CONFIG)
         py_rhs, py_terms = python_terms(q, grid)
         ref = python_geometry(q, grid)
@@ -117,7 +118,7 @@ def run(out, before):
         restored_rhs, restored_terms = python_terms(q, grid)
         after = python_geometry(q, grid)
         chi = state_from_slots(q, grid).base.chi
-        row = dict(stage=stage, all_58_outputs_bitwise_equal_normal=raw.tobytes()==normal.tobytes(),
+        row = dict(stage=stage, all_58_outputs_bitwise_equal_normal=same_normal,
                    all_58_outputs_bitwise_equal_before=rhs.tobytes()==old.tobytes(),
                    original_python_unchanged=all(ref[n].tobytes()==after[n].tobytes() for n, _ in GEOMETRY_FIELDS)
                      and py_rhs.tobytes()==restored_rhs.tobytes() and py_terms.tobytes()==restored_terms.tobytes(),
