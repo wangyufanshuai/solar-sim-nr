@@ -45,3 +45,21 @@ checkerboard solution. Do not remove these modes from the original data or relab
 the earlier failed fixed-growth test as passed. A future explicitly separate solver
 variant can test dissipation against the nonconstant parity modes; mean gauge modes
 must still be accounted for, and all original results remain unchanged.
+
+
+## Independent continuation replay (2026-11-14)
+
+The registered command was rerun into a fresh ignored output path:
+`python -B -m experiments.s2_periodic_evolution.null_mode_diagnostic
+--out outputs/s2-null-modes-continuation.json`, with one numerical thread.
+The result completed in 8.4658 s, peak process working set 43.84 MiB, and
+matched every stored seed42 prediction field in `docs/s2-null-modes.json`
+bitwise as parsed JSON: predicted slope 2.6003575409805745e-11, observed
+slope 2.6001990085587156e-11, relative difference 6.0969341700017e-05,
+and constant-only slope 3.2634648734288123e-12. All parity derivatives
+remained exactly zero. The pure P111 check reached T=10 with maximum
+ln(alpha) error 3.3333383129202843e-15 and maximum ln(phi) error
+1.6666659006772512e-15; both remain below the pre-registered 1e-11 bound.
+This is a replay of the existing diagnostic and does not alter the solver,
+original S2 gates, or the conclusion that infinite-time boundedness is
+unproven.
