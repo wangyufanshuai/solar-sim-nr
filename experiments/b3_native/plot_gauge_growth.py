@@ -64,6 +64,8 @@ def plot(report, out):
     stem="dissipation" if dissipation else "refinement"
     fig.savefig(out/f"{stem}.png",dpi=160)
     fig.savefig(out/f"{stem}.svg")
+    svg=out/f"{stem}.svg"
+    svg.write_bytes(("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines())+"\n").encode())
     plt.close(fig)
     return out/f"{stem}.png"
 
