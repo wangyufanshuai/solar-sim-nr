@@ -183,3 +183,43 @@ Compare all 58 full RHS outputs on the same four inputs at the unchanged 1e-12
 active-slot relative gate, and show the original comparison alongside the variant.
 The variant is diagnostic only; no solver default, science source, long-run gate
 or external-reproduction status changes. Retain the same resource ceilings.
+
+
+### Complete RHS arithmetic ablation: bounded result
+
+Source ad9d661; same saved T=0 four-stage inputs, no evolution. All original
+native RHS outputs remain bitwise equal to saved original-library outputs and
+ordinary calls. Original Python output/globals/defaults stay unchanged.
+
+| Stage | Original active-slot relative max | Isolated arithmetic variant | Original 1e-12 gate | Variant 1e-12 gate |
+| --- | --- | --- | --- | --- |
+| 1 | 5.00895e-12 | 6.15618e-14 | FAIL | PASS |
+| 2 | 4.98168e-12 | 7.53579e-14 | FAIL | PASS |
+| 3 | 3.79573e-12 | 3.60346e-14 | FAIL | PASS |
+| 4 | 4.66511e-12 | 3.01284e-14 | FAIL | PASS |
+
+All 397 exported geometry components agree bitwise for the combined inverse/stencil
+variant. Full RHS absolute differences remain nonzero, at most 6.94e-18. Thus the
+two arithmetic choices are sufficient to account for the strict-gate discrepancy
+on these inputs to the registered tolerance, without establishing exact complete
+RHS equality, general-state parity or long-time stability. The original gate
+remains failed and no diagnostic variant replaces a solver default. In particular,
+the T~23.28 failure boundary, S2-c boundedness and external reproduction stay open.
+This diagnostic cost 1.569 s, 67.906 MiB peak and 839139 output bytes. Forty related
+tests passed, including stencil accuracy, non-diagonal geometry reconstruction,
+profiler restoration and whole-RHS ablation isolation. The 267-file constraint
+bridge input manifest passed verification without executing its scientific run.
+
+Raw output: [full-rhs/](gauge-stage/geometry-terms/full-rhs/). Reproduce in a fresh
+output directory (single-thread BLAS/OpenMP environment recommended):
+
+```console
+python -B -m kernel.native_rhs build
+python -B -m experiments.b3_native.geometry_terms --out outputs/geometry-reproduction --before docs/gauge-stage/theta-terms/before.npz
+```
+
+The process exit status qualifies instrumentation only. Inspect `strict_rhs_pass`
+(original, false) and `diagnostic_arithmetic_rhs_pass` (isolated variant, true)
+separately. Next: compare registered saved inputs near T=15-18, if available, or
+register a resource-bounded acquisition; test the arithmetic explanation before
+attributing the later trajectory divergence. No new long evolution was run here.
