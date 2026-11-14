@@ -1,0 +1,3598 @@
+{
+  "source_commit": "ccdd2e736639a45cd7c2b5ae987aff6f374cb4bc",
+  "before_sha256": "9a4545d13a75e4a41c03bd2a85b77e4655fbd4c36a742fe8f8cb6173a030ca57",
+  "external_independent_reproduction": false,
+  "scientific_gate_relative": 1e-12,
+  "settings": {
+    "shape": [
+      32,
+      5,
+      5
+    ],
+    "amplitude": 0.1,
+    "threads": 1,
+    "max_seconds": 600,
+    "max_output_bytes": 67108864,
+    "max_working_set_bytes": 536870912
+  },
+  "numpy_version": "2.2.6",
+  "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+  "stages": [
+    {
+      "stage": 1,
+      "all_58_outputs_bitwise_equal_normal": true,
+      "all_58_outputs_bitwise_equal_before": true,
+      "original_python_unchanged": true,
+      "scalar_equals_theta_observation": true,
+      "strict_rhs_comparison": {
+        "global_max_absolute_difference": 1.3322676295501878e-15,
+        "reference_scale": 3.1364829969002606,
+        "worst_active_relative_difference": 5.008946540237337e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41887902047863906,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.3252311172764654e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.21088276628242536,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3161613964441825e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.21088276628242536,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3161613964441825e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.3142535661070332,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.1047511887023444,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.43624415820859,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 4.638026278247527e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7979134212269945,
+            "absolute_difference": 3.3306690738754696e-16,
+            "relative_difference": 4.1742236504227743e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7979134212269945,
+            "absolute_difference": 3.3306690738754696e-16,
+            "relative_difference": 4.1742236504227743e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.3112989119775307,
+            "absolute_difference": 1.3322676295501878e-15,
+            "relative_difference": 5.764151156071412e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 0.00011051285280106055,
+            "absolute_difference": 5.535529716896304e-16,
+            "relative_difference": 5.008946540237337e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1364829969002606,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 1.4158827268917108e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.192800932526515,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0252144335709905e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3627568384471314,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 3.2587560547933455e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.7570871324706284,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4664402246570057e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.7570871324706284,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4664402246570057e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.7309336441755051,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 3.0378216503564856e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0727659828951441,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 2.0698326425842188e-16,
+          "changed_elements": 1100,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.0501049413530295,
+          "native_at_worst": 1.0501049413530297
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.21226119408362118,
+          "absolute_difference": 5.551115123125783e-17,
+          "relative_to_tensor_max": 2.6152284439419943e-16,
+          "changed_elements": 1000,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.16733845819769802,
+          "native_at_worst": -0.16733845819769808
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.20949146536297336,
+          "absolute_difference": 5.551115123125783e-17,
+          "relative_to_tensor_max": 2.6498049042273378e-16,
+          "changed_elements": 1900,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.1593540336855165,
+          "native_at_worst": -0.15935403368551657
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.31423695160806014,
+          "absolute_difference": 8.326672684688674e-17,
+          "relative_to_tensor_max": 2.649806982303699e-16,
+          "changed_elements": 600,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2390280225719418,
+          "native_at_worst": -0.2390280225719419
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.461929444907152,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.5188462459563736e-16,
+          "changed_elements": 2675,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.9250538032050759,
+          "native_at_worst": 0.9250538032050761
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.1927960113643206,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.025218978639777e-16,
+          "changed_elements": 2800,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.387607235992058,
+          "native_at_worst": 1.3876072359920584
+        },
+        {
+          "field": "ricci",
+          "reference_max": 0.00010631444074471474,
+          "absolute_difference": 4.470572132972417e-16,
+          "relative_to_tensor_max": 4.205046935916525e-12,
+          "changed_elements": 1050,
+          "worst_index": [
+            27,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -2.8276164505901792e-05,
+          "native_at_worst": -2.827616450634885e-05
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.4245219817190313,
+          "absolute_difference": 1.6653345369377348e-16,
+          "relative_to_tensor_max": 3.922846421742966e-16,
+          "changed_elements": 250,
+          "worst_index": [
+            17,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.39779929939967024,
+          "native_at_worst": 0.3977992993996704
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.136291708434899,
+          "absolute_difference": 8.881784197001252e-16,
+          "relative_to_tensor_max": 2.831938168606619e-16,
+          "changed_elements": 400,
+          "worst_index": [
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -2.0249386998922723,
+          "native_at_worst": -2.0249386998922714
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 1.5411200376495007e-05,
+          "absolute_difference": 8.434584682168872e-17,
+          "relative_to_tensor_max": 5.473022526547126e-12,
+          "changed_elements": 250,
+          "worst_index": [
+            17,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 6.219058008850366e-06,
+          "native_at_worst": 6.21905800876602e-06
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 1.6583856086170287e-05,
+          "absolute_difference": 8.273224905716928e-17,
+          "relative_to_tensor_max": 4.988722081721505e-12,
+          "changed_elements": 250,
+          "worst_index": [
+            17,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 6.100051899903635e-06,
+          "native_at_worst": 6.100051899820902e-06
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 6.453941149765805e-05,
+          "absolute_difference": 4.675892919386859e-16,
+          "relative_to_tensor_max": 7.245019455370358e-12,
+          "changed_elements": 975,
+          "worst_index": [
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -5.457370936929265e-05,
+          "native_at_worst": -5.457370936976024e-05
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.00015697969237772342,
+          "absolute_difference": 9.351785838773718e-16,
+          "relative_to_tensor_max": 5.957322056837465e-12,
+          "changed_elements": 1200,
+          "worst_index": [
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.00013742358324470987,
+          "native_at_worst": -0.00013742358324564505
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00023625492715889158,
+          "absolute_difference": 1.0585336860519101e-15,
+          "relative_to_tensor_max": 4.480472423502096e-12,
+          "changed_elements": 650,
+          "worst_index": [
+            27,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.00015297993502164873,
+          "native_at_worst": -0.00015297993502270726
+        }
+      ],
+      "adjugate_tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0727659828951441,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.0,
+          "native_at_worst": 1.0
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.21226119408362118,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2094296203729821,
+          "native_at_worst": -0.2094296203729821
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.20949146536297336,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2094296203729821,
+          "native_at_worst": -0.2094296203729821
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.31423695160806014,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.314145195536727,
+          "native_at_worst": -0.314145195536727
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.461929444907152,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.5188462459563736e-16,
+          "changed_elements": 900,
+          "worst_index": [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.461929444907152,
+          "native_at_worst": 1.4619294449071518
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.1927960113643206,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.025218978639777e-16,
+          "changed_elements": 1100,
+          "worst_index": [
+            22,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.693578611853462,
+          "native_at_worst": -1.6935786118534615
+        },
+        {
+          "field": "ricci",
+          "reference_max": 0.00010631444074471474,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 4.177129717649761e-12,
+          "changed_elements": 450,
+          "worst_index": [
+            27,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -2.827616450590476e-05,
+          "native_at_worst": -2.827616450634885e-05
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.4245219817190313,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.41886185799291936,
+          "native_at_worst": -0.41886185799291936
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.1362917084348987,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 1.4159690843033097e-16,
+          "changed_elements": 50,
+          "worst_index": [
+            22,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -2.149274993389298,
+          "native_at_worst": -2.1492749933892976
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 1.5411200376442146e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -8.581242859850846e-06,
+          "native_at_worst": -8.581242859850846e-06
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 1.6583856086113403e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -8.581242859850846e-06,
+          "native_at_worst": -8.581242859850846e-06
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 6.453941149765805e-05,
+          "absolute_difference": 2.3660679535422724e-16,
+          "relative_to_tensor_max": 3.666082318752054e-12,
+          "changed_elements": 250,
+          "worst_index": [
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -5.277390824629395e-05,
+          "native_at_worst": -5.277390824605734e-05
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.00015697969237771648,
+          "absolute_difference": 6.383511341051529e-16,
+          "relative_to_tensor_max": 4.066456778174753e-12,
+          "changed_elements": 625,
+          "worst_index": [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 7.392565232024222e-05,
+          "native_at_worst": 7.392565231960387e-05
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00023625492715888423,
+          "absolute_difference": 9.253868830071121e-16,
+          "relative_to_tensor_max": 3.916899825690317e-12,
+          "changed_elements": 325,
+          "worst_index": [
+            6,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.068343795921621e-05,
+          "native_at_worst": 2.0683437958290824e-05
+        }
+      ],
+      "contraction": {
+        "original_absolute_difference": 1.0585336860519101e-15,
+        "python_tensors_sequential_vs_native": 1.0585336860519101e-15,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 1.0585336860519101e-15,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      },
+      "adjugate_contraction": {
+        "original_absolute_difference": 9.253868830071121e-16,
+        "python_tensors_sequential_vs_native": 9.253868830071121e-16,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 9.253868830071121e-16,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      }
+    },
+    {
+      "stage": 2,
+      "all_58_outputs_bitwise_equal_normal": true,
+      "all_58_outputs_bitwise_equal_before": true,
+      "original_python_unchanged": true,
+      "scalar_equals_theta_observation": true,
+      "strict_rhs_comparison": {
+        "global_max_absolute_difference": 1.3322676295501878e-15,
+        "reference_scale": 3.1364480190399466,
+        "worst_active_relative_difference": 4.981675224907949e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41921821483196336,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.3241588573031958e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.21122247322547666,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.628089255067123e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.21122247322547666,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.628089255067123e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.31501805249997417,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.10500582735071236,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.4361426811633924,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 4.638353998611555e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7978036561114861,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 5.566397276424677e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7978036561114861,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 5.566397276424677e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.310980958848236,
+            "absolute_difference": 1.3322676295501878e-15,
+            "relative_difference": 5.764944208861735e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 9.04156950882037e-05,
+            "absolute_difference": 4.504216281637358e-16,
+            "relative_difference": 4.981675224907949e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1364480190399466,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 1.415898516902558e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.1928742957874015,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0251466794205925e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3628328227218605,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 1.6292871819858438e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.7570786886945869,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9329131600296085e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.7570786886945869,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9329131600296085e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.730958099610462,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 3.0377200149141524e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0727659828951441,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 2.0698326425842188e-16,
+          "changed_elements": 775,
+          "worst_index": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.0115655336938458,
+          "native_at_worst": 1.011565533693846
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.2124282895339704,
+          "absolute_difference": 8.326672684688674e-17,
+          "relative_to_tensor_max": 3.9197569697312453e-16,
+          "changed_elements": 775,
+          "worst_index": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2124282895339704,
+          "native_at_worst": -0.21242828953397047
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.2099995328609749,
+          "absolute_difference": 5.551115123125783e-17,
+          "relative_to_tensor_max": 2.6433940340242397e-16,
+          "changed_elements": 1525,
+          "worst_index": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2099995328609749,
+          "native_at_worst": -0.20999953286097495
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.3149995382913295,
+          "absolute_difference": 1.1102230246251565e-16,
+          "relative_to_tensor_max": 3.5245227045328527e-16,
+          "changed_elements": 425,
+          "worst_index": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.3149995382913295,
+          "native_at_worst": -0.3149995382913296
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.4618642225046057,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.5189140106637486e-16,
+          "changed_elements": 2500,
+          "worst_index": [
+            7,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "reference_at_worst": -0.7075761883496514,
+          "native_at_worst": -0.7075761883496512
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.192730788961774,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.0252792184321558e-16,
+          "changed_elements": 3025,
+          "worst_index": [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.1229328105236673,
+          "native_at_worst": 2.122932810523667
+        },
+        {
+          "field": "ricci",
+          "reference_max": 7.370497577578496e-05,
+          "absolute_difference": 2.246466901389965e-16,
+          "relative_to_tensor_max": 3.0479175628845667e-12,
+          "changed_elements": 1225,
+          "worst_index": [
+            22,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.6558478448155944e-05,
+          "native_at_worst": -1.6558478447931298e-05
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.4248574361032776,
+          "absolute_difference": 1.6653345369377348e-16,
+          "relative_to_tensor_max": 3.919749062678316e-16,
+          "changed_elements": 325,
+          "worst_index": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.4248574361032776,
+          "native_at_worst": -0.42485743610327775
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.1361167874979627,
+          "absolute_difference": 8.881784197001252e-16,
+          "relative_to_tensor_max": 2.8320961235908764e-16,
+          "changed_elements": 375,
+          "worst_index": [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 3.019972078246294,
+          "native_at_worst": 3.019972078246293
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 2.088063728492486e-05,
+          "absolute_difference": 8.231466181417291e-17,
+          "relative_to_tensor_max": 3.942152755730373e-12,
+          "changed_elements": 325,
+          "worst_index": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.1758660320011504e-05,
+          "native_at_worst": -1.175866031992919e-05
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 2.2427562155824536e-05,
+          "absolute_difference": 8.374614749503267e-17,
+          "relative_to_tensor_max": 3.734072696496058e-12,
+          "changed_elements": 325,
+          "worst_index": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.1963233779117576e-05,
+          "native_at_worst": -1.196323377903383e-05
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 0.00014235425328139984,
+          "absolute_difference": 4.723794750136458e-16,
+          "relative_to_tensor_max": 3.3183376269050854e-12,
+          "changed_elements": 1225,
+          "worst_index": [
+            23,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -7.238105502525845e-07,
+          "native_at_worst": -7.23810549780205e-07
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.00021843625960807508,
+          "absolute_difference": 9.447602205767125e-16,
+          "relative_to_tensor_max": 4.325107114871083e-12,
+          "changed_elements": 1425,
+          "worst_index": [
+            23,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.7329841124766886e-05,
+          "native_at_worst": -1.7329841123822126e-05
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00019602680480271427,
+          "absolute_difference": 9.428222091933947e-16,
+          "relative_to_tensor_max": 4.809659628652683e-12,
+          "changed_elements": 675,
+          "worst_index": [
+            11,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.0001501611782534383,
+          "native_at_worst": 0.00015016117825249547
+        }
+      ],
+      "adjugate_tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0727659828951441,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.9983664267542282,
+          "native_at_worst": 0.9983664267542282
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.21242828953397047,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.20857555742792427,
+          "native_at_worst": -0.20857555742792427
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.20999953286097495,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2089168383857024,
+          "native_at_worst": -0.2089168383857024
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.3149995382913296,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.3133756569051235,
+          "native_at_worst": -0.3133756569051235
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.4618642225046057,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.5189140106637486e-16,
+          "changed_elements": 1550,
+          "worst_index": [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.4618642225046057,
+          "native_at_worst": 1.4618642225046055
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.192730788961774,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.0252792184321558e-16,
+          "changed_elements": 2075,
+          "worst_index": [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.1229328105236673,
+          "native_at_worst": 2.122932810523667
+        },
+        {
+          "field": "ricci",
+          "reference_max": 7.370497577578499e-05,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 3.012613498449609e-12,
+          "changed_elements": 900,
+          "worst_index": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.7812264137498073e-08,
+          "native_at_worst": 2.781226391545347e-08
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.42485743610327775,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.41715247029812247,
+          "native_at_worst": -0.41715247029812247
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.1361167874979627,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 1.4160480617954382e-16,
+          "changed_elements": 200,
+          "worst_index": [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 3.0199720782462935,
+          "native_at_worst": 3.019972078246293
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 2.088063728492486e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -7.101200529076457e-06,
+          "native_at_worst": -7.101200529076457e-06
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 2.2427562155824536e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -7.083802404258509e-06,
+          "native_at_worst": -7.083802404258509e-06
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 0.00014235425328139984,
+          "absolute_difference": 2.366112422772003e-16,
+          "relative_to_tensor_max": 1.6621297700847567e-12,
+          "changed_elements": 400,
+          "worst_index": [
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.8224297514862348e-06,
+          "native_at_worst": 1.822429751722846e-06
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.00021843625960848935,
+          "absolute_difference": 6.948516198188037e-16,
+          "relative_to_tensor_max": 3.1810269094710266e-12,
+          "changed_elements": 1100,
+          "worst_index": [
+            25,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.91182799484188e-05,
+          "native_at_worst": -1.911827994911365e-05
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00019602680480271427,
+          "absolute_difference": 9.250141885103202e-16,
+          "relative_to_tensor_max": 4.71881480413495e-12,
+          "changed_elements": 525,
+          "worst_index": [
+            6,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.0001930682744457339,
+          "native_at_worst": 0.00019306827444480888
+        }
+      ],
+      "contraction": {
+        "original_absolute_difference": 9.428222091933947e-16,
+        "python_tensors_sequential_vs_native": 9.428222091933947e-16,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 9.428222091933947e-16,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      },
+      "adjugate_contraction": {
+        "original_absolute_difference": 9.250141885103202e-16,
+        "python_tensors_sequential_vs_native": 9.250141885103202e-16,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 9.250141885103202e-16,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      }
+    },
+    {
+      "stage": 3,
+      "all_58_outputs_bitwise_equal_normal": true,
+      "all_58_outputs_bitwise_equal_before": true,
+      "original_python_unchanged": true,
+      "scalar_equals_theta_observation": true,
+      "strict_rhs_comparison": {
+        "global_max_absolute_difference": 1.5543122344752192e-15,
+        "reference_scale": 3.1335832562112573,
+        "worst_active_relative_difference": 3.795733239827191e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41897069959201927,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.3249411303776821e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.2110901159138358,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3148685572259752e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.2110901159138358,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3148685572259752e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.31481983561114973,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.10494001427525566,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.4352412251243032,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 4.641267287437354e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7972495095943517,
+            "absolute_difference": 4.996003610813204e-16,
+            "relative_difference": 6.266549619271914e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7972495095943517,
+            "absolute_difference": 4.996003610813204e-16,
+            "relative_difference": 6.266549619271914e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.309529828987588,
+            "absolute_difference": 1.5543122344752192e-15,
+            "relative_difference": 6.729994196076576e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 0.00019256223986235114,
+            "absolute_difference": 7.309148945811028e-16,
+            "relative_difference": 3.795733239827191e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1335832562112573,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 2.125789424789373e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.1909695844086565,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0269072332645934e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3617695331523834,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 1.6305593532483906e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.756437358672798,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9353997707704196e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.756437358672798,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9353997707704196e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.7303226692662762,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 3.0403630377256397e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0727181319841674,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 2.0699249719432217e-16,
+          "changed_elements": 1075,
+          "worst_index": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.0373242599804533,
+          "native_at_worst": 1.0373242599804535
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.2122957995443564,
+          "absolute_difference": 8.326672684688674e-17,
+          "relative_to_tensor_max": 3.922203219545531e-16,
+          "changed_elements": 1075,
+          "worst_index": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.19385052023392804,
+          "native_at_worst": -0.19385052023392813
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.20986995409925085,
+          "absolute_difference": 5.551115123125783e-17,
+          "relative_to_tensor_max": 2.6450261291335545e-16,
+          "changed_elements": 1800,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.16285559379511347,
+          "native_at_worst": -0.16285559379511352
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.3148042868090167,
+          "absolute_difference": 8.326672684688674e-17,
+          "relative_to_tensor_max": 2.6450315429599734e-16,
+          "changed_elements": 775,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.24427813470925486,
+          "native_at_worst": -0.24427813470925494
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.4608222244425904,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.5199974453411497e-16,
+          "changed_elements": 3000,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.8946356705227634,
+          "native_at_worst": 0.8946356705227636
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.191102614428704,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.0267841721591483e-16,
+          "changed_elements": 4150,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.3419882226476245,
+          "native_at_worst": 1.341988222647625
+        },
+        {
+          "field": "ricci",
+          "reference_max": 0.00013849824934143552,
+          "absolute_difference": 4.44956571588051e-16,
+          "relative_to_tensor_max": 3.2127234366054195e-12,
+          "changed_elements": 1850,
+          "worst_index": [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.00012033134727532003,
+          "native_at_worst": -0.00012033134727487507
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.4245899304771674,
+          "absolute_difference": 1.6653345369377348e-16,
+          "relative_to_tensor_max": 3.9222186335558636e-16,
+          "changed_elements": 350,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.34157882878825646,
+          "native_at_worst": -0.3415788287882566
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.1335320167867464,
+          "absolute_difference": 8.881784197001252e-16,
+          "relative_to_tensor_max": 2.834432247515059e-16,
+          "changed_elements": 450,
+          "worst_index": [
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -2.004988892364935,
+          "native_at_worst": -2.0049888923649357
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 1.0934797518158537e-05,
+          "absolute_difference": 7.939409221204008e-17,
+          "relative_to_tensor_max": 7.260682429665177e-12,
+          "changed_elements": 350,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.012435832739801e-05,
+          "native_at_worst": -1.0124358327318616e-05
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 1.1427998984366898e-05,
+          "absolute_difference": 8.527250086598492e-17,
+          "relative_to_tensor_max": 7.461717574759563e-12,
+          "changed_elements": 350,
+          "worst_index": [
+            4,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.0873935585158395e-05,
+          "native_at_worst": -1.0873935585073123e-05
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 0.00010735608437634279,
+          "absolute_difference": 7.003268407898555e-16,
+          "relative_to_tensor_max": 6.523401490080622e-12,
+          "changed_elements": 1325,
+          "worst_index": [
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -8.508011944678993e-05,
+          "native_at_worst": -8.508011944608961e-05
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.0002832993775997036,
+          "absolute_difference": 1.401819198915133e-15,
+          "relative_to_tensor_max": 4.94819018238676e-12,
+          "changed_elements": 1925,
+          "worst_index": [
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.0002092280092594792,
+          "native_at_worst": -0.00020922800925807737
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00040042567386830625,
+          "absolute_difference": 1.4034455021738612e-15,
+          "relative_to_tensor_max": 3.5048839117030056e-12,
+          "changed_elements": 750,
+          "worst_index": [
+            21,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.0002295352367628405,
+          "native_at_worst": -0.00022953523676143707
+        }
+      ],
+      "adjugate_tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0727181319841674,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.9983677629399772,
+          "native_at_worst": 0.9983677629399772
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.2122957995443564,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2084506732538401,
+          "native_at_worst": -0.2084506732538401
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.20986995409925085,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.20879147042969207,
+          "native_at_worst": -0.20879147042969207
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.3148042868090167,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.3131883962783636,
+          "native_at_worst": -0.3131883962783636
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.4608222244425904,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.5199974453411497e-16,
+          "changed_elements": 1500,
+          "worst_index": [
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.2972995937120073,
+          "native_at_worst": 1.297299593712007
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.191102614428704,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.0267841721591483e-16,
+          "changed_elements": 3150,
+          "worst_index": [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.191102614428704,
+          "native_at_worst": 2.1911026144287034
+        },
+        {
+          "field": "ricci",
+          "reference_max": 0.00013849824934143552,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.6032304089103068e-12,
+          "changed_elements": 1425,
+          "worst_index": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.2990910166485403e-05,
+          "native_at_worst": -1.2990910166707448e-05
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.4245899304771674,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.41690521648462736,
+          "native_at_worst": -0.41690521648462736
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.1335320167867464,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 1.4172161237575295e-16,
+          "changed_elements": 250,
+          "worst_index": [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.728384992910075,
+          "native_at_worst": 2.7283849929100747
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 1.0934797518158537e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.0203179047950391e-05,
+          "native_at_worst": -1.0203179047950391e-05
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 1.142799898431036e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -1.017821506524773e-05,
+          "native_at_worst": -1.017821506524773e-05
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 0.00010735608437657939,
+          "absolute_difference": 2.3639673118330817e-16,
+          "relative_to_tensor_max": 2.2019872702704503e-12,
+          "changed_elements": 300,
+          "worst_index": [
+            25,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.00010508196213624775,
+          "native_at_worst": -0.00010508196213601136
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.00028329937759969683,
+          "absolute_difference": 4.728205674209285e-16,
+          "relative_to_tensor_max": 1.6689784899175666e-12,
+          "changed_elements": 1550,
+          "worst_index": [
+            25,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.00026760678447250387,
+          "native_at_worst": -0.00026760678447203105
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00040042567386829915,
+          "absolute_difference": 4.683211284051136e-16,
+          "relative_to_tensor_max": 1.1695581951100005e-12,
+          "changed_elements": 600,
+          "worst_index": [
+            9,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.0003046053865325386,
+          "native_at_worst": -0.0003046053865320703
+        }
+      ],
+      "contraction": {
+        "original_absolute_difference": 1.4034455021738612e-15,
+        "python_tensors_sequential_vs_native": 1.4034455021738612e-15,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 1.4034455021738612e-15,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      },
+      "adjugate_contraction": {
+        "original_absolute_difference": 4.683211284051136e-16,
+        "python_tensors_sequential_vs_native": 4.683211284051136e-16,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 4.683211284051136e-16,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      }
+    },
+    {
+      "stage": 4,
+      "all_58_outputs_bitwise_equal_normal": true,
+      "all_58_outputs_bitwise_equal_before": true,
+      "original_python_unchanged": true,
+      "scalar_equals_theta_observation": true,
+      "strict_rhs_comparison": {
+        "global_max_absolute_difference": 1.3322676295501878e-15,
+        "reference_scale": 3.1306139216405353,
+        "worst_active_relative_difference": 4.665114807829221e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41905804339947594,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.324664974353938e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.21129727479148372,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.627158882481488e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.21129727479148372,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.627158882481488e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.31538941794945075,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.1051289394197268,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.4340362908215516,
+            "absolute_difference": 8.881784197001252e-16,
+            "relative_difference": 6.193556086305826e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7963670058059646,
+            "absolute_difference": 3.885780586188048e-16,
+            "relative_difference": 4.879384200825141e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7963670058059646,
+            "absolute_difference": 3.885780586188048e-16,
+            "relative_difference": 4.879384200825141e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.307127569376332,
+            "absolute_difference": 1.3322676295501878e-15,
+            "relative_difference": 5.774572881162049e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 0.00011875382019667142,
+            "absolute_difference": 5.540002050857806e-16,
+            "relative_difference": 4.665114807829221e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1306139216405353,
+            "absolute_difference": 8.881784197001252e-16,
+            "relative_difference": 2.8370742670009376e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.189284402948435,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0284674263973298e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3609335627275392,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 1.6315609446798906e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.7557707283287546,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4689944754544897e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.7557707283287546,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4689944754544897e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.7297603816143716,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.5213528338838123e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0726702889016586,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 2.0700172944324753e-16,
+          "changed_elements": 1000,
+          "worst_index": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.0574081040171834,
+          "native_at_worst": 1.0574081040171837
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.21233055019997812,
+          "absolute_difference": 8.326672684688674e-17,
+          "relative_to_tensor_max": 3.9215612999855225e-16,
+          "changed_elements": 1000,
+          "worst_index": [
+            14,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.20362124126726208,
+          "native_at_worst": 0.203621241267262
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.21024827274401578,
+          "absolute_difference": 5.551115123125783e-17,
+          "relative_to_tensor_max": 2.6402666955007277e-16,
+          "changed_elements": 2075,
+          "worst_index": [
+            14,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.19777526552299804,
+          "native_at_worst": 0.19777526552299798
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.3153724119181154,
+          "absolute_difference": 5.551115123125783e-17,
+          "relative_to_tensor_max": 1.7601777813612617e-16,
+          "changed_elements": 775,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.312237390254392,
+          "native_at_worst": -0.31223739025439196
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.4595854968692141,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.521285360818624e-16,
+          "changed_elements": 2525,
+          "worst_index": [
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.093998486858754,
+          "native_at_worst": 1.0939984868587542
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.189280227819331,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.0284712948438082e-16,
+          "changed_elements": 3225,
+          "worst_index": [
+            9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.16121371563478,
+          "native_at_worst": 2.1612137156347795
+        },
+        {
+          "field": "ricci",
+          "reference_max": 0.00010574302797088019,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 2.099851017943032e-12,
+          "changed_elements": 1325,
+          "worst_index": [
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -3.743735096688594e-05,
+          "native_at_worst": -3.7437350967107984e-05
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.4246606957589331,
+          "absolute_difference": 1.6653345369377348e-16,
+          "relative_to_tensor_max": 3.921565036673642e-16,
+          "changed_elements": 350,
+          "worst_index": [
+            14,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.4072385710180856,
+          "native_at_worst": 0.4072385710180854
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.1304255103588225,
+          "absolute_difference": 8.881784197001252e-16,
+          "relative_to_tensor_max": 2.837245022317488e-16,
+          "changed_elements": 450,
+          "worst_index": [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.682522624615676,
+          "native_at_worst": 2.6825226246156753
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 1.5580313127669037e-05,
+          "absolute_difference": 8.08763998697351e-17,
+          "relative_to_tensor_max": 5.190935458550375e-12,
+          "changed_elements": 350,
+          "worst_index": [
+            14,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.2882983059010075e-05,
+          "native_at_worst": 1.2882983059090952e-05
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 1.67019631452402e-05,
+          "absolute_difference": 8.448814835682744e-17,
+          "relative_to_tensor_max": 5.058575906443983e-12,
+          "changed_elements": 350,
+          "worst_index": [
+            14,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.3458389386931218e-05,
+          "native_at_worst": 1.3458389387015706e-05
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 8.827541835397983e-05,
+          "absolute_difference": 4.5697766317548405e-16,
+          "relative_to_tensor_max": 5.1767261112604126e-12,
+          "changed_elements": 1250,
+          "worst_index": [
+            29,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -5.994387236333868e-05,
+          "native_at_worst": -5.9943872362881705e-05
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.0001886322378528223,
+          "absolute_difference": 8.4350929019372245e-16,
+          "relative_to_tensor_max": 4.471713317910478e-12,
+          "changed_elements": 1450,
+          "worst_index": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.00016579366293508,
+          "native_at_worst": 0.0001657936629342365
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00025267843060049596,
+          "absolute_difference": 1.1600150093965533e-15,
+          "relative_to_tensor_max": 4.590874680675164e-12,
+          "changed_elements": 675,
+          "worst_index": [
+            5,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.00016857692155746874,
+          "native_at_worst": 0.00016857692155630873
+        }
+      ],
+      "adjugate_tensors": [
+        {
+          "field": "h_inverse",
+          "reference_max": 1.0726702889016586,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 0.9967427617732786,
+          "native_at_worst": 0.9967427617732786
+        },
+        {
+          "field": "d_upup",
+          "reference_max": 0.21233055019997812,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.20747958832915606,
+          "native_at_worst": -0.20747958832915606
+        },
+        {
+          "field": "conformal_christoffel",
+          "reference_max": 0.21024827274401578,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.2081576072446562,
+          "native_at_worst": -0.2081576072446562
+        },
+        {
+          "field": "physical_christoffel",
+          "reference_max": 0.3153724119181154,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.31223739025439196,
+          "native_at_worst": -0.31223739025439196
+        },
+        {
+          "field": "d_conformal_christoffel",
+          "reference_max": 1.4595854968692141,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 1.521285360818624e-16,
+          "changed_elements": 1825,
+          "worst_index": [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 1.4595854968692141,
+          "native_at_worst": 1.459585496869214
+        },
+        {
+          "field": "d_physical_christoffel",
+          "reference_max": 2.189280227819331,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 2.0284712948438082e-16,
+          "changed_elements": 2000,
+          "worst_index": [
+            9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.16121371563478,
+          "native_at_worst": 2.1612137156347795
+        },
+        {
+          "field": "ricci",
+          "reference_max": 0.00010574302797088022,
+          "absolute_difference": 2.220446049250313e-16,
+          "relative_to_tensor_max": 2.0998510179430318e-12,
+          "changed_elements": 875,
+          "worst_index": [
+            9,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -9.029845351641164e-05,
+          "native_at_worst": -9.029845351663368e-05
+        },
+        {
+          "field": "tilde_gamma",
+          "reference_max": 0.42466069575893306,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.4149617956234421,
+          "native_at_worst": -0.4149617956234421
+        },
+        {
+          "field": "d_tilde_gamma",
+          "reference_max": 3.1304255103588225,
+          "absolute_difference": 4.440892098500626e-16,
+          "relative_to_tensor_max": 1.418622511158744e-16,
+          "changed_elements": 225,
+          "worst_index": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": 2.2357625567367907,
+          "native_at_worst": 2.2357625567367903
+        },
+        {
+          "field": "z_lower",
+          "reference_max": 1.5580313127669037e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -9.045488920613204e-06,
+          "native_at_worst": -9.045488920613204e-06
+        },
+        {
+          "field": "z_upper",
+          "reference_max": 1.67019631452402e-05,
+          "absolute_difference": 0.0,
+          "relative_to_tensor_max": 0.0,
+          "changed_elements": 0,
+          "worst_index": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -9.001329951135664e-06,
+          "native_at_worst": -9.001329951135664e-06
+        },
+        {
+          "field": "covd_z",
+          "reference_max": 8.827541835355807e-05,
+          "absolute_difference": 2.3659324282707117e-16,
+          "relative_to_tensor_max": 2.6801713006839e-12,
+          "changed_elements": 275,
+          "worst_index": [
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -5.294184881518247e-05,
+          "native_at_worst": -5.294184881541906e-05
+        },
+        {
+          "field": "ricci_z",
+          "reference_max": 0.0001886322378528223,
+          "absolute_difference": 6.952446431063297e-16,
+          "relative_to_tensor_max": 3.685714865180069e-12,
+          "changed_elements": 1025,
+          "worst_index": [
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.00014332104859725086,
+          "native_at_worst": -0.0001433210485979461
+        },
+        {
+          "field": "ricci_z_scalar",
+          "reference_max": 0.00025267843060049796,
+          "absolute_difference": 8.541344714840804e-16,
+          "relative_to_tensor_max": 3.380322053822338e-12,
+          "changed_elements": 450,
+          "worst_index": [
+            24,
+            0,
+            0
+          ],
+          "reference_at_worst": -0.00016434381664751465,
+          "native_at_worst": -0.00016434381664836878
+        }
+      ],
+      "contraction": {
+        "original_absolute_difference": 1.1600150093965533e-15,
+        "python_tensors_sequential_vs_native": 1.1600150093965533e-15,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 1.1600150093965533e-15,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      },
+      "adjugate_contraction": {
+        "original_absolute_difference": 8.541344714840804e-16,
+        "python_tensors_sequential_vs_native": 8.541344714840804e-16,
+        "python_reduction_order_shift": 0.0,
+        "native_tensors_numpy_vs_python": 8.541344714840804e-16,
+        "python_numpy_reconstruction_error": 0.0,
+        "native_sequential_reconstruction_error": 0.0
+      }
+    }
+  ],
+  "seconds": 0.9029289000000063,
+  "peak_rss_bytes": 63483904,
+  "instrumentation_pass": true,
+  "strict_rhs_pass": false
+}

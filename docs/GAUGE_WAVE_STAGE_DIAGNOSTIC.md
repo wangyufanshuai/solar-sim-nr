@@ -142,3 +142,26 @@ globals and outputs unchanged. No default arithmetic change and no integration.
 Keep the strict 1e-12 gate, 600 s, 64 MiB output and 512 MiB working-set ceilings.
 The experiment localizes arithmetic discrepancies; it cannot establish long-time
 stability, causal uniqueness, or external independent reproduction.
+
+
+### Geometry localization result and derivative-ablation registration
+
+The ccdd2e7 run preserves every saved and ordinary native RHS bitwise. Original
+Python outputs/globals are unchanged. All four strict stage gates still fail.
+With isolated adjugate inversion, h_inverse, d_upup, both Christoffels, tilde_gamma
+and both Z vectors agree bitwise on these four inputs. The earliest remaining
+exported discrepancy is d_conformal_christoffel (max 2.22e-16), followed by
+physical-Christoffel derivatives (4.44e-16). Replacing the final scalar contraction
+with sequential accumulation changes no values here; upstream geometry differs.
+This is a same-state arithmetic localization, not a stability result.
+The first observer run compared raw RHS after in-place harmonic correction and
+reported a false control failure; retained as initial-control-failure.json.
+The corrected run compares before correction, with a four-stage regression test.
+
+Before further implementation/measurement: native periodic d1 multiplies by a
+precomputed reciprocal; frozen Python d1 divides by the denominator. Add isolated
+Python geometry variants for reciprocal derivative arithmetic, alone and combined
+with adjugate inversion; expose actual symmetrized D/P and GammaHat derivatives.
+Use exactly the same four saved inputs and limits, no solver changes or evolution.
+The original strict RHS gate stays unchanged. Bitwise geometry agreement would
+identify these arithmetic choices on these inputs only, not validate the solver.
