@@ -84,3 +84,16 @@ elimination of the eps² term (written after run 04; disclosed). Science run 02
 **PASSED**: both paths 482/482, comparison accepted, all negative controls detected,
 worst slot ratio 6.1e-05. Run 01 stopped on a transient RAM-reserve breach. See
 [the v2 report](BINARY64_V2_RICHARDSON_20261103.md).
+
+
+## Read-only preflight replay, 2026-11-14
+
+The guarded entry was invoked with `--preflight-only` and a fresh output path.
+It refused before creating a scientific output directory and returned
+`state=NOT_STARTED`, `numerical_execution=false`, and
+`required_available_ram_bytes=4294967296`. The observed resource record was
+`available_ram_bytes=2515132416` and `total_ram_bytes=16978403328`, so the
+unchanged 4 GiB launch gate was not met. The entry now includes this resource
+observation in the refusal JSON; it does not relax the gate or start a worker.
+The 600-second deadline, 64 MiB output cap, 1 GiB worker cap and all frozen
+inputs remain unchanged.

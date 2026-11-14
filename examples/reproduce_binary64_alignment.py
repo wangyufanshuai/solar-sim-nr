@@ -566,22 +566,31 @@ def supervise(args):
     return 0 if commit_digest else 1
 
 
+def preflight_failure_record(error):
+    record = dict(
+        state="NOT_STARTED",
+        numerical_execution=False,
+        exception_type=type(error).__name__,
+        message=str(error),
+    )
+    # A refusal before output creation is otherwise hard to diagnose from the
+    # console alone. Keep the registered threshold unchanged and attach a fresh
+    # read-only resource observation when the RAM gate is the blocker.
+    if str(error) == "need at least 4 GiB available RAM":
+        try:
+            record["resources"] = rt.resources()
+            record["required_available_ram_bytes"] = rt.MIN_FREE_RAM
+        except (OSError, ValueError) as observation_error:
+            record["resource_observation_error"] = str(observation_error)
+    return record
+
+
 def main(argv=None):
     args = parse_args(argv)
     try:
         return worker(args) if args.worker else supervise(args)
     except (ValueError, OSError, TimeoutError) as error:
-        print(
-            rt.encode(
-                dict(
-                    state="NOT_STARTED",
-                    numerical_execution=False,
-                    exception_type=type(error).__name__,
-                    message=str(error),
-                )
-            ).decode(),
-            end="",
-        )
+        print(rt.encode(preflight_failure_record(error)).decode(), end="")
         return 2
 
 
