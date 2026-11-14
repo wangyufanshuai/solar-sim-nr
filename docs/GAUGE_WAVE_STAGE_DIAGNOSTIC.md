@@ -223,3 +223,24 @@ The process exit status qualifies instrumentation only. Inspect `strict_rhs_pass
 separately. Next: compare registered saved inputs near T=15-18, if available, or
 register a resource-bounded acquisition; test the arithmetic explanation before
 attributing the later trajectory divergence. No new long evolution was run here.
+
+
+### Late saved-state arithmetic ablation registration (2026-11-14)
+
+S3 acceptance advanced: localize implementation differences at later native
+trajectory states without claiming trajectory agreement or stability.
+Before implementation/measurement, use the existing baseline snapshots at T=15,
+18 and 22, all shape 58x32x5x5, dt=1/128, FD4, A=.1, harmonic lapse, zero shift.
+SHA256 in time order:
+- 59321fbc12c4ac7e0a106dbcb4321b3bd4391f41ce4403db0699fec27ab1c276
+- 9f8aafb872358a398af05b0b4a6d3bf4b548b0c2a4ae536086c8a8bf311d94a6
+- 985410d1ba458b037a57e559ab2d52fde1ed12e47453ffc9165b9c276b3f3edb
+Construct four RK4 inputs from ordinary native RHS evaluations of each snapshot;
+this samples one step's inputs, with no trajectory advance. Compare original
+Python/native and isolated inverse/stencil variants side by side at the unchanged
+1e-12 active-slot gate, including the 397 actual geometry intermediates. Save each
+input and output. Ordinary calls supply fresh controls here, not archived old-library
+outputs. Preserve raw-before-correction and Python-restoration controls.
+Each snapshot job retains 600 s / 64 MiB output / 512 MiB working-set ceilings,
+single-thread BLAS/OpenMP. No default solver or frozen science edits. No claim of
+external independent reproduction or completion of the frozen 8^3 experiment.
