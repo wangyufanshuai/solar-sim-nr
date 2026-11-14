@@ -44,7 +44,7 @@ def test_geometry_exports_reconstruct_actual_tensors_and_preserve_rhs():
     reference = python_geometry(q, grid)
     assert observed.tobytes() == normal.tobytes()
     assert q.tobytes() == before
-    assert GEOMETRY_SLOT_COUNT == 298
+    assert GEOMETRY_SLOT_COUNT == 397
     for name, shape in GEOMETRY_FIELDS:
         assert native[name].shape == (*grid.shape, *shape)
         assert np.all(np.isfinite(native[name]))
@@ -65,7 +65,7 @@ def test_geometry_ablation_does_not_replace_production_globals():
     inverse, geometry = np.linalg.inv, production._geometry
     grid, q = data()
     before = python_geometry(q, grid)
-    ablated = python_geometry(q, grid, inverse="adjugate")
+    ablated = python_geometry(q, grid, inverse="adjugate", derivative="reciprocal")
     after = python_geometry(q, grid)
     assert np.linalg.inv is inverse and production._geometry is geometry
     assert all(before[n].tobytes() == after[n].tobytes() for n, _ in GEOMETRY_FIELDS)
@@ -113,3 +113,20 @@ def test_registered_four_stage_run_compares_raw_rhs_before_inplace_gauge_correct
         assert stage["all_58_outputs_bitwise_equal_before"]
         assert stage["contraction"]["python_numpy_reconstruction_error"] == 0
         assert stage["contraction"]["native_sequential_reconstruction_error"] == 0
+
+
+def test_reciprocal_derivative_retains_pairing_and_fourth_order_accuracy():
+    from experiments.b3_native.geometry_terms import reciprocal_derivative
+    from science.numerical_relativity.bssn3d import _d1
+    errors = []
+    for nx in (16, 32, 64):
+        grid = run_b1.grid(nx, 4)
+        state = BSSNState3D.gauge_wave(grid, amplitude=.1)
+        x = grid.coordinates[0]
+        values = np.sin(2*np.pi*x)
+        d = reciprocal_derivative(values, state, 0)
+        errors.append(np.max(np.abs(d-2*np.pi*np.cos(2*np.pi*x))))
+        np.testing.assert_allclose(d, _d1(values, state, 0), atol=2e-15, rtol=2e-15)
+        np.testing.assert_array_equal(reciprocal_derivative(values, state, 1), np.zeros(grid.shape))
+        np.testing.assert_array_equal(reciprocal_derivative(np.ones(grid.shape), state, 0), np.zeros(grid.shape))
+    assert all(15 < errors[i]/errors[i+1] < 17 for i in (0, 1))

@@ -265,6 +265,7 @@ void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int
     put2(hi); put3(dup); put3(cc); put3(pc); put4(dcc); put4(dpc);
     put2(ricci); put1(tg); put2(dtg); put1(zl); put1(zu);
     put2(covdz); put2(rz); put(scalar);
+    put4(dsd); put2(dsp); put2(dGh);
   }
 
   // ---- volume RHS (_fo_ccz4_volume_rhs_3d)

@@ -31,6 +31,7 @@ GEOMETRY_FIELDS = (
     ("ricci", (3, 3)), ("tilde_gamma", (3,)), ("d_tilde_gamma", (3, 3)),
     ("z_lower", (3,)), ("z_upper", (3,)), ("covd_z", (3, 3)),
     ("ricci_z", (3, 3)), ("ricci_z_scalar", ()),
+    ("d_sym_d", (3, 3, 3, 3)), ("d_sym_p", (3, 3)), ("d_gamma_hat", (3, 3)),
 )
 GEOMETRY_SLOT_COUNT = sum(int(np.prod(shape)) for _, shape in GEOMETRY_FIELDS)
 _lib = None

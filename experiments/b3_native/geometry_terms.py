@@ -19,12 +19,26 @@ from kernel.native_rhs import GEOMETRY_FIELDS, native_rhs_slots
 from science.numerical_relativity.fo_ccz4_rhs import _geometry
 
 
-def python_geometry(q, grid, *, inverse="numpy"):
+def reciprocal_derivative(values, state, axis):
+    """Native periodic stencil: multiply the numerator by its rounded reciprocal."""
+    grid = state.grid
+    if grid.boundary != "periodic" or grid.spatial_order not in (2, 4):
+        raise ValueError("reciprocal ablation supports periodic FD2/FD4 only")
+    delta = np.roll(values, -1, axis=axis)-np.roll(values, 1, axis=axis)
+    if grid.spatial_order == 4:
+        delta = 8.0*delta-(np.roll(values, -2, axis=axis)-np.roll(values, 2, axis=axis))
+    factor = 12.0 if grid.spatial_order == 4 else 2.0
+    return delta*(1.0/(factor*grid.spacing[axis]))
+
+
+def python_geometry(q, grid, *, inverse="numpy", derivative="division"):
     """Observe actual Python geometry locals; isolate the optional inverse ablation."""
     if sys.getprofile() is not None:
         raise RuntimeError("geometry observer requires a process without a profiler")
     if inverse not in ("numpy", "adjugate"):
         raise ValueError("unknown inverse variant")
+    if derivative not in ("division", "reciprocal"):
+        raise ValueError("unknown derivative variant")
     captured = {}
     def observe(frame, event, value):
         if event == "return" and frame.f_code is _geometry.__code__:
@@ -39,11 +53,13 @@ def python_geometry(q, grid, *, inverse="numpy"):
         evaluate = clone_with_globals(_geometry, np=NumpyView())
     sys.setprofile(observe)
     try:
-        evaluate(state_from_slots(q, grid))
+        kwargs = {"first_derivative": reciprocal_derivative} if derivative == "reciprocal" else {}
+        evaluate(state_from_slots(q, grid), **kwargs)
     finally:
         sys.setprofile(None)
     if not captured:
         raise RuntimeError("Python geometry was not observed")
+    captured["d_gamma_hat"] = np.stack(captured["d_gamma_hat"], axis=-2)
     return {name: captured[name] for name, _ in GEOMETRY_FIELDS}
 
 
@@ -115,6 +131,8 @@ def run(out, before):
         py_rhs, py_terms = python_terms(q, grid)
         ref = python_geometry(q, grid)
         adj = python_geometry(q, grid, inverse="adjugate")
+        reciprocal = python_geometry(q, grid, derivative="reciprocal")
+        combined = python_geometry(q, grid, inverse="adjugate", derivative="reciprocal")
         restored_rhs, restored_terms = python_terms(q, grid)
         after = python_geometry(q, grid)
         chi = state_from_slots(q, grid).base.chi
@@ -125,11 +143,17 @@ def run(out, before):
                    scalar_equals_theta_observation=ref["ricci_z_scalar"].tobytes()==py_terms[6].tobytes(),
                    strict_rhs_comparison=compare_arrays(py_rhs, rhs),
                    tensors=tensor_report(ref, actual), adjugate_tensors=tensor_report(adj, actual),
+                   reciprocal_tensors=tensor_report(reciprocal, actual),
+                   combined_tensors=tensor_report(combined, actual),
                    contraction=contraction_report(ref, actual, chi),
-                   adjugate_contraction=contraction_report(adj, actual, chi))
+                   adjugate_contraction=contraction_report(adj, actual, chi),
+                   combined_geometry_bitwise_equal_native=all(combined[n].tobytes()==actual[n].tobytes()
+                                                              for n, _ in GEOMETRY_FIELDS),
+                   combined_contraction=contraction_report(combined, actual, chi))
         result["stages"].append(row)
         np.savez_compressed(out/f"stage-{stage}.npz", **{f"{variant}_{n}": v
-                            for variant, fields in (("python", ref), ("native", actual), ("adjugate", adj))
+                            for variant, fields in (("python", ref), ("native", actual), ("adjugate", adj),
+                                                    ("reciprocal", reciprocal), ("combined", combined))
                             for n, v in fields.items()})
         if sum(p.stat().st_size for p in out.iterdir()) > 63*1024**2:
             raise RuntimeError("64 MiB output ceiling (report space reserved)")
