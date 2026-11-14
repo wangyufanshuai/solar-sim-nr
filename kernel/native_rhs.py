@@ -24,6 +24,15 @@ THETA_TERM_NAMES = (
     "advection", "curvature", "extrinsic", "theta_k", "z_lapse", "damping",
     "ricci_z_scalar", "a_squared", "z_dot_lapse_gradient", "lapse", "chi", "theta_rhs",
 )
+GEOMETRY_FIELDS = (
+    ("h_inverse", (3, 3)), ("d_upup", (3, 3, 3)),
+    ("conformal_christoffel", (3, 3, 3)), ("physical_christoffel", (3, 3, 3)),
+    ("d_conformal_christoffel", (3, 3, 3, 3)), ("d_physical_christoffel", (3, 3, 3, 3)),
+    ("ricci", (3, 3)), ("tilde_gamma", (3,)), ("d_tilde_gamma", (3, 3)),
+    ("z_lower", (3,)), ("z_upper", (3,)), ("covd_z", (3, 3)),
+    ("ricci_z", (3, 3)), ("ricci_z_scalar", ()),
+)
+GEOMETRY_SLOT_COUNT = sum(int(np.prod(shape)) for _, shape in GEOMETRY_FIELDS)
 _lib = None
 
 
@@ -50,13 +59,16 @@ def _load():
     return _lib
 
 
-def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes=(0, 0, 0), profile=None, return_theta_terms=False):
+def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes=(0, 0, 0), profile=None, return_theta_terms=False, return_geometry=False):
     """RHS of the 58 canonical slots q[58, nx, ny, nz].
 
     sbp_axes: per axis 1 = SBP(4,2) (non-periodic, order 4 only), 0 = periodic.
     return_theta_terms: opt-in (RHS, 12-term diagnostic array); ordinary calls return RHS.
+    return_geometry: opt-in (RHS, dict of actual geometry tensors); exclusive with theta terms.
     profile: an FOCCZ4GaugeProfile (field-dependent f, mu) or None (constant coefficients).
     """
+    if return_theta_terms and return_geometry:
+        raise ValueError("choose either theta terms or geometry diagnostics")
     q = np.ascontiguousarray(q, dtype=np.float64)
     if q.ndim != 4 or q.shape[0] != 58:
         raise ValueError("q must have shape (58, nx, ny, nz)")
@@ -77,9 +89,10 @@ def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes
     threads = int(threads or os.environ.get("NR_THREADS", os.cpu_count() or 1))
     axes = (ctypes.c_int * 3)(*[int(bool(a)) for a in sbp_axes])
     arguments = (*q.shape[1:], h.ctypes.data_as(dp), order, axes, params.ctypes.data_as(dp), threads)
-    if return_theta_terms:
-        terms = np.empty((len(THETA_TERM_NAMES), *q.shape[1:]), dtype=np.float64)
-        diagnostic = _load().fo_ccz4_rhs_theta_terms
+    if return_theta_terms or return_geometry:
+        count = GEOMETRY_SLOT_COUNT if return_geometry else len(THETA_TERM_NAMES)
+        terms = np.empty((count, *q.shape[1:]), dtype=np.float64)
+        diagnostic = _load().fo_ccz4_rhs_geometry if return_geometry else _load().fo_ccz4_rhs_theta_terms
         diagnostic.argtypes = [dp, dp, dp, ctypes.c_int, ctypes.c_int, ctypes.c_int, dp,
                               ctypes.c_int, ctypes.POINTER(ctypes.c_int), dp, ctypes.c_int]
         diagnostic.restype = ctypes.c_int
@@ -88,6 +101,15 @@ def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes
         status = _load().fo_ccz4_rhs(q.ctypes.data_as(dp), out.ctypes.data_as(dp), *arguments)
     if status:
         raise ValueError(f"native RHS rejected its input (status {status})")
+    if return_geometry:
+        fields, offset = {}, 0
+        for name, shape in GEOMETRY_FIELDS:
+            count = int(np.prod(shape))
+            tensor = terms[offset:offset+count].reshape((*shape, *q.shape[1:]))
+            fields[name] = np.moveaxis(tensor, tuple(range(len(shape))),
+                                      tuple(range(3, 3+len(shape))))
+            offset += count
+        return out, fields
     return (out, terms) if return_theta_terms else out
 
 

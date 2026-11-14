@@ -82,7 +82,7 @@ inline double d1(const double* q, const Grid& g, int slot, int axis, int i, int 
   return (at(1) - at(-1)) * g.inv[axis];
 }
 
-void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int i, int j, int kk, double* theta_terms = nullptr) {
+void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int i, int j, int kk, double* theta_terms = nullptr, double* geometry_terms = nullptr) {
   const std::int64_t points = static_cast<std::int64_t>(g.nx) * g.ny * g.nz;
   const std::int64_t at = (static_cast<std::int64_t>(i) * g.ny + j) * g.nz + kk;
   auto Q = [&](int slot) { return q[slot * points + at]; };
@@ -251,6 +251,21 @@ void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int
   for (int f = 0; f < 3; ++f)
     for (int s = 0; s < 3; ++s) scalar_sum += hi[f][s] * rz[f][s];
   const double scalar = chi * scalar_sum;
+
+  if (geometry_terms) {
+    // Field/component-major export of the actual geometry, without recomputation.
+    const std::int64_t points = static_cast<std::int64_t>(g.nx) * g.ny * g.nz;
+    const std::int64_t at = (static_cast<std::int64_t>(i) * g.ny + j) * g.nz + kk;
+    int slot = 0;
+    auto put = [&](double value) { geometry_terms[(slot++) * points + at] = value; };
+    auto put1 = [&](const double (&v)[3]) { for (const auto value : v) put(value); };
+    auto put2 = [&](const double (&v)[3][3]) { for (const auto& row : v) put1(row); };
+    auto put3 = [&](const double (&v)[3][3][3]) { for (const auto& plane : v) put2(plane); };
+    auto put4 = [&](const double (&v)[3][3][3][3]) { for (const auto& block : v) put3(block); };
+    put2(hi); put3(dup); put3(cc); put3(pc); put4(dcc); put4(dpc);
+    put2(ricci); put1(tg); put2(dtg); put1(zl); put1(zu);
+    put2(covdz); put2(rz); put(scalar);
+  }
 
   // ---- volume RHS (_fo_ccz4_volume_rhs_3d)
   const bool profile = c.profile != 0.0;
@@ -494,7 +509,7 @@ extern "C" {
 // sbp_axes[a] = 1 selects SBP(4,2) (order 4 only) on axis a, 0 periodic.
 static int evaluate_rhs(const double* q, double* out, int nx, int ny, int nz,
                 const double* spacing, int order, const int* sbp_axes, const double* params,
-                int threads, double* theta_terms) {
+                int threads, double* theta_terms, double* geometry_terms = nullptr) {
   if (!q || !out || !spacing || !params || !sbp_axes || nx < 5 || ny < 5 || nz < 5 || (order != 2 && order != 4)) return 1;
   Grid g{};
   g.nx = nx; g.ny = ny; g.nz = nz; g.order = order;
@@ -514,7 +529,7 @@ static int evaluate_rhs(const double* q, double* out, int nx, int ny, int nz,
     const int i = static_cast<int>(p / (static_cast<std::int64_t>(ny) * nz));
     const int j = static_cast<int>((p / nz) % ny);
     const int k = static_cast<int>(p % nz);
-    point_rhs(q, out, g, c, i, j, k, theta_terms);
+    point_rhs(q, out, g, c, i, j, k, theta_terms, geometry_terms);
   }
   return 0;
 }
@@ -534,6 +549,15 @@ int fo_ccz4_rhs_theta_terms(const double* q, double* out, double* terms, int nx,
                 const double* spacing, int order, const int* sbp_axes, const double* params, int threads) {
   if (!terms) return 1;
   return evaluate_rhs(q, out, nx, ny, nz, spacing, order, sbp_axes, params, threads, terms);
+}
+
+#ifdef _WIN32
+__declspec(dllexport)
+#endif
+int fo_ccz4_rhs_geometry(const double* q, double* out, double* terms, int nx, int ny, int nz,
+                const double* spacing, int order, const int* sbp_axes, const double* params, int threads) {
+  if (!terms) return 1;
+  return evaluate_rhs(q, out, nx, ny, nz, spacing, order, sbp_axes, params, threads, nullptr, terms);
 }
 
 }  // extern "C"

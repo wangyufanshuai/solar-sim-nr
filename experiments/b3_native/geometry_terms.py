@@ -1,0 +1,156 @@
+"""S3 same-input geometry localization; no solver replacement or integration."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+import time
+import numpy as np
+
+from experiments.b1_gauge_wave import run_b1
+from experiments.b3_native.gauge_stage_diagnostic import compare_arrays
+from experiments.b3_native.long_diagnostics import peak_rss
+from experiments.b3_native.theta_terms import clone_with_globals, adjugate_inverse, python_terms
+from kernel.native_evolve import harmonic_correction, state_from_slots
+from kernel.native_rhs import GEOMETRY_FIELDS, native_rhs_slots
+from science.numerical_relativity.fo_ccz4_rhs import _geometry
+
+
+def python_geometry(q, grid, *, inverse="numpy"):
+    """Observe actual Python geometry locals; isolate the optional inverse ablation."""
+    if sys.getprofile() is not None:
+        raise RuntimeError("geometry observer requires a process without a profiler")
+    if inverse not in ("numpy", "adjugate"):
+        raise ValueError("unknown inverse variant")
+    captured = {}
+    def observe(frame, event, value):
+        if event == "return" and frame.f_code is _geometry.__code__:
+            captured.update(frame.f_locals)
+    evaluate = _geometry
+    if inverse == "adjugate":
+        class NumpyView:
+            class linalg:
+                inv = staticmethod(adjugate_inverse)
+            def __getattr__(self, name):
+                return getattr(np, name)
+        evaluate = clone_with_globals(_geometry, np=NumpyView())
+    sys.setprofile(observe)
+    try:
+        evaluate(state_from_slots(q, grid))
+    finally:
+        sys.setprofile(None)
+    if not captured:
+        raise RuntimeError("Python geometry was not observed")
+    return {name: captured[name] for name, _ in GEOMETRY_FIELDS}
+
+
+def scalar_contraction(fields, chi, *, sequential):
+    """chi * h^ij (R_ij + nabla_i Z_j + nabla_j Z_i), from saved tensors."""
+    h, rz = fields["h_inverse"], fields["ricci_z"]
+    if not sequential:
+        return chi * np.einsum("...ij,...ij->...", h, rz)
+    value = np.zeros_like(chi)
+    for i in range(3):
+        for j in range(3):
+            value += h[..., i, j] * rz[..., i, j]
+    return chi * value
+
+
+def tensor_report(reference, native):
+    report = []
+    for name, _ in GEOMETRY_FIELDS:
+        ref, actual = reference[name], native[name]
+        if ref.shape != actual.shape or not np.all(np.isfinite(ref)) or not np.all(np.isfinite(actual)):
+            raise ValueError("matching finite geometry tensors required: " + name)
+        delta = actual - ref
+        worst = tuple(int(i) for i in np.unravel_index(np.argmax(np.abs(delta)), delta.shape))
+        scale = float(np.max(np.abs(ref)))
+        absolute = float(np.max(np.abs(delta)))
+        report.append(dict(field=name, reference_max=scale, absolute_difference=absolute,
+                           relative_to_tensor_max=absolute/scale if scale else None,
+                           changed_elements=int(np.count_nonzero(delta)), worst_index=list(worst),
+                           reference_at_worst=float(ref[worst]), native_at_worst=float(actual[worst])))
+    return report
+
+
+def contraction_report(reference, native, chi):
+    ref = reference["ricci_z_scalar"]
+    actual = native["ricci_z_scalar"]
+    seq = scalar_contraction(reference, chi, sequential=True)
+    numpy_native = scalar_contraction(native, chi, sequential=False)
+    return dict(original_absolute_difference=float(np.max(np.abs(actual-ref))),
+                python_tensors_sequential_vs_native=float(np.max(np.abs(actual-seq))),
+                python_reduction_order_shift=float(np.max(np.abs(seq-ref))),
+                native_tensors_numpy_vs_python=float(np.max(np.abs(numpy_native-ref))),
+                python_numpy_reconstruction_error=float(np.max(np.abs(scalar_contraction(reference, chi, sequential=False)-ref))),
+                native_sequential_reconstruction_error=float(np.max(np.abs(scalar_contraction(native, chi, sequential=True)-actual))))
+
+
+def run(out, before):
+    out, before = Path(out), Path(before)
+    out.mkdir(parents=True, exist_ok=False)
+    start = time.perf_counter()
+    with np.load(before, allow_pickle=False) as saved:
+        states, original = saved["states"].copy(), saved["rhs"].copy()
+    grid = run_b1.grid(32, 4)
+    if states.shape != (4, 58, *grid.shape) or original.shape != states.shape:
+        raise ValueError("expected four registered 58-slot RK inputs and RHS arrays")
+    result = dict(source_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True, timeout=5).strip(),
+                  before_sha256=hashlib.sha256(before.read_bytes()).hexdigest(),
+                  external_independent_reproduction=False, scientific_gate_relative=1e-12,
+                  settings=dict(shape=list(grid.shape), amplitude=.1, threads=1, max_seconds=600,
+                                max_output_bytes=64*1024**2, max_working_set_bytes=512*1024**2),
+                  numpy_version=np.__version__, python_version=sys.version, stages=[])
+    for stage, (q, old) in enumerate(zip(states, original), 1):
+        if time.perf_counter()-start > 600 or peak_rss() > 512*1024**2:
+            raise RuntimeError("geometry diagnostic resource ceiling")
+        kw = dict(spacing=grid.spacing, order=4, gauge=run_b1.GAUGE, config=run_b1.CONFIG, threads=1)
+        raw, actual = native_rhs_slots(q, return_geometry=True, **kw)
+        normal = native_rhs_slots(q, **kw)
+        rhs = harmonic_correction(q, raw, spacing=grid.spacing, order=4, gauge=run_b1.GAUGE, config=run_b1.CONFIG)
+        py_rhs, py_terms = python_terms(q, grid)
+        ref = python_geometry(q, grid)
+        adj = python_geometry(q, grid, inverse="adjugate")
+        restored_rhs, restored_terms = python_terms(q, grid)
+        after = python_geometry(q, grid)
+        chi = state_from_slots(q, grid).base.chi
+        row = dict(stage=stage, all_58_outputs_bitwise_equal_normal=raw.tobytes()==normal.tobytes(),
+                   all_58_outputs_bitwise_equal_before=rhs.tobytes()==old.tobytes(),
+                   original_python_unchanged=all(ref[n].tobytes()==after[n].tobytes() for n, _ in GEOMETRY_FIELDS)
+                     and py_rhs.tobytes()==restored_rhs.tobytes() and py_terms.tobytes()==restored_terms.tobytes(),
+                   scalar_equals_theta_observation=ref["ricci_z_scalar"].tobytes()==py_terms[6].tobytes(),
+                   strict_rhs_comparison=compare_arrays(py_rhs, rhs),
+                   tensors=tensor_report(ref, actual), adjugate_tensors=tensor_report(adj, actual),
+                   contraction=contraction_report(ref, actual, chi),
+                   adjugate_contraction=contraction_report(adj, actual, chi))
+        result["stages"].append(row)
+        np.savez_compressed(out/f"stage-{stage}.npz", **{f"{variant}_{n}": v
+                            for variant, fields in (("python", ref), ("native", actual), ("adjugate", adj))
+                            for n, v in fields.items()})
+        if sum(p.stat().st_size for p in out.iterdir()) > 63*1024**2:
+            raise RuntimeError("64 MiB output ceiling (report space reserved)")
+    result.update(seconds=time.perf_counter()-start, peak_rss_bytes=peak_rss())
+    result["instrumentation_pass"] = all(all(row[key] for key in (
+        "all_58_outputs_bitwise_equal_normal", "all_58_outputs_bitwise_equal_before",
+        "original_python_unchanged", "scalar_equals_theta_observation")) for row in result["stages"])
+    result["strict_rhs_pass"] = all(row["strict_rhs_comparison"]["active_slots_pass_relative_1e_minus12"] for row in result["stages"])
+    text = json.dumps(result, indent=2, allow_nan=False)+"\n"
+    if (result["seconds"] > 600 or result["peak_rss_bytes"] > 512*1024**2
+        or sum(p.stat().st_size for p in out.iterdir())+len(text.encode()) > 64*1024**2):
+        raise RuntimeError("geometry diagnostic resource ceiling")
+    (out/"result.json").write_text(text, encoding="utf-8")
+    return result
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--before", type=Path, required=True)
+    args = parser.parse_args()
+    result = run(args.out, args.before)
+    print(json.dumps({k: v for k, v in result.items() if k != "stages"}))
+    # This exit code qualifies the observer only; inspect strict_rhs_pass separately.
+    sys.exit(0 if result["instrumentation_pass"] else 2)
