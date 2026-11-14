@@ -381,3 +381,57 @@ Keep source/input hashes, finite binary64 validation, no frozen-source edits,
 one numerical thread. Save raw arrays and a machine-readable diagnostic report.
 External independent reproduction, full frozen 8^3 alignment, physical accuracy
 and long-time stability remain separate unmet requirements.
+
+
+### Saved-state growth-mode result
+
+Source 0680c6a, clean source tree: four saved states analyzed without evolution.
+Elapsed 0.239283 s, peak 43.430 MiB, output 181014 bytes; all resource ceilings respected.
+Eleven focused tests passed, including exact-state subtraction, discrete-control
+retention, component averaging, Fourier energy weights and auxiliary DC offsets.
+
+| T | max base error/A | h Nyquist energy fraction | Hamiltonian difference L_inf | momentum difference L_inf | D consistency L_inf | P consistency L_inf |
+|---|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 15 | 0.111429 | 4.06433e-07 | 0.00050453 | 0.000280133 | 2.5564e-06 | 7.21176e-07 |
+| 18 | 0.143812 | 0.00827536 | 0.00119318 | 0.00044019 | 2.34073e-05 | 8.26783e-06 |
+| 22 | 2.09843 | 0.980774 | 1.01492 | 0.300408 | 0.0290255 | 0.0103882 |
+
+T0 agrees exactly in all seven base fields and all auxiliary consistency checks.
+The analytic conformal-Gamma discrete constraint has L_inf 4.82925e-5; it is
+retained and subtracted, rather than mistaken for evolution growth. At T22,
+chi and h error energy is 97.745% and 98.077% Nyquist; h high-k energy is
+99.607%. Hamiltonian-difference high-k share rises from 0.00672% at T15 to
+69.210% at T18 and 97.691% at T22. Transverse error is at roundoff energy.
+The sampled failure therefore includes large x-grid-scale field/constraint
+errors and auxiliary/base derivative inconsistency. These observations do not
+establish their cause, growth law, or a cure. Four sparse snapshots cannot
+establish an onset time, pure-gauge interpretation, or a stability theorem.
+
+Raw spectra, norms, input hashes and evolved/analytic/difference arrays:
+`gauge-stage/growth-modes/`. Replay in a fresh directory:
+
+```powershell
+python -B -m experiments.b3_native.gauge_growth_modes --out outputs/growth-modes-replay
+```
+
+### From-initial-data spatial-refinement registration (2026-11-14)
+
+Before implementation/measurement: evolve native canonical-slot RK4 gauge waves
+from analytic initial data on nx=16,32,64, each with transverse shape 5x5, FD4,
+A=.1, harmonic lapse and existing B1 config. Set dt=1/(4 nx), so the existing
+32-point dt=1/128 is retained. Target T24; record integer-time field errors and
+physical constraints against same-grid analytic slices, plus x Fourier energy
+and actual auxiliary/base derivative consistency. Retain last-valid state and
+failed RK stage or completed-step candidate for any scientific failure.
+
+At nx32 and T15,18,22 compare q bitwise against the existing baseline snapshots
+as a replay control. Preserve the differences even if nonzero; do not silently
+switch drivers or replace old observations. Run nx32 first, then nx16 and nx64
+in one process, one thread, total <=600 s, <=512 MiB working set, <=64 MiB output.
+Check resource limits between RHS evaluations and save resource stops distinctly.
+Increasing nx with fixed CFL refines space and time together; this study alone
+cannot isolate spatial from temporal truncation, establish an asymptotic order,
+prove nonlinear stability, or qualify a physical binary waveform. No numerical
+filter, constraint projection, solver-source edit or threshold change is allowed
+in this diagnostic. Full frozen 8^3 and external reproduction remain unmet.

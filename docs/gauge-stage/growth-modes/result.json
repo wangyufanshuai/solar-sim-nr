@@ -1,0 +1,4107 @@
+{
+  "source_commit": "0680c6adc18311345f0fdd2761adfc7d9e3ae709",
+  "source_tree_clean": true,
+  "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+  "numpy_version": "2.2.6",
+  "status": "DIAGNOSTIC_COMPLETE",
+  "scientific_acceptance_established": false,
+  "external_independent_reproduction": false,
+  "settings": {
+    "shape": [
+      32,
+      5,
+      5
+    ],
+    "amplitude": 0.1,
+    "spatial_order": 4,
+    "dt": 0.0078125,
+    "max_seconds": 600,
+    "max_working_set_bytes": 536870912,
+    "max_output_bytes": 67108864,
+    "evolution_steps": 0
+  },
+  "snapshots": [
+    {
+      "time": 0.0,
+      "input_path": "docs/gauge-stage/baseline-t0.npz",
+      "input_sha256": "503976d6902c372a9170bc2fc6ad79d639924c2d4acb7ad44569fd8b41b7cfb9",
+      "arrays_path": "t0-arrays.npz",
+      "fields": {
+        "chi": {
+          "l_inf": 0.0,
+          "rms": 0.0,
+          "l_inf_over_amplitude": 0.0,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "h": {
+          "l_inf": 0.0,
+          "rms": 0.0,
+          "l_inf_over_amplitude": 0.0,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "trace_k": {
+          "l_inf": 0.0,
+          "rms": 0.0,
+          "l_inf_over_amplitude": 0.0,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "a": {
+          "l_inf": 0.0,
+          "rms": 0.0,
+          "l_inf_over_amplitude": 0.0,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "theta": {
+          "l_inf": 0.0,
+          "rms": 0.0,
+          "l_inf_over_amplitude": 0.0,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "conformal_gamma": {
+          "l_inf": 0.0,
+          "rms": 0.0,
+          "l_inf_over_amplitude": 0.0,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "lapse": {
+          "l_inf": 0.0,
+          "rms": 0.0,
+          "l_inf_over_amplitude": 0.0,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      },
+      "constraints": {
+        "hamiltonian": {
+          "evolved": {
+            "l_inf": 2.7755575615628914e-17,
+            "rms": 1.0748649323080949e-17
+          },
+          "analytic_discrete": {
+            "l_inf": 2.7755575615628914e-17,
+            "rms": 1.0748649323080949e-17
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "momentum": {
+          "evolved": {
+            "l_inf": 1.5543122344752192e-15,
+            "rms": 4.583019921718175e-16
+          },
+          "analytic_discrete": {
+            "l_inf": 1.5543122344752192e-15,
+            "rms": 4.583019921718175e-16
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "det_h_minus_one": {
+          "evolved": {
+            "l_inf": 2.220446049250313e-16,
+            "rms": 1.4817422638912102e-16
+          },
+          "analytic_discrete": {
+            "l_inf": 2.220446049250313e-16,
+            "rms": 1.4817422638912102e-16
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "trace_a": {
+          "evolved": {
+            "l_inf": 5.551115123125783e-17,
+            "rms": 2.2915427912202125e-17
+          },
+          "analytic_discrete": {
+            "l_inf": 5.551115123125783e-17,
+            "rms": 2.2915427912202125e-17
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "conformal_gamma": {
+          "evolved": {
+            "l_inf": 4.829252687471586e-05,
+            "rms": 1.4530366125445692e-05
+          },
+          "analytic_discrete": {
+            "l_inf": 4.829252687471586e-05,
+            "rms": 1.4530366125445692e-05
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "theta": {
+          "evolved": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "analytic_discrete": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      },
+      "auxiliary_consistency": {
+        "lapse_gradient": {
+          "evolved": {
+            "l_inf": 0.3142364587352573,
+            "rms": 0.12873248162364506
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.3142364587352573,
+            "rms": 0.12873248162364506
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "shift_gradient": {
+          "evolved": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "metric_gradient": {
+          "evolved": {
+            "l_inf": 0.2094296203729821,
+            "rms": 0.03499282928240356
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.2094296203729821,
+            "rms": 0.03499282928240356
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "conformal_factor_gradient": {
+          "evolved": {
+            "l_inf": 0.1047454862450868,
+            "rms": 0.04291082720788171
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.1047454862450868,
+            "rms": 0.04291082720788171
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "time": 15.0,
+      "input_path": "docs/gauge-stage/baseline-t15.npz",
+      "input_sha256": "59321fbc12c4ac7e0a106dbcb4321b3bd4391f41ce4403db0699fec27ab1c276",
+      "arrays_path": "t15-arrays.npz",
+      "fields": {
+        "chi": {
+          "l_inf": 0.0003962416415310699,
+          "rms": 0.00020016463881382282,
+          "l_inf_over_amplitude": 0.003962416415310699,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.661709076927988e-10,
+              2.8988418988332445e-08,
+              4.727411249734208e-09,
+              5.313120335268635e-09,
+              3.707168712084214e-10,
+              1.448113569870202e-14,
+              3.597949461553239e-15,
+              2.5086009561317247e-17,
+              5.864729866470147e-20,
+              1.741794338560946e-21,
+              2.9852919179101705e-24,
+              1.6221107066356026e-23,
+              8.205768878324033e-22,
+              1.4307071978005443e-21,
+              2.2580923912647657e-18,
+              4.236083780944558e-16,
+              2.5749131343365078e-14
+            ],
+            "mean_square": 4.006588263146815e-08,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.016626887115412787,
+            "fundamental_fraction": 0.7235187916605298,
+            "nyquist_fraction": 6.426697642033586e-07,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 6.533004829619335e-07,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "h": {
+          "l_inf": 0.0007477012367832492,
+          "rms": 0.00016207042548824826,
+          "l_inf_over_amplitude": 0.007477012367832492,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.098816689772263e-10,
+              1.8982789211065682e-08,
+              2.7694280174035974e-09,
+              3.663066817448278e-09,
+              2.413102486815108e-10,
+              3.335035002620909e-13,
+              2.4875629695717953e-15,
+              1.2997016761663213e-17,
+              1.378004403233939e-19,
+              1.8828430094763033e-21,
+              5.145943490092838e-24,
+              1.137444983232859e-23,
+              3.01914984306867e-22,
+              1.480304651318063e-21,
+              7.068652473588325e-19,
+              1.7374779984157764e-16,
+              1.0675709130786891e-14
+            ],
+            "mean_square": 2.6266822817941828e-08,
+            "parseval_relative_error": 2.519316837932948e-16,
+            "dc_fraction": 0.023218707234003207,
+            "fundamental_fraction": 0.7226907244411491,
+            "nyquist_fraction": 4.06433210623964e-07,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 4.130802325467311e-07,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "trace_k": {
+          "l_inf": 0.00647181171098743,
+          "rms": 0.003011413366804289,
+          "l_inf_over_amplitude": 0.0647181171098743,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              7.941710766737902e-11,
+              2.7467839499728345e-06,
+              1.6234002004373113e-06,
+              4.17643314778362e-06,
+              5.217052682411842e-07,
+              1.961894559626976e-10,
+              1.1946283570788317e-11,
+              1.107348440765754e-13,
+              7.095157733331945e-16,
+              9.477404418568926e-18,
+              7.810278427441894e-20,
+              4.11671624062981e-20,
+              1.3452377873624046e-18,
+              9.984431363825805e-19,
+              9.235094600571585e-16,
+              5.169883633177016e-14,
+              1.8240674724001144e-13
+            ],
+            "mean_square": 9.068610465767541e-06,
+            "parseval_relative_error": 3.736109078460059e-16,
+            "dc_fraction": 8.757362328789514e-06,
+            "fundamental_fraction": 0.30288917583807073,
+            "nyquist_fraction": 2.0114078990223006e-08,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 2.5996325462470683e-08,
+            "transverse_mean_square": 3.6734198463196485e-40,
+            "transverse_fraction": 4.05069757950921e-35
+          }
+        },
+        "a": {
+          "l_inf": 0.0042362046086676375,
+          "rms": 0.0008158309216667479,
+          "l_inf_over_amplitude": 0.042362046086676375,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              8.071168664954028e-12,
+              1.9925180699854615e-07,
+              1.124857592150128e-07,
+              3.1573584754278434e-07,
+              3.8061619121407834e-08,
+              3.611233264376467e-11,
+              8.591042914801892e-13,
+              7.005363042961118e-15,
+              5.698698917718461e-17,
+              7.908001790560096e-19,
+              4.281829825494067e-21,
+              3.443355134378575e-21,
+              5.1513338443881386e-20,
+              2.4764050122928883e-19,
+              4.3930887913675916e-17,
+              1.729029635884567e-15,
+              8.427855955587812e-15
+            ],
+            "mean_square": 6.655800927476154e-07,
+            "parseval_relative_error": 1.590779525416731e-16,
+            "dc_fraction": 1.2126517533953007e-05,
+            "fundamental_fraction": 0.29936563483442613,
+            "nyquist_fraction": 1.2662421919496338e-08,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.541347353917487e-08,
+            "transverse_mean_square": 1.09182200987834e-39,
+            "transverse_fraction": 1.64040664944039e-33
+          }
+        },
+        "theta": {
+          "l_inf": 0.0012429319268838295,
+          "rms": 0.0006950014327222026,
+          "l_inf_over_amplitude": 0.012429319268838295,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.087132546228861e-10,
+              1.029941442281711e-10,
+              3.660378184136727e-07,
+              1.1468638569723007e-07,
+              1.8704299143094964e-09,
+              2.2043237248046394e-10,
+              1.6054434657132172e-13,
+              3.228033290346713e-15,
+              2.8031802954034436e-16,
+              9.554649521854101e-21,
+              1.7736471145210536e-20,
+              1.8311726589424984e-20,
+              2.0711639602397767e-19,
+              1.1201676725510104e-18,
+              2.409341075555193e-16,
+              7.8317018110136e-15,
+              4.5562663803492e-14
+            ],
+            "mean_square": 4.830269914859143e-07,
+            "parseval_relative_error": 2.1919917576671309e-16,
+            "dc_fraction": 0.00022506662472102516,
+            "fundamental_fraction": 0.00021322647811323093,
+            "nyquist_fraction": 9.432736597872018e-08,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.1162314236861767e-07,
+            "transverse_mean_square": 9.55663131894096e-40,
+            "transverse_fraction": 1.978488052922741e-33
+          }
+        },
+        "conformal_gamma": {
+          "l_inf": 0.011142934597203058,
+          "rms": 0.002803795565053399,
+          "l_inf_over_amplitude": 0.11142934597203058,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.0918839037672064e-10,
+              1.5805741618021687e-06,
+              2.8933266186650654e-06,
+              3.0244505682548513e-06,
+              3.6279786147399727e-07,
+              4.5702642433498475e-12,
+              6.513099654591085e-12,
+              6.375652634836608e-14,
+              7.194446763251484e-17,
+              5.935477204096628e-18,
+              1.0889505962976705e-20,
+              1.3769153341154172e-21,
+              5.58825983213471e-19,
+              2.6896364823663214e-19,
+              2.8383010108202573e-16,
+              2.128284723962579e-14,
+              3.260824817547525e-15
+            ],
+            "mean_square": 7.861269570613109e-06,
+            "parseval_relative_error": 4.3099040919327707e-16,
+            "dc_fraction": 1.3889409260927428e-05,
+            "fundamental_fraction": 0.2010583847309664,
+            "nyquist_fraction": 4.1479620922008545e-10,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 3.168218814458267e-09,
+            "transverse_mean_square": 1.018838300292781e-37,
+            "transverse_fraction": 1.2960225967843527e-32
+          }
+        },
+        "lapse": {
+          "l_inf": 0.0007910938307876814,
+          "rms": 0.0003352894275453598,
+          "l_inf_over_amplitude": 0.007910938307876814,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.155596923886804e-09,
+              6.112785080053272e-08,
+              3.281238887152115e-08,
+              1.6211897896437643e-08,
+              1.1066714813142742e-09,
+              4.579584174137331e-12,
+              1.4506723860433526e-14,
+              8.966668214728794e-17,
+              2.2949267301991942e-18,
+              2.5646457285325286e-20,
+              8.755420601431097e-23,
+              7.156596963778523e-24,
+              1.8945017435237513e-22,
+              4.089462713169012e-21,
+              2.500598008910974e-19,
+              6.652666612555946e-17,
+              3.3618547627464085e-19
+            ],
+            "mean_square": 1.124190002236951e-07,
+            "parseval_relative_error": 2.35456457974421e-16,
+            "dc_fraction": 0.010279373785457603,
+            "fundamental_fraction": 0.5437501728257541,
+            "nyquist_fraction": 2.990468476019958e-12,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 6.176701276094825e-10,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      },
+      "constraints": {
+        "hamiltonian": {
+          "evolved": {
+            "l_inf": 0.0005045300242554063,
+            "rms": 0.0002960322439847252
+          },
+          "analytic_discrete": {
+            "l_inf": 4.163336342344337e-17,
+            "rms": 1.4382749940734775e-17
+          },
+          "difference": {
+            "l_inf": 0.0005045300242554045,
+            "rms": 0.0002960322439847249
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.3664723205316397e-15,
+              2.6939020760238767e-10,
+              1.0533877428479476e-09,
+              8.331729872632424e-08,
+              2.937471302736327e-09,
+              4.764281139802124e-11,
+              3.971160317775217e-12,
+              3.4501832017488235e-14,
+              4.177134795502557e-15,
+              1.7818613813602378e-17,
+              1.4598610682626417e-18,
+              3.393989259912075e-18,
+              1.110892773750127e-15,
+              6.163231899715612e-15,
+              5.5186271227577484e-14,
+              5.822081394310446e-12,
+              2.917503155308068e-15
+            ],
+            "mean_square": 8.76350894786317e-08,
+            "parseval_relative_error": 3.020454450286273e-16,
+            "dc_fraction": 1.5592753184383188e-08,
+            "fundamental_fraction": 0.003073999344384465,
+            "nyquist_fraction": 3.329149513813701e-08,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 6.722945267332695e-05,
+            "transverse_mean_square": 1.8367099231598242e-40,
+            "transverse_fraction": 2.0958612972120885e-33
+          }
+        },
+        "momentum": {
+          "evolved": {
+            "l_inf": 0.00028013321429887217,
+            "rms": 8.471203501136737e-05
+          },
+          "analytic_discrete": {
+            "l_inf": 2.4424906541753444e-15,
+            "rms": 4.905823344276833e-16
+          },
+          "difference": {
+            "l_inf": 0.0002801332142976509,
+            "rms": 8.471203501142187e-05
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.542238521771139e-17,
+              6.593456332836854e-10,
+              2.7019303460499417e-10,
+              5.91479625004126e-09,
+              3.26591065921174e-10,
+              4.657827524565647e-12,
+              3.5503273639385734e-13,
+              1.617275002442655e-15,
+              3.3588720976343756e-16,
+              4.1110310510276264e-19,
+              4.433733764901299e-20,
+              2.857365224783665e-19,
+              4.350532982730591e-17,
+              2.361137254479235e-16,
+              1.5523125846712151e-15,
+              1.860347560763744e-13,
+              1.9565079996987773e-16
+            ],
+            "mean_square": 7.176128875776365e-09,
+            "parseval_relative_error": 2.3053672164256873e-16,
+            "dc_fraction": 2.1491232229358327e-09,
+            "fundamental_fraction": 0.09188040581452808,
+            "nyquist_fraction": 2.7264114588342155e-08,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 2.6253565141364198e-05,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "det_h_minus_one": {
+          "evolved": {
+            "l_inf": 6.779465877571056e-10,
+            "rms": 6.566661327419049e-10
+          },
+          "analytic_discrete": {
+            "l_inf": 2.220446049250313e-16,
+            "rms": 1.1775693440128312e-16
+          },
+          "difference": {
+            "l_inf": 6.779465877571056e-10,
+            "rms": 6.566661258250202e-10
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              4.310774036974795e-19,
+              7.48391022832147e-24,
+              4.5288458017179865e-23,
+              4.191726002557726e-24,
+              6.038930091374537e-23,
+              1.554125397857204e-23,
+              9.578993768482777e-26,
+              5.845391528190053e-27,
+              8.139119574901427e-28,
+              7.572809688609619e-31,
+              9.980830459109097e-31,
+              3.198484461725828e-30,
+              3.4848652727338956e-31,
+              7.455716554492272e-31,
+              2.347028675996022e-31,
+              2.7409011685546644e-30,
+              1.1567616728475835e-30
+            ],
+            "mean_square": 4.3121040080604127e-19,
+            "parseval_relative_error": 1.116583656601966e-16,
+            "dc_fraction": 0.9996915725865767,
+            "fundamental_fraction": 1.735558839566984e-05,
+            "nyquist_fraction": 2.6825922349862234e-12,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.911113990566851e-09,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "trace_a": {
+          "evolved": {
+            "l_inf": 2.9722158345624194e-09,
+            "rms": 2.6098314932097707e-09
+          },
+          "analytic_discrete": {
+            "l_inf": 5.551115123125783e-17,
+            "rms": 2.5933970921678772e-17
+          },
+          "difference": {
+            "l_inf": 2.972215806806844e-09,
+            "rms": 2.6098314936372952e-09
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.784284193647401e-18,
+              1.1289685733377591e-20,
+              1.8377039998550117e-21,
+              3.0326198070060287e-22,
+              9.658118814812769e-21,
+              3.813486701784833e-21,
+              3.053657411061867e-23,
+              2.9381323828090202e-24,
+              4.992190353312635e-25,
+              2.396734790881905e-28,
+              1.2926194915658827e-28,
+              1.9515075013491817e-30,
+              2.0058643490005345e-32,
+              6.026000118506557e-31,
+              2.041769864449344e-30,
+              3.3499480860157615e-30,
+              7.136272176228706e-31
+            ],
+            "mean_square": 6.811220425181076e-18,
+            "parseval_relative_error": 1.131033690976774e-16,
+            "dc_fraction": 0.9960453149579347,
+            "fundamental_fraction": 0.0016575129020402327,
+            "nyquist_fraction": 1.0477229821906681e-13,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 7.334906508440466e-08,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "conformal_gamma": {
+          "evolved": {
+            "l_inf": 0.0025410628924891626,
+            "rms": 0.0008029605168052087
+          },
+          "analytic_discrete": {
+            "l_inf": 4.8292526876547726e-05,
+            "rms": 1.4530366125679262e-05
+          },
+          "difference": {
+            "l_inf": 0.0025620509955215365,
+            "rms": 0.0008047222537686705
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.0918839037674125e-10,
+              2.9399909941492594e-10,
+              4.945837963064061e-07,
+              1.5019409752347323e-07,
+              2.1328419062920077e-09,
+              2.6372568772137147e-10,
+              2.4472382339557276e-13,
+              2.8903061389900554e-15,
+              2.257306215519714e-16,
+              3.0467169152246974e-21,
+              3.6744988657505145e-21,
+              2.9247785197403464e-20,
+              3.816466516226548e-19,
+              1.6724565275873883e-17,
+              2.8433153788448636e-16,
+              5.394685351668507e-15,
+              3.2608248173205455e-15
+            ],
+            "mean_square": 6.475779057105285e-07,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.00016861043190925226,
+            "fundamental_fraction": 0.0004539980391893504,
+            "nyquist_fraction": 5.035417034098374e-09,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.4180092353951803e-08,
+            "transverse_mean_square": 7.959076333692572e-39,
+            "transverse_fraction": 1.229053101334549e-32
+          }
+        },
+        "theta": {
+          "evolved": {
+            "l_inf": 0.0012429319268838295,
+            "rms": 0.0006950014327222026
+          },
+          "analytic_discrete": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.0012429319268838295,
+            "rms": 0.0006950014327222026
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.087132546228861e-10,
+              1.029941442281711e-10,
+              3.660378184136727e-07,
+              1.1468638569723007e-07,
+              1.8704299143094964e-09,
+              2.2043237248046394e-10,
+              1.6054434657132172e-13,
+              3.228033290346713e-15,
+              2.8031802954034436e-16,
+              9.554649521854101e-21,
+              1.7736471145210536e-20,
+              1.8311726589424984e-20,
+              2.0711639602397767e-19,
+              1.1201676725510104e-18,
+              2.409341075555193e-16,
+              7.8317018110136e-15,
+              4.5562663803492e-14
+            ],
+            "mean_square": 4.830269914859143e-07,
+            "parseval_relative_error": 2.1919917576671309e-16,
+            "dc_fraction": 0.00022506662472102516,
+            "fundamental_fraction": 0.00021322647811323093,
+            "nyquist_fraction": 9.432736597872018e-08,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.1162314236861767e-07,
+            "transverse_mean_square": 9.55663131894096e-40,
+            "transverse_fraction": 1.978488052922741e-33
+          }
+        }
+      },
+      "auxiliary_consistency": {
+        "lapse_gradient": {
+          "evolved": {
+            "l_inf": 0.3228854305209446,
+            "rms": 0.12916205476043185
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.32288550919864417,
+            "rms": 0.1291620578488022
+          },
+          "difference": {
+            "l_inf": 2.5276546309349612e-06,
+            "rms": 5.785500669596989e-07
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.3318796873842944e-19,
+              6.481962914344495e-16,
+              1.7704428676918934e-14,
+              7.753679266163154e-14,
+              1.6591078466854178e-13,
+              7.272359876458874e-14,
+              1.5616485638690328e-16,
+              2.907171065446997e-17,
+              4.692760683956566e-18,
+              6.327707551120426e-20,
+              1.2795800392595358e-21,
+              1.2148606702693033e-22,
+              9.199045552095495e-22,
+              6.433074180408839e-22,
+              3.6008920558512865e-18,
+              7.564424869307386e-22,
+              2.5485104106444035e-18
+            ],
+            "mean_square": 3.347201799790721e-13,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 6.966654019874427e-07,
+            "fundamental_fraction": 0.0019365318561760366,
+            "nyquist_fraction": 7.613853490410245e-06,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 3.2591883008702995e-05,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "shift_gradient": {
+          "evolved": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "metric_gradient": {
+          "evolved": {
+            "l_inf": 0.2136630705746732,
+            "rms": 0.03510831077054663
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.21366366476809903,
+            "rms": 0.03510830883198475
+          },
+          "difference": {
+            "l_inf": 2.5563991095656213e-06,
+            "rms": 1.987780117264527e-07
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              5.435908281826016e-15,
+              6.061050733337975e-18,
+              2.174107423270146e-15,
+              5.2557122557613525e-15,
+              1.7972747037546358e-14,
+              8.344175122481332e-15,
+              9.775493778790263e-18,
+              3.0723751694952336e-18,
+              4.089848319429644e-19,
+              3.952642373192589e-21,
+              1.1327029104512078e-22,
+              4.823901653850681e-23,
+              2.1649582994199933e-21,
+              6.742507711934815e-20,
+              1.6035451703315328e-18,
+              3.022587198988402e-16,
+              6.793951266722249e-18
+            ],
+            "mean_square": 3.951269794592176e-14,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.1375737057810064,
+            "fundamental_fraction": 0.0001533950109312532,
+            "nyquist_fraction": 0.00017194349209007824,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.00787440295220464,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "conformal_factor_gradient": {
+          "evolved": {
+            "l_inf": 0.10687142338865745,
+            "rms": 0.04305252272079206
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.10687146790205353,
+            "rms": 0.043052522941453876
+          },
+          "difference": {
+            "l_inf": 7.211755285174704e-07,
+            "rms": 1.6773770138645565e-07
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.1603602952364291e-18,
+              3.036592148226819e-18,
+              1.98571715875113e-15,
+              4.8464401865409616e-15,
+              1.422290120220096e-14,
+              6.901761328599784e-15,
+              2.558330989561984e-17,
+              1.744327303953414e-18,
+              3.8626468790736945e-19,
+              1.087163628873788e-21,
+              7.598125713501897e-23,
+              3.481747280724027e-23,
+              1.7409044067839383e-22,
+              2.4161618424822118e-20,
+              2.7926739719875995e-18,
+              5.722854171725391e-17,
+              8.715898662752284e-17
+            ],
+            "mean_square": 2.8135936466411767e-14,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 4.1241218205821895e-05,
+            "fundamental_fraction": 0.0001079257536656672,
+            "nyquist_fraction": 0.003097781612194492,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.005245675787336562,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "time": 18.0,
+      "input_path": "docs/gauge-stage/baseline-t18.npz",
+      "input_sha256": "9f8aafb872358a398af05b0b4a6d3bf4b548b0c2a4ae536086c8a8bf311d94a6",
+      "arrays_path": "t18-arrays.npz",
+      "fields": {
+        "chi": {
+          "l_inf": 0.000564360472079084,
+          "rms": 0.0002963889639908877,
+          "l_inf_over_amplitude": 0.00564360472079084,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.6542299572973913e-09,
+              6.42992331435626e-08,
+              8.3063178788867e-09,
+              1.0928770907940333e-08,
+              4.86264580094219e-10,
+              3.158160992465889e-13,
+              5.413159597073055e-15,
+              3.277188940179753e-17,
+              3.4154236454480805e-19,
+              8.368920288118981e-22,
+              9.043575037331017e-21,
+              2.030626453994301e-19,
+              6.118102887200032e-17,
+              4.7116014865305364e-17,
+              1.0378261358274312e-13,
+              1.8971303500131027e-11,
+              1.1522050508145018e-09
+            ],
+            "mean_square": 8.784641797559171e-08,
+            "parseval_relative_error": 1.5065941339265286e-16,
+            "dc_fraction": 0.03021443581268019,
+            "fundamental_fraction": 0.7319505407884503,
+            "nyquist_fraction": 0.013116130143572205,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.013333272690813493,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "h": {
+          "l_inf": 0.0010555096851672108,
+          "rms": 0.00024027452917892823,
+          "l_inf_over_amplitude": 0.010555096851672108,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.228254115542291e-09,
+              4.229073764498988e-08,
+              4.8171184306505e-09,
+              7.57575147471209e-09,
+              3.3372293671816736e-10,
+              6.954319209814492e-13,
+              2.969934061893317e-15,
+              2.2026776648899385e-17,
+              4.709041899254789e-19,
+              3.337176296196625e-21,
+              4.798331467510475e-21,
+              9.14001490260113e-20,
+              2.3808398193981872e-17,
+              1.0116460573682706e-16,
+              3.284033582861569e-14,
+              7.781318278684814e-12,
+              4.777520615029398e-10
+            ],
+            "mean_square": 5.773184937215564e-08,
+            "parseval_relative_error": 1.146238163576975e-16,
+            "dc_fraction": 0.03859661763437271,
+            "fundamental_fraction": 0.7325373793652782,
+            "nyquist_fraction": 0.008275363888366307,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.008410718709716028,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "trace_k": {
+          "l_inf": 0.008704875354015984,
+          "rms": 0.004264406773840224,
+          "l_inf_over_amplitude": 0.08704875354015984,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.4612519610786833e-10,
+              6.018936888003173e-06,
+              2.8985619532009234e-06,
+              8.578068436580836e-06,
+              6.779040522586794e-07,
+              8.898660660296399e-10,
+              1.850479394904384e-11,
+              1.6152256170120595e-13,
+              2.0667451567397045e-15,
+              3.0861660894404646e-17,
+              2.7045337941329045e-17,
+              4.523172337338649e-16,
+              1.0126635172026168e-13,
+              6.256742829925274e-14,
+              4.2409688435135156e-11,
+              2.3163957859162226e-09,
+              8.180173267028692e-09
+            ],
+            "mean_square": 1.8185165132774387e-05,
+            "parseval_relative_error": 3.726259029576705e-16,
+            "dc_fraction": 1.353439434345783e-05,
+            "fundamental_fraction": 0.33098060116899813,
+            "nyquist_fraction": 0.0004498267245473561,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0005795462991499143,
+            "transverse_mean_square": 5.877471754111438e-39,
+            "transverse_fraction": 3.2320145080886318e-34
+          }
+        },
+        "a": {
+          "l_inf": 0.0058481278446296525,
+          "rms": 0.0011575268605060942,
+          "l_inf_over_amplitude": 0.058481278446296525,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.260381660492307e-11,
+              4.3848278325213114e-07,
+              2.0007787347031697e-07,
+              6.500789974243404e-07,
+              5.0649728349792565e-08,
+              9.775552488656662e-11,
+              1.217081990697379e-12,
+              1.0560264345593569e-14,
+              1.7689885436956037e-16,
+              2.126733119542871e-18,
+              1.7679617003285514e-18,
+              2.1451996661599212e-17,
+              3.721427612671769e-15,
+              8.137251279815195e-15,
+              2.0255559493482974e-12,
+              7.744919410570116e-11,
+              3.779765017874871e-10
+            ],
+            "mean_square": 1.3398684327930947e-06,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 1.687017624394887e-05,
+            "fundamental_fraction": 0.32725808931707445,
+            "nyquist_fraction": 0.0002820997140738333,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.00034142405445984365,
+            "transverse_mean_square": 6.275425570796066e-40,
+            "transverse_fraction": 4.683613269188148e-34
+          }
+        },
+        "theta": {
+          "l_inf": 0.001459891071553448,
+          "rms": 0.0008379482805996411,
+          "l_inf_over_amplitude": 0.014598910715534479,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              3.082872857055996e-10,
+              1.1987016872423573e-10,
+              5.333856895802901e-07,
+              1.6096254578064491e-07,
+              4.6990081993883725e-09,
+              2.763418545701348e-10,
+              1.2630382754747962e-13,
+              1.6501369622005103e-14,
+              3.733749714330432e-16,
+              3.8228602841573094e-18,
+              9.19036978761482e-18,
+              1.5751263354748754e-16,
+              1.467444143874621e-14,
+              6.741823051148397e-15,
+              1.1044393865790081e-11,
+              3.508476095506336e-10,
+              2.0435213217925923e-09
+            ],
+            "mean_square": 7.021573209598948e-07,
+            "parseval_relative_error": 1.50791162103165e-16,
+            "dc_fraction": 0.0004390572831800013,
+            "fundamental_fraction": 0.0001707169677592557,
+            "nyquist_fraction": 0.002910346813729671,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0034257782601852726,
+            "transverse_mean_square": 2.571393892423754e-39,
+            "transverse_fraction": 3.6621335641825835e-33
+          }
+        },
+        "conformal_gamma": {
+          "l_inf": 0.014381151795683611,
+          "rms": 0.0038281254054043346,
+          "l_inf_over_amplitude": 0.1438115179568361,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              3.3783649560276697e-10,
+              3.486871102118479e-06,
+              4.721352507110933e-06,
+              5.978169012423501e-06,
+              4.6621971525000397e-07,
+              4.713045443313956e-10,
+              9.889148624954897e-12,
+              8.025887479737777e-14,
+              7.957556939431511e-16,
+              8.074461524978736e-18,
+              2.0184959193206304e-18,
+              2.2533451800851205e-16,
+              3.501405290547921e-14,
+              8.279928425671004e-14,
+              1.3066505161567283e-11,
+              9.531917750539889e-10,
+              1.462950270121989e-10
+            ],
+            "mean_square": 1.46545441195021e-05,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 2.3053360981265737e-05,
+            "fundamental_fraction": 0.23793787603929561,
+            "nyquist_fraction": 9.982912181997606e-06,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 7.592676665167326e-05,
+            "transverse_mean_square": 2.919144304542014e-37,
+            "transverse_fraction": 1.9919721014434355e-32
+          }
+        },
+        "lapse": {
+          "l_inf": 0.001095975926157844,
+          "rms": 0.0004779802397758019,
+          "l_inf_over_amplitude": 0.010959759261578439,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              5.1407848166455726e-09,
+              1.3697153394703494e-07,
+              5.238727365600768e-08,
+              3.235621705998899e-08,
+              1.5988533698028087e-09,
+              7.424922749022786e-12,
+              1.3295266502198993e-14,
+              2.161237066923631e-16,
+              5.799761359645199e-18,
+              5.926547425508309e-20,
+              5.157191373111289e-22,
+              7.523618930970114e-19,
+              1.3374652461511479e-17,
+              2.7848347780248877e-16,
+              1.0826046038732495e-14,
+              2.9827844835843945e-12,
+              1.4423514166188868e-14
+            ],
+            "mean_square": 2.284651096161331e-07,
+            "parseval_relative_error": 1.1585917712411926e-16,
+            "dc_fraction": 0.02250139999618811,
+            "fundamental_fraction": 0.599529329345625,
+            "nyquist_fraction": 6.3132240150031e-08,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.316757958744171e-05,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      },
+      "constraints": {
+        "hamiltonian": {
+          "evolved": {
+            "l_inf": 0.0011931830785028193,
+            "rms": 0.0006180396009174979
+          },
+          "analytic_discrete": {
+            "l_inf": 4.163336342344337e-17,
+            "rms": 1.6933349845676743e-17
+          },
+          "difference": {
+            "l_inf": 0.0011931830785028158,
+            "rms": 0.0006180396009174949
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              4.585888203542801e-15,
+              3.826698638303573e-10,
+              1.5969503411811583e-09,
+              1.1430229410678161e-07,
+              1.2614061163370188e-09,
+              5.983202854032531e-11,
+              5.088528260329634e-12,
+              7.561707168414851e-14,
+              5.438749114778507e-15,
+              3.767702239982935e-16,
+              5.71976124897087e-15,
+              6.279129815923483e-13,
+              6.104642773824992e-11,
+              5.513877164394967e-10,
+              2.4745014972725305e-09,
+              2.61145789059725e-07,
+              1.3126296492829072e-10
+            ],
+            "mean_square": 3.8197294830225643e-07,
+            "parseval_relative_error": 1.3859504825850266e-16,
+            "dc_fraction": 1.2005793143010676e-08,
+            "fundamental_fraction": 0.0010018245154040319,
+            "nyquist_fraction": 0.0003436446625650095,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.6921030096224856,
+            "transverse_mean_square": 3.6734198463196485e-40,
+            "transverse_fraction": 9.616963354726524e-34
+          }
+        },
+        "momentum": {
+          "evolved": {
+            "l_inf": 0.00044018998619543837,
+            "rms": 0.00013672625407616255
+          },
+          "analytic_discrete": {
+            "l_inf": 1.3322676295501878e-15,
+            "rms": 4.218149361782071e-16
+          },
+          "difference": {
+            "l_inf": 0.00044018998619543837,
+            "rms": 0.00013672625407620172
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.666515634304903e-17,
+              9.504721080801198e-10,
+              3.9587038457677356e-10,
+              8.792525758333489e-09,
+              1.0145351909937792e-10,
+              6.517067395581787e-12,
+              4.646511905185053e-13,
+              5.056915240929622e-15,
+              5.380111192743921e-16,
+              3.1824017447413826e-17,
+              1.9091531345218756e-16,
+              4.142448595610706e-14,
+              2.4802771977448504e-12,
+              2.072625817366012e-11,
+              6.99342604727769e-11,
+              8.344774855305027e-09,
+              8.802105068190899e-12
+            ],
+            "mean_square": 1.8694068553710067e-08,
+            "parseval_relative_error": 1.7699316982313377e-16,
+            "dc_fraction": 3.566112756648607e-09,
+            "fundamental_fraction": 0.050843512494313986,
+            "nyquist_fraction": 0.00047085015457718615,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.4518417121016411,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "det_h_minus_one": {
+          "evolved": {
+            "l_inf": 8.220131242353546e-10,
+            "rms": 7.9085140675503e-10
+          },
+          "analytic_discrete": {
+            "l_inf": 2.220446049250313e-16,
+            "rms": 1.2256530327225745e-16
+          },
+          "difference": {
+            "l_inf": 8.22013235257657e-10,
+            "rms": 7.908514176559651e-10
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.251841629697475e-19,
+              1.2383673156469642e-23,
+              8.693283813258036e-23,
+              1.4035325269517513e-23,
+              1.2812690956095579e-22,
+              2.020598164481229e-23,
+              8.275553957771071e-26,
+              2.5998422230636984e-26,
+              1.089762927498851e-27,
+              1.666248421941841e-29,
+              2.8923005102378928e-30,
+              5.147029607741694e-30,
+              2.788096204242963e-30,
+              2.441400552936214e-28,
+              1.5342266717296608e-27,
+              2.5022731376468014e-27,
+              2.9590835195111644e-27
+            ],
+            "mean_square": 6.2544596480844975e-19,
+            "parseval_relative_error": 1.5396453512791267e-16,
+            "dc_fraction": 0.9995814157362378,
+            "fundamental_fraction": 1.979974906427334e-05,
+            "nyquist_fraction": 4.731157743446979e-09,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.3361627850267067e-08,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "trace_a": {
+          "evolved": {
+            "l_inf": 3.552657917849089e-09,
+            "rms": 3.1079416726054007e-09
+          },
+          "analytic_discrete": {
+            "l_inf": 8.326672684688674e-17,
+            "rms": 3.1176798565727256e-17
+          },
+          "difference": {
+            "l_inf": 3.5526579456046647e-09,
+            "rms": 3.1079416740333216e-09
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              9.612626558648953e-18,
+              1.675404697609391e-20,
+              3.5505702059570955e-21,
+              9.958358043571343e-22,
+              2.035059017418276e-20,
+              4.98543657114955e-21,
+              2.4725116062012724e-23,
+              1.2698853864320563e-23,
+              6.919767693688925e-25,
+              8.3379562584831e-27,
+              4.452693673168865e-28,
+              7.713445914123055e-28,
+              8.649466058053212e-28,
+              2.4786349421101102e-26,
+              9.695047348630473e-26,
+              1.4501163953899654e-25,
+              1.7697676078801262e-26
+            ],
+            "mean_square": 9.659301449193046e-18,
+            "parseval_relative_error": 1.595088385649777e-16,
+            "dc_fraction": 0.9951678813639271,
+            "fundamental_fraction": 0.0017344988210812671,
+            "nyquist_fraction": 1.8321900576236554e-09,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 1.021649888356633e-07,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "conformal_gamma": {
+          "evolved": {
+            "l_inf": 0.0030456712226372418,
+            "rms": 0.0009663407299528472
+          },
+          "analytic_discrete": {
+            "l_inf": 4.829252688559604e-05,
+            "rms": 1.4530366125519955e-05
+          },
+          "difference": {
+            "l_inf": 0.0030666593256598873,
+            "rms": 0.0009684980755485516
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              3.378364956026997e-10,
+              5.503418292330582e-10,
+              7.2034216192764e-07,
+              2.1041051256605128e-07,
+              5.616906149157135e-09,
+              3.2873238468133625e-10,
+              2.221802818207168e-13,
+              1.553621024032288e-14,
+              3.0423010679011166e-16,
+              1.6663494033163884e-18,
+              1.952596769542529e-17,
+              7.484731125389343e-16,
+              7.957680114852219e-16,
+              7.343487756514841e-13,
+              1.2827116995198264e-11,
+              2.41934909943867e-10,
+              1.4629502701221896e-10
+            ],
+            "mean_square": 9.379885223412479e-07,
+            "parseval_relative_error": 2.257578123504327e-16,
+            "dc_fraction": 0.0003601712468287453,
+            "fundamental_fraction": 0.0005867255474079663,
+            "nyquist_fraction": 0.0001559667560185727,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.00042835627816382587,
+            "transverse_mean_square": 1.2244732821065496e-38,
+            "transverse_fraction": 1.3054245898982075e-32
+          }
+        },
+        "theta": {
+          "evolved": {
+            "l_inf": 0.001459891071553448,
+            "rms": 0.0008379482805996411
+          },
+          "analytic_discrete": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.001459891071553448,
+            "rms": 0.0008379482805996411
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              3.082872857055996e-10,
+              1.1987016872423573e-10,
+              5.333856895802901e-07,
+              1.6096254578064491e-07,
+              4.6990081993883725e-09,
+              2.763418545701348e-10,
+              1.2630382754747962e-13,
+              1.6501369622005103e-14,
+              3.733749714330432e-16,
+              3.8228602841573094e-18,
+              9.19036978761482e-18,
+              1.5751263354748754e-16,
+              1.467444143874621e-14,
+              6.741823051148397e-15,
+              1.1044393865790081e-11,
+              3.508476095506336e-10,
+              2.0435213217925923e-09
+            ],
+            "mean_square": 7.021573209598948e-07,
+            "parseval_relative_error": 1.50791162103165e-16,
+            "dc_fraction": 0.0004390572831800013,
+            "fundamental_fraction": 0.0001707169677592557,
+            "nyquist_fraction": 0.002910346813729671,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0034257782601852726,
+            "transverse_mean_square": 2.571393892423754e-39,
+            "transverse_fraction": 3.6621335641825835e-33
+          }
+        }
+      },
+      "auxiliary_consistency": {
+        "lapse_gradient": {
+          "evolved": {
+            "l_inf": 0.32537502977376687,
+            "rms": 0.1293551745338438
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.3253769952742454,
+            "rms": 0.1293551788732831
+          },
+          "difference": {
+            "l_inf": 4.679393160123002e-06,
+            "rms": 9.112746864498044e-07
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              3.7918153702322797e-19,
+              1.0388349276343139e-15,
+              3.7293279640404743e-14,
+              1.0905299895116732e-13,
+              3.117924452370439e-13,
+              9.480249469250713e-14,
+              8.40947531554388e-18,
+              1.1237384562746836e-16,
+              8.115047590894017e-18,
+              1.832599321519956e-19,
+              2.0953724384764657e-20,
+              3.979942556268941e-18,
+              7.122809156837205e-17,
+              3.3128128980332426e-17,
+              1.6129193847890994e-13,
+              5.600759649006273e-17,
+              1.148557367131992e-13
+            ],
+            "mean_square": 8.304215541641893e-13,
+            "parseval_relative_error": 2.4318780109198634e-16,
+            "dc_fraction": 4.5661331298760707e-07,
+            "fundamental_fraction": 0.001250972981644113,
+            "nyquist_fraction": 0.1383101584216469,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.3327470690365994,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "shift_gradient": {
+          "evolved": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "metric_gradient": {
+          "evolved": {
+            "l_inf": 0.21493021502218188,
+            "rms": 0.035161082559954655
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.21491316246424472,
+            "rms": 0.03516107984618489
+          },
+          "difference": {
+            "l_inf": 2.3407274596154437e-05,
+            "rms": 3.744143728853283e-06
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              8.022408420696232e-15,
+              1.1393292166203722e-17,
+              4.680698603875064e-15,
+              7.535652204775966e-15,
+              3.6015977935306633e-14,
+              1.1165915812894065e-14,
+              1.6800532850432746e-18,
+              1.1692380137825289e-17,
+              6.74571551579845e-19,
+              1.4963057414198983e-20,
+              2.634980195180766e-21,
+              3.054917453491312e-18,
+              1.3768188181935852e-16,
+              4.750336984011548e-15,
+              7.167701191671425e-14,
+              1.35696618941475e-11,
+              3.049361715911412e-13
+            ],
+            "mean_square": 1.4018612262311364e-11,
+            "parseval_relative_error": 1.1524586768378576e-16,
+            "dc_fraction": 0.0005722683722599451,
+            "fundamental_fraction": 8.127261067655219e-07,
+            "nyquist_fraction": 0.021752236661181742,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9951888662414565,
+            "transverse_mean_square": 2.989436723892943e-44,
+            "transverse_fraction": 2.1324769299240533e-33
+          }
+        },
+        "conformal_factor_gradient": {
+          "evolved": {
+            "l_inf": 0.10751680984906152,
+            "rms": 0.04311643242473232
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.1075127030103553,
+            "rms": 0.043116432956304455
+          },
+          "difference": {
+            "l_inf": 8.267829354494105e-06,
+            "rms": 2.582793361268437e-06
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              3.759086450084723e-18,
+              5.2207954471396285e-18,
+              4.207063777280499e-15,
+              7.062599154493057e-15,
+              2.825769469729147e-14,
+              9.022211737826841e-15,
+              1.7040538721037958e-17,
+              8.695481294792001e-18,
+              5.432119526349447e-19,
+              6.807070753022452e-21,
+              9.02925310337978e-22,
+              1.6934959599823392e-18,
+              2.5534993027290982e-17,
+              1.151308770265343e-15,
+              1.2812655960318226e-13,
+              2.5813940564552097e-12,
+              3.911537557503912e-12
+            ],
+            "mean_square": 6.6708215470123114e-12,
+            "parseval_relative_error": 2.4218713130112314e-16,
+            "dc_fraction": 5.635117689167268e-07,
+            "fundamental_fraction": 7.826315560004583e-07,
+            "nyquist_fraction": 0.586365192043818,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9927168962733587,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "time": 22.0,
+      "input_path": "docs/gauge-stage/baseline-t22.npz",
+      "input_sha256": "985410d1ba458b037a57e559ab2d52fde1ed12e47453ffc9165b9c276b3f3edb",
+      "arrays_path": "t22-arrays.npz",
+      "fields": {
+        "chi": {
+          "l_inf": 0.052497930155826045,
+          "rms": 0.04377969012271805,
+          "l_inf_over_amplitude": 0.5249793015582604,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              5.143114302478358e-06,
+              9.070535317970158e-06,
+              1.260452552530218e-07,
+              2.3649402198556475e-08,
+              3.999017922123202e-10,
+              8.694551299152536e-12,
+              7.463346607131477e-14,
+              1.8234185188612984e-15,
+              1.5813113368750056e-16,
+              7.55311363415671e-15,
+              4.772547920671003e-14,
+              1.7106258630006254e-12,
+              8.99390060790731e-11,
+              5.195639597837461e-10,
+              1.8373402119748715e-07,
+              2.866665115138949e-05,
+              0.0018734465178489007
+            ],
+            "mean_square": 0.0019166612672412164,
+            "parseval_relative_error": 1.1313445844774354e-16,
+            "dc_fraction": 0.0026833715432050226,
+            "fundamental_fraction": 0.004732466541167187,
+            "nyquist_fraction": 0.977453110713445,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9925058469140062,
+            "transverse_mean_square": 6.018531076210112e-36,
+            "transverse_fraction": 3.140112016179573e-33
+          }
+        },
+        "h": {
+          "l_inf": 0.08372434756386538,
+          "rms": 0.028072238824215705,
+          "l_inf_over_amplitude": 0.8372434756386538,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.493501559125637e-07,
+              2.39937990714707e-06,
+              3.360997805924185e-08,
+              1.6376669761607367e-08,
+              2.8509736487255357e-10,
+              2.285651400401935e-12,
+              1.9141011197565757e-14,
+              8.201426653120423e-16,
+              4.148020621180181e-17,
+              3.7106779747256296e-15,
+              1.5432427927157684e-14,
+              4.04970065851308e-13,
+              3.662871740989216e-11,
+              3.7532271342317595e-10,
+              5.894671856295026e-08,
+              1.1992332644657809e-05,
+              0.0007728998967511395
+            ],
+            "mean_square": 0.0007880505926038036,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.000823995517555594,
+            "fundamental_fraction": 0.0030447028777927337,
+            "nyquist_fraction": 0.9807744629661345,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9960675061437129,
+            "transverse_mean_square": 7.924399250343314e-35,
+            "transverse_fraction": 1.005569861214145e-31
+          }
+        },
+        "trace_k": {
+          "l_inf": 0.20984326848962126,
+          "rms": 0.13384244847203167,
+          "l_inf_over_amplitude": 2.0984326848962125,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              7.112382353186696e-05,
+              0.000997296620142268,
+              4.4514132631243256e-05,
+              1.5100855533307363e-05,
+              4.798717142106605e-07,
+              2.0134002142769575e-08,
+              2.517275339078684e-10,
+              8.75596696747032e-12,
+              1.0687908094268851e-13,
+              3.267805095038987e-11,
+              1.5163381444722524e-10,
+              4.102333707022828e-09,
+              1.3767106103926583e-07,
+              5.453982670719041e-07,
+              7.324820211047937e-05,
+              0.0034011803179821378,
+              0.01331014943877673
+            ],
+            "mean_square": 0.017913801012988454,
+            "parseval_relative_error": 1.936745277810154e-16,
+            "dc_fraction": 0.003970336807933639,
+            "fundamental_fraction": 0.05567197153854592,
+            "nyquist_fraction": 0.7430109014343841,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9370018849031374,
+            "transverse_mean_square": 1.2638915260041235e-34,
+            "transverse_fraction": 7.055406750849445e-33
+          }
+        },
+        "a": {
+          "l_inf": 0.10659691329405568,
+          "rms": 0.027599919172577703,
+          "l_inf_over_amplitude": 1.0659691329405567,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.5740509763165367e-06,
+              2.588669485212757e-05,
+              1.7077264730882007e-06,
+              1.1540544487176186e-06,
+              4.0871474085203555e-08,
+              7.580000054852616e-10,
+              9.708750048925231e-12,
+              5.532159461161829e-13,
+              5.716761832220896e-15,
+              1.9609901861434188e-12,
+              6.926541347924393e-12,
+              1.296000825641165e-10,
+              5.883791850559896e-09,
+              2.3126518920412478e-08,
+              3.392836162299283e-06,
+              0.00011501029510293864,
+              0.000611959091777176
+            ],
+            "mean_square": 0.0007617555383328222,
+            "parseval_relative_error": 1.4232941119908215e-16,
+            "dc_fraction": 0.003379103723945484,
+            "fundamental_fraction": 0.03398294275455243,
+            "nyquist_fraction": 0.803353649540257,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9588264674058685,
+            "transverse_mean_square": 8.019222461309645e-35,
+            "transverse_fraction": 1.052729131298541e-31
+          }
+        },
+        "theta": {
+          "l_inf": 0.1026881138915258,
+          "rms": 0.06344591694942461,
+          "l_inf_over_amplitude": 1.026881138915258,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.0292348152642472e-05,
+              0.00018947484943645392,
+              9.368612189914384e-07,
+              2.5116489570725575e-06,
+              3.325115241207207e-08,
+              2.744749764463087e-09,
+              3.1712064102908127e-11,
+              1.7538140310557164e-12,
+              2.1853180986912016e-14,
+              1.267178566549622e-11,
+              4.816353160710154e-11,
+              1.4102072575704248e-09,
+              1.9392475632539828e-08,
+              8.585235407432543e-08,
+              1.8205972458925634e-05,
+              0.0005005506431410578,
+              0.003303269308925953
+            ],
+            "mean_square": 0.004025384377553285,
+            "parseval_relative_error": 2.1547302235907333e-16,
+            "dc_fraction": 0.002556860957188486,
+            "fundamental_fraction": 0.04707000168555847,
+            "nyquist_fraction": 0.8206096608676536,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9495074959135317,
+            "transverse_mean_square": 2.1817175151261656e-35,
+            "transverse_fraction": 5.419898599726418e-33
+          }
+        },
+        "conformal_gamma": {
+          "l_inf": 0.14934402620822385,
+          "rms": 0.04320366705872948,
+          "l_inf_over_amplitude": 1.4934402620822385,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.872457483396354e-07,
+              9.449267494377066e-05,
+              2.023905467480757e-05,
+              1.0136395496871583e-05,
+              4.5153551879182045e-07,
+              3.796712269727273e-09,
+              6.553620661960422e-11,
+              3.2142910797480416e-12,
+              1.162243252788962e-15,
+              1.2493179000570696e-13,
+              1.708712648739045e-11,
+              4.228600572428391e-10,
+              5.17990492328321e-08,
+              3.7671764469609457e-07,
+              2.4799136374197932e-05,
+              0.0014933545130228943,
+              0.0002219634693119004
+            ],
+            "mean_square": 0.001866556847321547,
+            "parseval_relative_error": 4.646854121978881e-16,
+            "dc_fraction": 0.0003681890264021758,
+            "fundamental_fraction": 0.05062405416656062,
+            "nyquist_fraction": 0.11891599745832075,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9324902576494415,
+            "transverse_mean_square": 2.9528418092655862e-34,
+            "transverse_fraction": 1.5819726109616345e-31
+          }
+        },
+        "lapse": {
+          "l_inf": 0.00462697908990739,
+          "rms": 0.0024643669269703893,
+          "l_inf_over_amplitude": 0.046269790899073904,
+          "error_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              5.294243368793005e-07,
+              6.539392386100586e-07,
+              1.212358730028374e-07,
+              6.056892329585289e-08,
+              1.5983557032273022e-09,
+              2.323307928870557e-12,
+              3.4983473338797204e-14,
+              2.179314233578418e-15,
+              8.735537416737934e-17,
+              9.612909129536149e-16,
+              5.353708555248402e-15,
+              6.506333635583722e-13,
+              2.257632491447901e-11,
+              7.466059391099288e-10,
+              1.1975856694004102e-08,
+              4.646043497017885e-06,
+              4.754606977185483e-08
+            ],
+            "mean_square": 6.07310435074548e-06,
+            "parseval_relative_error": 1.394728129692562e-16,
+            "dc_fraction": 0.08717524124450672,
+            "fundamental_fraction": 0.10767791904148444,
+            "nyquist_fraction": 0.007828956498338202,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.7749472083755288,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        }
+      },
+      "constraints": {
+        "hamiltonian": {
+          "evolved": {
+            "l_inf": 1.0149208274921897,
+            "rms": 0.6616987827661434
+          },
+          "analytic_discrete": {
+            "l_inf": 5.551115123125783e-17,
+            "rms": 1.9000469073802912e-17
+          },
+          "difference": {
+            "l_inf": 1.0149208274921897,
+            "rms": 0.6616987827661432
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.617686221194648e-07,
+              0.008300020911500193,
+              0.0011092467092340256,
+              0.0006390533292363951,
+              5.7289757676949745e-05,
+              2.401936741370024e-06,
+              6.568107410877268e-08,
+              1.07109042281827e-09,
+              8.437527535716188e-11,
+              1.0516581255882295e-08,
+              5.614425670303712e-08,
+              2.8638749435225156e-06,
+              6.057816742483823e-05,
+              0.0018445160101142766,
+              0.005539589777144574,
+              0.4200551431460845,
+              0.0002342802280953452
+            ],
+            "mean_square": 0.4378452791141957,
+            "parseval_relative_error": 3.8034772015970373e-16,
+            "dc_fraction": 3.6946526509715634e-07,
+            "fundamental_fraction": 0.01895651570868128,
+            "nyquist_fraction": 0.00053507537769807,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9769136687150641,
+            "transverse_mean_square": 1.6370404527291505e-33,
+            "transverse_fraction": 3.738856008773338e-33
+          }
+        },
+        "momentum": {
+          "evolved": {
+            "l_inf": 0.30040845370251956,
+            "rms": 0.116958849817782
+          },
+          "analytic_discrete": {
+            "l_inf": 2.55351295663786e-15,
+            "rms": 5.529533688184537e-16
+          },
+          "difference": {
+            "l_inf": 0.30040845370251945,
+            "rms": 0.11695884981778201
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.294184738504548e-07,
+              0.0011481267777513316,
+              8.903887173349292e-05,
+              5.660041022199265e-05,
+              4.7870061870203396e-06,
+              1.8496048092753472e-07,
+              4.135568358328377e-09,
+              1.8776003557326274e-10,
+              1.8136729769372937e-11,
+              7.424790671241421e-10,
+              2.1288816621128643e-09,
+              9.178482268621874e-08,
+              2.1231281065808034e-06,
+              5.2934606741675584e-05,
+              0.0001350581082929789,
+              0.012177997303851702,
+              1.2192961208396143e-05
+            ],
+            "mean_square": 0.013679372550698489,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 1.6771125503029036e-05,
+            "fundamental_fraction": 0.08393124563982333,
+            "nyquist_fraction": 0.0008913392162693568,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9050415679986226,
+            "transverse_mean_square": 2.4495421480175156e-33,
+            "transverse_fraction": 1.7906831171817441e-31
+          }
+        },
+        "det_h_minus_one": {
+          "evolved": {
+            "l_inf": 1.1716585479604191e-09,
+            "rms": 9.568284250568066e-10
+          },
+          "analytic_discrete": {
+            "l_inf": 2.220446049250313e-16,
+            "rms": 1.4288057044435644e-16
+          },
+          "difference": {
+            "l_inf": 1.171658770005024e-09,
+            "rms": 9.568284175270148e-10
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              9.038966069928818e-19,
+              1.9241279561112025e-22,
+              7.598502816193863e-22,
+              1.7719222471851834e-22,
+              1.341859878665218e-22,
+              1.8926089047405247e-23,
+              4.313166023980875e-25,
+              4.5081594720330504e-26,
+              2.3298996483829143e-27,
+              1.642104270295808e-26,
+              4.157004163147812e-25,
+              5.2811700424684316e-24,
+              1.072595354596727e-23,
+              3.322264759426926e-22,
+              1.9469387411983554e-21,
+              3.512525707522558e-21,
+              4.532837317698924e-21
+            ],
+            "mean_square": 9.155206205872515e-19,
+            "parseval_relative_error": 2.1036445286746982e-16,
+            "dc_fraction": 0.9873033841805618,
+            "fundamental_fraction": 0.00021016762624931262,
+            "nyquist_fraction": 0.0049511034659070596,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.011295179578452877,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "trace_a": {
+          "evolved": {
+            "l_inf": 5.116797485715807e-09,
+            "rms": 3.718730894872551e-09
+          },
+          "analytic_discrete": {
+            "l_inf": 5.551115123125783e-17,
+            "rms": 2.6874220530932865e-17
+          },
+          "difference": {
+            "l_inf": 5.116797513471383e-09,
+            "rms": 3.7187309015673554e-09
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.3343151923016584e-17,
+              3.401920758579117e-20,
+              3.9557652953592096e-20,
+              1.1413746435689466e-20,
+              2.032676940181167e-20,
+              4.226131719794259e-21,
+              1.3484659013603578e-22,
+              1.9337297818885066e-23,
+              5.692798566295724e-24,
+              1.1243879059110725e-23,
+              1.5899948497493222e-22,
+              1.4145274521048591e-21,
+              2.4690207020597185e-21,
+              3.201793433975071e-20,
+              1.217759457404659e-19,
+              1.9121547105899052e-19,
+              2.7041067814765367e-20
+            ],
+            "mean_square": 1.3828959518271955e-17,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.9648702713596433,
+            "fundamental_fraction": 0.002459997626057275,
+            "nyquist_fraction": 0.0019553942419917054,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.027197266921910514,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "conformal_gamma": {
+          "evolved": {
+            "l_inf": 0.09651361329660368,
+            "rms": 0.02558023456746937
+          },
+          "analytic_discrete": {
+            "l_inf": 4.829252689170227e-05,
+            "rms": 1.4530366126206741e-05
+          },
+          "difference": {
+            "l_inf": 0.09650994598229601,
+            "rms": 0.02557895833645499
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              6.872457483396371e-07,
+              2.4146866093128096e-05,
+              3.8751149486264586e-07,
+              9.957175870139729e-07,
+              6.080184974002787e-09,
+              9.75643627128894e-10,
+              8.93381699450812e-12,
+              1.016131799879256e-12,
+              1.72680336857196e-13,
+              1.6975698664645432e-11,
+              7.769922676858706e-11,
+              1.2566508131633288e-09,
+              1.139749429436985e-09,
+              1.4988118651273964e-06,
+              1.6933746104330938e-05,
+              0.0003876601843469988,
+              0.0002219634693119004
+            ],
+            "mean_square": 0.0006542831095781003,
+            "parseval_relative_error": 1.657084153042905e-16,
+            "dc_fraction": 0.0010503797794547871,
+            "fundamental_fraction": 0.03690583745727238,
+            "nyquist_fraction": 0.33924682765390135,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9599188694954932,
+            "transverse_mean_square": 1.254174106037326e-34,
+            "transverse_fraction": 1.9168676184321069e-31
+          }
+        },
+        "theta": {
+          "evolved": {
+            "l_inf": 0.1026881138915258,
+            "rms": 0.06344591694942461
+          },
+          "analytic_discrete": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.1026881138915258,
+            "rms": 0.06344591694942461
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              1.0292348152642472e-05,
+              0.00018947484943645392,
+              9.368612189914384e-07,
+              2.5116489570725575e-06,
+              3.325115241207207e-08,
+              2.744749764463087e-09,
+              3.1712064102908127e-11,
+              1.7538140310557164e-12,
+              2.1853180986912016e-14,
+              1.267178566549622e-11,
+              4.816353160710154e-11,
+              1.4102072575704248e-09,
+              1.9392475632539828e-08,
+              8.585235407432543e-08,
+              1.8205972458925634e-05,
+              0.0005005506431410578,
+              0.003303269308925953
+            ],
+            "mean_square": 0.004025384377553285,
+            "parseval_relative_error": 2.1547302235907333e-16,
+            "dc_fraction": 0.002556860957188486,
+            "fundamental_fraction": 0.04707000168555847,
+            "nyquist_fraction": 0.8206096608676536,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9495074959135317,
+            "transverse_mean_square": 2.1817175151261656e-35,
+            "transverse_fraction": 5.419898599726418e-33
+          }
+        }
+      },
+      "auxiliary_consistency": {
+        "lapse_gradient": {
+          "evolved": {
+            "l_inf": 0.34514463619798297,
+            "rms": 0.12901555439865733
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.3463052785529877,
+            "rms": 0.1290186373991933
+          },
+          "difference": {
+            "l_inf": 0.0019146192228555459,
+            "rms": 0.0006413769674191952
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              7.212947944858116e-15,
+              1.2123099275817562e-11,
+              9.623182328112267e-10,
+              4.984447158705526e-12,
+              1.4110834649534275e-12,
+              1.723464439974683e-13,
+              4.568174005108866e-15,
+              6.74102910578013e-17,
+              4.486004644405196e-17,
+              1.7518799694073014e-15,
+              6.861044599618183e-15,
+              5.674367134577514e-12,
+              1.9601187070993664e-10,
+              2.886822456228315e-10,
+              2.431545255504897e-07,
+              1.6209145772985303e-10,
+              1.6657639912868502e-07
+            ],
+            "mean_square": 4.113644143358435e-07,
+            "parseval_relative_error": 1.286926077183069e-16,
+            "dc_fraction": 1.7534204937253926e-08,
+            "fundamental_fraction": 2.9470461841942654e-05,
+            "nyquist_fraction": 0.4049363370373836,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.997615201938965,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "shift_gradient": {
+          "evolved": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference": {
+            "l_inf": 0.0,
+            "rms": 0.0
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_square": 0.0,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.0,
+            "fundamental_fraction": 0.0,
+            "nyquist_fraction": 0.0,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.0,
+            "transverse_mean_square": 0.0,
+            "transverse_fraction": 0.0
+          }
+        },
+        "metric_gradient": {
+          "evolved": {
+            "l_inf": 0.2612828931527983,
+            "rms": 0.03659812889657654
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.2858213854808101,
+            "rms": 0.03662829741963455
+          },
+          "difference": {
+            "l_inf": 0.029025485483341107,
+            "rms": 0.004809580394784903
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              2.7145865002341396e-09,
+              5.957672922085382e-07,
+              9.005322592520187e-09,
+              3.6296025297398136e-10,
+              2.0421531603226222e-11,
+              3.4647053784625566e-13,
+              6.247062282035012e-15,
+              2.7880660964947335e-15,
+              1.5368435797257291e-16,
+              1.7098919745614883e-15,
+              2.7077322534317907e-14,
+              3.215004849295145e-12,
+              1.918213342054412e-10,
+              1.3947879082149045e-08,
+              1.0052729598694018e-07,
+              2.1939409020729065e-05,
+              4.701133742296574e-07
+            ],
+            "mean_square": 2.3132063573899303e-05,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 0.00011735167904765316,
+            "fundamental_fraction": 0.025755043007955534,
+            "nyquist_fraction": 0.02032301928999116,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9737217158923331,
+            "transverse_mean_square": 3.1375903380698226e-36,
+            "transverse_fraction": 1.356381512633431e-31
+          }
+        },
+        "conformal_factor_gradient": {
+          "evolved": {
+            "l_inf": 0.153283672597911,
+            "rms": 0.046518984831309486
+          },
+          "rebuilt_from_own_base": {
+            "l_inf": 0.15173288843518462,
+            "rms": 0.04693960297095962
+          },
+          "difference": {
+            "l_inf": 0.010388188186846711,
+            "rms": 0.0032287375145486673
+          },
+          "difference_spectrum": {
+            "k": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "x_power": [
+              9.605268875506916e-11,
+              1.3408154170756933e-08,
+              1.9265487140685255e-09,
+              2.8245593140929283e-11,
+              1.7476799351664535e-12,
+              6.036635644366433e-14,
+              8.228580301828956e-17,
+              4.901748545988265e-18,
+              3.7817952532041474e-17,
+              6.746624260889007e-16,
+              1.9050364140976732e-14,
+              1.8886351228932905e-12,
+              7.693048791610969e-11,
+              2.4355430494216152e-09,
+              1.8321705792140743e-07,
+              4.192471362182213e-06,
+              6.031082326514779e-06
+            ],
+            "mean_square": 1.0424745937853905e-05,
+            "parseval_relative_error": 0.0,
+            "dc_fraction": 9.213911718105917e-06,
+            "fundamental_fraction": 0.0012861852222287547,
+            "nyquist_fraction": 0.5785351856504208,
+            "high_k_minimum": 8.0,
+            "high_k_fraction": 0.9985169126046457,
+            "transverse_mean_square": 2.0708598265306493e-36,
+            "transverse_fraction": 1.9864846960068628e-31
+          }
+        }
+      }
+    }
+  ],
+  "seconds": 0.23928299999988667,
+  "peak_rss_bytes": 45539328
+}
