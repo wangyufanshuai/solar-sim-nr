@@ -1,0 +1,61 @@
+{
+  "analysis_source_commit": "cf4e2a2abd489d3a3b0701d8f605d5b7085126a0",
+  "run_source_commit": "4da44c656204fcc82012610a4572f9ac57bea1ae",
+  "analysis_kind": "post-run analysis of saved last-valid states; original result unchanged",
+  "terminal_states": {
+    "native": {
+      "last_valid_time": 23.28125,
+      "analytic_error_over_amplitude": 1926350388.600215,
+      "max_slot_difference": 0.0,
+      "base_field_difference_over_amplitude": 0.0,
+      "passes_1_percent": true
+    },
+    "native_one_ulp": {
+      "last_valid_time": 23.28125,
+      "analytic_error_over_amplitude": 1926350388.666485,
+      "max_slot_difference": 0.006627023220062256,
+      "base_field_difference_over_amplitude": 0.06627023220062256,
+      "passes_1_percent": false
+    },
+    "python": {
+      "last_valid_time": 23.28125,
+      "analytic_error_over_amplitude": 1926350388.724577,
+      "max_slot_difference": 0.012436211109161377,
+      "base_field_difference_over_amplitude": 0.12436211109161377,
+      "passes_1_percent": false
+    },
+    "arithmetic": {
+      "last_valid_time": 23.28125,
+      "analytic_error_over_amplitude": 1926350388.5609915,
+      "max_slot_difference": 0.0039223432540893555,
+      "base_field_difference_over_amplitude": 0.039223432540893555,
+      "passes_1_percent": false
+    }
+  },
+  "failed_inputs": {
+    "native": {
+      "two_ln_phi_min": -107.31996205836185,
+      "two_ln_phi_max": 901.4177502030699,
+      "binary64_log_max": 709.782712893384,
+      "stage": 2
+    },
+    "native_one_ulp": {
+      "two_ln_phi_min": -107.31996205966453,
+      "two_ln_phi_max": 901.4177501812686,
+      "binary64_log_max": 709.782712893384,
+      "stage": 2
+    },
+    "python": {
+      "two_ln_phi_min": -107.31996206075735,
+      "two_ln_phi_max": 901.4177501680326,
+      "binary64_log_max": 709.782712893384,
+      "stage": 2
+    },
+    "arithmetic": {
+      "two_ln_phi_min": -107.31996205764162,
+      "two_ln_phi_max": 901.4177502054914,
+      "binary64_log_max": 709.782712893384,
+      "stage": 2
+    }
+  }
+}

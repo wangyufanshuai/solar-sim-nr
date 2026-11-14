@@ -278,3 +278,35 @@ parity, a new validated solver, full T0 evolution or external reproduction. The
 Limits for the combined four-trajectory job: 600 seconds, 64 MiB output and
 512 MiB peak working set, one BLAS/OpenMP thread. Resource interruption is not a
 scientific pass. A successful restart does not establish long-time boundedness.
+
+
+### Identical-snapshot restart result
+
+Source 4da44c6, T22 snapshot, common additive RK4: all four trajectories failed
+at stage2 in [23.28125,23.2890625], after 164 valid steps. Status is
+SCIENTIFIC_FAILURE, not successful target completion. Runtime 57.490 s, peak
+67.508 MiB, raw output 196841 bytes (before terminal analysis). Saved arrays and
+original report: restart-t22/. The cf4e2a2 terminal analysis reads these arrays
+without rerunning or rewriting the original measurement. At the last valid time,
+base-field differences from native divided by A=.1 are .06627 (one ULP), .12436
+(original Python), .03922 (arithmetic variant), all above the 1% trajectory target.
+The native analytic error divided by amplitude grows from 2.098 at T22 to
+1.92635e9 at T23.28125; closeness between implementations is not physical accuracy.
+All four failed stage inputs have max(2 ln(phi)) approximately 901.418, beyond
+log(max binary64)=709.783, producing chi reconstruction overflow. This establishes
+a shared failure on this restart, not the root cause of the earlier instability,
+full-trajectory parity, long-time boundedness or external independent reproduction.
+Twenty-nine related tests passed, including failure-stage preservation, resource
+interruption and exclusion of comparisons across unequal last-valid times.
+
+### Native restart timestep refinement registration
+
+Before implementation/measurement: from the same T22 snapshot, run native-only
+additive RK4 at dt=1/128, 1/256, 1/512 toward T24. Preserve per-step failure
+intervals and last valid/failed-input arrays; sample at shared 1/8 time intervals.
+Compare the last common sampled states with the finest live trajectory and with
+the analytic gauge wave. Report failures separately; refinement cannot pass the
+original T0 long-wave test or justify resetting invalid states. In particular,
+this is a timestep-sensitivity diagnostic on an already inaccurate snapshot,
+not a full initial-value convergence study. The combined job retains 600 s,
+64 MiB output and 512 MiB peak working-set ceilings and single-thread execution.

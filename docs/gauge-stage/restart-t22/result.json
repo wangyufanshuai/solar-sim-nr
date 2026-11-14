@@ -1,0 +1,404 @@
+{
+  "source_commit": "4da44c656204fcc82012610a4572f9ac57bea1ae",
+  "input_sha256": "985410d1ba458b037a57e559ab2d52fde1ed12e47453ffc9165b9c276b3f3edb",
+  "settings": {
+    "base_time": 22.0,
+    "dt": 0.0078125,
+    "target_time": 24.0,
+    "steps": 256,
+    "shape": [
+      32,
+      5,
+      5
+    ],
+    "amplitude": 0.1,
+    "threads": 1,
+    "max_seconds": 600,
+    "max_working_set_bytes": 536870912,
+    "max_output_bytes": 67108864
+  },
+  "integrator": "common additive canonical-slot RK4",
+  "external_independent_reproduction": false,
+  "perturbation": {
+    "index": [
+      0,
+      8,
+      0,
+      0
+    ],
+    "delta": 1.1102230246251565e-16
+  },
+  "samples": [
+    {
+      "time": 22.0,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 2.0984326848962125,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 2.0984326848962125,
+          "max_slot_difference": 1.1102230246251565e-16,
+          "base_field_difference_over_amplitude": 1.1102230246251565e-15,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 2.0984326848962125,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 2.0984326848962125,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 22.125,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 2.7296310681078664,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 2.7296310681078673,
+          "max_slot_difference": 3.3306690738754696e-16,
+          "base_field_difference_over_amplitude": 3.3306690738754696e-15,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 2.7296310681078673,
+          "max_slot_difference": 5.551115123125783e-16,
+          "base_field_difference_over_amplitude": 5.551115123125783e-15,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 2.7296310681078664,
+          "max_slot_difference": 2.7755575615628914e-17,
+          "base_field_difference_over_amplitude": 2.7755575615628914e-16,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 22.25,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 3.5535067115720453,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 3.5535067115720462,
+          "max_slot_difference": 6.661338147750939e-16,
+          "base_field_difference_over_amplitude": 6.661338147750939e-15,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 3.553506711572048,
+          "max_slot_difference": 7.216449660063518e-16,
+          "base_field_difference_over_amplitude": 7.216449660063518e-15,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 3.5535067115720462,
+          "max_slot_difference": 2.220446049250313e-16,
+          "base_field_difference_over_amplitude": 2.220446049250313e-15,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 22.375,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 4.621440316149627,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 4.621440316149627,
+          "max_slot_difference": 8.881784197001252e-16,
+          "base_field_difference_over_amplitude": 8.881784197001252e-15,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 4.621440316149626,
+          "max_slot_difference": 8.326672684688674e-16,
+          "base_field_difference_over_amplitude": 8.326672684688674e-15,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 4.621440316149627,
+          "max_slot_difference": 4.440892098500626e-16,
+          "base_field_difference_over_amplitude": 4.440892098500626e-15,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 22.5,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 6.012978410225231,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 6.012978410225234,
+          "max_slot_difference": 9.992007221626409e-16,
+          "base_field_difference_over_amplitude": 9.992007221626409e-15,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 6.012978410225234,
+          "max_slot_difference": 1.1102230246251565e-15,
+          "base_field_difference_over_amplitude": 1.1102230246251565e-14,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 6.012978410225231,
+          "max_slot_difference": 6.661338147750939e-16,
+          "base_field_difference_over_amplitude": 6.661338147750939e-15,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 22.625,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 7.871762417494952,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 7.871762417494956,
+          "max_slot_difference": 1.3322676295501878e-15,
+          "base_field_difference_over_amplitude": 1.3322676295501878e-14,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 7.871762417494958,
+          "max_slot_difference": 1.5543122344752192e-15,
+          "base_field_difference_over_amplitude": 1.554312234475219e-14,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 7.871762417494949,
+          "max_slot_difference": 9.992007221626409e-16,
+          "base_field_difference_over_amplitude": 9.992007221626409e-15,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 22.75,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 10.176137524982543,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 10.176137524982543,
+          "max_slot_difference": 1.6653345369377348e-15,
+          "base_field_difference_over_amplitude": 1.6653345369377348e-14,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 10.176137524982542,
+          "max_slot_difference": 2.3592239273284576e-15,
+          "base_field_difference_over_amplitude": 2.3592239273284576e-14,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 10.17613752498254,
+          "max_slot_difference": 1.887379141862766e-15,
+          "base_field_difference_over_amplitude": 1.887379141862766e-14,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 22.875,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 12.962678915410164,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 12.962678915410175,
+          "max_slot_difference": 2.4424906541753444e-15,
+          "base_field_difference_over_amplitude": 2.4424906541753444e-14,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 12.962678915410168,
+          "max_slot_difference": 3.885780586188048e-15,
+          "base_field_difference_over_amplitude": 3.885780586188048e-14,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 12.962678915410178,
+          "max_slot_difference": 3.7192471324942744e-15,
+          "base_field_difference_over_amplitude": 3.7192471324942744e-14,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 23.0,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 16.51335823322409,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 16.51335823322409,
+          "max_slot_difference": 6.439293542825908e-15,
+          "base_field_difference_over_amplitude": 6.439293542825908e-14,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 16.513358233224082,
+          "max_slot_difference": 1.0325074129013956e-14,
+          "base_field_difference_over_amplitude": 1.0325074129013956e-13,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 16.5133582332241,
+          "max_slot_difference": 1.3766765505351941e-14,
+          "base_field_difference_over_amplitude": 1.376676550535194e-13,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 23.125,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 25.017699331966696,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 25.01769933196668,
+          "max_slot_difference": 4.241051954068098e-14,
+          "base_field_difference_over_amplitude": 4.241051954068098e-13,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 25.017699331965993,
+          "max_slot_difference": 7.016609515630989e-14,
+          "base_field_difference_over_amplitude": 7.016609515630989e-13,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 25.017699331967695,
+          "max_slot_difference": 9.992007221626409e-14,
+          "base_field_difference_over_amplitude": 9.992007221626409e-13,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 23.25,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 201.83765225323674,
+          "max_slot_difference": 0.0,
+          "base_field_difference_over_amplitude": 0.0,
+          "passes_1_percent": true
+        },
+        "native_one_ulp": {
+          "analytic_error_over_amplitude": 201.8376522532606,
+          "max_slot_difference": 2.5084379018380787e-12,
+          "base_field_difference_over_amplitude": 2.5084379018380787e-11,
+          "passes_1_percent": true
+        },
+        "python": {
+          "analytic_error_over_amplitude": 201.83765225329373,
+          "max_slot_difference": 6.114220241215662e-12,
+          "base_field_difference_over_amplitude": 6.114220241215662e-11,
+          "passes_1_percent": true
+        },
+        "arithmetic": {
+          "analytic_error_over_amplitude": 201.8376522532112,
+          "max_slot_difference": 7.435829729729448e-12,
+          "base_field_difference_over_amplitude": 7.435829729729448e-11,
+          "passes_1_percent": true
+        }
+      }
+    },
+    {
+      "time": 23.2890625,
+      "trajectories": {}
+    }
+  ],
+  "failures": {
+    "native": {
+      "message": "RK4 stage 2: overflow encountered in exp",
+      "last_valid_time": 23.28125,
+      "failed_interval": [
+        23.28125,
+        23.2890625
+      ],
+      "stage": 2
+    },
+    "native_one_ulp": {
+      "message": "RK4 stage 2: overflow encountered in exp",
+      "last_valid_time": 23.28125,
+      "failed_interval": [
+        23.28125,
+        23.2890625
+      ],
+      "stage": 2
+    },
+    "python": {
+      "message": "RK4 stage 2: overflow encountered in exp",
+      "last_valid_time": 23.28125,
+      "failed_interval": [
+        23.28125,
+        23.2890625
+      ],
+      "stage": 2
+    },
+    "arithmetic": {
+      "message": "RK4 stage 2: overflow encountered in exp",
+      "last_valid_time": 23.28125,
+      "failed_interval": [
+        23.28125,
+        23.2890625
+      ],
+      "stage": 2
+    }
+  },
+  "status": "SCIENTIFIC_FAILURE",
+  "steps": {
+    "native": 164,
+    "native_one_ulp": 164,
+    "python": 164,
+    "arithmetic": 164
+  },
+  "seconds": 57.490046299999904,
+  "peak_rss_bytes": 70787072,
+  "all_trajectories_reached_target": false
+}
