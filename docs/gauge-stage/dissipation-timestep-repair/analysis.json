@@ -1,0 +1,2654 @@
+{
+  "source_report_sha256": "351731b93e8a6b521761302a495d177087310549bbe991e6b72a01e992b57b1f",
+  "status": "COMPLETED",
+  "all_trajectories_reached_target": true,
+  "temporal_self_convergence": [
+    {
+      "time": 1.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.3182391178645503e-07,
+            8.261717976409955e-09
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.858648710588213e-08,
+            4.907075625928199e-09
+          ],
+          "observed_linf_order": 3.9960264640959267,
+          "observed_rms_order": 4.001345852416588,
+          "finest_rk4_error_estimate_over_amplitude": 5.507811984273303e-10,
+          "finest_analytic_error_over_amplitude": 0.00014093118733793375,
+          "estimated_time_error_fraction": 3.9081569440455515e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            2.450388980612672e-07,
+            1.535733318291932e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.171725438912011e-08,
+            3.853610085212889e-09
+          ],
+          "observed_linf_order": 3.9960111668635285,
+          "observed_rms_order": 4.001391372463772,
+          "finest_rk4_error_estimate_over_amplitude": 1.0238222121946212e-09,
+          "finest_analytic_error_over_amplitude": 0.00026620529435583684,
+          "estimated_time_error_fraction": 3.845987416110806e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            1.9073788032342165e-06,
+            1.1854901657559758e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.031249203152384e-07,
+            5.639407852898724e-08
+          ],
+          "observed_linf_order": 4.008035789586621,
+          "observed_rms_order": 4.00130996487167,
+          "finest_rk4_error_estimate_over_amplitude": 7.903267771706505e-09,
+          "finest_analytic_error_over_amplitude": 0.002162177431367651,
+          "estimated_time_error_fraction": 3.655235531113382e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            1.1910859595148926e-06,
+            7.401786780714126e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.3775850871212892e-07,
+            1.48451860412144e-08
+          ],
+          "observed_linf_order": 4.0082601473339174,
+          "observed_rms_order": 4.00142989349543,
+          "finest_rk4_error_estimate_over_amplitude": 4.934524520476084e-09,
+          "finest_analytic_error_over_amplitude": 0.0013487008807247514,
+          "estimated_time_error_fraction": 3.6587241774650716e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            8.872163208192016e-07,
+            5.603098395779121e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.330040593461185e-07,
+            2.7059570910134868e-08
+          ],
+          "observed_linf_order": 3.9849891718802404,
+          "observed_rms_order": 4.000169682598354,
+          "finest_rk4_error_estimate_over_amplitude": 3.735398930519414e-09,
+          "finest_analytic_error_over_amplitude": 0.0009580934202374743,
+          "estimated_time_error_fraction": 3.898783617148266e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            4.341380664824035e-06,
+            2.717051136510995e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.0768055095863266e-06,
+            6.724199825235714e-08
+          ],
+          "observed_linf_order": 3.9980403045116724,
+          "observed_rms_order": 4.001251288302861,
+          "finest_rk4_error_estimate_over_amplitude": 1.8113674243406635e-08,
+          "finest_analytic_error_over_amplitude": 0.004942456296852563,
+          "estimated_time_error_fraction": 3.664913386273485e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            2.7420173687175975e-07,
+            1.7174205391157216e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.4047233063092111e-07,
+            8.771379597316714e-09
+          ],
+          "observed_linf_order": 3.996922453888075,
+          "observed_rms_order": 4.001338401771168,
+          "finest_rk4_error_estimate_over_amplitude": 1.1449470260771477e-09,
+          "finest_analytic_error_over_amplitude": 0.000295555307423534,
+          "estimated_time_error_fraction": 3.87388416759651e-06
+        }
+      }
+    },
+    {
+      "time": 2.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            2.8176580846306365e-07,
+            1.76356351744289e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.588107315275041e-07,
+            9.90689834525142e-09
+          ],
+          "observed_linf_order": 3.9979311123489687,
+          "observed_rms_order": 4.002731145988257,
+          "finest_rk4_error_estimate_over_amplitude": 1.1757090116285933e-09,
+          "finest_analytic_error_over_amplitude": 0.00029943248398778266,
+          "estimated_time_error_fraction": 3.926457797666883e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            5.235079014731525e-07,
+            3.2765435920012465e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.2478570619168153e-07,
+            7.783972931165735e-09
+          ],
+          "observed_linf_order": 3.997964681416537,
+          "observed_rms_order": 4.002802184137899,
+          "finest_rk4_error_estimate_over_amplitude": 2.1843623946674975e-09,
+          "finest_analytic_error_over_amplitude": 0.0005655600700094077,
+          "estimated_time_error_fraction": 3.8622995336837734e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            3.852050618341485e-06,
+            2.401104158555878e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.850794778433002e-06,
+            1.154692077335185e-07
+          ],
+          "observed_linf_order": 4.003856767873625,
+          "observed_rms_order": 4.002564850413108,
+          "finest_rk4_error_estimate_over_amplitude": 1.6007361057039187e-08,
+          "finest_analytic_error_over_amplitude": 0.004474931649413316,
+          "estimated_time_error_fraction": 3.577118559819304e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            2.4060144492021873e-06,
+            1.4997554330375973e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.879920398390607e-07,
+            3.044112575894364e-08
+          ],
+          "observed_linf_order": 4.003846143614723,
+          "observed_rms_order": 4.002763996647044,
+          "finest_rk4_error_estimate_over_amplitude": 9.998369553583982e-09,
+          "finest_analytic_error_over_amplitude": 0.0027917549272933606,
+          "estimated_time_error_fraction": 3.5813922833396837e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.7370239516537305e-06,
+            1.0845094712167791e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.661122871377484e-07,
+            5.412206745655015e-08
+          ],
+          "observed_linf_order": 4.001503089872777,
+          "observed_rms_order": 4.000265219034059,
+          "finest_rk4_error_estimate_over_amplitude": 7.230063141445194e-09,
+          "finest_analytic_error_over_amplitude": 0.0018908539159344965,
+          "estimated_time_error_fraction": 3.823702656517469e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            8.749741936819877e-06,
+            5.425854388008133e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.1836915592334774e-06,
+            1.3624430555153468e-07
+          ],
+          "observed_linf_order": 4.0113182309195,
+          "observed_rms_order": 4.002501256140292,
+          "finest_rk4_error_estimate_over_amplitude": 3.617236258672089e-08,
+          "finest_analytic_error_over_amplitude": 0.009759527005125945,
+          "estimated_time_error_fraction": 3.706364311274744e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            5.78200477496793e-07,
+            3.625897360137742e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.8355053738779176e-07,
+            1.768953112774107e-08
+          ],
+          "observed_linf_order": 3.995159808466749,
+          "observed_rms_order": 4.002638176415484,
+          "finest_rk4_error_estimate_over_amplitude": 2.417264906758495e-09,
+          "finest_analytic_error_over_amplitude": 0.0006210866639555501,
+          "estimated_time_error_fraction": 3.891992932779335e-06
+        }
+      }
+    },
+    {
+      "time": 3.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            4.4932982667944543e-07,
+            2.811168409166953e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.4206071130312246e-07,
+            1.508668247190771e-08
+          ],
+          "observed_linf_order": 3.998533042459581,
+          "observed_rms_order": 4.004021435156307,
+          "finest_rk4_error_estimate_over_amplitude": 1.874112272777969e-09,
+          "finest_analytic_error_over_amplitude": 0.0004764498096276881,
+          "estimated_time_error_fraction": 3.9334935913658046e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            8.344364488266365e-07,
+            5.2204195410965326e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.9036925313865937e-07,
+            1.1864203595648376e-08
+          ],
+          "observed_linf_order": 3.998564517935627,
+          "observed_rms_order": 4.00411331973865,
+          "finest_rk4_error_estimate_over_amplitude": 3.4802796940643552e-09,
+          "finest_analytic_error_over_amplitude": 0.000899854536257072,
+          "estimated_time_error_fraction": 3.86760254445181e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            5.80921446641236e-06,
+            3.588154287581524e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.88220204266083e-06,
+            1.7970067197154515e-07
+          ],
+          "observed_linf_order": 4.0170292613494745,
+          "observed_rms_order": 4.003503763353695,
+          "finest_rk4_error_estimate_over_amplitude": 2.392102858387683e-08,
+          "finest_analytic_error_over_amplitude": 0.006855017152972709,
+          "estimated_time_error_fraction": 3.48956509518045e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            3.660234534491602e-06,
+            2.2606820901382996e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.617098139349436e-07,
+            4.7483116863669276e-08
+          ],
+          "observed_linf_order": 4.017106062557442,
+          "observed_rms_order": 4.0037549397465355,
+          "finest_rk4_error_estimate_over_amplitude": 1.507121393425533e-08,
+          "finest_analytic_error_over_amplitude": 0.004276745450687083,
+          "estimated_time_error_fraction": 3.5239913406195487e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            2.5884111628599266e-06,
+            1.599499487866347e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.3000602456998658e-06,
+            8.123395069048372e-08
+          ],
+          "observed_linf_order": 4.016374368516782,
+          "observed_rms_order": 4.000351860692771,
+          "finest_rk4_error_estimate_over_amplitude": 1.066332991910898e-08,
+          "finest_analytic_error_over_amplitude": 0.0027936415454291,
+          "estimated_time_error_fraction": 3.817000050187579e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            1.3015755915279925e-05,
+            8.095001759189646e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.346628019826574e-06,
+            2.0865028636434025e-07
+          ],
+          "observed_linf_order": 4.007083897212247,
+          "observed_rms_order": 4.003549397559794,
+          "finest_rk4_error_estimate_over_amplitude": 5.396667839459764e-08,
+          "finest_analytic_error_over_amplitude": 0.014865141206334143,
+          "estimated_time_error_fraction": 3.630418147094496e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            9.158094338435063e-07,
+            5.679449577300488e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.3144054381173424e-07,
+            2.689299026928786e-08
+          ],
+          "observed_linf_order": 4.011224403311008,
+          "observed_rms_order": 4.003859672889064,
+          "finest_rk4_error_estimate_over_amplitude": 3.7862997182003255e-09,
+          "finest_analytic_error_over_amplitude": 0.0009741476548685846,
+          "estimated_time_error_fraction": 3.886782151840327e-06
+        }
+      }
+    },
+    {
+      "time": 4.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            6.323849621736599e-07,
+            3.956837968388527e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.2984515178102837e-07,
+            2.054142370299054e-08
+          ],
+          "observed_linf_order": 3.9983831678729977,
+          "observed_rms_order": 4.005180817854615,
+          "finest_rk4_error_estimate_over_amplitude": 2.6378919789256847e-09,
+          "finest_analytic_error_over_amplitude": 0.0006718391567028803,
+          "estimated_time_error_fraction": 3.92637427069808e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            1.1736827243424841e-06,
+            7.343748720245458e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.597491040052556e-07,
+            1.6174966686230793e-08
+          ],
+          "observed_linf_order": 3.998381959388187,
+          "observed_rms_order": 4.005284126639985,
+          "finest_rk4_error_estimate_over_amplitude": 4.895832480163638e-09,
+          "finest_analytic_error_over_amplitude": 0.0012687991232818163,
+          "estimated_time_error_fraction": 3.858634822745076e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            7.91853381643115e-06,
+            4.905569994662073e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.033391801677684e-06,
+            2.5137742479677207e-07
+          ],
+          "observed_linf_order": 4.0127406449511085,
+          "observed_rms_order": 4.004066557226231,
+          "finest_rk4_error_estimate_over_amplitude": 3.2703799964413825e-08,
+          "finest_analytic_error_over_amplitude": 0.009242041523192662,
+          "estimated_time_error_fraction": 3.5385904599481065e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            4.99081813709612e-06,
+            3.0919820537267384e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.0690972934616856e-06,
+            6.661791255315401e-08
+          ],
+          "observed_linf_order": 4.01267248290856,
+          "observed_rms_order": 4.004339193201652,
+          "finest_rk4_error_estimate_over_amplitude": 2.061321369151159e-08,
+          "finest_analytic_error_over_amplitude": 0.0058016516699668785,
+          "estimated_time_error_fraction": 3.5529905730499103e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            3.39955098011067e-06,
+            2.1079020602349924e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.7356585056382142e-06,
+            1.0844630837112543e-07
+          ],
+          "observed_linf_order": 4.011464463239459,
+          "observed_rms_order": 4.000430274433153,
+          "finest_rk4_error_estimate_over_amplitude": 1.4052680401566616e-08,
+          "finest_analytic_error_over_amplitude": 0.003665571762326351,
+          "estimated_time_error_fraction": 3.833693980839731e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            1.7004030337247622e-05,
+            1.0597969339609659e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.590505724665185e-06,
+            2.8604437054290514e-07
+          ],
+          "observed_linf_order": 4.004016974202038,
+          "observed_rms_order": 4.004342243538577,
+          "finest_rk4_error_estimate_over_amplitude": 7.065312893073106e-08,
+          "finest_analytic_error_over_amplitude": 0.019973180388472428,
+          "estimated_time_error_fraction": 3.537400031269366e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            1.2913906588529755e-06,
+            7.995534900828716e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.865071007183963e-07,
+            3.653060166403427e-08
+          ],
+          "observed_linf_order": 4.013587133267865,
+          "observed_rms_order": 4.004971154371624,
+          "finest_rk4_error_estimate_over_amplitude": 5.330356600552477e-09,
+          "finest_analytic_error_over_amplitude": 0.0013518856759942022,
+          "estimated_time_error_fraction": 3.942904858898244e-06
+        }
+      }
+    },
+    {
+      "time": 5.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            8.279925833853952e-07,
+            5.1829427416549834e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.2384554138916664e-07,
+            2.6377082128644606e-08
+          ],
+          "observed_linf_order": 3.997774484256702,
+          "observed_rms_order": 4.0061817253534535,
+          "finest_rk4_error_estimate_over_amplitude": 3.4552951611033222e-09,
+          "finest_analytic_error_over_amplitude": 0.0008849609765282374,
+          "estimated_time_error_fraction": 3.904460482154459e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            1.5400161079703878e-06,
+            9.61237200947096e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.343671211326399e-07,
+            2.080714370834021e-08
+          ],
+          "observed_linf_order": 4.001909147355274,
+          "observed_rms_order": 4.0062821533841095,
+          "finest_rk4_error_estimate_over_amplitude": 6.408248006313973e-09,
+          "finest_analytic_error_over_amplitude": 0.00167115591103828,
+          "estimated_time_error_fraction": 3.834620075832759e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            9.966923442961129e-06,
+            6.272786345906667e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.336478901004773e-06,
+            3.3254520895003346e-07
+          ],
+          "observed_linf_order": 3.98996991727849,
+          "observed_rms_order": 4.004265750269173,
+          "finest_rk4_error_estimate_over_amplitude": 4.181857563937778e-08,
+          "finest_analytic_error_over_amplitude": 0.012036392900963977,
+          "estimated_time_error_fraction": 3.4743445136315375e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            6.437263694869522e-06,
+            4.0559909292303686e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.4192235312372446e-06,
+            8.842321927109501e-08
+          ],
+          "observed_linf_order": 3.988321237317159,
+          "observed_rms_order": 4.004532764915421,
+          "finest_rk4_error_estimate_over_amplitude": 2.7039939528202456e-08,
+          "finest_analytic_error_over_amplitude": 0.007589493910095529,
+          "estimated_time_error_fraction": 3.562811940890286e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            4.185260286180387e-06,
+            2.6006731718944843e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.173687623399785e-06,
+            1.358088827720589e-07
+          ],
+          "observed_linf_order": 4.0083603369772405,
+          "observed_rms_order": 4.000494878952583,
+          "finest_rk4_error_estimate_over_amplitude": 1.7337821145963227e-08,
+          "finest_analytic_error_over_amplitude": 0.0045109486246886436,
+          "estimated_time_error_fraction": 3.843497806885337e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            2.0768537554866073e-05,
+            1.2956181248691134e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.938648812282954e-06,
+            3.699174865311679e-07
+          ],
+          "observed_linf_order": 4.002687169523126,
+          "observed_rms_order": 4.004859314533974,
+          "finest_rk4_error_estimate_over_amplitude": 8.63745416579409e-08,
+          "finest_analytic_error_over_amplitude": 0.02501351798580284,
+          "estimated_time_error_fraction": 3.453114500206061e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            1.694594070622557e-06,
+            1.0509614845055637e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.513282818148332e-07,
+            4.67648762112967e-08
+          ],
+          "observed_linf_order": 4.011158022512809,
+          "observed_rms_order": 4.005946136021205,
+          "finest_rk4_error_estimate_over_amplitude": 7.006409896703758e-09,
+          "finest_analytic_error_over_amplitude": 0.0017518738267430223,
+          "estimated_time_error_fraction": 3.999380428971675e-06
+        }
+      }
+    },
+    {
+      "time": 6.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.0369378644625726e-06,
+            6.473541258600335e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.259628138595227e-07,
+            3.271337909948066e-08
+          ],
+          "observed_linf_order": 4.001630503194459,
+          "observed_rms_order": 4.007008108886431,
+          "finest_rk4_error_estimate_over_amplitude": 4.3156941724002236e-09,
+          "finest_analytic_error_over_amplitude": 0.0011148492250367958,
+          "estimated_time_error_fraction": 3.871101199588476e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            1.9490995473159245e-06,
+            1.2052873699097688e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.1585783333040595e-07,
+            2.5863766634390028e-08
+          ],
+          "observed_linf_order": 4.015358709678107,
+          "observed_rms_order": 4.007086107197296,
+          "finest_rk4_error_estimate_over_amplitude": 8.035249132731792e-09,
+          "finest_analytic_error_over_amplitude": 0.0021050679989298438,
+          "estimated_time_error_fraction": 3.817097184896964e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            1.3353352569245303e-05,
+            8.446163723974109e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.819313445189542e-06,
+            4.249811112183264e-07
+          ],
+          "observed_linf_order": 3.982761975236915,
+          "observed_rms_order": 4.004155873392875,
+          "finest_rk4_error_estimate_over_amplitude": 5.6307758159827394e-08,
+          "finest_analytic_error_over_amplitude": 0.014991043167283946,
+          "estimated_time_error_fraction": 3.756093390666231e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            8.65561042673324e-06,
+            5.47910096460047e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.8199104471362086e-06,
+            1.1339777853231265e-07
+          ],
+          "observed_linf_order": 3.9816244736879405,
+          "observed_rms_order": 4.004403177847674,
+          "finest_rk4_error_estimate_over_amplitude": 3.652733976400313e-08,
+          "finest_analytic_error_over_amplitude": 0.009451392150687521,
+          "estimated_time_error_fraction": 3.864757612596365e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            4.9821504204464444e-06,
+            3.1024695920384843e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.6147823492371736e-06,
+            1.6336184442229695e-07
+          ],
+          "observed_linf_order": 4.005279604521995,
+          "observed_rms_order": 4.00054789843486,
+          "finest_rk4_error_estimate_over_amplitude": 2.0683130613589895e-08,
+          "finest_analytic_error_over_amplitude": 0.0053381432134665865,
+          "estimated_time_error_fraction": 3.87459267885739e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            2.689218872309329e-05,
+            1.6791867135657057e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.412341416093292e-06,
+            4.6163348738737224e-07
+          ],
+          "observed_linf_order": 4.001352617525953,
+          "observed_rms_order": 4.005109546604331,
+          "finest_rk4_error_estimate_over_amplitude": 1.1194578090438038e-07,
+          "finest_analytic_error_over_amplitude": 0.029980091517001622,
+          "estimated_time_error_fraction": 3.734003975301285e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            2.121730600102012e-06,
+            1.317807285516892e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.287375668318342e-07,
+            5.777451724792685e-08
+          ],
+          "observed_linf_order": 4.009030173360632,
+          "observed_rms_order": 4.006765787185373,
+          "finest_rk4_error_estimate_over_amplitude": 8.785381903445947e-09,
+          "finest_analytic_error_over_amplitude": 0.0021724915768062125,
+          "estimated_time_error_fraction": 4.043919892366795e-06
+        }
+      }
+    },
+    {
+      "time": 7.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.2710476093857892e-06,
+            7.865344819890652e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.383692157507933e-07,
+            3.968692806454512e-08
+          ],
+          "observed_linf_order": 4.014364244520138,
+          "observed_rms_order": 4.0076552806723456,
+          "finest_rk4_error_estimate_over_amplitude": 5.243563213260434e-09,
+          "finest_analytic_error_over_amplitude": 0.0013608143373233794,
+          "estimated_time_error_fraction": 3.853253944674138e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            2.388515694118354e-06,
+            1.4777238876995114e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.060786640964869e-07,
+            3.1461789079577584e-08
+          ],
+          "observed_linf_order": 4.014665723687479,
+          "observed_rms_order": 4.007689035390015,
+          "finest_rk4_error_estimate_over_amplitude": 9.85149258466341e-09,
+          "finest_analytic_error_over_amplitude": 0.002569221553385681,
+          "estimated_time_error_fraction": 3.834427035566965e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            1.7202377317615536e-05,
+            1.0726335492039496e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.505679569697946e-06,
+            5.302015660160535e-07
+          ],
+          "observed_linf_order": 4.003378766825582,
+          "observed_rms_order": 4.003813669540715,
+          "finest_rk4_error_estimate_over_amplitude": 7.150890328026331e-08,
+          "finest_analytic_error_over_amplitude": 0.018054825923844164,
+          "estimated_time_error_fraction": 3.960653156219293e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            1.1387359082903892e-05,
+            7.043702260345341e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.2777815394106535e-06,
+            1.419635386503078e-07
+          ],
+          "observed_linf_order": 4.014955463492747,
+          "observed_rms_order": 4.004037039339217,
+          "finest_rk4_error_estimate_over_amplitude": 4.695801506896894e-08,
+          "finest_analytic_error_over_amplitude": 0.011381854622264792,
+          "estimated_time_error_fraction": 4.125690990386689e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            5.74423159101548e-06,
+            3.5882056142219447e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.0594517220850803e-06,
+            1.9113652610627963e-07
+          ],
+          "observed_linf_order": 4.0007794474768446,
+          "observed_rms_order": 4.0005977255709055,
+          "finest_rk4_error_estimate_over_amplitude": 2.392137076147963e-08,
+          "finest_analytic_error_over_amplitude": 0.006144738339540746,
+          "estimated_time_error_fraction": 3.892984442892893e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            3.34857060524385e-05,
+            2.1008845307868285e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.030800072444387e-06,
+            5.624236448601168e-07
+          ],
+          "observed_linf_order": 3.994476612243547,
+          "observed_rms_order": 4.0051246539721355,
+          "finest_rk4_error_estimate_over_amplitude": 1.400589687191219e-07,
+          "finest_analytic_error_over_amplitude": 0.034878120935582096,
+          "estimated_time_error_fraction": 4.015668417969043e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            2.5793726377010273e-06,
+            1.6039349515217793e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.1218698326496167e-06,
+            6.975711132509784e-08
+          ],
+          "observed_linf_order": 4.007332673163212,
+          "observed_rms_order": 4.007421184980036,
+          "finest_rk4_error_estimate_over_amplitude": 1.0692899676811862e-08,
+          "finest_analytic_error_over_amplitude": 0.0026359641803097578,
+          "estimated_time_error_fraction": 4.056542102008123e-06
+        }
+      }
+    },
+    {
+      "time": 8.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.5246282059067084e-06,
+            9.439427683943791e-08
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.635729108272253e-07,
+            4.7455210898003464e-08
+          ],
+          "observed_linf_order": 4.013614270279582,
+          "observed_rms_order": 4.008127502778169,
+          "finest_rk4_error_estimate_over_amplitude": 6.29295178929586e-09,
+          "finest_analytic_error_over_amplitude": 0.0016228848446075972,
+          "estimated_time_error_fraction": 3.8776329757503245e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            2.864393084944794e-06,
+            1.773085955836251e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.071518475354121e-07,
+            3.7734622921185214e-08
+          ],
+          "observed_linf_order": 4.013895107227839,
+          "observed_rms_order": 4.008096614258914,
+          "finest_rk4_error_estimate_over_amplitude": 1.1820573038908341e-08,
+          "finest_analytic_error_over_amplitude": 0.003063676092291967,
+          "estimated_time_error_fraction": 3.8582972490624005e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            2.1858243479111472e-05,
+            1.3568019346932303e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.0416555829364036e-05,
+            6.49536658715843e-07
+          ],
+          "observed_linf_order": 4.0098954338951955,
+          "observed_rms_order": 4.0033235767595166,
+          "finest_rk4_error_estimate_over_amplitude": 9.045346231288202e-08,
+          "finest_analytic_error_over_amplitude": 0.021742003000207455,
+          "estimated_time_error_fraction": 4.160309531372015e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            1.450112155187977e-05,
+            9.006016971069286e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.798567762060527e-06,
+            1.744842789960421e-07
+          ],
+          "observed_linf_order": 4.0091314795427095,
+          "observed_rms_order": 4.0035197194819325,
+          "finest_rk4_error_estimate_over_amplitude": 6.004011314046191e-08,
+          "finest_analytic_error_over_amplitude": 0.014203521862420354,
+          "estimated_time_error_fraction": 4.22712857571726e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            6.417814833664182e-06,
+            4.0389810405071225e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.508169338065308e-06,
+            2.1916209453594772e-07
+          ],
+          "observed_linf_order": 3.990018886711024,
+          "observed_rms_order": 4.000648186034677,
+          "finest_rk4_error_estimate_over_amplitude": 2.6926540270047483e-08,
+          "finest_analytic_error_over_amplitude": 0.006966953927023993,
+          "estimated_time_error_fraction": 3.864894263991414e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            4.033432601135978e-05,
+            2.5397859965137215e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.081182591868312e-05,
+            6.734245229552473e-07
+          ],
+          "observed_linf_order": 3.989229303513911,
+          "observed_rms_order": 4.004950119806551,
+          "finest_rk4_error_estimate_over_amplitude": 1.693190664342481e-07,
+          "finest_analytic_error_over_amplitude": 0.04059419968514333,
+          "estimated_time_error_fraction": 4.171016247333865e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            3.0736972811418184e-06,
+            1.913744340775736e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.3342485147233878e-06,
+            8.293437794053695e-08
+          ],
+          "observed_linf_order": 4.005505068908327,
+          "observed_rms_order": 4.007913343762677,
+          "finest_rk4_error_estimate_over_amplitude": 1.2758295605171574e-08,
+          "finest_analytic_error_over_amplitude": 0.0031433111267475944,
+          "estimated_time_error_fraction": 4.058871390937577e-06
+        }
+      }
+    },
+    {
+      "time": 9.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.799082862685708e-06,
+            1.1147228917707253e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.04499549275359e-07,
+            5.620167864474817e-08
+          ],
+          "observed_linf_order": 4.012504614972713,
+          "observed_rms_order": 4.008434656979961,
+          "finest_rk4_error_estimate_over_amplitude": 7.431485945138168e-09,
+          "finest_analytic_error_over_amplitude": 0.0019013467566519893,
+          "estimated_time_error_fraction": 3.908537945084775e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            3.3794281761867495e-06,
+            2.093560691474039e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.215266305394611e-07,
+            4.483599579758712e-08
+          ],
+          "observed_linf_order": 4.012748505729611,
+          "observed_rms_order": 4.008323298412073,
+          "finest_rk4_error_estimate_over_amplitude": 1.3957071276493593e-08,
+          "finest_analytic_error_over_amplitude": 0.003588973625255898,
+          "estimated_time_error_fraction": 3.88887540946987e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            2.7016515369848726e-05,
+            1.6824950854754661e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.2572079804734043e-05,
+            7.842536348949733e-07
+          ],
+          "observed_linf_order": 4.005167409841166,
+          "observed_rms_order": 4.002759214202634,
+          "finest_rk4_error_estimate_over_amplitude": 1.1216633903169775e-07,
+          "finest_analytic_error_over_amplitude": 0.02672225025477093,
+          "estimated_time_error_fraction": 4.197488533424382e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            1.7950137055078308e-05,
+            1.1185866363727648e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.387674255703547e-06,
+            2.1130090698700683e-07
+          ],
+          "observed_linf_order": 4.004245954593454,
+          "observed_rms_order": 4.002924292925986,
+          "finest_rk4_error_estimate_over_amplitude": 7.457244242485099e-08,
+          "finest_analytic_error_over_amplitude": 0.01748012096517315,
+          "estimated_time_error_fraction": 4.266128510976943e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            7.329903269916692e-06,
+            4.5264247817804193e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.961528938407543e-06,
+            2.4747552457107465e-07
+          ],
+          "observed_linf_order": 4.0173502741494325,
+          "observed_rms_order": 4.000699586707224,
+          "finest_rk4_error_estimate_over_amplitude": 3.0176165211869464e-08,
+          "finest_analytic_error_over_amplitude": 0.007796491629957368,
+          "estimated_time_error_fraction": 3.870480036933544e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            4.7550678656804735e-05,
+            3.0036328785287836e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.277286238317832e-05,
+            7.957435835100667e-07
+          ],
+          "observed_linf_order": 3.9846855376209174,
+          "observed_rms_order": 4.004634438563933,
+          "finest_rk4_error_estimate_over_amplitude": 2.0024219190191891e-07,
+          "finest_analytic_error_over_amplitude": 0.0490795093732016,
+          "estimated_time_error_fraction": 4.079955045582733e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            3.602512127498514e-06,
+            2.2462602888850824e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.5699386731675035e-06,
+            9.756169775929519e-08
+          ],
+          "observed_linf_order": 4.003406270040596,
+          "observed_rms_order": 4.008249529710525,
+          "finest_rk4_error_estimate_over_amplitude": 1.4975068592567215e-08,
+          "finest_analytic_error_over_amplitude": 0.0036870176166192703,
+          "estimated_time_error_fraction": 4.061566867775988e-06
+        }
+      }
+    },
+    {
+      "time": 10.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            2.0938877165477265e-06,
+            1.2987280584297878e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.0645918620399237e-06,
+            6.61420856850911e-08
+          ],
+          "observed_linf_order": 4.011012800096452,
+          "observed_rms_order": 4.0085880936025475,
+          "finest_rk4_error_estimate_over_amplitude": 8.658187056198585e-09,
+          "finest_analytic_error_over_amplitude": 0.002196493192094806,
+          "estimated_time_error_fraction": 3.941822850787546e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            3.9324654554917515e-06,
+            2.4387779129497744e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.520571070401338e-07,
+            5.294491127967587e-08
+          ],
+          "observed_linf_order": 4.011203802069556,
+          "observed_rms_order": 4.008386193257461,
+          "finest_rk4_error_estimate_over_amplitude": 1.6258519419665163e-08,
+          "finest_analytic_error_over_amplitude": 0.004145659186426398,
+          "estimated_time_error_fraction": 3.92181766241141e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            3.2695481402278403e-05,
+            2.0428318742160556e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.4993059463518968e-05,
+            9.356551278354882e-07
+          ],
+          "observed_linf_order": 4.000448885659786,
+          "observed_rms_order": 4.002174131209255,
+          "finest_rk4_error_estimate_over_amplitude": 1.361887916144037e-07,
+          "finest_analytic_error_over_amplitude": 0.032126686779224145,
+          "estimated_time_error_fraction": 4.239117234537705e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            2.174371981245038e-05,
+            1.3595664113963402e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.050690534179982e-06,
+            2.52764044391413e-07
+          ],
+          "observed_linf_order": 3.999380240686543,
+          "observed_rms_order": 4.002304709512821,
+          "finest_rk4_error_estimate_over_amplitude": 9.0637760759756e-08,
+          "finest_analytic_error_over_amplitude": 0.021033236559309665,
+          "estimated_time_error_fraction": 4.309263603068174e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            8.324675928659923e-06,
+            5.148561388226662e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.420440520873695e-06,
+            2.7613324281247684e-07
+          ],
+          "observed_linf_order": 4.01515283493735,
+          "observed_rms_order": 4.000753664155145,
+          "finest_rk4_error_estimate_over_amplitude": 3.432374258817775e-08,
+          "finest_analytic_error_over_amplitude": 0.008601767970318983,
+          "estimated_time_error_fraction": 3.9903125388425124e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            5.722628578896938e-05,
+            3.5398343767312213e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.4931848688353001e-05,
+            9.305135874359584e-07
+          ],
+          "observed_linf_order": 4.014924207768944,
+          "observed_rms_order": 4.004221767285657,
+          "finest_rk4_error_estimate_over_amplitude": 2.359889584487481e-07,
+          "finest_analytic_error_over_amplitude": 0.058184287885840735,
+          "estimated_time_error_fraction": 4.055888058847867e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            4.176900936236905e-06,
+            2.6008258546816876e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.833729285032316e-06,
+            1.1393970496359401e-07
+          ],
+          "observed_linf_order": 4.0053912193526955,
+          "observed_rms_order": 4.008438187681264,
+          "finest_rk4_error_estimate_over_amplitude": 1.733883903121125e-08,
+          "finest_analytic_error_over_amplitude": 0.004269652173651828,
+          "estimated_time_error_fraction": 4.060948837521199e-06
+        }
+      }
+    },
+    {
+      "time": 11.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            2.407924215575008e-06,
+            1.4954197213867815e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.2479266493419882e-06,
+            7.753200532338298e-08
+          ],
+          "observed_linf_order": 4.009167617520934,
+          "observed_rms_order": 4.0085973477772505,
+          "finest_rk4_error_estimate_over_amplitude": 9.96946480924521e-09,
+          "finest_analytic_error_over_amplitude": 0.002508752597742969,
+          "estimated_time_error_fraction": 3.9738732381241436e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            4.521255740908003e-06,
+            2.80764038684822e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.0020916590297677e-06,
+            6.227137858708266e-08
+          ],
+          "observed_linf_order": 4.009293457982718,
+          "observed_rms_order": 4.008301445864166,
+          "finest_rk4_error_estimate_over_amplitude": 1.8717602578988135e-08,
+          "finest_analytic_error_over_amplitude": 0.004734518127845755,
+          "estimated_time_error_fraction": 3.953433501268439e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            3.8829658065009376e-05,
+            2.434556444774749e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.7701804871898336e-05,
+            1.1051327209106128e-06
+          ],
+          "observed_linf_order": 3.9954281481466456,
+          "observed_rms_order": 4.001604919067436,
+          "finest_rk4_error_estimate_over_amplitude": 1.6230376298498328e-07,
+          "finest_analytic_error_over_amplitude": 0.037920878320641394,
+          "estimated_time_error_fraction": 4.280063389160393e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            2.5832548577464642e-05,
+            1.6210231812419096e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.793596567906197e-06,
+            2.9924793361913487e-07
+          ],
+          "observed_linf_order": 3.994213356122083,
+          "observed_rms_order": 4.0016953058261855,
+          "finest_rk4_error_estimate_over_amplitude": 1.0806821208279398e-07,
+          "finest_analytic_error_over_amplitude": 0.024838247451183515,
+          "estimated_time_error_fraction": 4.350879114768004e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            9.299445844177271e-06,
+            5.776130248863649e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.886141888643313e-06,
+            3.0521299504191535e-07
+          ],
+          "observed_linf_order": 4.0089695685383795,
+          "observed_rms_order": 4.000807464461733,
+          "finest_rk4_error_estimate_over_amplitude": 3.8507534992424326e-08,
+          "finest_analytic_error_over_amplitude": 0.009379425413618834,
+          "estimated_time_error_fraction": 4.105532406762547e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            6.766927523937927e-05,
+            4.202504542138996e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.7307517557422906e-05,
+            1.078912132874295e-06
+          ],
+          "observed_linf_order": 4.009179653018272,
+          "observed_rms_order": 4.003749530740581,
+          "finest_rk4_error_estimate_over_amplitude": 2.8016696947593306e-07,
+          "finest_analytic_error_over_amplitude": 0.06785433707623079,
+          "estimated_time_error_fraction": 4.128947117428621e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            4.876212978954797e-06,
+            3.0101256265346876e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.1313114803287262e-06,
+            1.3242572295662394e-07
+          ],
+          "observed_linf_order": 4.017865536378874,
+          "observed_rms_order": 4.008486161141107,
+          "finest_rk4_error_estimate_over_amplitude": 2.0067504176897916e-08,
+          "finest_analytic_error_over_amplitude": 0.004894110159322507,
+          "estimated_time_error_fraction": 4.1003376555945505e-06
+        }
+      }
+    },
+    {
+      "time": 12.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            2.7381043987695364e-06,
+            1.7028390919548997e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.459349750587331e-06,
+            9.067557296910407e-08
+          ],
+          "observed_linf_order": 4.007163434320624,
+          "observed_rms_order": 4.008467917099409,
+          "finest_rk4_error_estimate_over_amplitude": 1.1352260613032664e-08,
+          "finest_analytic_error_over_amplitude": 0.002838729292664599,
+          "estimated_time_error_fraction": 3.999064173666507e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            5.139698342482291e-06,
+            3.196282860606914e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.175577123267966e-06,
+            7.306318021317926e-08
+          ],
+          "observed_linf_order": 4.007216694878501,
+          "observed_rms_order": 4.008080828204431,
+          "finest_rk4_error_estimate_over_amplitude": 2.1308552404046093e-08,
+          "finest_analytic_error_over_amplitude": 0.00535665437386923,
+          "estimated_time_error_fraction": 3.977959173172201e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            4.5255071718930395e-05,
+            2.8488918552005416e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.0722992092598668e-05,
+            1.2942230022861424e-06
+          ],
+          "observed_linf_order": 3.9896067208767896,
+          "observed_rms_order": 4.001074193063749,
+          "finest_rk4_error_estimate_over_amplitude": 1.899261236800361e-07,
+          "finest_analytic_error_over_amplitude": 0.044055814591923426,
+          "estimated_time_error_fraction": 4.311034206024067e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            3.0100786623799003e-05,
+            1.8967103104783334e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.622870217827024e-06,
+            3.511576989225585e-07
+          ],
+          "observed_linf_order": 3.98822993532022,
+          "observed_rms_order": 4.001115777381244,
+          "finest_rk4_error_estimate_over_amplitude": 1.264473540318889e-07,
+          "finest_analytic_error_over_amplitude": 0.028860346208282595,
+          "estimated_time_error_fraction": 4.381352639338745e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.0161421635538834e-05,
+            6.343943557193116e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.359890490614764e-06,
+            3.3479560343774143e-07
+          ],
+          "observed_linf_order": 4.0015785112443325,
+          "observed_rms_order": 4.000851037347818,
+          "finest_rk4_error_estimate_over_amplitude": 4.2292957047954105e-08,
+          "finest_analytic_error_over_amplitude": 0.0101372032073772,
+          "estimated_time_error_fraction": 4.172053788679706e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            7.861586607815774e-05,
+            4.904556865636955e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.991954708033657e-05,
+            1.2421726521183608e-06
+          ],
+          "observed_linf_order": 4.0026258056550095,
+          "observed_rms_order": 4.003247228832304,
+          "finest_rk4_error_estimate_over_amplitude": 3.2697045770913036e-07,
+          "finest_analytic_error_over_amplitude": 0.07801042777636269,
+          "estimated_time_error_fraction": 4.191368603265153e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            5.629425775532937e-06,
+            3.483535171433516e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.4694741634248385e-06,
+            1.534463710301793e-07
+          ],
+          "observed_linf_order": 4.01436373439655,
+          "observed_rms_order": 4.008397442843435,
+          "finest_rk4_error_estimate_over_amplitude": 2.3223567809556773e-08,
+          "finest_analytic_error_over_amplitude": 0.005563511529143028,
+          "estimated_time_error_fraction": 4.1742643450824304e-06
+        }
+      }
+    },
+    {
+      "time": 13.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            3.0852325827446236e-06,
+            1.9210000035130292e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.7046302714406426e-06,
+            1.0593549422646694e-07
+          ],
+          "observed_linf_order": 4.005449825448242,
+          "observed_rms_order": 4.008200899732415,
+          "finest_rk4_error_estimate_over_amplitude": 1.2806666690086862e-08,
+          "finest_analytic_error_over_amplitude": 0.0031876836403266218,
+          "estimated_time_error_fraction": 4.0175463236291054e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            5.789161234837081e-06,
+            3.6046100992948027e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.3771770539247857e-06,
+            8.561353602832514e-08
+          ],
+          "observed_linf_order": 4.005439217166611,
+          "observed_rms_order": 4.0077313246325055,
+          "finest_rk4_error_estimate_over_amplitude": 2.4030733995298686e-08,
+          "finest_analytic_error_over_amplitude": 0.006014416598777439,
+          "estimated_time_error_fraction": 3.995522026223367e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            5.154667914952782e-05,
+            3.260043463515494e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.4084961485428887e-05,
+            1.5046916287620822e-06
+          ],
+          "observed_linf_order": 3.9829163822198304,
+          "observed_rms_order": 4.000592860172359,
+          "finest_rk4_error_estimate_over_amplitude": 2.1733623090103293e-07,
+          "finest_analytic_error_over_amplitude": 0.050455894586687866,
+          "estimated_time_error_fraction": 4.307449757483327e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            3.436627335512421e-05,
+            2.1687254683766533e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.545735833799088e-06,
+            4.0894475906351753e-07
+          ],
+          "observed_linf_order": 3.986074071966719,
+          "observed_rms_order": 4.000577500925555,
+          "finest_rk4_error_estimate_over_amplitude": 1.4458169789177688e-07,
+          "finest_analytic_error_over_amplitude": 0.033046577806010724,
+          "estimated_time_error_fraction": 4.375088359844614e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.0792642766602016e-05,
+            6.772622690074358e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.842487811659459e-06,
+            3.649341644216512e-07
+          ],
+          "observed_linf_order": 3.9941897429341573,
+          "observed_rms_order": 4.000874694683059,
+          "finest_rk4_error_estimate_over_amplitude": 4.515081793382905e-08,
+          "finest_analytic_error_over_amplitude": 0.010890354793289392,
+          "estimated_time_error_fraction": 4.145945544552035e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            8.92224790222107e-05,
+            5.595092957277892e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.2789201221630932e-05,
+            1.421626071282731e-06
+          ],
+          "observed_linf_order": 3.995173228003175,
+          "observed_rms_order": 4.002736408458228,
+          "finest_rk4_error_estimate_over_amplitude": 3.7300619715185945e-07,
+          "finest_analytic_error_over_amplitude": 0.0885191782176642,
+          "estimated_time_error_fraction": 4.213846136649123e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            6.439636958122108e-06,
+            3.9933047868423444e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.856325123143751e-06,
+            1.7751187868376127e-07
+          ],
+          "observed_linf_order": 4.011324262844287,
+          "observed_rms_order": 4.008172729684105,
+          "finest_rk4_error_estimate_over_amplitude": 2.6622031912282296e-08,
+          "finest_analytic_error_over_amplitude": 0.006282333900029524,
+          "estimated_time_error_fraction": 4.237602193057135e-06
+        }
+      }
+    },
+    {
+      "time": 14.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            3.458941260081616e-06,
+            2.1554188878170066e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.9906322487626407e-06,
+            1.2374419893078008e-07
+          ],
+          "observed_linf_order": 4.004290336484871,
+          "observed_rms_order": 4.007793921829677,
+          "finest_rk4_error_estimate_over_amplitude": 1.4369459252113378e-08,
+          "finest_analytic_error_over_amplitude": 0.003558175730242752,
+          "estimated_time_error_fraction": 4.038434394900738e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            6.603559887796706e-06,
+            4.1205062473181897e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.6124038778466744e-06,
+            1.0026969638852413e-07
+          ],
+          "observed_linf_order": 4.002350467525886,
+          "observed_rms_order": 4.007255593854758,
+          "finest_rk4_error_estimate_over_amplitude": 2.747004164878793e-08,
+          "finest_analytic_error_over_amplitude": 0.006712625262397243,
+          "estimated_time_error_fraction": 4.092294828771316e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            5.939249685948944e-05,
+            3.6770303513122826e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.7821779410136935e-05,
+            1.7386628335563742e-06
+          ],
+          "observed_linf_order": 4.013667694633773,
+          "observed_rms_order": 4.000164600577126,
+          "finest_rk4_error_estimate_over_amplitude": 2.4513535675415216e-07,
+          "finest_analytic_error_over_amplitude": 0.05703455785514011,
+          "estimated_time_error_fraction": 4.29801450160729e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            4.030835842022684e-05,
+            2.4974959175749767e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.570660636248667e-06,
+            4.7313750615031237e-07
+          ],
+          "observed_linf_order": 4.012524804954399,
+          "observed_rms_order": 4.000087764582879,
+          "finest_rk4_error_estimate_over_amplitude": 1.6649972783833178e-07,
+          "finest_analytic_error_over_amplitude": 0.03733662304919699,
+          "estimated_time_error_fraction": 4.459421185974469e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.121827936443557e-05,
+            7.067502127955892e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.333879327594745e-06,
+            3.956275746666992e-07
+          ],
+          "observed_linf_order": 3.9885071927884077,
+          "observed_rms_order": 4.00087449309251,
+          "finest_rk4_error_estimate_over_amplitude": 4.711668085303928e-08,
+          "finest_analytic_error_over_amplitude": 0.011650399766604843,
+          "estimated_time_error_fraction": 4.044211511788322e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            9.873278747463132e-05,
+            6.222735676186808e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.5940782292209512e-05,
+            1.6187917056536476e-06
+          ],
+          "observed_linf_order": 3.987908387536944,
+          "observed_rms_order": 4.002232720192378,
+          "finest_rk4_error_estimate_over_amplitude": 4.148490450791205e-07,
+          "finest_analytic_error_over_amplitude": 0.09922650068079797,
+          "estimated_time_error_fraction": 4.180829135692789e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            7.331918846498198e-06,
+            4.553967991594021e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.3015370095902926e-06,
+            2.052319463994035e-07
+          ],
+          "observed_linf_order": 4.008994761091028,
+          "observed_rms_order": 4.007810594963214,
+          "finest_rk4_error_estimate_over_amplitude": 3.0359786610626806e-08,
+          "finest_analytic_error_over_amplitude": 0.00705795512467966,
+          "estimated_time_error_fraction": 4.3014989574625195e-06
+        }
+      }
+    },
+    {
+      "time": 15.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            3.890986022270226e-06,
+            2.414854893828533e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.3254944540660813e-06,
+            1.446155505611012e-07
+          ],
+          "observed_linf_order": 4.010127390972254,
+          "observed_rms_order": 4.007242900019648,
+          "finest_rk4_error_estimate_over_amplitude": 1.6099032625523552e-08,
+          "finest_analytic_error_over_amplitude": 0.003954120644078518,
+          "estimated_time_error_fraction": 4.0714571138927216e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            7.937463815110846e-06,
+            4.956885257811905e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.8877690302262976e-06,
+            1.1744266142377817e-07
+          ],
+          "observed_linf_order": 4.0011723411635,
+          "observed_rms_order": 4.006653788444265,
+          "finest_rk4_error_estimate_over_amplitude": 3.304590171874603e-08,
+          "finest_analytic_error_over_amplitude": 0.0074872631853006855,
+          "estimated_time_error_fraction": 4.413615616400817e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            6.812234160546993e-05,
+            4.239439165831804e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.1976650372386365e-05,
+            1.9988337644945308e-06
+          ],
+          "observed_linf_order": 4.006182697573841,
+          "observed_rms_order": 3.999788422462027,
+          "finest_rk4_error_estimate_over_amplitude": 2.8262927772212027e-07,
+          "finest_analytic_error_over_amplitude": 0.0637253265444343,
+          "estimated_time_error_fraction": 4.435116978569721e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            4.6194071319782815e-05,
+            2.8772292393064447e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.708292342850252e-06,
+            5.444001316196126e-07
+          ],
+          "observed_linf_order": 4.004955628359417,
+          "observed_rms_order": 3.9996505197639145,
+          "finest_rk4_error_estimate_over_amplitude": 1.9181528262042966e-07,
+          "finest_analytic_error_over_amplitude": 0.04168368447888926,
+          "estimated_time_error_fraction": 4.60168732727009e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.1916484023387613e-05,
+            7.344748302715205e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.8330189227108905e-06,
+            4.2681147832756517e-07
+          ],
+          "observed_linf_order": 4.020101767116824,
+          "observed_rms_order": 4.000852241593389,
+          "finest_rk4_error_estimate_over_amplitude": 4.8964988684768035e-08,
+          "finest_analytic_error_over_amplitude": 0.012424611151122561,
+          "estimated_time_error_fraction": 3.9409674950144465e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00010913714461602275,
+            6.779192360251152e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.9404302461859274e-05,
+            1.8355449021258669e-06
+          ],
+          "observed_linf_order": 4.008884985496421,
+          "observed_rms_order": 4.001746954844167,
+          "finest_rk4_error_estimate_over_amplitude": 4.5194615735007676e-07,
+          "finest_analytic_error_over_amplitude": 0.1100220260799234,
+          "estimated_time_error_fraction": 4.107778900760918e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            8.340090340563933e-06,
+            5.186358131847868e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.8166576079640695e-06,
+            2.3733564725396885e-07
+          ],
+          "observed_linf_order": 4.007269274469113,
+          "observed_rms_order": 4.007309056997752,
+          "finest_rk4_error_estimate_over_amplitude": 3.4575720878985784e-08,
+          "finest_analytic_error_over_amplitude": 0.007900551649165921,
+          "estimated_time_error_fraction": 4.376367931552732e-06
+        }
+      }
+    },
+    {
+      "time": 16.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            4.60476395014453e-06,
+            2.87989390113097e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.718801363846753e-06,
+            1.6915599582770044e-07
+          ],
+          "observed_linf_order": 3.999039635557537,
+          "observed_rms_order": 4.006544531360888,
+          "finest_rk4_error_estimate_over_amplitude": 1.9199292674206465e-08,
+          "finest_analytic_error_over_amplitude": 0.00438062489931168,
+          "estimated_time_error_fraction": 4.382774858724658e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            9.515178382990541e-06,
+            5.948175774150855e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.2109406176676675e-06,
+            1.3761739741868507e-07
+          ],
+          "observed_linf_order": 3.9997115171319955,
+          "observed_rms_order": 4.005925506812236,
+          "finest_rk4_error_estimate_over_amplitude": 3.9654505161005695e-08,
+          "finest_analytic_error_over_amplitude": 0.008380769402487331,
+          "estimated_time_error_fraction": 4.731606760261967e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            7.665898618169908e-05,
+            4.792530417518925e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.6606538889008885e-05,
+            2.2887691256584518e-06
+          ],
+          "observed_linf_order": 3.99959542494393,
+          "observed_rms_order": 3.999457527954,
+          "finest_rk4_error_estimate_over_amplitude": 3.19502027834595e-07,
+          "finest_analytic_error_over_amplitude": 0.07048961085493188,
+          "estimated_time_error_fraction": 4.532611599915517e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            5.191610823768178e-05,
+            3.2486086576355433e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.972880675366012e-06,
+            6.23622683813267e-07
+          ],
+          "observed_linf_order": 3.9982883737776582,
+          "observed_rms_order": 3.9992649774872753,
+          "finest_rk4_error_estimate_over_amplitude": 2.165739105090362e-07,
+          "finest_analytic_error_over_amplitude": 0.04685559421307217,
+          "estimated_time_error_fraction": 4.622156951508996e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.2479581457558887e-05,
+            7.716724156154806e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.338135424009231e-06,
+            4.583734884577286e-07
+          ],
+          "observed_linf_order": 4.015437203671382,
+          "observed_rms_order": 4.000818020922225,
+          "finest_rk4_error_estimate_over_amplitude": 5.1444827707698704e-08,
+          "finest_analytic_error_over_amplitude": 0.013215170555185575,
+          "estimated_time_error_fraction": 3.892861427165764e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00012231218623981466,
+            7.591021395358943e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.32194404949949e-05,
+            2.074368141600784e-06
+          ],
+          "observed_linf_order": 4.010130321999366,
+          "observed_rms_order": 4.001283915127965,
+          "finest_rk4_error_estimate_over_amplitude": 5.060680930239295e-07,
+          "finest_analytic_error_over_amplitude": 0.12084833056702382,
+          "estimated_time_error_fraction": 4.187629987517772e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            9.5028281699161e-06,
+            5.914720102584425e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.415478068296606e-06,
+            2.746951481755572e-07
+          ],
+          "observed_linf_order": 4.005975139037066,
+          "observed_rms_order": 4.0066663143503405,
+          "finest_rk4_error_estimate_over_amplitude": 3.9431467350562834e-08,
+          "finest_analytic_error_over_amplitude": 0.008822616877337541,
+          "estimated_time_error_fraction": 4.469361857007478e-06
+        }
+      }
+    },
+    {
+      "time": 17.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            5.504835011160836e-06,
+            3.4471453025375354e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.1817284779747357e-06,
+            1.980740342925358e-07
+          ],
+          "observed_linf_order": 3.997225307585854,
+          "observed_rms_order": 4.00569905084302,
+          "finest_rk4_error_estimate_over_amplitude": 2.298096868358357e-08,
+          "finest_analytic_error_over_amplitude": 0.004875944152697986,
+          "estimated_time_error_fraction": 4.713132054818061e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            1.1373541044523705e-05,
+            7.119021350199262e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.590884646494498e-06,
+            1.6136202464889272e-07
+          ],
+          "observed_linf_order": 3.9978587554557237,
+          "observed_rms_order": 4.005071787949873,
+          "finest_rk4_error_estimate_over_amplitude": 4.7460142334661746e-08,
+          "finest_analytic_error_over_amplitude": 0.009358624093894763,
+          "estimated_time_error_fraction": 5.071273496883273e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            8.504905138095875e-05,
+            5.336717680548553e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.178697863227734e-05,
+            2.6132110567491012e-06
+          ],
+          "observed_linf_order": 3.994270546490334,
+          "observed_rms_order": 3.999157895579584,
+          "finest_rk4_error_estimate_over_amplitude": 3.5578117870323683e-07,
+          "finest_analytic_error_over_amplitude": 0.07859950038999142,
+          "estimated_time_error_fraction": 4.526506872663795e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            5.750285774624997e-05,
+            3.6116693266641242e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.1383854781637108e-05,
+            7.120221850714485e-07
+          ],
+          "observed_linf_order": 3.9928959408678075,
+          "observed_rms_order": 3.998923159952607,
+          "finest_rk4_error_estimate_over_amplitude": 2.4077795511094163e-07,
+          "finest_analytic_error_over_amplitude": 0.05263750623783897,
+          "estimated_time_error_fraction": 4.574266000045726e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.3281522531180838e-05,
+            8.244169455938997e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.84746646017346e-06,
+            4.901976996819498e-07
+          ],
+          "observed_linf_order": 4.009902570443636,
+          "observed_rms_order": 4.000791338492544,
+          "finest_rk4_error_estimate_over_amplitude": 5.4961129706259985e-08,
+          "finest_analytic_error_over_amplitude": 0.01401824244844792,
+          "estimated_time_error_fraction": 3.9206861993134674e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00013497023153341559,
+            8.411138260888684e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.743991996590501e-05,
+            2.338631428509729e-06
+          ],
+          "observed_linf_order": 4.004196386938229,
+          "observed_rms_order": 4.0008409369028595,
+          "finest_rk4_error_estimate_over_amplitude": 5.607425507259123e-07,
+          "finest_analytic_error_over_amplitude": 0.13169871937154187,
+          "estimated_time_error_fraction": 4.257767679152394e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            1.0860665458078955e-05,
+            6.765350302195827e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.1143694353560265e-06,
+            3.1834755877579904e-07
+          ],
+          "observed_linf_order": 4.004804055630206,
+          "observed_rms_order": 4.0058817709250505,
+          "finest_rk4_error_estimate_over_amplitude": 4.510233534797218e-08,
+          "finest_analytic_error_over_amplitude": 0.009838548734049102,
+          "estimated_time_error_fraction": 4.584246779393662e-06
+        }
+      }
+    },
+    {
+      "time": 18.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            6.55431761309444e-06,
+            4.110644213906056e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.727150288477159e-06,
+            2.3218725308168802e-07
+          ],
+          "observed_linf_order": 3.9950091718554077,
+          "observed_rms_order": 4.004712316950108,
+          "finest_rk4_error_estimate_over_amplitude": 2.740429475937371e-08,
+          "finest_analytic_error_over_amplitude": 0.005437353805393119,
+          "estimated_time_error_fraction": 5.04000580800763e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            1.3539649106331098e-05,
+            8.488057612332511e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.037973403009679e-06,
+            1.8933486036017836e-07
+          ],
+          "observed_linf_order": 3.9956120917568008,
+          "observed_rms_order": 4.004097269504118,
+          "finest_rk4_error_estimate_over_amplitude": 5.6587050748883407e-08,
+          "finest_analytic_error_over_amplitude": 0.010435597208863223,
+          "estimated_time_error_fraction": 5.422502384513515e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            9.364650108811823e-05,
+            5.892213483238429e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.7616235552266304e-05,
+            2.9783503986389216e-06
+          ],
+          "observed_linf_order": 3.9903434847788333,
+          "observed_rms_order": 3.9988681684160685,
+          "finest_rk4_error_estimate_over_amplitude": 3.9281423221589523e-07,
+          "finest_analytic_error_over_amplitude": 0.08765950916040488,
+          "estimated_time_error_fraction": 4.481136570102156e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            6.31951286553245e-05,
+            3.980144070436786e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.296717437369417e-05,
+            8.112310724370491e-07
+          ],
+          "observed_linf_order": 3.9889207952438284,
+          "observed_rms_order": 3.9986074188845144,
+          "finest_rk4_error_estimate_over_amplitude": 2.6534293802911907e-07,
+          "finest_analytic_error_over_amplitude": 0.05864932893402064,
+          "estimated_time_error_fraction": 4.524228032133578e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.4425337006969624e-05,
+            9.0125881434624e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.360119416775489e-06,
+            5.222201751597466e-07
+          ],
+          "observed_linf_order": 4.0005197494693725,
+          "observed_rms_order": 4.00079344994581,
+          "finest_rk4_error_estimate_over_amplitude": 6.0083920956416e-08,
+          "finest_analytic_error_over_amplitude": 0.014831856144502891,
+          "estimated_time_error_fraction": 4.051004835202964e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00014781122859131024,
+            9.238643576270356e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.213743007975519e-05,
+            2.632846569643847e-06
+          ],
+          "observed_linf_order": 3.9999310090830704,
+          "observed_rms_order": 4.000406973069614,
+          "finest_rk4_error_estimate_over_amplitude": 6.159095717513571e-07,
+          "finest_analytic_error_over_amplitude": 0.14260590014635033,
+          "estimated_time_error_fraction": 4.318962757636784e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            1.2441294644505163e-05,
+            7.756968378735962e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.932520772292445e-06,
+            3.6951051321119013e-07
+          ],
+          "observed_linf_order": 4.003499889779125,
+          "observed_rms_order": 4.004957929691084,
+          "finest_rk4_error_estimate_over_amplitude": 5.171312252490642e-08,
+          "finest_analytic_error_over_amplitude": 0.010963711610209037,
+          "estimated_time_error_fraction": 4.716753264173139e-06
+        }
+      }
+    },
+    {
+      "time": 19.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            7.765620231303672e-06,
+            4.877469272912549e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.3697080380543046e-06,
+            2.724267116377831e-07
+          ],
+          "observed_linf_order": 3.9928964663518904,
+          "observed_rms_order": 4.003596816609697,
+          "finest_rk4_error_estimate_over_amplitude": 3.2516461819416996e-08,
+          "finest_analytic_error_over_amplitude": 0.006059071360697832,
+          "estimated_time_error_fraction": 5.3665751537991506e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            1.603469370392574e-05,
+            1.0070027767206113e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            3.5640543179338683e-06,
+            2.2228892210833797e-07
+          ],
+          "observed_linf_order": 3.993057228994065,
+          "observed_rms_order": 4.003011366644731,
+          "finest_rk4_error_estimate_over_amplitude": 6.713351844804076e-08,
+          "finest_analytic_error_over_amplitude": 0.011628173611534232,
+          "estimated_time_error_fraction": 5.773350200193915e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            0.00010284455595477304,
+            6.484340954737711e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.421825704002196e-05,
+            3.392022262505462e-06
+          ],
+          "observed_linf_order": 3.987361665481302,
+          "observed_rms_order": 3.998561191718238,
+          "finest_rk4_error_estimate_over_amplitude": 4.3228939698251406e-07,
+          "finest_analytic_error_over_amplitude": 0.09711564135112205,
+          "estimated_time_error_fraction": 4.451284993521999e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            6.925684414876843e-05,
+            4.371055338514562e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.4756205141815989e-05,
+            9.23356044006343e-07
+          ],
+          "observed_linf_order": 3.985903101049299,
+          "observed_rms_order": 3.9982908854049235,
+          "finest_rk4_error_estimate_over_amplitude": 2.9140368923430415e-07,
+          "finest_analytic_error_over_amplitude": 0.06490127623944464,
+          "estimated_time_error_fraction": 4.489953142973783e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.5334872876442227e-05,
+            9.631386192038814e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.876518055307966e-06,
+            5.54460053101065e-07
+          ],
+          "observed_linf_order": 3.992928944611789,
+          "observed_rms_order": 4.000838441069426,
+          "finest_rk4_error_estimate_over_amplitude": 6.420924128025876e-08,
+          "finest_analytic_error_over_amplitude": 0.015659121271067902,
+          "estimated_time_error_fraction": 4.100437065960591e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00016157412729256304,
+            1.0121723333922361e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.740458808136635e-05,
+            2.962862559162269e-06
+          ],
+          "observed_linf_order": 3.996669348591512,
+          "observed_rms_order": 3.999963088546087,
+          "finest_rk4_error_estimate_over_amplitude": 6.747815555948241e-07,
+          "finest_analytic_error_over_amplitude": 0.15651256326983054,
+          "estimated_time_error_fraction": 4.311357130043856e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            1.4307952455050454e-05,
+            8.90457271252032e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.892056738112305e-06,
+            4.2959002177404327e-07
+          ],
+          "observed_linf_order": 4.006127034176977,
+          "observed_rms_order": 4.003902189560549,
+          "finest_rk4_error_estimate_over_amplitude": 5.93638180834688e-08,
+          "finest_analytic_error_over_amplitude": 0.012214323031899399,
+          "estimated_time_error_fraction": 4.860180783530283e-06
+        }
+      }
+    },
+    {
+      "time": 20.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            9.252188736263989e-06,
+            5.780743450589654e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.12584815983116e-06,
+            3.198393764389785e-07
+          ],
+          "observed_linf_order": 4.000467743867212,
+          "observed_rms_order": 4.002371273481607,
+          "finest_rk4_error_estimate_over_amplitude": 3.853828967059769e-08,
+          "finest_analytic_error_over_amplitude": 0.006750646622577516,
+          "estimated_time_error_fraction": 5.708829364835438e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            1.8874164953164296e-05,
+            1.187549714121161e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.182481771849348e-06,
+            2.610740064081186e-07
+          ],
+          "observed_linf_order": 3.9903530018785425,
+          "observed_rms_order": 4.0018285233867985,
+          "finest_rk4_error_estimate_over_amplitude": 7.916998094141074e-08,
+          "finest_analytic_error_over_amplitude": 0.013244602202804323,
+          "estimated_time_error_fraction": 5.977528032110154e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            0.00011369397807908799,
+            7.121987446456757e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.174389713254875e-05,
+            3.863790797272345e-06
+          ],
+          "observed_linf_order": 3.996732139428552,
+          "observed_rms_order": 3.998207657905578,
+          "finest_rk4_error_estimate_over_amplitude": 4.747991630971171e-07,
+          "finest_analytic_error_over_amplitude": 0.10699041424748312,
+          "estimated_time_error_fraction": 4.437772920467839e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            7.809096805894145e-05,
+            4.8414796555151796e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.6791976593360324e-05,
+            1.050996589289892e-06
+          ],
+          "observed_linf_order": 4.0116357598146095,
+          "observed_rms_order": 3.9979421681809644,
+          "finest_rk4_error_estimate_over_amplitude": 3.2276531036767864e-07,
+          "finest_analytic_error_over_amplitude": 0.07140374221339119,
+          "estimated_time_error_fraction": 4.5202856371741636e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.61439892147207e-05,
+            1.018071363065396e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.39826346765876e-06,
+            5.870119018823748e-07
+          ],
+          "observed_linf_order": 3.987086518041888,
+          "observed_rms_order": 4.000932552400908,
+          "finest_rk4_error_estimate_over_amplitude": 6.787142420435974e-08,
+          "finest_analytic_error_over_amplitude": 0.01650371480569877,
+          "estimated_time_error_fraction": 4.1124937629753254e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00017637351902077825,
+            1.1070809994850883e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.335634494683645e-05,
+            3.335961295669448e-06
+          ],
+          "observed_linf_order": 3.9938012830511394,
+          "observed_rms_order": 3.9994853857911075,
+          "finest_rk4_error_estimate_over_amplitude": 7.380539996567256e-07,
+          "finest_analytic_error_over_amplitude": 0.17157404759868766,
+          "estimated_time_error_fraction": 4.301664558168124e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            1.6542848757516992e-05,
+            1.0277503492694962e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.018026470864405e-06,
+            5.001799986878212e-07
+          ],
+          "observed_linf_order": 4.00864592757663,
+          "observed_rms_order": 4.002727907471545,
+          "finest_rk4_error_estimate_over_amplitude": 6.851668995129974e-08,
+          "finest_analytic_error_over_amplitude": 0.01361448875407234,
+          "estimated_time_error_fraction": 5.032630397583248e-06
+        }
+      }
+    },
+    {
+      "time": 21.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.096378700271572e-05,
+            6.86321577347826e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.013849933084246e-06,
+            3.75589834979776e-07
+          ],
+          "observed_linf_order": 3.9977176831275187,
+          "observed_rms_order": 4.001058944680242,
+          "finest_rk4_error_estimate_over_amplitude": 4.57547718231884e-08,
+          "finest_analytic_error_over_amplitude": 0.0075228357947199065,
+          "estimated_time_error_fraction": 6.082117577962096e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            2.2169743547628684e-05,
+            1.391834678621251e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            4.908129827245201e-06,
+            3.0663749542697254e-07
+          ],
+          "observed_linf_order": 3.9935323177452133,
+          "observed_rms_order": 4.000567386232543,
+          "finest_rk4_error_estimate_over_amplitude": 9.278897857475006e-08,
+          "finest_analytic_error_over_amplitude": 0.015310368552510223,
+          "estimated_time_error_fraction": 6.060532001990036e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            0.0001280581544260695,
+            7.958640105276693e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.037054254155505e-05,
+            4.404928841459383e-06
+          ],
+          "observed_linf_order": 4.008133374698296,
+          "observed_rms_order": 3.997781017204586,
+          "finest_rk4_error_estimate_over_amplitude": 5.305760070184462e-07,
+          "finest_analytic_error_over_amplitude": 0.11730238069891763,
+          "estimated_time_error_fraction": 4.523147815561274e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            8.782066406670674e-05,
+            5.46167354842364e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.912292446875686e-05,
+            1.1972295072924175e-06
+          ],
+          "observed_linf_order": 4.007145453651768,
+          "observed_rms_order": 3.997531524925254,
+          "finest_rk4_error_estimate_over_amplitude": 3.6411156989490934e-07,
+          "finest_analytic_error_over_amplitude": 0.07816368304150528,
+          "estimated_time_error_fraction": 4.658321559663001e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.691167330499562e-05,
+            1.0702648229102794e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.927637792335807e-06,
+            6.200143977895371e-07
+          ],
+          "observed_linf_order": 3.981979690755587,
+          "observed_rms_order": 4.001076857184337,
+          "finest_rk4_error_estimate_over_amplitude": 7.135098819401862e-08,
+          "finest_analytic_error_over_amplitude": 0.017367954889418568,
+          "estimated_time_error_fraction": 4.108197461837561e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00019213288923791705,
+            1.2081482548831346e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.012976897523286e-05,
+            3.7608474273626426e-06
+          ],
+          "observed_linf_order": 3.99123509281155,
+          "observed_rms_order": 3.998949731125336,
+          "finest_rk4_error_estimate_over_amplitude": 8.054321699220898e-07,
+          "finest_analytic_error_over_amplitude": 0.18722362949517846,
+          "estimated_time_error_fraction": 4.301979253867803e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            1.912325428787831e-05,
+            1.1899490193201245e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.338315991674888e-06,
+            5.830566859283215e-07
+          ],
+          "observed_linf_order": 4.00635638298291,
+          "observed_rms_order": 4.0014543505568305,
+          "finest_rk4_error_estimate_over_amplitude": 7.932993462134164e-08,
+          "finest_analytic_error_over_amplitude": 0.015309814635202645,
+          "estimated_time_error_fraction": 5.181639132255346e-06
+        }
+      }
+    },
+    {
+      "time": 22.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.2916925584693928e-05,
+            8.101279336258926e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.053856553449208e-06,
+            4.4096224964050107e-07
+          ],
+          "observed_linf_order": 3.994969165133565,
+          "observed_rms_order": 3.9996851791251906,
+          "finest_rk4_error_estimate_over_amplitude": 5.400852890839284e-08,
+          "finest_analytic_error_over_amplitude": 0.008634019818455352,
+          "estimated_time_error_fraction": 6.255316763687382e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            2.6117739453379585e-05,
+            1.6376106271032143e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            5.75740895004862e-06,
+            3.600254018201545e-07
+          ],
+          "observed_linf_order": 3.9953657590879263,
+          "observed_rms_order": 3.999249085325598,
+          "finest_rk4_error_estimate_over_amplitude": 1.0917404180688095e-07,
+          "finest_analytic_error_over_amplitude": 0.017667263788256893,
+          "estimated_time_error_fraction": 6.179453882352e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            0.00014366070959365151,
+            8.95332774614177e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.03009586622137e-05,
+            5.028344131147625e-06
+          ],
+          "observed_linf_order": 4.004097737794368,
+          "observed_rms_order": 3.9972619174712225,
+          "finest_rk4_error_estimate_over_amplitude": 5.968885164094514e-07,
+          "finest_analytic_error_over_amplitude": 0.12807084856528372,
+          "estimated_time_error_fraction": 4.6606118651988885e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            9.835403802505027e-05,
+            6.1337675974493244e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.180442933351821e-05,
+            1.365579525786423e-06
+          ],
+          "observed_linf_order": 4.0031388746052095,
+          "observed_rms_order": 3.99703599429359,
+          "finest_rk4_error_estimate_over_amplitude": 4.0891783982995494e-07,
+          "finest_analytic_error_over_amplitude": 0.08518793815462278,
+          "estimated_time_error_fraction": 4.8001847290603166e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.806922609121726e-05,
+            1.119373023172627e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.04669510114757e-05,
+            6.53609632255029e-07
+          ],
+          "observed_linf_order": 4.01277192708355,
+          "observed_rms_order": 4.001268196244755,
+          "finest_rk4_error_estimate_over_amplitude": 7.462486821150846e-08,
+          "finest_analytic_error_over_amplitude": 0.01824962394606172,
+          "estimated_time_error_fraction": 4.089118133725301e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00021131383575512253,
+            1.3151711218961637e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.788299905665343e-05,
+            4.247582146174139e-06
+          ],
+          "observed_linf_order": 4.006064799338736,
+          "observed_rms_order": 3.998336550439955,
+          "finest_rk4_error_estimate_over_amplitude": 8.767807479307758e-07,
+          "finest_analytic_error_over_amplitude": 0.20348608583210692,
+          "estimated_time_error_fraction": 4.308799514941741e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            2.2103793405614525e-05,
+            1.3773921125892485e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.0883581234102043e-05,
+            6.801742230753002e-07
+          ],
+          "observed_linf_order": 4.004282757171929,
+          "observed_rms_order": 4.000105209685842,
+          "finest_rk4_error_estimate_over_amplitude": 9.182614083928324e-08,
+          "finest_analytic_error_over_amplitude": 0.017213739390438132,
+          "estimated_time_error_fraction": 5.334467936135406e-06
+        }
+      }
+    },
+    {
+      "time": 23.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.5136551936301146e-05,
+            9.510498866216466e-07
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.2679188954727e-06,
+            5.173631593418853e-07
+          ],
+          "observed_linf_order": 3.992371772099709,
+          "observed_rms_order": 3.9982750060169963,
+          "finest_rk4_error_estimate_over_amplitude": 6.340332577477643e-08,
+          "finest_analytic_error_over_amplitude": 0.009943103042950874,
+          "estimated_time_error_fraction": 6.37661356830914e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            3.060560502587961e-05,
+            1.922479999638682e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            6.748299616314097e-06,
+            4.223844885928517e-07
+          ],
+          "observed_linf_order": 3.9927553938755125,
+          "observed_rms_order": 3.997895268884996,
+          "finest_rk4_error_estimate_over_amplitude": 1.2816533330924548e-07,
+          "finest_analytic_error_over_amplitude": 0.020347374134896956,
+          "estimated_time_error_fraction": 6.298863551608574e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            0.00016051736705879893,
+            1.0028299149977826e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.176209642614048e-05,
+            5.748500999900608e-06
+          ],
+          "observed_linf_order": 4.000580553655546,
+          "observed_rms_order": 3.9966406442143576,
+          "finest_rk4_error_estimate_over_amplitude": 6.685532766651884e-07,
+          "finest_analytic_error_over_amplitude": 0.13932174718909507,
+          "estimated_time_error_fraction": 4.798628284195945e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            0.00010969028225615851,
+            6.857318144426472e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.4898431625287355e-05,
+            1.5599937813744333e-06
+          ],
+          "observed_linf_order": 3.9996474517035505,
+          "observed_rms_order": 3.9964426853151185,
+          "finest_rk4_error_estimate_over_amplitude": 4.571545429617648e-07,
+          "finest_analytic_error_over_amplitude": 0.09248714059737762,
+          "estimated_time_error_fraction": 4.942898439815393e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            1.941543810720075e-05,
+            1.207693679304133e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.1018119516665457e-05,
+            6.879150410335008e-07
+          ],
+          "observed_linf_order": 4.006877782380522,
+          "observed_rms_order": 4.001503807165484,
+          "finest_rk4_error_estimate_over_amplitude": 8.051291195360887e-08,
+          "finest_analytic_error_over_amplitude": 0.019138530418165822,
+          "estimated_time_error_fraction": 4.206849230032208e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00023529571757163747,
+            1.4617396261185078e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.679406487481988e-05,
+            4.807506321312423e-06
+          ],
+          "observed_linf_order": 4.008716805724751,
+          "observed_rms_order": 3.997634155112051,
+          "finest_rk4_error_estimate_over_amplitude": 9.744930840790051e-07,
+          "finest_analytic_error_over_amplitude": 0.220397262748111,
+          "estimated_time_error_fraction": 4.421529886207071e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            2.555666326453654e-05,
+            1.59461710280695e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.2687253283872988e-05,
+            7.936648412535014e-07
+          ],
+          "observed_linf_order": 4.00241753426598,
+          "observed_rms_order": 3.9987060611116227,
+          "finest_rk4_error_estimate_over_amplitude": 1.0630780685379666e-07,
+          "finest_analytic_error_over_amplitude": 0.019353779341905186,
+          "estimated_time_error_fraction": 5.492870667571212e-06
+        }
+      }
+    },
+    {
+      "time": 24.0,
+      "metrics": {
+        "chi": {
+          "pairwise_linf_over_amplitude": [
+            1.765399975428572e-05,
+            1.1110553077564589e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            9.680057551322634e-06,
+            6.063254678310802e-07
+          ],
+          "observed_linf_order": 3.9899925425190457,
+          "observed_rms_order": 3.996851297692416,
+          "finest_rk4_error_estimate_over_amplitude": 7.407035385043059e-08,
+          "finest_analytic_error_over_amplitude": 0.011426917389651958,
+          "estimated_time_error_fraction": 6.4820941050565025e-06
+        },
+        "h": {
+          "pairwise_linf_over_amplitude": [
+            3.569784251755692e-05,
+            2.2460670923152293e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            7.900405968464658e-06,
+            4.949656949625551e-07
+          ],
+          "observed_linf_order": 3.990363955979241,
+          "observed_rms_order": 3.996526345600966,
+          "finest_rk4_error_estimate_over_amplitude": 1.4973780615434862e-07,
+          "finest_analytic_error_over_amplitude": 0.02338610822511633,
+          "estimated_time_error_fraction": 6.4028526984037665e-06
+        },
+        "trace_k": {
+          "pairwise_linf_over_amplitude": [
+            0.00017883618929848133,
+            1.1193915962492973e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            0.00010500418519163411,
+            6.581361408913058e-06
+          ],
+          "observed_linf_order": 3.997851982818993,
+          "observed_rms_order": 3.995916972650532,
+          "finest_rk4_error_estimate_over_amplitude": 7.462610641661982e-07,
+          "finest_analytic_error_over_amplitude": 0.15109871781407325,
+          "estimated_time_error_fraction": 4.938897397425115e-06
+        },
+        "a": {
+          "pairwise_linf_over_amplitude": [
+            0.00012196234518924154,
+            7.638771888640594e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            2.84732510981655e-05,
+            1.784829288451194e-06
+          ],
+          "observed_linf_order": 3.996951276880848,
+          "observed_rms_order": 3.9957492323934662,
+          "finest_rk4_error_estimate_over_amplitude": 5.092514592427063e-07,
+          "finest_analytic_error_over_amplitude": 0.10008316117087579,
+          "estimated_time_error_fraction": 5.088283116609816e-06
+        },
+        "theta": {
+          "pairwise_linf_over_amplitude": [
+            2.056008105006746e-05,
+            1.2847693184173982e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.158297693761063e-05,
+            7.230395681718066e-07
+          ],
+          "observed_linf_order": 4.000264701318885,
+          "observed_rms_order": 4.0017876769138,
+          "finest_rk4_error_estimate_over_amplitude": 8.565128789449321e-08,
+          "finest_analytic_error_over_amplitude": 0.02002079689870787,
+          "estimated_time_error_fraction": 4.278115817658642e-06
+        },
+        "conformal_gamma": {
+          "pairwise_linf_over_amplitude": [
+            0.00026104582500463547,
+            1.6253719780090492e-05
+          ],
+          "pairwise_rms_over_amplitude": [
+            8.705989860907338e-05,
+            5.453176032626449e-06
+          ],
+          "observed_linf_order": 4.005461253228837,
+          "observed_rms_order": 3.9968397073448685,
+          "finest_rk4_error_estimate_over_amplitude": 1.0835813186726995e-06,
+          "finest_analytic_error_over_amplitude": 0.23802872994529545,
+          "estimated_time_error_fraction": 4.552313155314199e-06
+        },
+        "lapse": {
+          "pairwise_linf_over_amplitude": [
+            2.9559981846727368e-05,
+            1.8466984885723292e-06
+          ],
+          "pairwise_rms_over_amplitude": [
+            1.4785614431125082e-05,
+            9.258436571071533e-07
+          ],
+          "observed_linf_order": 4.000625142415014,
+          "observed_rms_order": 3.9972817942451933,
+          "finest_rk4_error_estimate_over_amplitude": 1.2311323257148862e-07,
+          "finest_analytic_error_over_amplitude": 0.02176005563317429,
+          "estimated_time_error_fraction": 5.657762767104158e-06
+        }
+      }
+    }
+  ],
+  "old_report_comparison": {
+    "common_states": 50,
+    "all_bitwise_equal": true,
+    "max_slot_difference": 0.0
+  },
+  "offline_seconds": 0.26972530000057304,
+  "offline_peak_rss_bytes": 54095872
+}

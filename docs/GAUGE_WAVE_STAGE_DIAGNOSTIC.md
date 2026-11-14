@@ -859,3 +859,35 @@ Command:
 ```powershell
 python -B -m experiments.b3_native.gauge_spatial_refinement --dissipation-timestep --out outputs/dissipation-timestep-repair
 ```
+
+
+### Post-repair timestep rerun outcome (2026-11-14)
+
+The preregistered rerun used source fe8cde0 with the cached Windows memory
+observer. All three nx32, sigma=.1 trajectories reached T24:
+`dt=1/128` (3072 steps), `dt=1/256` (6144), and `dt=1/512` (12288).
+Status is COMPLETED, runtime 450.633 s, peak process working set 43.848 MiB,
+and raw output 4374501 bytes. The 600 s / 512 MiB / 64 MiB / one-thread
+limits were met. This is a finite-horizon diagnostic, not a stability gate.
+
+The repaired coarse and half-step states are bitwise identical to all 50
+common states in the prior run (T=0..24 for both trajectories); maximum slot
+difference is zero. The repair changed the resource observer, not the
+numerical trajectory. The prior resource-stopped report remains preserved and
+is not reclassified; this new run is a separate registered result.
+
+Offline temporal analysis is retained in `dissipation-timestep-repair/analysis.json`.
+At T24 the observed L_inf self-convergence orders are h 3.99036, conformal
+Gamma 4.00546 and theta 4.00026. Across T1..24, the principal-field orders
+remain near fourth order. The maximum analytic field error/A at T24 is
+.238231229 / .238040885 / .238028730 for dt, half and quarter steps. The
+conditional finest-step time error remains about 4e-6 of the total fixed-grid
+analytic error in representative fields. Therefore reducing dt does not
+remove the dominant finite-grid residual at this horizon.
+
+![Measured post-repair timestep self-convergence](gauge-stage/dissipation-timestep-repair/figures/timestep.png)
+
+This result validates the memory-monitor repair under the registered workload;
+it does not qualify the undamped baseline, prove nonlinear boundedness, or
+promote sigma=.1 into a production default. Full frozen 8^3 binary64 remains
+a separate 4-GiB-gated campaign.
