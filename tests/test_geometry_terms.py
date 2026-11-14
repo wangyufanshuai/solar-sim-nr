@@ -148,3 +148,53 @@ def test_complete_rhs_ablation_keeps_kwdefaults_and_harmonic_derivative_unchange
     assert _fo_ccz4_volume_rhs_3d.__kwdefaults__ == original_defaults
     assert harmonic_fo_ccz4_rhs.__globals__["_d1"] is derivative
     assert before.tobytes() == after.tobytes()
+
+
+@pytest.mark.parametrize("time", [15, 18, 22])
+def test_late_snapshot_inputs_use_native_stages_and_keep_source_unchanged(tmp_path, time):
+    from pathlib import Path
+    from experiments.b3_native.geometry_terms import snapshot_stage_inputs
+    from kernel.native_evolve import make_rhs
+    source = Path(__file__).resolve().parents[1]/f"docs/gauge-stage/baseline-t{time}.npz"
+    before = source.read_bytes()
+    grid = run_b1.grid(32, 4)
+    states, controls, actual_time, dt = snapshot_stage_inputs(source, grid)
+    ordinary = make_rhs(spacing=grid.spacing, order=4, gauge=run_b1.GAUGE,
+                        config=run_b1.CONFIG, harmonic=True, threads=1)
+    assert actual_time == time and dt == 1/128
+    assert source.read_bytes() == before
+    with np.load(source, allow_pickle=False) as saved:
+        np.testing.assert_array_equal(states[0], saved["q"])
+    for stage in range(4):
+        assert controls[stage].tobytes() == ordinary(states[stage]).tobytes()
+        if stage < 3:
+            factor = (.5, .5, 1.)[stage]
+            np.testing.assert_array_equal(states[stage+1], states[0]+factor*dt*controls[stage])
+
+
+def test_snapshot_validation_and_time_metadata(tmp_path):
+    from pathlib import Path
+    from experiments.b3_native.geometry_terms import snapshot_stage_inputs, run
+    grid, q = data()
+    invalid = tmp_path/"invalid.npz"
+    np.savez(invalid, q=q, time=18., dt=1/128)
+    with pytest.raises(ValueError, match="registered grid"):
+        snapshot_stage_inputs(invalid, run_b1.grid(32, 4))
+    source = Path(__file__).resolve().parents[1]/"docs/gauge-stage/baseline-t18.npz"
+    with np.load(source, allow_pickle=False) as saved:
+        q = saved["q"].copy()
+    np.savez(invalid, q=q, time=float("nan"), dt=1/128)
+    with pytest.raises(ValueError, match="nonnegative time"):
+        snapshot_stage_inputs(invalid, run_b1.grid(32, 4))
+    np.savez(invalid, q=q, time=18., dt=1/64)
+    with pytest.raises(ValueError, match="registered dt"):
+        snapshot_stage_inputs(invalid, run_b1.grid(32, 4))
+    result = run(tmp_path/"late", snapshot=source)
+    assert result["instrumentation_pass"]
+    assert result["base_time"] == 18 and result["dt"] == 1/128
+    assert result["control_kind"] == "fresh_ordinary_native_rhs"
+    assert "before_sha256" not in result
+    for stage in result["stages"]:
+        assert "all_58_outputs_bitwise_equal_before" not in stage
+        assert stage["base_time"] == 18
+        assert 18 <= stage["nominal_stage_time"] <= 18+1/128

@@ -120,21 +120,54 @@ def contraction_report(reference, native, chi):
                 native_sequential_reconstruction_error=float(np.max(np.abs(scalar_contraction(native, chi, sequential=True)-actual))))
 
 
-def run(out, before):
-    out, before = Path(out), Path(before)
-    out.mkdir(parents=True, exist_ok=False)
+def snapshot_stage_inputs(path, grid):
+    """Sample ordinary native RK4 inputs from one saved state; do not evolve it."""
+    with np.load(path, allow_pickle=False) as saved:
+        q, base_time, dt = saved["q"].copy(), float(saved["time"]), float(saved["dt"])
+    if q.dtype != np.float64 or q.shape != (58, *grid.shape) or not np.all(np.isfinite(q)):
+        raise ValueError("expected finite binary64 58-slot snapshot on the registered grid")
+    if not np.isfinite(base_time) or base_time < 0 or dt != 1/128:
+        raise ValueError("expected finite nonnegative time and registered dt=1/128")
+    kw = dict(spacing=grid.spacing, order=4, gauge=run_b1.GAUGE, config=run_b1.CONFIG, threads=1)
+    def ordinary(state):
+        raw = native_rhs_slots(state, **kw)
+        return harmonic_correction(state, raw, spacing=grid.spacing, order=4,
+                                   gauge=run_b1.GAUGE, config=run_b1.CONFIG)
+    inputs, controls = [q], []
+    for factor in (.5, .5, 1.):
+        controls.append(ordinary(inputs[-1]))
+        inputs.append(q+factor*dt*controls[-1])
+    controls.append(ordinary(inputs[-1]))
+    return np.stack(inputs), np.stack(controls), base_time, dt
+
+
+def run(out, before=None, *, snapshot=None):
+    if (before is None) == (snapshot is None):
+        raise ValueError("provide exactly one before archive or snapshot")
+    out = Path(out)
+    source = Path(snapshot if snapshot is not None else before)
     start = time.perf_counter()
-    with np.load(before, allow_pickle=False) as saved:
-        states, original = saved["states"].copy(), saved["rhs"].copy()
     grid = run_b1.grid(32, 4)
+    if snapshot is None:
+        with np.load(source, allow_pickle=False) as saved:
+            states, original = saved["states"].copy(), saved["rhs"].copy()
+        base_time, dt = 0., 1/128
+    else:
+        states, original, base_time, dt = snapshot_stage_inputs(source, grid)
+    out.mkdir(parents=True, exist_ok=False)
     if states.shape != (4, 58, *grid.shape) or original.shape != states.shape:
         raise ValueError("expected four registered 58-slot RK inputs and RHS arrays")
     result = dict(source_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True, timeout=5).strip(),
-                  before_sha256=hashlib.sha256(before.read_bytes()).hexdigest(),
+                  input_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+                  input_path=source.as_posix(), base_time=base_time, dt=dt,
+                  input_kind="archived_four_stage_inputs" if snapshot is None else "saved_native_snapshot",
+                  control_kind="archived_old_library_rhs" if snapshot is None else "fresh_ordinary_native_rhs",
                   external_independent_reproduction=False, scientific_gate_relative=1e-12,
                   settings=dict(shape=list(grid.shape), amplitude=.1, threads=1, max_seconds=600,
                                 max_output_bytes=64*1024**2, max_working_set_bytes=512*1024**2),
                   numpy_version=np.__version__, python_version=sys.version, stages=[])
+    if snapshot is None:
+        result["before_sha256"] = result["input_sha256"]
     for stage, (q, old) in enumerate(zip(states, original), 1):
         if time.perf_counter()-start > 600 or peak_rss() > 512*1024**2:
             raise RuntimeError("geometry diagnostic resource ceiling")
@@ -154,8 +187,10 @@ def run(out, before):
         restored_rhs, restored_terms = python_terms(q, grid)
         after = python_geometry(q, grid)
         chi = state_from_slots(q, grid).base.chi
-        row = dict(stage=stage, all_58_outputs_bitwise_equal_normal=same_normal,
-                   all_58_outputs_bitwise_equal_before=rhs.tobytes()==old.tobytes(),
+        row = dict(stage=stage, base_time=base_time,
+                   nominal_stage_time=base_time+(0., .5, .5, 1.)[stage-1]*dt,
+                   all_58_outputs_bitwise_equal_normal=same_normal,
+                   all_58_outputs_bitwise_equal_control=rhs.tobytes()==old.tobytes(),
                    original_python_unchanged=all(ref[n].tobytes()==after[n].tobytes() for n, _ in GEOMETRY_FIELDS)
                      and py_rhs.tobytes()==restored_rhs.tobytes() and py_terms.tobytes()==restored_terms.tobytes(),
                    scalar_equals_theta_observation=ref["ricci_z_scalar"].tobytes()==py_terms[6].tobytes(),
@@ -169,8 +204,10 @@ def run(out, before):
                    combined_geometry_bitwise_equal_native=all(combined[n].tobytes()==actual[n].tobytes()
                                                               for n, _ in GEOMETRY_FIELDS),
                    combined_contraction=contraction_report(combined, actual, chi))
+        if snapshot is None:
+            row["all_58_outputs_bitwise_equal_before"] = row["all_58_outputs_bitwise_equal_control"]
         result["stages"].append(row)
-        np.savez_compressed(out/f"stage-{stage}.npz", python_rhs=py_rhs, native_rhs=rhs,
+        np.savez_compressed(out/f"stage-{stage}.npz", q=q, python_rhs=py_rhs, native_rhs=rhs,
                             arithmetic_rhs=combined_rhs, **{f"{variant}_{n}": v
                             for variant, fields in (("python", ref), ("native", actual), ("adjugate", adj),
                                                     ("reciprocal", reciprocal), ("combined", combined))
@@ -179,7 +216,7 @@ def run(out, before):
             raise RuntimeError("64 MiB output ceiling (report space reserved)")
     result.update(seconds=time.perf_counter()-start, peak_rss_bytes=peak_rss())
     result["instrumentation_pass"] = all(all(row[key] for key in (
-        "all_58_outputs_bitwise_equal_normal", "all_58_outputs_bitwise_equal_before",
+        "all_58_outputs_bitwise_equal_normal", "all_58_outputs_bitwise_equal_control",
         "original_python_unchanged", "scalar_equals_theta_observation")) for row in result["stages"])
     result["strict_rhs_pass"] = all(row["strict_rhs_comparison"]["active_slots_pass_relative_1e_minus12"] for row in result["stages"])
     result["diagnostic_arithmetic_rhs_pass"] = all(row["arithmetic_rhs_comparison"]["active_slots_pass_relative_1e_minus12"]
@@ -195,9 +232,11 @@ def run(out, before):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--before", type=Path, required=True)
+    inputs = parser.add_mutually_exclusive_group(required=True)
+    inputs.add_argument("--before", type=Path)
+    inputs.add_argument("--snapshot", type=Path)
     args = parser.parse_args()
-    result = run(args.out, args.before)
+    result = run(args.out, args.before, snapshot=args.snapshot)
     print(json.dumps({k: v for k, v in result.items() if k != "stages"}))
     # This exit code qualifies the observer only; inspect strict_rhs_pass separately.
     sys.exit(0 if result["instrumentation_pass"] else 2)
