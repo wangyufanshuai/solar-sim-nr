@@ -149,10 +149,101 @@ def run(out, snapshot, *, steps=256, max_seconds=600):
     return result
 
 
+def run_refinement(out, snapshot, *, coarse_steps=256):
+    """Timestep sensitivity of native restarts; the T22 initial state is already inaccurate."""
+    if not 1 <= coarse_steps <= 256:
+        raise ValueError("registered bound: 1..256 coarse steps")
+    out, snapshot = Path(out), Path(snapshot)
+    start = time.perf_counter()
+    with np.load(snapshot, allow_pickle=False) as saved:
+        q0, base_time, coarse_dt = saved["q"].copy(), float(saved["time"]), float(saved["dt"])
+    grid = run_b1.grid(32, 4)
+    if q0.dtype != np.float64 or q0.shape != (58, *grid.shape) or base_time != 22 or coarse_dt != 1/128:
+        raise ValueError("expected registered binary64 T22 snapshot and dt=1/128")
+    validate_slots(q0)
+    out.mkdir(parents=True, exist_ok=False)
+    def resource_check():
+        if time.perf_counter()-start >= 600 or peak_rss() > 512*1024**2:
+            raise ResourceStopped("600 s or 512 MiB process ceiling")
+        if sum(p.stat().st_size for p in out.iterdir()) > 63*1024**2:
+            raise ResourceStopped("64 MiB output ceiling; report space reserved")
+    native = make_rhs(spacing=grid.spacing,order=4,gauge=run_b1.GAUGE,
+                      config=run_b1.CONFIG,harmonic=True,threads=1)
+    factors = dict(native=1,half=2,quarter=4)
+    q = {name:q0.copy() for name in factors}
+    counts = {name:0 for name in factors}
+    rhs = {name:CheckedRHS(native,resource_check) for name in factors}
+    failures = {}
+    result = dict(source_commit=subprocess.check_output(["git","rev-parse","HEAD"],text=True,timeout=5).strip(),
+                  input_sha256=hashlib.sha256(snapshot.read_bytes()).hexdigest(),
+                  settings=dict(base_time=22,coarse_dt=coarse_dt,target_time=22+coarse_steps*coarse_dt,
+                                timestep_by_trajectory={n:coarse_dt/f for n,f in factors.items()},
+                                max_seconds=600,max_working_set_bytes=512*1024**2,max_output_bytes=64*1024**2,
+                                shape=list(grid.shape),amplitude=.1,threads=1),
+                  status="RUNNING",external_independent_reproduction=False,failures=failures,samples=[])
+    def sample(step):
+        current = base_time+step*coarse_dt
+        live = [n for n,f in factors.items() if n not in failures and counts[n] == step*f]
+        row = dict(time=current,trajectories={})
+        for name in live:
+            entry = dict(analytic_error_over_amplitude=analytic_error(q[name],grid,current))
+            if "quarter" in live:
+                entry["difference_from_finest"] = difference(q[name],q["quarter"])
+            row["trajectories"][name] = entry
+        result["samples"].append(row)
+        print(json.dumps(dict(time=current,live=live,failures=list(failures))),flush=True)
+    try:
+        sample(0)
+        for step in range(1,coarse_steps+1):
+            new_failure = False
+            for name,factor in factors.items():
+                if name in failures:
+                    continue
+                dt = coarse_dt/factor
+                for _ in range(factor):
+                    try:
+                        resource_check()
+                        with np.errstate(over="raise",invalid="raise",divide="raise",under="ignore"):
+                            candidate = rk4(q[name],dt,1,rhs[name])
+                            validate_slots(candidate)
+                        q[name], counts[name] = candidate, counts[name]+1
+                    except (ScientificFailure,FloatingPointError,np.linalg.LinAlgError) as exc:
+                        last = base_time+counts[name]*dt
+                        failures[name] = dict(message=str(exc),last_valid_time=last,
+                                              failed_interval=[last,last+dt],stage=rhs[name].failed_stage)
+                        if rhs[name].failed_input is not None:
+                            np.savez_compressed(out/f"{name}-failed-input.npz",q=rhs[name].failed_input,
+                                                step_start_time=last,stage=rhs[name].failed_stage,dt=dt)
+                        new_failure = True
+                        break
+            if step % 16 == 0 or new_failure or step == coarse_steps:
+                sample(step)
+            if len(failures) == len(factors):
+                break
+        result["status"] = "SCIENTIFIC_FAILURE" if failures else "COMPLETED"
+    except ResourceStopped as exc:
+        result.update(status="RESOURCE_STOPPED",resource_reason=str(exc))
+    for name,factor in factors.items():
+        np.savez_compressed(out/f"{name}-last-valid.npz",q=q[name],
+                            time=base_time+counts[name]*coarse_dt/factor,dt=coarse_dt/factor)
+    result["terminal_states"] = terminal_states(q,{n:c/factors[n] for n,c in counts.items()},
+                                                grid,base_time,coarse_dt)
+    result.update(steps=counts,seconds=time.perf_counter()-start,peak_rss_bytes=peak_rss(),
+                  all_trajectories_reached_target=all(counts[n] == coarse_steps*f for n,f in factors.items()))
+    if result["seconds"] > 600 or result["peak_rss_bytes"] > 512*1024**2:
+        result["status"] = "RESOURCE_STOPPED"
+    text = json.dumps(result,indent=2,allow_nan=False)+"\n"
+    if sum(p.stat().st_size for p in out.iterdir())+len(text.encode()) > 64*1024**2:
+        raise ResourceStopped("64 MiB output limit")
+    (out/"result.json").write_text(text,encoding="utf-8")
+    return result
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--snapshot",type=Path,required=True)
     parser.add_argument("--out",type=Path,required=True)
+    parser.add_argument("--refine",action="store_true",help="native dt, dt/2, dt/4 restart diagnostic")
     args = parser.parse_args()
-    result = run(args.out,args.snapshot)
+    result = (run_refinement if args.refine else run)(args.out,args.snapshot)
     print(json.dumps({k:v for k,v in result.items() if k != "samples"}),flush=True)

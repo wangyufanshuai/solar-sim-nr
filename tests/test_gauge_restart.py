@@ -57,3 +57,21 @@ def test_terminal_comparison_excludes_stale_native_state():
     result=terminal_states({"native":q,"python":q.copy()}, {"native":0,"python":1},run_b1.grid(32,4),22,1/128)
     assert result["python"]["last_valid_time"] == 22+1/128
     assert "max_slot_difference" not in result["python"]
+
+
+def test_native_refinement_tracks_substeps_and_shared_sample_times(tmp_path):
+    from experiments.b3_native.gauge_restart import run_refinement
+    source = Path(__file__).resolve().parents[1]/"docs/gauge-stage/baseline-t22.npz"
+    before = source.read_bytes()
+    result = run_refinement(tmp_path/"refine",source,coarse_steps=2)
+    assert result["status"] == "COMPLETED" and result["all_trajectories_reached_target"]
+    assert result["steps"] == {"native":2,"half":4,"quarter":8}
+    assert source.read_bytes() == before
+    for name,factor in {"native":1,"half":2,"quarter":4}.items():
+        with np.load(tmp_path/f"refine/{name}-last-valid.npz") as z:
+            assert float(z["time"]) == 22+2/128
+            assert float(z["dt"]) == 1/(128*factor)
+    last = result["samples"][-1]
+    assert last["time"] == 22+2/128
+    assert all("difference_from_finest" in r for r in last["trajectories"].values())
+    assert last["trajectories"]["quarter"]["difference_from_finest"]["max_slot_difference"] == 0
