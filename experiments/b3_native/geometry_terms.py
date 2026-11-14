@@ -11,12 +11,13 @@ import time
 import numpy as np
 
 from experiments.b1_gauge_wave import run_b1
-from experiments.b3_native.gauge_stage_diagnostic import compare_arrays
+from experiments.b1_gauge_wave.harmonic import harmonic_fo_ccz4_rhs
+from experiments.b3_native.gauge_stage_diagnostic import compare_arrays, pack_rhs
 from experiments.b3_native.long_diagnostics import peak_rss
 from experiments.b3_native.theta_terms import clone_with_globals, adjugate_inverse, python_terms
 from kernel.native_evolve import harmonic_correction, state_from_slots
 from kernel.native_rhs import GEOMETRY_FIELDS, native_rhs_slots
-from science.numerical_relativity.fo_ccz4_rhs import _geometry
+from science.numerical_relativity.fo_ccz4_rhs import _geometry, _fo_ccz4_volume_rhs_3d, fo_ccz4_rhs_3d
 
 
 def reciprocal_derivative(values, state, axis):
@@ -61,6 +62,20 @@ def python_geometry(q, grid, *, inverse="numpy", derivative="division"):
         raise RuntimeError("Python geometry was not observed")
     captured["d_gamma_hat"] = np.stack(captured["d_gamma_hat"], axis=-2)
     return {name: captured[name] for name, _ in GEOMETRY_FIELDS}
+
+
+def arithmetic_ablation_rhs():
+    """Isolate native inverse/stencil arithmetic in a cloned complete Python RHS."""
+    class NumpyView:
+        class linalg:
+            inv = staticmethod(adjugate_inverse)
+        def __getattr__(self, name):
+            return getattr(np, name)
+    geometry = clone_with_globals(_geometry, np=NumpyView())
+    volume = clone_with_globals(_fo_ccz4_volume_rhs_3d, _geometry=geometry)
+    volume.__kwdefaults__ = {**volume.__kwdefaults__, "first_derivative": reciprocal_derivative}
+    public = clone_with_globals(fo_ccz4_rhs_3d, _fo_ccz4_volume_rhs_3d=volume)
+    return clone_with_globals(harmonic_fo_ccz4_rhs, fo_ccz4_rhs_3d=public)
 
 
 def scalar_contraction(fields, chi, *, sequential):
@@ -133,6 +148,9 @@ def run(out, before):
         adj = python_geometry(q, grid, inverse="adjugate")
         reciprocal = python_geometry(q, grid, derivative="reciprocal")
         combined = python_geometry(q, grid, inverse="adjugate", derivative="reciprocal")
+        evaluate_ablation = arithmetic_ablation_rhs()
+        combined_rhs = pack_rhs(evaluate_ablation(state_from_slots(q, grid), gauge=run_b1.GAUGE,
+                                                  config=run_b1.CONFIG))
         restored_rhs, restored_terms = python_terms(q, grid)
         after = python_geometry(q, grid)
         chi = state_from_slots(q, grid).base.chi
@@ -142,6 +160,7 @@ def run(out, before):
                      and py_rhs.tobytes()==restored_rhs.tobytes() and py_terms.tobytes()==restored_terms.tobytes(),
                    scalar_equals_theta_observation=ref["ricci_z_scalar"].tobytes()==py_terms[6].tobytes(),
                    strict_rhs_comparison=compare_arrays(py_rhs, rhs),
+                   arithmetic_rhs_comparison=compare_arrays(combined_rhs, rhs),
                    tensors=tensor_report(ref, actual), adjugate_tensors=tensor_report(adj, actual),
                    reciprocal_tensors=tensor_report(reciprocal, actual),
                    combined_tensors=tensor_report(combined, actual),
@@ -151,7 +170,8 @@ def run(out, before):
                                                               for n, _ in GEOMETRY_FIELDS),
                    combined_contraction=contraction_report(combined, actual, chi))
         result["stages"].append(row)
-        np.savez_compressed(out/f"stage-{stage}.npz", **{f"{variant}_{n}": v
+        np.savez_compressed(out/f"stage-{stage}.npz", python_rhs=py_rhs, native_rhs=rhs,
+                            arithmetic_rhs=combined_rhs, **{f"{variant}_{n}": v
                             for variant, fields in (("python", ref), ("native", actual), ("adjugate", adj),
                                                     ("reciprocal", reciprocal), ("combined", combined))
                             for n, v in fields.items()})
@@ -162,6 +182,8 @@ def run(out, before):
         "all_58_outputs_bitwise_equal_normal", "all_58_outputs_bitwise_equal_before",
         "original_python_unchanged", "scalar_equals_theta_observation")) for row in result["stages"])
     result["strict_rhs_pass"] = all(row["strict_rhs_comparison"]["active_slots_pass_relative_1e_minus12"] for row in result["stages"])
+    result["diagnostic_arithmetic_rhs_pass"] = all(row["arithmetic_rhs_comparison"]["active_slots_pass_relative_1e_minus12"]
+                                                  for row in result["stages"])
     text = json.dumps(result, indent=2, allow_nan=False)+"\n"
     if (result["seconds"] > 600 or result["peak_rss_bytes"] > 512*1024**2
         or sum(p.stat().st_size for p in out.iterdir())+len(text.encode()) > 64*1024**2):

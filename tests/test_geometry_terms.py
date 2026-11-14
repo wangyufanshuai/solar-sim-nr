@@ -130,3 +130,21 @@ def test_reciprocal_derivative_retains_pairing_and_fourth_order_accuracy():
         np.testing.assert_array_equal(reciprocal_derivative(values, state, 1), np.zeros(grid.shape))
         np.testing.assert_array_equal(reciprocal_derivative(np.ones(grid.shape), state, 0), np.zeros(grid.shape))
     assert all(15 < errors[i]/errors[i+1] < 17 for i in (0, 1))
+
+
+def test_complete_rhs_ablation_keeps_kwdefaults_and_harmonic_derivative_unchanged():
+    from experiments.b3_native.geometry_terms import arithmetic_ablation_rhs
+    from experiments.b1_gauge_wave.harmonic import harmonic_fo_ccz4_rhs
+    from experiments.b3_native.gauge_stage_diagnostic import pack_rhs
+    from science.numerical_relativity.fo_ccz4_rhs import _fo_ccz4_volume_rhs_3d
+    original_defaults = _fo_ccz4_volume_rhs_3d.__kwdefaults__.copy()
+    derivative = harmonic_fo_ccz4_rhs.__globals__["_d1"]
+    grid, q = data()
+    state = state_from_slots(q, grid)
+    before = pack_rhs(harmonic_fo_ccz4_rhs(state, gauge=run_b1.GAUGE, config=run_b1.CONFIG))
+    ablated = pack_rhs(arithmetic_ablation_rhs()(state, gauge=run_b1.GAUGE, config=run_b1.CONFIG))
+    after = pack_rhs(harmonic_fo_ccz4_rhs(state, gauge=run_b1.GAUGE, config=run_b1.CONFIG))
+    assert np.all(np.isfinite(ablated))
+    assert _fo_ccz4_volume_rhs_3d.__kwdefaults__ == original_defaults
+    assert harmonic_fo_ccz4_rhs.__globals__["_d1"] is derivative
+    assert before.tobytes() == after.tobytes()
