@@ -244,3 +244,19 @@ outputs. Preserve raw-before-correction and Python-restoration controls.
 Each snapshot job retains 600 s / 64 MiB output / 512 MiB working-set ceilings,
 single-thread BLAS/OpenMP. No default solver or frozen science edits. No claim of
 external independent reproduction or completion of the frozen 8^3 experiment.
+
+
+### Late same-state result (source 9460109)
+
+All twelve native-generated RK inputs at T=15/18/22 passed the **original**
+1e-12 active-slot comparison. Worst original relative differences over four stages
+are respectively 5.40275e-14, 4.20536e-14 and 2.08911e-15. The diagnostic arithmetic
+variant maxima are 3.77155e-16, 3.33318e-16 and 1.24521e-16. Its 397 geometry
+components agree bitwise at every input. Full RHS differences are nonzero in eleven
+cases (at most 5.55112e-17); T22 stage4 is bitwise equal. These late controls are
+fresh ordinary calls, not an old-library replay. Raw inputs/outputs: geometry-terms/late/.
+Original-output preservation and observer controls all pass. Each job took 1.33-1.44 s,
+peaked below 66.68 MiB and wrote less than 0.84 MiB. Eighteen related tests passed.
+This excludes a sampled late local RHS discrepancy above the registered gate;
+it does not establish the cause of accumulated trajectory divergence. The failed
+T0 original gate, native failure boundary, S2-c and external reproduction remain open.
