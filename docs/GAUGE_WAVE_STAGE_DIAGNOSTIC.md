@@ -165,3 +165,21 @@ with adjugate inversion; expose actual symmetrized D/P and GammaHat derivatives.
 Use exactly the same four saved inputs and limits, no solver changes or evolution.
 The original strict RHS gate stays unchanged. Bitwise geometry agreement would
 identify these arithmetic choices on these inputs only, not validate the solver.
+
+
+### Combined geometry arithmetic result and full-RHS ablation registration
+
+At 2d4e320, adjugate inversion plus reciprocal stencil arithmetic reproduces all
+397 exported geometry components bitwise at all four saved RK4 inputs. Either
+change alone leaves discrepancies. All original native outputs remain unchanged;
+the original Python strict RHS gate still fails. Runtime 1.209 s, peak 67.83 MiB.
+The agreement covers these saved gauge-wave inputs, not general states or time
+integration. Raw arrays and full reports: geometry-terms/arithmetic/.
+
+Before implementation/measurement: clone the frozen volume function with isolated
+adjugate geometry and reciprocal first_derivative; retain the original harmonic
+wrapper's division arithmetic (matching native_evolve.harmonic_correction).
+Compare all 58 full RHS outputs on the same four inputs at the unchanged 1e-12
+active-slot relative gate, and show the original comparison alongside the variant.
+The variant is diagnostic only; no solver default, science source, long-run gate
+or external-reproduction status changes. Retain the same resource ceilings.
