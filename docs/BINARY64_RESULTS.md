@@ -109,3 +109,14 @@ A prior desktop snapshot briefly showed 4.47 GiB, but the authoritative
 preflight read fell below the floor; the full 8^3 campaign was therefore not
 launched. The 4-GiB condition, 600-second deadline, 64-MiB output limit and
 worker cap remain unchanged.
+
+
+## Input-only verification after monitor repair, 2026-11-14
+
+The entry `--verify-inputs-only --timeout-seconds 600` completed with exit 0.
+It verified the registered inputs without numerical execution:
+`manifest_sha256=8e3aeacce5883f7d9f2fca4683d3f3750f7f63426908ab6b9e8af4ccf79ad455`.
+The registered upper output bound is 65,694,130 bytes, below the 64 MiB limit;
+the source snapshot and two-path array budget were also accepted. This check
+does not inspect available RAM or launch the scientific worker, so it does not
+qualify the frozen 8^3 run.
