@@ -260,3 +260,21 @@ peaked below 66.68 MiB and wrote less than 0.84 MiB. Eighteen related tests pass
 This excludes a sampled late local RHS discrepancy above the registered gate;
 it does not establish the cause of accumulated trajectory divergence. The failed
 T0 original gate, native failure boundary, S2-c and external reproduction remain open.
+
+
+### Short identical-snapshot restart registration (2026-11-14)
+
+Before implementation/measurement: restart the registered T22 native snapshot
+(hash above) at dt=1/128 toward T24, maximum 256 steps per trajectory. Use the
+same additive canonical-slot RK4 for original native RHS, original Python RHS,
+and the isolated arithmetic Python RHS. Add a native trajectory with exactly
+one upward ULP in slot/index (0,8,0,0). No projection, parameter or threshold edits.
+Sample every 16 steps and at failures; retain normalized analytic base-field error,
+max slot/base-field difference from the live native baseline, last valid states,
+and failing RHS inputs. Record stage-specific finite/positivity/overflow failures.
+This is a same-repository restart diagnostic, not frozen multiplicative-driver
+parity, a new validated solver, full T0 evolution or external reproduction. The
+1% trajectory target is reported separately from the existing 1e-12 local RHS gate.
+Limits for the combined four-trajectory job: 600 seconds, 64 MiB output and
+512 MiB peak working set, one BLAS/OpenMP thread. Resource interruption is not a
+scientific pass. A successful restart does not establish long-time boundedness.
