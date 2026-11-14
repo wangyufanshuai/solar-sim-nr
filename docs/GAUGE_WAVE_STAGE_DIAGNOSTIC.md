@@ -126,3 +126,19 @@ python -B -m experiments.b3_native.theta_terms --out outputs/theta-terms-reprodu
 Next localization target: the Ricci/Z geometry contractions and derivative
 accumulation orders, on the same stage inputs. External independent reproduction
 remains absent; the original strict RHS gate remains failed.
+
+
+## S3 geometry localization registration (2026-11-14)
+
+Before implementation or measurement: use the saved four T=0 RK4 inputs in
+`theta-terms/before.npz`, A=0.1, 32x5x5 FD4, single thread. Export actual native
+inverse metric, raised metric derivatives, Christoffels and their derivatives,
+Ricci, Z derivative and scalar intermediates through an opt-in entry point.
+Observe the corresponding frozen Python geometry locals, for both original and
+isolated adjugate inverse. Compare tensors and recompute scalar contractions with
+native sequential accumulation as a diagnostic only. Verify all 58 native outputs
+against saved original-library outputs and ordinary calls; keep original Python
+globals and outputs unchanged. No default arithmetic change and no integration.
+Keep the strict 1e-12 gate, 600 s, 64 MiB output and 512 MiB working-set ceilings.
+The experiment localizes arithmetic discrepancies; it cannot establish long-time
+stability, causal uniqueness, or external independent reproduction.
