@@ -1,0 +1,413 @@
+{
+  "source_commit": "3893f434b9a888e2c9d6d4ecaed04ab145677f02",
+  "input_sha256": "985410d1ba458b037a57e559ab2d52fde1ed12e47453ffc9165b9c276b3f3edb",
+  "settings": {
+    "base_time": 22,
+    "coarse_dt": 0.0078125,
+    "target_time": 24.0,
+    "timestep_by_trajectory": {
+      "native": 0.0078125,
+      "half": 0.00390625,
+      "quarter": 0.001953125
+    },
+    "max_seconds": 600,
+    "max_working_set_bytes": 536870912,
+    "max_output_bytes": 67108864,
+    "shape": [
+      32,
+      5,
+      5
+    ],
+    "amplitude": 0.1,
+    "threads": 1
+  },
+  "status": "SCIENTIFIC_FAILURE",
+  "external_independent_reproduction": false,
+  "failures": {
+    "half": {
+      "message": "chi/lapse positivity lost in float64 reconstruction",
+      "last_valid_time": 23.27734375,
+      "failed_interval": [
+        23.27734375,
+        23.28125
+      ],
+      "stage": null
+    },
+    "quarter": {
+      "message": "RK4 stage 4: overflow encountered in exp",
+      "last_valid_time": 23.279296875,
+      "failed_interval": [
+        23.279296875,
+        23.28125
+      ],
+      "stage": 4
+    },
+    "native": {
+      "message": "RK4 stage 2: overflow encountered in exp",
+      "last_valid_time": 23.28125,
+      "failed_interval": [
+        23.28125,
+        23.2890625
+      ],
+      "stage": 2
+    }
+  },
+  "samples": [
+    {
+      "time": 22.0,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 2.0984326848962125,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 2.0984326848962125,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 2.0984326848962125,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 22.125,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 2.7296310681078664,
+          "difference_from_finest": {
+            "max_slot_difference": 1.7139209640415487e-07,
+            "base_field_difference_over_amplitude": 1.7139209640415487e-06,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 2.729631183911191,
+          "difference_from_finest": {
+            "max_slot_difference": 1.044892350421378e-08,
+            "base_field_difference_over_amplitude": 1.0448923504213781e-07,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 2.7296311916680587,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 22.25,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 3.5535067115720453,
+          "difference_from_finest": {
+            "max_slot_difference": 3.4153532368907946e-07,
+            "base_field_difference_over_amplitude": 3.4153532368907946e-06,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 3.5535070530236936,
+          "difference_from_finest": {
+            "max_slot_difference": 2.0696297287070564e-08,
+            "base_field_difference_over_amplitude": 2.0696297287070564e-07,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 3.553507070403404,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 22.375,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 4.621440316149627,
+          "difference_from_finest": {
+            "max_slot_difference": 5.05823666396843e-07,
+            "base_field_difference_over_amplitude": 5.0582366639684295e-06,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 4.621440394685307,
+          "difference_from_finest": {
+            "max_slot_difference": 3.047008673151552e-08,
+            "base_field_difference_over_amplitude": 3.047008673151552e-07,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 4.621440387714381,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 22.5,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 6.012978410225231,
+          "difference_from_finest": {
+            "max_slot_difference": 8.038909119489901e-07,
+            "base_field_difference_over_amplitude": 8.038909119489901e-06,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 6.012982278420875,
+          "difference_from_finest": {
+            "max_slot_difference": 4.5224619812933575e-08,
+            "base_field_difference_over_amplitude": 4.5224619812933575e-07,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 6.012982510577125,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 22.625,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 7.871762417494952,
+          "difference_from_finest": {
+            "max_slot_difference": 1.483795887925049e-06,
+            "base_field_difference_over_amplitude": 1.483795887925049e-05,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 7.871765224500051,
+          "difference_from_finest": {
+            "max_slot_difference": 8.756669003101569e-08,
+            "base_field_difference_over_amplitude": 8.756669003101569e-07,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 7.871765420207004,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 22.75,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 10.176137524982543,
+          "difference_from_finest": {
+            "max_slot_difference": 2.3813398675742725e-06,
+            "base_field_difference_over_amplitude": 2.3813398675742725e-05,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 10.176141710507759,
+          "difference_from_finest": {
+            "max_slot_difference": 1.401030847447693e-07,
+            "base_field_difference_over_amplitude": 1.401030847447693e-06,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 10.17614202472607,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 22.875,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 12.962678915410164,
+          "difference_from_finest": {
+            "max_slot_difference": 3.051810709697733e-06,
+            "base_field_difference_over_amplitude": 3.051810709697733e-05,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 12.96267265042495,
+          "difference_from_finest": {
+            "max_slot_difference": 1.8059590412011772e-07,
+            "base_field_difference_over_amplitude": 1.8059590412011772e-06,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 12.962672274834794,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 23.0,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 16.51335823322409,
+          "difference_from_finest": {
+            "max_slot_difference": 4.056240444610948e-06,
+            "base_field_difference_over_amplitude": 4.056240444610948e-05,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 16.513353541018596,
+          "difference_from_finest": {
+            "max_slot_difference": 2.484504959820999e-07,
+            "base_field_difference_over_amplitude": 2.484504959820999e-06,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 16.513353338590548,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 23.125,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 25.017699331966696,
+          "difference_from_finest": {
+            "max_slot_difference": 5.230509318110421e-06,
+            "base_field_difference_over_amplitude": 5.230509318110421e-05,
+            "passes_1_percent": true
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 25.01771927617956,
+          "difference_from_finest": {
+            "max_slot_difference": 2.926060447272505e-07,
+            "base_field_difference_over_amplitude": 2.926060447272505e-06,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 25.017720560126328,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 23.25,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 201.83765225323674,
+          "difference_from_finest": {
+            "max_slot_difference": 0.005973261972389565,
+            "base_field_difference_over_amplitude": 0.05973261972389565,
+            "passes_1_percent": false
+          }
+        },
+        "half": {
+          "analytic_error_over_amplitude": 201.84468031030454,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0004384900365153044,
+            "base_field_difference_over_amplitude": 0.004384900365153044,
+            "passes_1_percent": true
+          }
+        },
+        "quarter": {
+          "analytic_error_over_amplitude": 201.8455662345128,
+          "difference_from_finest": {
+            "max_slot_difference": 0.0,
+            "base_field_difference_over_amplitude": 0.0,
+            "passes_1_percent": true
+          }
+        }
+      }
+    },
+    {
+      "time": 23.28125,
+      "trajectories": {
+        "native": {
+          "analytic_error_over_amplitude": 1926350388.600215
+        }
+      }
+    },
+    {
+      "time": 23.2890625,
+      "trajectories": {}
+    }
+  ],
+  "terminal_states": {
+    "native": {
+      "last_valid_time": 23.28125,
+      "analytic_error_over_amplitude": 1926350388.600215,
+      "max_slot_difference": 0.0,
+      "base_field_difference_over_amplitude": 0.0,
+      "passes_1_percent": true
+    },
+    "half": {
+      "last_valid_time": 23.27734375,
+      "analytic_error_over_amplitude": 42223.39174680332
+    },
+    "quarter": {
+      "last_valid_time": 23.279296875,
+      "analytic_error_over_amplitude": 3659269.434291381
+    }
+  },
+  "steps": {
+    "native": 164,
+    "half": 327,
+    "quarter": 655
+  },
+  "seconds": 13.462722299999768,
+  "peak_rss_bytes": 87457792,
+  "all_trajectories_reached_target": false
+}

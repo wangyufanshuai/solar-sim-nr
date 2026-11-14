@@ -310,3 +310,44 @@ original T0 long-wave test or justify resetting invalid states. In particular,
 this is a timestep-sensitivity diagnostic on an already inaccurate snapshot,
 not a full initial-value convergence study. The combined job retains 600 s,
 64 MiB output and 512 MiB peak working-set ceilings and single-thread execution.
+
+
+### Native timestep-sensitivity result (source b0a4452)
+
+| Native timestep | Failure interval | Failure location |
+| --- | --- | --- |
+| 1/128 | [23.28125,23.2890625] | RK4 stage2 chi reconstruction overflow |
+| 1/256 | [23.27734375,23.28125] | Completed candidate lapse reconstruction underflow to zero |
+| 1/512 | [23.279296875,23.28125] | RK4 stage4 exponential overflow |
+
+All three failed before T24. Step refinement did not rescue this already
+inaccurate T22 restart. At the last shared regular sample T23.25, analytic errors
+normalized by amplitude are about 201.84 in every case. Differences from dt/4
+are .05973 (dt) and .004385 (dt/2), using the same amplitude normalization.
+Closeness of refined trajectories cannot validate these inaccurate states.
+The half-step failed candidate retains finite log slots but min(ln lapse)=-8166.36,
+so reconstructed lapse is zero in binary64. This is distinct from a nonfinite-slot
+failure or the chi overflow in the coarse trajectory.
+Initial source 3893f43 lacked the failed completed-step candidate; its original
+report/arrays are retained in restart-refinement-initial/. Source b0a4452 adds this
+capture and a regression test. The verification rerun has identical last-valid
+arrays for all three trajectories and identical failure intervals; it costs
+13.178 s, 82.871 MiB peak and 45496 output bytes. Thirty-one related tests passed.
+Raw corrected output: restart-refinement/. No solver arithmetic or thresholds changed.
+
+Reproduction from the repository root, in separate fresh output directories:
+
+```powershell
+$env:OMP_NUM_THREADS='1'
+$env:OPENBLAS_NUM_THREADS='1'
+python -B -m experiments.b3_native.geometry_terms --snapshot docs/gauge-stage/baseline-t18.npz --out outputs/late-state-replay
+python -B -m experiments.b3_native.gauge_restart --snapshot docs/gauge-stage/baseline-t22.npz --out outputs/restart-replay
+python -B -m experiments.b3_native.gauge_restart --refine --snapshot docs/gauge-stage/baseline-t22.npz --out outputs/refinement-replay
+```
+
+Restart commands save scientific failures as data; inspect status and
+all_trajectories_reached_target instead of treating process exit zero as acceptance.
+Next S3 question: identify the pre-T22 growing field/constraint modes and compare
+spatial refinement from initial data. A future registered study should separate
+discretization growth, gauge evolution and driver rounding before changing a solver.
+External reproduction and full frozen 8^3 alignment remain uncompleted.
