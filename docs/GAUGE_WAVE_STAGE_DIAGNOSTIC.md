@@ -49,3 +49,20 @@ gauge-stage/. Re-analyze without evolving:
     python -B -m experiments.b3_native.analyze_stage_diagnostic docs/gauge-stage --null-result docs/s2-null-modes.json --plot
 
 Registration 407dc07; numerical source 9009ade. Three targeted diagnostic tests pass.
+
+
+## Prospective Theta term isolation (2026-11-14)
+
+Roadmap S3: locate the four T=0 active-slot failures without changing the
+1e-12 gate or the original trajectories. Before measuring the new output:
+add an optional native diagnostic export of the six additive Theta terms and
+its scalar/extrinsic/Z inputs, sharing the production cell routine. Check that
+all 58 outputs remain bit-identical to the uninstrumented library on the four
+registered T=0 RK4 stage states (32x5x5, dt=1/128, A=.1). Compare each diagnostic
+term against the frozen Python equation on the same input bytes. Report maximum
+absolute difference, cancellation ratio, reconstruction error and strict slot
+comparison. A term localization does not establish a pure-roundoff cause.
+
+No evolution long run is needed. Single process/thread, <=600 s and <=64 MiB
+output; <=512 MiB working-set target. Use a new output directory. Original
+science sources, gates and saved failure records are retained unchanged.
