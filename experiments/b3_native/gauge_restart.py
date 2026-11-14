@@ -115,6 +115,7 @@ def run(out, snapshot, *, steps=256, max_seconds=600):
                 if name in failures:
                     continue
                 resource_check()
+                candidate = None
                 try:
                     with np.errstate(over="raise",invalid="raise",divide="raise",under="ignore"):
                         candidate = rk4(q,dt,1,rhs[name])
@@ -123,10 +124,13 @@ def run(out, snapshot, *, steps=256, max_seconds=600):
                 except (ScientificFailure,FloatingPointError,np.linalg.LinAlgError) as exc:
                     last = base_time+counts[name]*dt
                     failures[name] = dict(message=str(exc),last_valid_time=last,
-                                          failed_interval=[last,last+dt],stage=rhs[name].failed_stage)
+                                          failed_interval=[last,last+dt],stage=rhs[name].failed_stage,
+                                          phase="rk_stage" if rhs[name].failed_input is not None else "completed_step_reconstruction")
                     if rhs[name].failed_input is not None:
                         np.savez_compressed(out/f"{name}-failed-input.npz",q=rhs[name].failed_input,
                                             step_start_time=last,stage=rhs[name].failed_stage,dt=dt)
+                    elif candidate is not None:
+                        np.savez_compressed(out/f"{name}-failed-candidate.npz",q=candidate,time=last+dt,dt=dt)
                     new_failure = True
             if step % 16 == 0 or new_failure or step == steps:
                 sample(step)
@@ -201,6 +205,7 @@ def run_refinement(out, snapshot, *, coarse_steps=256):
                     continue
                 dt = coarse_dt/factor
                 for _ in range(factor):
+                    candidate = None
                     try:
                         resource_check()
                         with np.errstate(over="raise",invalid="raise",divide="raise",under="ignore"):
@@ -210,10 +215,13 @@ def run_refinement(out, snapshot, *, coarse_steps=256):
                     except (ScientificFailure,FloatingPointError,np.linalg.LinAlgError) as exc:
                         last = base_time+counts[name]*dt
                         failures[name] = dict(message=str(exc),last_valid_time=last,
-                                              failed_interval=[last,last+dt],stage=rhs[name].failed_stage)
+                                              failed_interval=[last,last+dt],stage=rhs[name].failed_stage,
+                                              phase="rk_stage" if rhs[name].failed_input is not None else "completed_step_reconstruction")
                         if rhs[name].failed_input is not None:
                             np.savez_compressed(out/f"{name}-failed-input.npz",q=rhs[name].failed_input,
                                                 step_start_time=last,stage=rhs[name].failed_stage,dt=dt)
+                        elif candidate is not None:
+                            np.savez_compressed(out/f"{name}-failed-candidate.npz",q=candidate,time=last+dt,dt=dt)
                         new_failure = True
                         break
             if step % 16 == 0 or new_failure or step == coarse_steps:

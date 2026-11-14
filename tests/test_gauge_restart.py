@@ -75,3 +75,24 @@ def test_native_refinement_tracks_substeps_and_shared_sample_times(tmp_path):
     assert last["time"] == 22+2/128
     assert all("difference_from_finest" in r for r in last["trajectories"].values())
     assert last["trajectories"]["quarter"]["difference_from_finest"]["max_slot_difference"] == 0
+
+
+def test_refinement_keeps_candidate_when_completed_step_reconstruction_fails(tmp_path,monkeypatch):
+    import experiments.b3_native.gauge_restart as diagnostic
+    source = Path(__file__).resolve().parents[1]/"docs/gauge-stage/baseline-t22.npz"
+    original_check = diagnostic.validate_slots
+    calls = []
+    def fail_first_completed_step(q):
+        calls.append(1)
+        if len(calls) == 6:  # initial validation, four RHS stages, then candidate validation
+            raise ScientificFailure("injected candidate reconstruction failure")
+        original_check(q)
+    monkeypatch.setattr(diagnostic,"validate_slots",fail_first_completed_step)
+    result = diagnostic.run_refinement(tmp_path/"failure",source,coarse_steps=1)
+    assert result["status"] == "SCIENTIFIC_FAILURE"
+    assert result["failures"]["native"]["phase"] == "completed_step_reconstruction"
+    assert result["failures"]["native"]["stage"] is None
+    assert (tmp_path/"failure/native-failed-candidate.npz").exists()
+    assert not (tmp_path/"failure/native-failed-input.npz").exists()
+    with np.load(tmp_path/"failure/native-failed-candidate.npz") as z:
+        assert float(z["time"]) == 22+1/128
