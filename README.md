@@ -91,7 +91,7 @@ and continuum bridge results do not validate this new candidate.
 | [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) | How to inspect and reproduce this check |
 | [docs/VALIDATION.md](docs/VALIDATION.md) | Actual local results, including retained failed attempts |
 | [docs/B1_RESULTS_20261108.md](docs/B1_RESULTS_20261108.md) | Periodic nonlinear gauge-wave benchmark, error curves and reproduction commands |
-| [docs/GAUGE_WAVE_STAGE_DIAGNOSTIC.md](docs/GAUGE_WAVE_STAGE_DIAGNOSTIC.md) | S3 arithmetic localization and retained late-restart failures |
+| [docs/GAUGE_WAVE_STAGE_DIAGNOSTIC.md](docs/GAUGE_WAVE_STAGE_DIAGNOSTIC.md) | S3 arithmetic localization, grid-scale error and failed initial-data refinements |
 | [tests/](tests/) | Repository controls; not a substitute for the full example |
 | [provenance/export-manifest.json](provenance/export-manifest.json) | Exported source and parent-input identities |
 | [CITATION.cff](CITATION.cff) | Software citation metadata |

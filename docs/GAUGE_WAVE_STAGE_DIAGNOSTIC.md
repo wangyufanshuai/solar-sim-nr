@@ -435,3 +435,70 @@ cannot isolate spatial from temporal truncation, establish an asymptotic order,
 prove nonlinear stability, or qualify a physical binary waveform. No numerical
 filter, constraint projection, solver-source edit or threshold change is allowed
 in this diagnostic. Full frozen 8^3 and external reproduction remain unmet.
+
+
+### From-initial-data refinement result: all grids fail
+
+Source 33248ea, clean source tree, same canonical-slot RK4: nx16,32,64 all fail
+before T24 at RK stage 2 during binary64 exponential reconstruction. The job
+cost 192.240 s, peak 313.223 MiB, and 3739603 raw output bytes, inside the
+registered ceilings. The figure files add less than 1 MiB to the retained output.
+
+| nx | dt | max base error/A at T1 | at T10 | failed time interval | RK stage |
+|---|---|---|---|---|---|
+| 16 | 1/64 | 0.06746326 | 0.82927181 | [12.07812500, 12.09375000] | 2 |
+| 32 | 1/128 | 0.0049557053 | 0.05849281 | [23.28125000, 23.28906250] | 2 |
+| 64 | 1/256 | 0.00031706394 | 0.0039249226 | [20.83593750, 20.83984375] | 2 |
+
+The nx32 replay is bitwise identical to all four previous baseline snapshots
+(T0/15/18/22), so the new sampler has not changed that measured trajectory.
+At T1, error ratios give observed pairwise orders 3.76694 (16->32) and 3.96624
+(32->64). These are early combined space/time error ratios, not a long-time or
+space-only convergence qualification. At T10 the corresponding ratios are
+3.82551 and 3.89752. Better early accuracy does not imply later stability.
+
+At nx64, h-error Nyquist energy share is already 48.1554% at T15 and 98.4077%
+at T19; Hamiltonian-difference high-k share is 98.6408% at T15. The finer grid
+fails earlier than nx32. Together with the previous fixed-grid timestep tests,
+this rules out claiming that simply reducing dt or refining nx repairs these
+observed runs. It does not identify which discretization/formulation term is
+responsible, establish resolution-independent instability, or license changing
+a solver threshold. Do not extrapolate the three failure times monotonically.
+
+All saved failed stage slots are finite, but reconstruction exceeds binary64's
+log maximum 709.7827. At nx32 max(2 ln(phi))=901.41775. At nx16 that maximum is
+100860.674 (and some lapse logs also underflow); at nx64 both lapse and chi logs
+exceed the maximum. The retained last-valid states and failed-stage inputs are
+different files with actual stage times. No inaccurate state is labelled a pass.
+
+Fifty-one related tests passed (8.13 s), including all new diagnostic, replay,
+failure-capture and resource-stop controls. The pytest cache-provider warning
+comes from disabling that provider; it is not a failed scientific gate.
+Raw reports/arrays: `gauge-stage/spatial-refinement/`; measured-data figures:
+
+![Gauge refinement error and constraint curves](gauge-stage/spatial-refinement/figures/refinement.png)
+
+Reproduction, separate fresh output directories:
+
+```powershell
+python -B -m experiments.b3_native.gauge_spatial_refinement --out outputs/spatial-refinement-replay
+python -B -m experiments.b3_native.plot_gauge_growth --report outputs/spatial-refinement-replay/result.json --out outputs/spatial-refinement-figures-replay
+```
+
+Next S3 experiment should register a controlled high-frequency stability test
+before applying any artificial dissipation or auxiliary-consistency intervention.
+Compare identical initial data, seed and CFL, retain the unmodified baseline,
+and distinguish error reduction from constraint preservation and physical
+convergence. Full frozen 8^3 alignment and external independent reproduction
+remain open; no AMR/binary evolution or physical waveform follows from this study.
+
+Literature context (primary sources checked through Exa on 2026-11-14): Babiuc
+et al., *Implementation of standard testbeds for numerical relativity*,
+[arXiv:0709.3559](https://arxiv.org/abs/0709.3559), CQG25 (2008)125012,
+distinguish exponential harmonic gauge modes, formulation-constraint growth and
+high-frequency numerical modes in the gauge-wave benchmark. Cao and Hilditch,
+*Numerical stability of the Z4c formulation of general relativity*,
+[arXiv:1111.2177](https://arxiv.org/abs/1111.2177), PRD85 (2012)124032,
+study a different formulation/discretization. Neither paper validates this
+FO-CCZ4 implementation or establishes this run's root cause. Their relevance
+is experimental design, not an independent reproduction or a stability proof.
