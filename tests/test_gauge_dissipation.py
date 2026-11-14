@@ -87,3 +87,45 @@ def test_invalid_dissipation_parameters_rejected(dx,sigma):
 def test_unregistered_sigma_suite_rejected(tmp_path):
     with pytest.raises(ValueError,match='registered dissipation'):
         run(tmp_path/'invalid',points=(32,),sigmas=(0.,.05,.1))
+
+
+@pytest.mark.parametrize("options",[
+    dict(points=(32,),fixed_sigma=.1),
+    dict(points=(16,32,64),fixed_sigma=.02),
+    dict(points=(16,32,64),fixed_sigma=.1,sigmas=(0.,.02,.1)),
+])
+def test_unregistered_fixed_sigma_study_rejected_before_output(tmp_path,options):
+    output=tmp_path/'unregistered'
+    with pytest.raises(ValueError):run(output,**options)
+    assert not output.exists()
+
+
+def test_fixed_sigma_refinement_advances_same_time_on_three_grids(tmp_path):
+    result=run(tmp_path/'fixed',points=(16,32,64),fixed_sigma=.1,target_time=1/64)
+    assert result['status']=='COMPLETED'
+    assert result['scientific_acceptance_established'] is False
+    assert [row['completed_steps'] for row in result['trajectories']]==[1,2,4]
+    assert all(row['last_valid_time']==1/64 for row in result['trajectories'])
+    assert all(row['dissipation_sigma']==.1 for row in result['trajectories'])
+    assert result['analytic_error_convergence'][0]['time']==1/64
+    row=result['trajectories'][1]
+    assert row['samples'][0]['fixed_sigma_replay']['max_slot_difference']>=0
+    with np.load(tmp_path/'fixed'/row['samples'][0]['arrays_path']) as arrays:
+        assert np.max(np.abs(arrays['field_error_h']))==0
+
+
+def test_analytic_convergence_recovers_known_order_and_handles_zero_errors():
+    from experiments.b3_native.gauge_spatial_refinement import convergence_summary
+    rows=[]
+    for nx in (16,32,64):
+        error=(16/nx)**4
+        rows.append(dict(nx=nx,samples=[dict(time=1.,
+            fields=dict(h=dict(l_inf_over_amplitude=error),zero=dict(l_inf_over_amplitude=0.)),
+            constraints=dict(hamiltonian=dict(difference=dict(l_inf=error))),
+            auxiliary_consistency=dict(metric_gradient=dict(difference=dict(l_inf=error))))]))
+    summary=convergence_summary(rows)
+    assert summary[0]['metrics']['h']['orders']==[4.,4.]
+    assert summary[0]['metrics']['zero']['orders']==[None,None]
+    rows[2]['samples']=[]
+    assert convergence_summary(rows)==[]
+    assert convergence_summary(rows[:2])==[]

@@ -598,3 +598,38 @@ The next S3 study should pre-register space/time convergence with fixed sigma,
 then a longer-time test within the same resource envelope. Do not promote either
 value into production on this one grid. External independent reproduction and
 full frozen 8^3 alignment remain open; S2-c boundedness is a separate question.
+
+
+### Fixed-sigma joint refinement registration (2026-11-14, before run)
+
+S3 next acceptance: measure whether the residual analytic error with fixed
+x-only KO sigma=.1 decreases under joint space/time refinement. This is the
+same diagnostic RHS as the previous study, not a changed production default.
+Use analytic initial data independently at nx16/32/64, transverse 5x5, A=.1,
+FD4, additive canonical-slot RK4, dt=dx/4 and target T24. Do not tune sigma,
+initial data, target or diagnostics after observing the result. This separates
+resolution dependence from the previous one-grid damping comparison; it does
+not separately measure spatial and temporal orders.
+
+Save integer-time exact-solution field errors, ADM constraint differences,
+auxiliary/base consistency and x Fourier spectra. Report log2(E_n/E_2n)
+for each base field and the Hamiltonian/metric-gradient differences at every
+common nonzero sample. Undefined zero-error ratios remain null. Compare nx32
+against the saved sigma=.1 trajectory at matching integer times, retaining
+both bitwise status and measured differences. Baseline sigma=0 failures and
+all previous results remain untouched.
+
+Expectation to test: early nonzero smooth-field errors approach fourth order
+under joint refinement; do not require fourth order for identically zero
+components or near-roundoff quantities. Report late-time error and observed
+orders even when adverse. Reaching T24 is diagnostic completion only, never
+long-time stability, external reproduction or general nonlinear boundedness.
+All trajectories share 600 s wall time, 512 MiB process working set, 64 MiB
+raw output, one process and one numerical thread. A resource stop retains
+partial data and is not a scientific pass.
+
+Command from repository root with OMP_NUM_THREADS=OPENBLAS_NUM_THREADS=1:
+
+```powershell
+python -B -m experiments.b3_native.gauge_spatial_refinement --dissipation-refinement --out outputs/dissipation-refinement
+```

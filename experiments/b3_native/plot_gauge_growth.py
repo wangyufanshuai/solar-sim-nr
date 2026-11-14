@@ -16,7 +16,9 @@ def plot(report, out):
                    and data["settings"].get("dissipation_sigmas") == [0., .02, .1])
     refinement = (data["settings"]["points"] == [32,16,64]
                   and data["settings"].get("dissipation_sigmas", [0.]) == [0.])
-    if not (dissipation or refinement) or data["scientific_acceptance_established"]:
+    dissipative_refinement = (data["settings"]["points"] == [16,32,64]
+                              and data["settings"].get("fixed_dissipation_sigma") == .1)
+    if not (dissipation or refinement or dissipative_refinement) or data["scientific_acceptance_established"]:
         raise ValueError("registered diagnostic report required")
     out.mkdir(parents=True,exist_ok=False)
     fig,axes=plt.subplots(2,2,figsize=(11,7.5),layout="constrained")
@@ -27,6 +29,8 @@ def plot(report, out):
         nx=row["nx"]
         key=row["dissipation_sigma"] if dissipation else nx
         label=f"sigma={key:g}, nx={nx}" if dissipation else f"nx={nx}, dt=1/{4*nx}"
+        if dissipative_refinement:
+            label+=", sigma=.1"
         times=np.array([s["time"] for s in row["samples"]])
         series=[
             [max(v["l_inf_over_amplitude"] for v in s["fields"].values()) for s in row["samples"]],
@@ -56,12 +60,18 @@ def plot(report, out):
     axes[1,1].set_ylabel("L_inf (evolved D - rebuilt D)")
     title = ("Gauge wave A=0.1: x-only dissipation suppresses grid-scale growth; errors remain"
              if dissipation else "Gauge wave A=0.1: early accuracy does not establish long-time stability")
+    if dissipative_refinement:
+        title="Gauge wave A=0.1: joint space/time refinement at fixed x-dissipation sigma=.1"
     fig.suptitle(title,fontsize=12)
     outcome = ("Baseline fails; sigma=.02/.1 reach T24 only. No stability qualification."
                if dissipation else "All grids fail before T=24.")
+    if dissipative_refinement:
+        outcome="; ".join(f"nx{r['nx']}: {r['status']}" for r in data["trajectories"])+". No stability qualification."
     fig.supxlabel("Integer-time samples only; dotted lines: last-valid times. "+outcome+"\n"
                     +f"Native additive-slot RK4; FD4; source {data['source_commit'][:8]}",fontsize=9)
     stem="dissipation" if dissipation else "refinement"
+    if dissipative_refinement:
+        stem="dissipation-refinement"
     fig.savefig(out/f"{stem}.png",dpi=160)
     fig.savefig(out/f"{stem}.svg")
     svg=out/f"{stem}.svg"

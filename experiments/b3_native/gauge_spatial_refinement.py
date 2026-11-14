@@ -52,11 +52,36 @@ def ko6_x(q, dx, sigma):
     return sigma/(64*dx)*delta
 
 
-def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None):
+def convergence_summary(rows):
+    """Observed analytic-error ratios at common integer times; no acceptance gate."""
+    grids={row["nx"]: {sample["time"]: sample for sample in row.get("samples",[])} for row in rows}
+    if set(grids) != {16,32,64}:
+        return []
+    common=sorted((set(grids[16]) & set(grids[32]) & set(grids[64])) - {0.})
+    def errors(sample):
+        return {**{name: value["l_inf_over_amplitude"] for name,value in sample["fields"].items()},
+                "hamiltonian_difference": sample["constraints"]["hamiltonian"]["difference"]["l_inf"],
+                "metric_gradient_difference": sample["auxiliary_consistency"]["metric_gradient"]["difference"]["l_inf"]}
+    result=[]
+    for current in common:
+        by_grid={nx: errors(grids[nx][current]) for nx in grids}
+        metrics={}
+        for name in by_grid[16]:
+            values=[by_grid[nx][name] for nx in (16,32,64)]
+            orders=[float(np.log2(a)-np.log2(b)) if a>0 and b>0 else None
+                    for a,b in zip(values,values[1:])]
+            metrics[name]=dict(errors=values,orders=orders)
+        result.append(dict(time=current,metrics=metrics))
+    return result
+
+
+def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None, fixed_sigma=None):
     if not points or len(set(points)) != len(points) or any(n not in (16,32,64) for n in points):
         raise ValueError("unique registered nx values (16,32,64) required")
     if sigmas is not None and (tuple(points) != (32,) or tuple(sigmas) != (0.,.02,.1)):
         raise ValueError("registered dissipation comparison requires nx32 and sigmas=(0,.02,.1)")
+    if fixed_sigma is not None and (tuple(points) != (16,32,64) or fixed_sigma != .1 or sigmas is not None):
+        raise ValueError("registered fixed-sigma refinement requires nx=(16,32,64), sigma=.1, no sigma suite")
     if not 0 < target_time <= 24 or not 0 < max_seconds <= 600:
         raise ValueError("registered target <=24 and deadline <=600 required")
     if any(not float(target_time*4*n).is_integer() for n in points):
@@ -82,12 +107,13 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None
                 source_tree_clean=not subprocess.check_output(["git","status","--porcelain"],cwd=root,text=True,timeout=5).strip(),
                 status="RUNNING",scientific_acceptance_established=False,external_independent_reproduction=False,
                 settings=dict(points=list(points),dissipation_sigmas=None if sigmas is None else list(sigmas),
+                              fixed_dissipation_sigma=fixed_sigma,
                               target_time=target_time,amplitude=.1,spatial_order=4,
                               cfl=.25,integrator="additive canonical-slot RK4",threads=1,
                               max_seconds=max_seconds,max_working_set_bytes=512*1024**2,max_output_bytes=64*1024**2),
                 trajectories=[])
     resource_stopped=False
-    cases=[(nx,0.) for nx in points] if sigmas is None else [(32,sigma) for sigma in sigmas]
+    cases=[(nx,0. if fixed_sigma is None else fixed_sigma) for nx in points] if sigmas is None else [(32,sigma) for sigma in sigmas]
     for nx,sigma in cases:
         name=f"nx{nx}" if sigma == 0 else f"nx{nx}-ko{sigma:g}".replace(".","p")
         if resource_stopped:
@@ -113,6 +139,9 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None
             sample_row=dict(time=current,step=count,arrays_path=filename,**details)
             if nx == 32 and sigma == 0 and current in (0.,15.,18.,22.):
                 sample_row["baseline_replay"]=replay_control(q,root/f"docs/gauge-stage/baseline-t{int(current)}.npz",current,dt)
+            if fixed_sigma is not None and nx == 32 and float(current).is_integer():
+                sample_row["fixed_sigma_replay"]=replay_control(q,
+                    root/f"docs/gauge-stage/dissipation/nx32-ko0p1-step{count}-sample.npz",current,dt)
             row["samples"].append(sample_row)
             print(json.dumps(dict(nx=nx,dissipation_sigma=sigma,time=current,max_field_error_over_amplitude=
                   max(v["l_inf_over_amplitude"] for v in details["fields"].values()))),flush=True)
@@ -156,6 +185,8 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None
     result["all_trajectories_reached_target"]=all(t["status"] == "REACHED_TARGET" for t in result["trajectories"])
     result["status"]=("RESOURCE_STOPPED" if resource_stopped else
                        "COMPLETED" if result["all_trajectories_reached_target"] else "SCIENTIFIC_FAILURE")
+    if fixed_sigma is not None:
+        result["analytic_error_convergence"]=convergence_summary(result["trajectories"])
     result.update(seconds=time.perf_counter()-start,peak_rss_bytes=peak_rss())
     write("result.json",(json.dumps(result,indent=2,allow_nan=False)+"\n").encode())
     return result
@@ -166,8 +197,12 @@ if __name__ == "__main__":
     parser.add_argument("--out",type=Path,required=True)
     parser.add_argument("--target-time",type=float,default=24.)
     parser.add_argument("--max-seconds",type=float,default=600.)
-    parser.add_argument("--dissipation",action="store_true",help="registered nx32 baseline/sigma=.02/.1 comparison")
+    study=parser.add_mutually_exclusive_group()
+    study.add_argument("--dissipation",action="store_true",help="registered nx32 baseline/sigma=.02/.1 comparison")
+    study.add_argument("--dissipation-refinement",action="store_true",help="registered nx16/32/64, fixed sigma=.1 comparison")
     args=parser.parse_args()
     options=dict(points=(32,),sigmas=(0.,.02,.1)) if args.dissipation else {}
+    if args.dissipation_refinement:
+        options=dict(points=(16,32,64),fixed_sigma=.1)
     result=run(args.out,target_time=args.target_time,max_seconds=args.max_seconds,**options)
     print(json.dumps({k:result[k] for k in ("status","source_commit","seconds","peak_rss_bytes")}))
