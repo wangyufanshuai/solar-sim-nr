@@ -1,0 +1,60 @@
+{
+  "mode": "monitor",
+  "source_commit": "a0de36edbbe6eab1f8aa0a0dc22b9631395ad452",
+  "scientific_evolution": false,
+  "status": "COMPLETED",
+  "samples": [
+    {
+      "calls": 0,
+      "seconds": 0.054565400001592934,
+      "peak_bytes": 41517056,
+      "rss_bytes": 41517056,
+      "pointer_type_cache_entries": 22
+    },
+    {
+      "calls": 1024,
+      "seconds": 0.057284700000309385,
+      "peak_bytes": 41533440,
+      "rss_bytes": 41533440,
+      "pointer_type_cache_entries": 22
+    },
+    {
+      "calls": 2048,
+      "seconds": 0.05996969999978319,
+      "peak_bytes": 41533440,
+      "rss_bytes": 41533440,
+      "pointer_type_cache_entries": 22
+    },
+    {
+      "calls": 4096,
+      "seconds": 0.06527270000151475,
+      "peak_bytes": 41533440,
+      "rss_bytes": 41533440,
+      "pointer_type_cache_entries": 22
+    },
+    {
+      "calls": 8192,
+      "seconds": 0.07560160000139149,
+      "peak_bytes": 41533440,
+      "rss_bytes": 41533440,
+      "pointer_type_cache_entries": 22
+    },
+    {
+      "calls": 8192,
+      "seconds": 0.0794300999987172,
+      "peak_bytes": 41533440,
+      "rss_bytes": 41533440,
+      "pointer_type_cache_entries": 22
+    }
+  ],
+  "deterministic_outputs": true,
+  "max_seconds": 600,
+  "max_working_set_bytes": 536870912,
+  "max_output_bytes": 67108864,
+  "collected_after": 0,
+  "input_unchanged": true,
+  "output_sha256": null,
+  "seconds": 0.0794964999986405,
+  "peak_bytes": 41533440,
+  "rss_bytes": 41533440
+}

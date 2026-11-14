@@ -817,3 +817,21 @@ resource limits and sampling frequency remain unchanged. Four resource controls
 plus 38 gauge tests pass (42 total). Run identical after-repair memory probes
 and compare all RHS/diagnostic hashes before considering a separately registered
 numerical replay. The earlier RESOURCE_STOPPED result remains unqualified.
+
+
+### Memory-monitor repair outcome (2026-11-14)
+
+The cached ctypes/API repair from a0de36e was rerun in fresh processes using the
+same three workload probes. Monitor peak working set fell from 98.87890625 MiB
+to 39.609375 MiB; its pointer-type cache growth fell from 8192 entries to zero.
+The fixed-state native RHS peak changed from 42.6640625 to 42.83203125 MiB and
+the full diagnostics peak from 43.734375 to 43.87109375 MiB. All before/after
+output hashes are identical; inputs remain byte-identical and all deterministic
+output checks pass. The before and after raw records are retained under
+`gauge-stage/memory-probe/`.
+
+The new memory-observation tests and existing suite pass: **493 passed** in
+37.32 s locally. This validates the monitor repair and the saved-state controls,
+not a new long evolution. The earlier timestep run remains RESOURCE_STOPPED;
+a fresh T24 registration is still required before claiming the repair removes
+that resource failure.
