@@ -79,3 +79,50 @@ comparisons, whether the original implementation is bitwise unchanged after
 calling the variant, and matrix-inverse error against LU on nonsingular
 positive-definite fixtures. Do not assume the variant improves the discrepancy
 or adopt it into the solver. Same <=600 s /64 MiB resource envelope.
+
+
+## Theta term isolation and inverse ablation: measured result
+
+Instrumentation shares the native cell routine. All 58 outputs are bitwise equal
+both to ordinary calls and to the original-library four-stage arrays saved before
+instrumentation (original kernel at eefba50; registration e9027ff). The frozen
+Python science sources are unchanged. Both six-term reconstructions reproduce
+Theta exactly on these states.
+
+| T=0 stage | Original worst active-slot relative error | Adjugate variant | Strict 1e-12 variant gate |
+| --- | --- | --- | --- |
+| 1 | 5.00894654e-12 | 3.98868563e-12 | FAIL |
+| 2 | 4.98167522e-12 | 4.95184685e-12 | FAIL |
+| 3 | 3.79573324e-12 | 1.17154520e-12 | FAIL |
+| 4 | 4.66511481e-12 | 3.77153271e-12 | FAIL |
+
+The dominant absolute mismatch lies in the curvature contribution
+0.5*alpha*e^2*(R+2 div Z). Across the four stages its maximum difference is
+4.51e-16 to 7.30e-16; lapse and chi are bitwise equal. At each stage's worst
+Theta point the six-term cancellation ratio is only 1.000 to 1.076. Therefore
+cancellation in the **final six-term accumulation** is not supported as the
+dominant explanation at those points. This says nothing definitive about
+cancellation inside the geometry construction.
+
+The isolated adjugate-inverse variant reduces some discrepancies but all four
+strict stage gates still fail. A change of inverse algorithm alone is insufficient
+on these inputs. It is not a solver fix and has not been adopted into production.
+Calling the variant leaves the original Python outputs and NumPy/module globals
+unchanged. This ablation neither validates long-time stability nor proves that
+all historical trajectory differences are solely roundoff.
+
+The final ablation took 0.544 s with peak working set 53.13 MiB. All outputs (including the original-library baseline and earlier diagnostic runs)
+total 369640 bytes, below the 64 MiB cap. Numerical source commit: 32a4bfb. Thirty-three related tests passed, including native
+RHS, RK4, SBP, harmonic lapse, long-run controls, null-mode diagnostics, strong-field
+foundations, nonzero transport/damping, term reconstruction and ablation isolation.
+
+Raw arrays and reports: [theta-terms/](gauge-stage/theta-terms/). Reproduce with a fresh output directory:
+
+```console
+python -B -m kernel.native_rhs build
+python -B -m experiments.b3_native.theta_terms --out outputs/theta-terms-reproduction --before docs/gauge-stage/theta-terms/before.npz --inverse-ablation
+```
+
+Next localization target: the Ricci/Z geometry contractions and derivative
+accumulation orders, on the same stage inputs. External independent reproduction
+remains absent; the original strict RHS gate remains failed.

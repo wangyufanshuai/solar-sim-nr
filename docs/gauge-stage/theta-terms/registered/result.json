@@ -1,0 +1,2038 @@
+{
+  "settings": {
+    "shape": [
+      32,
+      5,
+      5
+    ],
+    "amplitude": 0.1,
+    "dt": 0.0078125,
+    "threads": 1,
+    "max_seconds": 600,
+    "max_output_bytes": 67108864
+  },
+  "external_independent_reproduction": false,
+  "source_commit": "20f0b2a7c574577f5a721539bf83e44ae313ab9a",
+  "numpy_version": "2.2.6",
+  "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+  "before_comparison_performed": true,
+  "before_sha256": "9a4545d13a75e4a41c03bd2a85b77e4655fbd4c36a742fe8f8cb6173a030ca57",
+  "stages": [
+    {
+      "stage": 1,
+      "all_58_diagnostic_outputs_bitwise_equal_normal": true,
+      "instrumented_theta_equals_rhs": true,
+      "comparison": {
+        "global_max_absolute_difference": 1.3322676295501878e-15,
+        "reference_scale": 3.1364829969002606,
+        "worst_active_relative_difference": 5.008946540237337e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41887902047863906,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.3252311172764654e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.21088276628242536,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3161613964441825e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.21088276628242536,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3161613964441825e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.3142535661070332,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.1047511887023444,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.43624415820859,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 4.638026278247527e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7979134212269945,
+            "absolute_difference": 3.3306690738754696e-16,
+            "relative_difference": 4.1742236504227743e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7979134212269945,
+            "absolute_difference": 3.3306690738754696e-16,
+            "relative_difference": 4.1742236504227743e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.3112989119775307,
+            "absolute_difference": 1.3322676295501878e-15,
+            "relative_difference": 5.764151156071412e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 0.00011051285280106055,
+            "absolute_difference": 5.535529716896304e-16,
+            "relative_difference": 5.008946540237337e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1364829969002606,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 1.4158827268917108e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.192800932526515,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0252144335709905e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3627568384471314,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 3.2587560547933455e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.7570871324706284,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4664402246570057e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.7570871324706284,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4664402246570057e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.7309336441755051,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 3.0378216503564856e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "isolation": {
+        "terms": [
+          {
+            "name": "advection",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "curvature",
+            "reference_max": 0.00011479917039473423,
+            "absolute_difference": 5.508289137312605e-16
+          },
+          {
+            "name": "extrinsic",
+            "reference_max": 1.3609657586530069e-17,
+            "absolute_difference": 1.0033604533047721e-17
+          },
+          {
+            "name": "theta_k",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "z_lapse",
+            "reference_max": 4.2863175936736865e-06,
+            "absolute_difference": 2.5246028751151235e-17
+          },
+          {
+            "name": "damping",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "ricci_z_scalar",
+            "reference_max": 0.00023625492715889158,
+            "absolute_difference": 1.0585336860519101e-15
+          },
+          {
+            "name": "a_squared",
+            "reference_max": 0.06714683905263943,
+            "absolute_difference": 1.3877787807814457e-17
+          },
+          {
+            "name": "z_dot_lapse_gradient",
+            "reference_max": 4.410587843933158e-06,
+            "absolute_difference": 2.5003353811762878e-17
+          },
+          {
+            "name": "lapse",
+            "reference_max": 1.0488088481701516,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "chi",
+            "reference_max": 1.0357441686512863,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "theta_rhs",
+            "reference_max": 0.00011051285280106055,
+            "absolute_difference": 5.535529716896304e-16
+          }
+        ],
+        "worst_theta_index": [
+          27,
+          0,
+          0
+        ],
+        "worst_theta_difference": -5.535529716896304e-16,
+        "signed_term_differences_at_worst": {
+          "advection": 0.0,
+          "curvature": -5.508289137312605e-16,
+          "extrinsic": 1.8054021222800804e-18,
+          "theta_k": 0.0,
+          "z_lapse": -4.5324468309781594e-18,
+          "damping": 0.0
+        },
+        "cancellation_ratio_at_worst": 1.0,
+        "python_reconstruction_error": 0.0,
+        "native_reconstruction_error": 0.0,
+        "term_delta_reconstruction_error": 1.5745865871109382e-20
+      },
+      "all_58_outputs_bitwise_equal_before": true,
+      "input_bitwise_equal_before": true
+    },
+    {
+      "stage": 2,
+      "all_58_diagnostic_outputs_bitwise_equal_normal": true,
+      "instrumented_theta_equals_rhs": true,
+      "comparison": {
+        "global_max_absolute_difference": 1.3322676295501878e-15,
+        "reference_scale": 3.1364480190399466,
+        "worst_active_relative_difference": 4.981675224907949e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41921821483196336,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.3241588573031958e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.21122247322547666,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.628089255067123e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.21122247322547666,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.628089255067123e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.31501805249997417,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.10500582735071236,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.4361426811633924,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 4.638353998611555e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7978036561114861,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 5.566397276424677e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7978036561114861,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 5.566397276424677e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.310980958848236,
+            "absolute_difference": 1.3322676295501878e-15,
+            "relative_difference": 5.764944208861735e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 9.04156950882037e-05,
+            "absolute_difference": 4.504216281637358e-16,
+            "relative_difference": 4.981675224907949e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1364480190399466,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 1.415898516902558e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.1928742957874015,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0251466794205925e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3628328227218605,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 1.6292871819858438e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.7570786886945869,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9329131600296085e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.7570786886945869,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9329131600296085e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.730958099610462,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 3.0377200149141524e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "isolation": {
+        "terms": [
+          {
+            "name": "advection",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "curvature",
+            "reference_max": 9.39200420613751e-05,
+            "absolute_difference": 4.51055208808282e-16
+          },
+          {
+            "name": "extrinsic",
+            "reference_max": 5.631471224508007e-07,
+            "absolute_difference": 1.3625716096667497e-17
+          },
+          {
+            "name": "theta_k",
+            "reference_max": 1.2109866991299522e-07,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "z_lapse",
+            "reference_max": 5.63992470386344e-06,
+            "absolute_difference": 2.6153412795897404e-17
+          },
+          {
+            "name": "damping",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "ricci_z_scalar",
+            "reference_max": 0.00019602680480271427,
+            "absolute_difference": 9.428222091933947e-16
+          },
+          {
+            "name": "a_squared",
+            "reference_max": 0.06730828397054472,
+            "absolute_difference": 1.3877787807814457e-17
+          },
+          {
+            "name": "z_dot_lapse_gradient",
+            "reference_max": 5.797172559937661e-06,
+            "absolute_difference": 2.637999410928793e-17
+          },
+          {
+            "name": "lapse",
+            "reference_max": 1.0488088481701516,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "chi",
+            "reference_max": 1.0357441686512863,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "theta_rhs",
+            "reference_max": 9.04156950882037e-05,
+            "absolute_difference": 4.504216281637358e-16
+          }
+        ],
+        "worst_theta_index": [
+          23,
+          0,
+          0
+        ],
+        "worst_theta_difference": 4.504216281637358e-16,
+        "signed_term_differences_at_worst": {
+          "advection": 0.0,
+          "curvature": 4.50658797388967e-16,
+          "extrinsic": -6.815306502946906e-19,
+          "theta_k": 0.0,
+          "z_lapse": 4.420585542381388e-19,
+          "damping": 0.0
+        },
+        "cancellation_ratio_at_worst": 1.0134509831870562,
+        "python_reconstruction_error": 0.0,
+        "native_reconstruction_error": 0.0,
+        "term_delta_reconstruction_error": 1.4717197458543468e-20
+      },
+      "all_58_outputs_bitwise_equal_before": true,
+      "input_bitwise_equal_before": true
+    },
+    {
+      "stage": 3,
+      "all_58_diagnostic_outputs_bitwise_equal_normal": true,
+      "instrumented_theta_equals_rhs": true,
+      "comparison": {
+        "global_max_absolute_difference": 1.5543122344752192e-15,
+        "reference_scale": 3.1335832562112573,
+        "worst_active_relative_difference": 3.795733239827191e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41897069959201927,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.3249411303776821e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.2110901159138358,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3148685572259752e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.2110901159138358,
+            "absolute_difference": 2.7755575615628914e-17,
+            "relative_difference": 1.3148685572259752e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.31481983561114973,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.10494001427525566,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.4352412251243032,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 4.641267287437354e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7972495095943517,
+            "absolute_difference": 4.996003610813204e-16,
+            "relative_difference": 6.266549619271914e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7972495095943517,
+            "absolute_difference": 4.996003610813204e-16,
+            "relative_difference": 6.266549619271914e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.309529828987588,
+            "absolute_difference": 1.5543122344752192e-15,
+            "relative_difference": 6.729994196076576e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 0.00019256223986235114,
+            "absolute_difference": 7.309148945811028e-16,
+            "relative_difference": 3.795733239827191e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1335832562112573,
+            "absolute_difference": 6.661338147750939e-16,
+            "relative_difference": 2.125789424789373e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.1909695844086565,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0269072332645934e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3617695331523834,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 1.6305593532483906e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.756437358672798,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9353997707704196e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.756437358672798,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 2.9353997707704196e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.7303226692662762,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 3.0403630377256397e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "isolation": {
+        "terms": [
+          {
+            "name": "advection",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "curvature",
+            "reference_max": 0.0001961222886939321,
+            "absolute_difference": 7.298306924086173e-16
+          },
+          {
+            "name": "extrinsic",
+            "reference_max": 5.748052998389746e-07,
+            "absolute_difference": 1.350159930011514e-17
+          },
+          {
+            "name": "theta_k",
+            "reference_max": 8.431642103178691e-08,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "z_lapse",
+            "reference_max": 3.391563392568651e-06,
+            "absolute_difference": 2.0098821288923666e-17
+          },
+          {
+            "name": "damping",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "ricci_z_scalar",
+            "reference_max": 0.00040042567386830625,
+            "absolute_difference": 1.4034455021738612e-15
+          },
+          {
+            "name": "a_squared",
+            "reference_max": 0.06722373216327637,
+            "absolute_difference": 2.7755575615628914e-17
+          },
+          {
+            "name": "z_dot_lapse_gradient",
+            "reference_max": 3.447451676868609e-06,
+            "absolute_difference": 2.08293872059305e-17
+          },
+          {
+            "name": "lapse",
+            "reference_max": 1.048780130304453,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "chi",
+            "reference_max": 1.0357210664250112,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "theta_rhs",
+            "reference_max": 0.00019256223986235114,
+            "absolute_difference": 7.309148945811028e-16
+          }
+        ],
+        "worst_theta_index": [
+          21,
+          0,
+          0
+        ],
+        "worst_theta_difference": 7.309148945811028e-16,
+        "signed_term_differences_at_worst": {
+          "advection": 0.0,
+          "curvature": 7.298306924086173e-16,
+          "extrinsic": -3.608466234421726e-18,
+          "theta_k": 0.0,
+          "z_lapse": 4.701456373734994e-18,
+          "damping": 0.0
+        },
+        "cancellation_ratio_at_worst": 1.0049013617053262,
+        "python_reconstruction_error": 0.0,
+        "native_reconstruction_error": 0.0,
+        "term_delta_reconstruction_error": 2.752857078576476e-20
+      },
+      "all_58_outputs_bitwise_equal_before": true,
+      "input_bitwise_equal_before": true
+    },
+    {
+      "stage": 4,
+      "all_58_diagnostic_outputs_bitwise_equal_normal": true,
+      "instrumented_theta_equals_rhs": true,
+      "comparison": {
+        "global_max_absolute_difference": 1.3322676295501878e-15,
+        "reference_scale": 3.1306139216405353,
+        "worst_active_relative_difference": 4.665114807829221e-12,
+        "active_slots_pass_relative_1e_minus12": false,
+        "slots": [
+          {
+            "slot": "h00",
+            "reference_max": 0.41905804339947594,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 1.324664974353938e-16,
+            "active": true
+          },
+          {
+            "slot": "h01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h11",
+            "reference_max": 0.21129727479148372,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.627158882481488e-16,
+            "active": true
+          },
+          {
+            "slot": "h12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "h22",
+            "reference_max": 0.21129727479148372,
+            "absolute_difference": 5.551115123125783e-17,
+            "relative_difference": 2.627158882481488e-16,
+            "active": true
+          },
+          {
+            "slot": "ln_alpha",
+            "reference_max": 0.31538941794945075,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "beta0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "beta2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "ln_phi",
+            "reference_max": 0.1051289394197268,
+            "absolute_difference": 0.0,
+            "relative_difference": 0.0,
+            "active": true
+          },
+          {
+            "slot": "A00",
+            "reference_max": 1.4340362908215516,
+            "absolute_difference": 8.881784197001252e-16,
+            "relative_difference": 6.193556086305826e-16,
+            "active": true
+          },
+          {
+            "slot": "A01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A11",
+            "reference_max": 0.7963670058059646,
+            "absolute_difference": 3.885780586188048e-16,
+            "relative_difference": 4.879384200825141e-16,
+            "active": true
+          },
+          {
+            "slot": "A12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A22",
+            "reference_max": 0.7963670058059646,
+            "absolute_difference": 3.885780586188048e-16,
+            "relative_difference": 4.879384200825141e-16,
+            "active": true
+          },
+          {
+            "slot": "K",
+            "reference_max": 2.307127569376332,
+            "absolute_difference": 1.3322676295501878e-15,
+            "relative_difference": 5.774572881162049e-16,
+            "active": true
+          },
+          {
+            "slot": "Theta",
+            "reference_max": 0.00011875382019667142,
+            "absolute_difference": 5.540002050857806e-16,
+            "relative_difference": 4.665114807829221e-12,
+            "active": true
+          },
+          {
+            "slot": "GammaHat0",
+            "reference_max": 3.1306139216405353,
+            "absolute_difference": 8.881784197001252e-16,
+            "relative_difference": 2.8370742670009376e-16,
+            "active": true
+          },
+          {
+            "slot": "GammaHat1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "GammaHat2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b0",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "b2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A0",
+            "reference_max": 2.189284402948435,
+            "absolute_difference": 4.440892098500626e-16,
+            "relative_difference": 2.0284674263973298e-16,
+            "active": true
+          },
+          {
+            "slot": "A1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "A2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B00",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B01",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B02",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B10",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B11",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B12",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B20",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B21",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "B22",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D000",
+            "reference_max": 1.3609335627275392,
+            "absolute_difference": 2.220446049250313e-16,
+            "relative_difference": 1.6315609446798906e-16,
+            "active": true
+          },
+          {
+            "slot": "D001",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D002",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D011",
+            "reference_max": 0.7557707283287546,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4689944754544897e-16,
+            "active": true
+          },
+          {
+            "slot": "D012",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D022",
+            "reference_max": 0.7557707283287546,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.4689944754544897e-16,
+            "active": true
+          },
+          {
+            "slot": "D100",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D101",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D102",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D111",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D112",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D122",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D200",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D201",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D202",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D211",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D212",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "D222",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P0",
+            "reference_max": 0.7297603816143716,
+            "absolute_difference": 1.1102230246251565e-16,
+            "relative_difference": 1.5213528338838123e-16,
+            "active": true
+          },
+          {
+            "slot": "P1",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          },
+          {
+            "slot": "P2",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0,
+            "relative_difference": null,
+            "active": false
+          }
+        ]
+      },
+      "isolation": {
+        "terms": [
+          {
+            "name": "advection",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "curvature",
+            "reference_max": 0.00012304873527797452,
+            "absolute_difference": 5.56236372066532e-16
+          },
+          {
+            "name": "extrinsic",
+            "reference_max": 2.493931439000992e-07,
+            "absolute_difference": 1.3577885204927231e-17
+          },
+          {
+            "name": "theta_k",
+            "reference_max": 4.6002645881835933e-07,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "z_lapse",
+            "reference_max": 4.504048151725034e-06,
+            "absolute_difference": 2.4521603823011995e-17
+          },
+          {
+            "name": "damping",
+            "reference_max": 0.0,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "ricci_z_scalar",
+            "reference_max": 0.00025267843060049596,
+            "absolute_difference": 1.1600150093965533e-15
+          },
+          {
+            "name": "a_squared",
+            "reference_max": 0.06730062246523028,
+            "absolute_difference": 2.7755575615628914e-17
+          },
+          {
+            "name": "z_dot_lapse_gradient",
+            "reference_max": 4.624492140272568e-06,
+            "absolute_difference": 2.5063704909254747e-17
+          },
+          {
+            "name": "lapse",
+            "reference_max": 1.0487514132253621,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "chi",
+            "reference_max": 1.0356979695243218,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "theta_rhs",
+            "reference_max": 0.00011875382019667142,
+            "absolute_difference": 5.540002050857806e-16
+          }
+        ],
+        "worst_theta_index": [
+          5,
+          0,
+          0
+        ],
+        "worst_theta_difference": -5.540002050857806e-16,
+        "signed_term_differences_at_worst": {
+          "advection": 0.0,
+          "curvature": -5.56236372066532e-16,
+          "extrinsic": -3.327195047651645e-18,
+          "theta_k": 0.0,
+          "z_lapse": 5.5688181117233976e-18,
+          "damping": 0.0
+        },
+        "cancellation_ratio_at_worst": 1.0758045692179286,
+        "python_reconstruction_error": 0.0,
+        "native_reconstruction_error": 0.0,
+        "term_delta_reconstruction_error": 1.2056984608572931e-20
+      },
+      "all_58_outputs_bitwise_equal_before": true,
+      "input_bitwise_equal_before": true
+    }
+  ],
+  "seconds": 0.24011540000014975,
+  "peak_rss_bytes": 53997568,
+  "strict_rhs_pass": false,
+  "instrumentation_pass": true
+}
