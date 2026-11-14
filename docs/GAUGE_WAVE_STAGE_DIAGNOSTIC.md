@@ -768,3 +768,27 @@ print(json.dumps(metrics, allow_nan=False))
 Next numerical work must address the measured resource behavior before another
 registered long run. Do not use a later analysis process to relabel this run
 as resource-qualified; preserve its original RESOURCE_STOPPED result.
+
+
+### Working-set isolation registration (before execution, 2026-11-14)
+
+Investigate the preceding RESOURCE_STOPPED run without restarting its evolution.
+Use separate fresh single-thread processes for 8192 calls to the Windows peak
+memory query, 256 calls to the native + sigma=.1 RHS on the stored nx32 T14
+state, and 32 repeated full diagnostics of that same state. Do not evolve or
+modify it. An independent, fixed ctypes-structure observer samples working set,
+peak and CPython pointer-type cache size; it never clears the cache. Retain raw
+samples before/after a final gc.collect. Check every RHS/diagnostic output hash
+for determinism and all input bytes for preservation. All probes keep 600 s,
+512 MiB sampled process peak, 64 MiB output and one numerical thread.
+
+Hypothesis: creating a ctypes.Structure and POINTER type on each resource query
+retains types in CPython's pointer cache. Test this against RHS-only and
+full-diagnostic-only controls before changing the monitor. No production
+numerics, frozen inputs, limits or earlier failed results may change. A monitor
+repair needs repeated queries with bounded cache growth, independent API peak
+agreement, and bitwise replay of previously saved numerical states. A later
+full T24 run requires a new explicit registration, not an automatic retry.
+
+Entry: python -B -m experiments.b3_native.memory_probe --mode monitor --out outputs/memory-monitor.json
+Use --mode rhs and --mode diagnostics with separate fresh output filenames.
