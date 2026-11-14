@@ -51,3 +51,16 @@ The current entries are therefore useful for testing data layout, transfer
 operators, initial-data residuals and angular algebra. They do not establish
 AMR stability, binary evolution, inspiral/merger, or a physical gravitational
 waveform.
+
+
+## Continuation verification (2026-11-14)
+
+The reproduction command completed in 0.0265 s with `passed=true`. The measured
+values agree with the tracked result: AMR parent-average error
+`1.1102230246251565e-16`, corrected sine orders `2.9590776948310618` and
+`2.9921508732132054`, two-puncture FD2 orders `2.000819728770516` and
+`2.00022666107437`, FD4 orders `3.8104116067697205` and
+`3.908489670721179`, angular orthogonality error `8.881787080572127e-16`,
+and synthetic recovery error `8.95090418262362e-16`. The output explicitly
+reports `amr_evolution=false`, `binary_evolution=false`, and
+`physical_waveform=false`.
