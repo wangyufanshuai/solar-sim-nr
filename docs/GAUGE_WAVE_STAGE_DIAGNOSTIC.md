@@ -351,3 +351,33 @@ Next S3 question: identify the pre-T22 growing field/constraint modes and compar
 spatial refinement from initial data. A future registered study should separate
 discretization growth, gauge evolution and driver rounding before changing a solver.
 External reproduction and full frozen 8^3 alignment remain uncompleted.
+
+
+### Saved-state growth-mode registration (2026-11-14)
+
+Before implementation/measurement, analyze the existing native baseline snapshots
+at T=0,15,18,22 (32x5x5, FD4, A=.1, dt=1/128), without advancing a solver.
+S3 acceptance moved: quantify where the already observed growing error resides;
+this diagnostic has no new physical pass threshold and cannot close S3.
+
+For each saved state compare all seven B1 base fields with the analytic gauge
+wave at exactly its saved time. Evaluate physical ADM Hamiltonian/momentum and
+BSSN algebraic/Gamma/Theta constraints on both evolved and analytic states using
+the same discrete operator. Preserve evolved, analytic-discrete and difference
+arrays/norms; analytic discrete residuals need not be zero. Separately compare
+all 33 evolved first-order auxiliaries with derivatives reconstructed from their
+own base fields. Curl-free alone is insufficient for derivative consistency.
+
+Compute one-sided x Fourier energy of field errors and constraint/auxiliary
+differences, with correct DC/Nyquist weighting, component/transverse averaging,
+and Parseval checks. Report DC, fundamental, Nyquist and high-k (k>=nx/4)
+fractions, and transverse fluctuation energy; retain every spectral bin. Tests
+must cover pure DC, fundamental, Nyquist, transverse and tensor-component modes,
+plus identical analytic-state controls and malformed snapshots. Do not infer a
+pure-gauge or constraint-violating root cause merely from four time slices.
+
+Keep source/input hashes, finite binary64 validation, no frozen-source edits,
+600 s / 512 MiB process working set / 64 MiB output ceilings, one process and
+one numerical thread. Save raw arrays and a machine-readable diagnostic report.
+External independent reproduction, full frozen 8^3 alignment, physical accuracy
+and long-time stability remain separate unmet requirements.
