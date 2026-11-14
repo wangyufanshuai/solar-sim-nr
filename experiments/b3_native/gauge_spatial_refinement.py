@@ -32,9 +32,31 @@ def replay_control(q, path, current, dt):
                 max_slot_difference=float(np.max(np.abs(delta))))
 
 
-def run(out, *, points=(32,16,64), target_time=24., max_seconds=600):
+def ko6_x(q, dx, sigma):
+    """Experimental x-only KO p=5 term, Q=sigma delta2_x^3/(64 dx).
+
+    Symbol -sigma*sin(pi*k/nx)^6/dx. Each second difference is written
+    as two differences from the centre so constants are annihilated exactly.
+    This dissipates all 58 canonical slots, including logarithmic gauge fields.
+    """
+    q=np.asarray(q)
+    if q.ndim != 4 or q.shape[0] != 58 or q.shape[1] < 8 or q.dtype != np.float64:
+        raise ValueError("expected binary64 canonical-slot array with nx>=8")
+    if not np.isfinite(dx) or dx <= 0 or not np.isfinite(sigma) or not 0 <= sigma <= 1/3:
+        raise ValueError("positive finite dx and 0<=sigma<=1/3 required")
+    if sigma == 0:
+        return np.zeros_like(q)
+    delta=q
+    for _ in range(3):
+        delta=(np.roll(delta,1,axis=1)-delta)+(np.roll(delta,-1,axis=1)-delta)
+    return sigma/(64*dx)*delta
+
+
+def run(out, *, points=(32,16,64), target_time=24., max_seconds=600, sigmas=None):
     if not points or len(set(points)) != len(points) or any(n not in (16,32,64) for n in points):
         raise ValueError("unique registered nx values (16,32,64) required")
+    if sigmas is not None and (tuple(points) != (32,) or tuple(sigmas) != (0.,.02,.1)):
+        raise ValueError("registered dissipation comparison requires nx32 and sigmas=(0,.02,.1)")
     if not 0 < target_time <= 24 or not 0 < max_seconds <= 600:
         raise ValueError("registered target <=24 and deadline <=600 required")
     if any(not float(target_time*4*n).is_integer() for n in points):
@@ -59,35 +81,40 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600):
     result=dict(source_commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=root,text=True,timeout=5).strip(),
                 source_tree_clean=not subprocess.check_output(["git","status","--porcelain"],cwd=root,text=True,timeout=5).strip(),
                 status="RUNNING",scientific_acceptance_established=False,external_independent_reproduction=False,
-                settings=dict(points=list(points),target_time=target_time,amplitude=.1,spatial_order=4,
+                settings=dict(points=list(points),dissipation_sigmas=None if sigmas is None else list(sigmas),
+                              target_time=target_time,amplitude=.1,spatial_order=4,
                               cfl=.25,integrator="additive canonical-slot RK4",threads=1,
                               max_seconds=max_seconds,max_working_set_bytes=512*1024**2,max_output_bytes=64*1024**2),
                 trajectories=[])
     resource_stopped=False
-    for nx in points:
+    cases=[(nx,0.) for nx in points] if sigmas is None else [(32,sigma) for sigma in sigmas]
+    for nx,sigma in cases:
+        name=f"nx{nx}" if sigma == 0 else f"nx{nx}-ko{sigma:g}".replace(".","p")
         if resource_stopped:
-            result["trajectories"].append(dict(nx=nx,status="NOT_STARTED_RESOURCE_STOP"))
+            result["trajectories"].append(dict(nx=nx,dissipation_sigma=sigma,name=name,status="NOT_STARTED_RESOURCE_STOP"))
             continue
         grid=run_b1.grid(nx,4)
         dt=1/(4*nx)
         q=slots(FOCCZ4State3D.from_bssn_state(BSSNState3D.gauge_wave(grid,amplitude=.1)))
         validate_slots(q)
         count=0
-        row=dict(nx=nx,shape=list(grid.shape),dt=dt,status="RUNNING",samples=[])
+        row=dict(nx=nx,dissipation_sigma=sigma,name=name,shape=list(grid.shape),dt=dt,status="RUNNING",samples=[])
         result["trajectories"].append(row)
-        rhs=CheckedRHS(make_rhs(spacing=grid.spacing,order=4,gauge=run_b1.GAUGE,
-                               config=run_b1.CONFIG,harmonic=True,threads=1),check)
+        native=make_rhs(spacing=grid.spacing,order=4,gauge=run_b1.GAUGE,
+                        config=run_b1.CONFIG,harmonic=True,threads=1)
+        # Baseline calls the native RHS directly, avoiding even an addition of zero.
+        rhs=CheckedRHS(native if sigma == 0 else lambda q:native(q)+ko6_x(q,grid.spacing[0],sigma),check)
         def sample():
             current=count*dt
             details,raw=inspect_state(state_from_slots(q,grid),
                 BSSNState3D.gauge_wave(grid,amplitude=.1,time=current))
-            filename=f"nx{nx}-step{count}-sample.npz"
+            filename=f"{name}-step{count}-sample.npz"
             save(filename,q=q,time=current,dt=dt,**raw)
             sample_row=dict(time=current,step=count,arrays_path=filename,**details)
-            if nx == 32 and current in (0.,15.,18.,22.):
+            if nx == 32 and sigma == 0 and current in (0.,15.,18.,22.):
                 sample_row["baseline_replay"]=replay_control(q,root/f"docs/gauge-stage/baseline-t{int(current)}.npz",current,dt)
             row["samples"].append(sample_row)
-            print(json.dumps(dict(nx=nx,time=current,max_field_error_over_amplitude=
+            print(json.dumps(dict(nx=nx,dissipation_sigma=sigma,time=current,max_field_error_over_amplitude=
                   max(v["l_inf_over_amplitude"] for v in details["fields"].values()))),flush=True)
         candidate=None
         try:
@@ -106,10 +133,10 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600):
                     if rhs.failed_input is not None:
                         stage_time=count*dt+(0.,.5,.5,1.)[rhs.failed_stage-1]*dt
                         row["failure"]["failed_stage_time"]=stage_time
-                        save(f"nx{nx}-failed-input.npz",q=rhs.failed_input,time=stage_time,
+                        save(f"{name}-failed-input.npz",q=rhs.failed_input,time=stage_time,
                              last_valid_time=count*dt,dt=dt,stage=rhs.failed_stage)
                     elif candidate is not None:
-                        save(f"nx{nx}-failed-candidate.npz",q=candidate,time=(count+1)*dt,dt=dt)
+                        save(f"{name}-failed-candidate.npz",q=candidate,time=(count+1)*dt,dt=dt)
                     break
                 q,count=candidate,step
                 if step % (4*nx) == 0 or step == int(target_time/dt):
@@ -123,7 +150,7 @@ def run(out, *, points=(32,16,64), target_time=24., max_seconds=600):
         except (ScientificFailure,FloatingPointError,np.linalg.LinAlgError) as exc:
             row.update(status="DIAGNOSTIC_FAILURE",failure=dict(message=str(exc),phase="sampled_diagnostics"))
         row.update(completed_steps=count,last_valid_time=count*dt)
-        filename=f"nx{nx}-last-valid.npz"
+        filename=f"{name}-last-valid.npz"
         save(filename,q=q,time=count*dt,dt=dt)
         row["last_valid_arrays"]=filename
     result["all_trajectories_reached_target"]=all(t["status"] == "REACHED_TARGET" for t in result["trajectories"])
@@ -139,6 +166,8 @@ if __name__ == "__main__":
     parser.add_argument("--out",type=Path,required=True)
     parser.add_argument("--target-time",type=float,default=24.)
     parser.add_argument("--max-seconds",type=float,default=600.)
+    parser.add_argument("--dissipation",action="store_true",help="registered nx32 baseline/sigma=.02/.1 comparison")
     args=parser.parse_args()
-    result=run(args.out,target_time=args.target_time,max_seconds=args.max_seconds)
+    options=dict(points=(32,),sigmas=(0.,.02,.1)) if args.dissipation else {}
+    result=run(args.out,target_time=args.target_time,max_seconds=args.max_seconds,**options)
     print(json.dumps({k:result[k] for k in ("status","source_commit","seconds","peak_rss_bytes")}))
