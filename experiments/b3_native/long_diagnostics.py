@@ -44,20 +44,33 @@ def checked_rhs(rhs):
     return evaluate
 
 
+if os.name == "nt":
+    class _MemoryCounters(ctypes.Structure):
+        _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD)] + [
+            (name, ctypes.c_size_t) for name in (
+                "PeakWorkingSetSize", "WorkingSetSize", "QuotaPeakPagedPoolUsage",
+                "QuotaPagedPoolUsage", "QuotaPeakNonPagedPoolUsage",
+                "QuotaNonPagedPoolUsage", "PagefileUsage", "PeakPagefileUsage")]
+
+    # POINTER caches its target type. Reuse one declaration rather than retaining
+    # a new structure/pointer pair on every resource check in an RK4 stage.
+    _current_process = ctypes.WinDLL("kernel32", use_last_error=True).GetCurrentProcess
+    _current_process.argtypes = ()
+    _current_process.restype = wintypes.HANDLE
+    _query_memory = ctypes.WinDLL("psapi", use_last_error=True).GetProcessMemoryInfo
+    _query_memory.argtypes = (wintypes.HANDLE, ctypes.POINTER(_MemoryCounters), wintypes.DWORD)
+    _query_memory.restype = wintypes.BOOL
+
+
 def peak_rss():
+    """Sample process peak bytes without retaining a ctypes type per call."""
     if os.name != "nt":
         import resource
         return int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * (1 if __import__('sys').platform == 'darwin' else 1024))
-    class Counters(ctypes.Structure):
-        _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD)] + [(n, ctypes.c_size_t) for n in ("PeakWorkingSetSize", "WorkingSetSize", "QuotaPeakPagedPoolUsage", "QuotaPagedPoolUsage", "QuotaPeakNonPagedPoolUsage", "QuotaNonPagedPoolUsage", "PagefileUsage", "PeakPagefileUsage")]
-    counters = Counters()
+    counters = _MemoryCounters()
     counters.cb = ctypes.sizeof(counters)
-    get_process = ctypes.windll.kernel32.GetCurrentProcess
-    get_process.restype = wintypes.HANDLE
-    query = ctypes.windll.psapi.GetProcessMemoryInfo
-    query.argtypes = [wintypes.HANDLE, ctypes.POINTER(Counters), wintypes.DWORD]
-    if not query(get_process(), ctypes.byref(counters), counters.cb):
-        raise OSError("cannot measure process working set")
+    if not _query_memory(_current_process(), ctypes.byref(counters), counters.cb):
+        raise ctypes.WinError(ctypes.get_last_error())
     return counters.PeakWorkingSetSize
 
 

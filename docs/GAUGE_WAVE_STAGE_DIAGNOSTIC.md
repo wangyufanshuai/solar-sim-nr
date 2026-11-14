@@ -792,3 +792,28 @@ full T24 run requires a new explicit registration, not an automatic retry.
 
 Entry: python -B -m experiments.b3_native.memory_probe --mode monitor --out outputs/memory-monitor.json
 Use --mode rhs and --mode diagnostics with separate fresh output filenames.
+
+
+### Memory isolation: retained baseline and monitor repair
+
+Probe source cc7e179. With 8192 peak_rss calls and no evolution, Windows pointer
+cache entries grow 21->8213, working set 39.461->98.879 MiB. A final full
+Python GC does not remove the entries or release this growth. Fixed-state RHS
+(256 calls) peaks at 42.664 MiB and full diagnostics (32 calls) at 43.734 MiB;
+all output hashes agree per workload and inputs remain byte-identical. Raw
+controls: gauge-stage/memory-probe/*-before.json. The regression test run against
+the old monitor fails: 4096 calls increase cache entries from 23 to 4119.
+
+Root cause in this monitor: peak_rss defines a new ctypes.Structure per call,
+then requests POINTER of that distinct type; CPython's pointer-type cache retains
+each pair. The previous timestep run invokes checks at every RK4 stage, about
+65536 stage calls before its resource stop. The isolated monitor's retained
+growth explains a substantial part of that working-set increase. No cache is
+cleared or private runtime state mutated by the repair.
+
+The repair defines the counter structure, pointer argument type and Windows API
+bindings once at module import. Linux/macOS peak units and all numerical code,
+resource limits and sampling frequency remain unchanged. Four resource controls
+plus 38 gauge tests pass (42 total). Run identical after-repair memory probes
+and compare all RHS/diagnostic hashes before considering a separately registered
+numerical replay. The earlier RESOURCE_STOPPED result remains unqualified.
