@@ -57,13 +57,26 @@ def test_short_comparison_retains_baseline_and_separate_variant_outputs(tmp_path
     for t in r['trajectories']:
         assert len(t['samples'])==2 and t['completed_steps']==1
         assert (tmp_path/'short'/t['last_valid_arrays']).exists()
-    assert r['trajectories'][0]['samples'][0]['baseline_replay']['bitwise_equal']
     assert 'baseline_replay' not in r['trajectories'][1]['samples'][0]
     initial=[]
     for t in r['trajectories']:
         with np.load(tmp_path/'short'/t['samples'][0]['arrays_path']) as z:initial.append(z['q'])
     np.testing.assert_array_equal(initial[0],initial[1])
     np.testing.assert_array_equal(initial[0],initial[2])
+    # Compare zero dissipation with this host's unmodified path bitwise.
+    # Cross-platform archived initial data keep their measured replay result.
+    control=run(tmp_path/'ordinary',points=(32,),target_time=1/128)
+    row=control['trajectories'][0]
+    with np.load(tmp_path/'ordinary'/row['samples'][0]['arrays_path']) as z:
+        assert z['q'].tobytes()==initial[0].tobytes()
+    with np.load(tmp_path/'ordinary'/row['last_valid_arrays']) as a, np.load(
+        tmp_path/'short'/r['trajectories'][0]['last_valid_arrays']) as b:
+        assert a['q'].tobytes()==b['q'].tobytes()
+    replay=r['trajectories'][0]['samples'][0]['baseline_replay']
+    with np.load(replay['path']) as archive:
+        expected=archive['q']
+    assert replay['bitwise_equal']==(initial[0].tobytes()==expected.tobytes())
+    assert replay['max_slot_difference']==float(np.max(np.abs(initial[0]-expected)))
 
 
 @pytest.mark.parametrize("dx,sigma",[(0,.1),(np.nan,.1),(.1,-.1),(.1,np.inf),(.1,1)])

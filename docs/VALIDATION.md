@@ -182,3 +182,13 @@ S3 dissipation measurements are documented in GAUGE_WAVE_STAGE_DIAGNOSTIC.md,
 with raw arrays and figures in gauge-stage/dissipation/. Baseline fails at
 T23.28125; sigma=.02/.1 reach T24 only and retain substantial analytic error.
 Hosted checks for the repair must be inspected on the pushed SHA separately.
+
+
+Repair run 43552700550 (ea95325): C++ and the complete Windows job passed;
+Ubuntu passed the repaired manifest and geometry controls but failed one newly
+added dissipation test (474 passed, 2 deselected). That test incorrectly required
+fresh Linux T0 initial data to be bitwise equal to a Windows-generated archive.
+The regression now compares sigma=0 against the unmodified entry point on the
+same host, with exact initial and final bytes, and verifies that the historical
+replay boolean and maximum difference match the retained archive data. No
+archived arrays, solver defaults or numeric tolerances were altered.
