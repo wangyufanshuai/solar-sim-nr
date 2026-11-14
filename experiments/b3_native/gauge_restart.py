@@ -46,6 +46,19 @@ def difference(q, reference):
                 passes_1_percent=normalized <= .01)
 
 
+def terminal_states(trajectories, counts, grid, base_time, dt):
+    """Compare only states at the same last-valid time, including a failed-step endpoint."""
+    result = {}
+    for name,q in trajectories.items():
+        current = base_time+counts[name]*dt
+        row = dict(last_valid_time=current,
+                   analytic_error_over_amplitude=analytic_error(q,grid,current))
+        if counts[name] == counts["native"]:
+            row.update(difference(q,trajectories["native"]))
+        result[name] = row
+    return result
+
+
 def run(out, snapshot, *, steps=256, max_seconds=600):
     if not 1 <= steps <= 256 or not 0 < max_seconds <= 600:
         raise ValueError("registered bounds: 1..256 steps and 0..600 seconds")
@@ -124,6 +137,7 @@ def run(out, snapshot, *, steps=256, max_seconds=600):
         result.update(status="RESOURCE_STOPPED",resource_reason=str(exc))
     for name,q in trajectories.items():
         np.savez_compressed(out/f"{name}-last-valid.npz",q=q,time=base_time+counts[name]*dt,dt=dt)
+    result["terminal_states"] = terminal_states(trajectories,counts,grid,base_time,dt)
     result.update(steps=counts,seconds=time.perf_counter()-start,peak_rss_bytes=peak_rss(),
                   all_trajectories_reached_target=all(n == steps for n in counts.values()))
     if result["seconds"] > max_seconds or result["peak_rss_bytes"] > 512*1024**2:
