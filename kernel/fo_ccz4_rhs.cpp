@@ -10,7 +10,7 @@
 // fo_ccz4_sbp_volume.SBPVolumeOperator. The optional field-dependent gauge profile
 // (fo_ccz4_gauge_profile: f = shift_scale alpha chi, mu = ordering_scale chi, plus the product-rule
 // source in the B equation) matches gauge_profile != None.
-// Differences from the Python reference are rounding only: the 3x3 inverse uses the
+// Known arithmetic differences from the Python reference include: the 3x3 inverse uses the
 // adjugate formula instead of LU, and sums are accumulated in a fixed loop order.
 // Built with -ffp-contract=off so no fused multiply-adds change the rounding further.
 //
@@ -82,7 +82,7 @@ inline double d1(const double* q, const Grid& g, int slot, int axis, int i, int 
   return (at(1) - at(-1)) * g.inv[axis];
 }
 
-void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int i, int j, int kk) {
+void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int i, int j, int kk, double* theta_terms = nullptr) {
   const std::int64_t points = static_cast<std::int64_t>(g.nx) * g.ny * g.nz;
   const std::int64_t at = (static_cast<std::int64_t>(i) * g.ny + j) * g.nz + kk;
   auto Q = [&](int slot) { return q[slot * points + at]; };
@@ -349,6 +349,21 @@ void point_rhs(const double* q, double* out, const Grid& g, const Params& c, int
   thr -= alpha * cc_ * Th * K;
   thr -= alpha * (zu[0] * A[0] + zu[1] * A[1] + zu[2] * A[2]);
   thr -= alpha * c.kappa1 * (2.0 + c.kappa2) * Th;
+  // Diagnostic stores use the same local inputs as the unmodified Theta update.
+  // They do not replace its sequential accumulation or alter any evolved slot.
+  if (theta_terms) {
+    const double values[12] = {
+      beta[0] * dTh[0] + beta[1] * dTh[1] + beta[2] * dTh[2],
+      0.5 * alpha * cs2 * scalar,
+      0.5 * alpha * cs2 * (-aa + (2.0 / 3.0) * K * K),
+      -alpha * cc_ * Th * K,
+      -alpha * (zu[0] * A[0] + zu[1] * A[1] + zu[2] * A[2]),
+      -alpha * c.kappa1 * (2.0 + c.kappa2) * Th,
+      scalar, aa, zu[0] * A[0] + zu[1] * A[1] + zu[2] * A[2],
+      alpha, chi, thr
+    };
+    for (int term = 0; term < 12; ++term) theta_terms[term * points + at] = values[term];
+  }
 
   double gr[3], gnon[3];
   for (int cp = 0; cp < 3; ++cp) {
@@ -477,11 +492,9 @@ extern "C" {
 // shift_damping, kappa1, kappa2, kappa3, cleaning_speed, ordering_mu, shift_strength,
 // tau_inverse, k0, c, profile (0/1), shift_scale, ordering_scale (15 values).
 // sbp_axes[a] = 1 selects SBP(4,2) (order 4 only) on axis a, 0 periodic.
-#ifdef _WIN32
-__declspec(dllexport)
-#endif
-int fo_ccz4_rhs(const double* q, double* out, int nx, int ny, int nz,
-                const double* spacing, int order, const int* sbp_axes, const double* params, int threads) {
+static int evaluate_rhs(const double* q, double* out, int nx, int ny, int nz,
+                const double* spacing, int order, const int* sbp_axes, const double* params,
+                int threads, double* theta_terms) {
   if (!q || !out || !spacing || !params || !sbp_axes || nx < 5 || ny < 5 || nz < 5 || (order != 2 && order != 4)) return 1;
   Grid g{};
   g.nx = nx; g.ny = ny; g.nz = nz; g.order = order;
@@ -501,9 +514,26 @@ int fo_ccz4_rhs(const double* q, double* out, int nx, int ny, int nz,
     const int i = static_cast<int>(p / (static_cast<std::int64_t>(ny) * nz));
     const int j = static_cast<int>((p / nz) % ny);
     const int k = static_cast<int>(p % nz);
-    point_rhs(q, out, g, c, i, j, k);
+    point_rhs(q, out, g, c, i, j, k, theta_terms);
   }
   return 0;
+}
+
+#ifdef _WIN32
+__declspec(dllexport)
+#endif
+int fo_ccz4_rhs(const double* q, double* out, int nx, int ny, int nz,
+                const double* spacing, int order, const int* sbp_axes, const double* params, int threads) {
+  return evaluate_rhs(q, out, nx, ny, nz, spacing, order, sbp_axes, params, threads, nullptr);
+}
+
+#ifdef _WIN32
+__declspec(dllexport)
+#endif
+int fo_ccz4_rhs_theta_terms(const double* q, double* out, double* terms, int nx, int ny, int nz,
+                const double* spacing, int order, const int* sbp_axes, const double* params, int threads) {
+  if (!terms) return 1;
+  return evaluate_rhs(q, out, nx, ny, nz, spacing, order, sbp_axes, params, threads, terms);
 }
 
 }  // extern "C"

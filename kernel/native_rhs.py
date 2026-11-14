@@ -20,6 +20,10 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 LIBRARY = HERE / "build" / ("fo_ccz4_rhs.dll" if os.name == "nt" else "libfo_ccz4_rhs.so")
 FLAGS = ["-O3", "-std=c++17", "-fopenmp", "-ffp-contract=off", "-fno-fast-math", "-shared"]
+THETA_TERM_NAMES = (
+    "advection", "curvature", "extrinsic", "theta_k", "z_lapse", "damping",
+    "ricci_z_scalar", "a_squared", "z_dot_lapse_gradient", "lapse", "chi", "theta_rhs",
+)
 _lib = None
 
 
@@ -46,10 +50,11 @@ def _load():
     return _lib
 
 
-def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes=(0, 0, 0), profile=None):
+def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes=(0, 0, 0), profile=None, return_theta_terms=False):
     """RHS of the 58 canonical slots q[58, nx, ny, nz].
 
     sbp_axes: per axis 1 = SBP(4,2) (non-periodic, order 4 only), 0 = periodic.
+    return_theta_terms: opt-in (RHS, 12-term diagnostic array); ordinary calls return RHS.
     profile: an FOCCZ4GaugeProfile (field-dependent f, mu) or None (constant coefficients).
     """
     q = np.ascontiguousarray(q, dtype=np.float64)
@@ -71,11 +76,19 @@ def native_rhs_slots(q, *, spacing, order, gauge, config, threads=None, sbp_axes
     dp = ctypes.POINTER(ctypes.c_double)
     threads = int(threads or os.environ.get("NR_THREADS", os.cpu_count() or 1))
     axes = (ctypes.c_int * 3)(*[int(bool(a)) for a in sbp_axes])
-    status = _load().fo_ccz4_rhs(q.ctypes.data_as(dp), out.ctypes.data_as(dp), *q.shape[1:],
-                                 h.ctypes.data_as(dp), order, axes, params.ctypes.data_as(dp), threads)
+    arguments = (*q.shape[1:], h.ctypes.data_as(dp), order, axes, params.ctypes.data_as(dp), threads)
+    if return_theta_terms:
+        terms = np.empty((len(THETA_TERM_NAMES), *q.shape[1:]), dtype=np.float64)
+        diagnostic = _load().fo_ccz4_rhs_theta_terms
+        diagnostic.argtypes = [dp, dp, dp, ctypes.c_int, ctypes.c_int, ctypes.c_int, dp,
+                              ctypes.c_int, ctypes.POINTER(ctypes.c_int), dp, ctypes.c_int]
+        diagnostic.restype = ctypes.c_int
+        status = diagnostic(q.ctypes.data_as(dp), out.ctypes.data_as(dp), terms.ctypes.data_as(dp), *arguments)
+    else:
+        status = _load().fo_ccz4_rhs(q.ctypes.data_as(dp), out.ctypes.data_as(dp), *arguments)
     if status:
         raise ValueError(f"native RHS rejected its input (status {status})")
-    return out
+    return (out, terms) if return_theta_terms else out
 
 
 if __name__ == "__main__" and sys.argv[1:] == ["build"]:
