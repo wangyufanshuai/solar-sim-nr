@@ -835,3 +835,27 @@ The new memory-observation tests and existing suite pass: **493 passed** in
 not a new long evolution. The earlier timestep run remains RESOURCE_STOPPED;
 a fresh T24 registration is still required before claiming the repair removes
 that resource failure.
+
+
+### Post-repair fixed-grid timestep rerun registration (2026-11-14, before execution)
+
+The previous fixed-grid timestep study stopped at T14 because the old Windows
+memory observer retained ctypes pointer types. The observer repair is now in
+source commit de74699 and has independent before/after probe evidence plus 493
+local tests and passing portable CI. This new run tests only that operational
+repair: repeat the unchanged registered nx32, A=.1, FD4, x-only KO sigma=.1,
+dt=1/128,1/256,1/512, target T24 study in a fresh output directory.
+
+The equations, initial data, timestep factors, field/constraint diagnostics,
+512 MiB process ceiling, 600 s deadline, 64 MiB output limit and one-thread
+setting are unchanged. A complete three-trajectory result may be compared with
+the previous RESOURCE_STOPPED report, but it cannot retroactively qualify that
+report or the unmodified solver. If any trajectory stops, retain the partial
+result and classify it as RESOURCE_STOPPED or SCIENTIFIC_FAILURE. Do not raise
+the memory ceiling, alter sigma, or infer stability from reaching T24.
+
+Command:
+
+```powershell
+python -B -m experiments.b3_native.gauge_spatial_refinement --dissipation-timestep --out outputs/dissipation-timestep-repair
+```
