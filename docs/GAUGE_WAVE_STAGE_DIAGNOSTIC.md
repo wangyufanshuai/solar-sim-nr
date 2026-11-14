@@ -633,3 +633,47 @@ Command from repository root with OMP_NUM_THREADS=OPENBLAS_NUM_THREADS=1:
 ```powershell
 python -B -m experiments.b3_native.gauge_spatial_refinement --dissipation-refinement --out outputs/dissipation-refinement
 ```
+
+
+### Fixed-sigma joint refinement outcome (2026-11-14)
+
+Source ad67e121f1d73e73cfdd6ac9507eb0d2350c16c1, clean tree at launch.
+All three registered sigma=.1 trajectories reached T24. The report status
+COMPLETED means diagnostic execution only; scientific_acceptance_established
+remains false. Baseline sigma=0 failure evidence is unchanged.
+
+| nx | max of seven analytic field errors / A, T1 | at T24 | h error / A, T24 | Hamiltonian difference L_inf, T24 |
+|---|---|---|---|---|
+| 16 | .0669239114 | 7.49019790 | 1.57214215 | .00344305991 |
+| 32 | .00494704454 | .238231229 | .0234227074 | .000655966184 |
+| 64 | .000316917984 | .0144374880 | .00103195935 | .0000743696057 |
+
+The maximum normalized field error is dominated by conformal Gamma at these
+samples. The observed maximum-error orders (16->32 / 32->64) are 3.75788 /
+3.96439 at T1, 3.54369 / 3.88708 at T10, 4.90442 / 4.04612 at T22, and
+4.97457 / 4.04447 at T24. A coarse-grid error over the input amplitude is
+not an asymptotically small perturbation; its high apparent late order must
+not be interpreted as higher-order accuracy. At T1 h orders are 3.97882 /
+3.99738. At T24 theta's fine-pair order is 3.79072, while the Hamiltonian
+difference's order is 3.14084. There is no uniform four-order gate passed for
+all quantities, and spatial/time orders have not been isolated.
+
+All 25 nx32 integer-time states replay the previous sigma=.1 archive bitwise
+on this Windows host. At T24 conformal-metric Nyquist absolute powers are
+1.74819e-15 / 1.54342e-33 / 4.54733e-35; high-frequency suppression has not
+removed the remaining smooth errors or the nonzero constraint differences.
+These results support finite-horizon resolution improvement of the explicitly
+dissipative variant through T24, not nonlinear stability or qualification of
+the unmodified solver. They are neither external independent reproduction
+nor the frozen full 8^3 binary64 validation.
+
+Run: 296.241 s, 331.035 MiB peak process working set, 4681951 raw output bytes
+(excluding derived figures), within the registered 600 s / 512 MiB / 64 MiB.
+Raw data and per-field orders: gauge-stage/dissipation-refinement/result.json
+and its NPZ files. The plotted curves use these actual samples:
+
+![Measured fixed-dissipation grid refinement](gauge-stage/dissipation-refinement/figures/dissipation-refinement.png)
+
+Next: register a fixed-grid timestep comparison before interpreting the
+remaining smooth error as exclusively spatial; then assess a longer horizon
+without altering sigma or promoting the variant into production.
